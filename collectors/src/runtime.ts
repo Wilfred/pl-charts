@@ -1,3 +1,4 @@
+import { githubHeaders } from "./github-auth.ts";
 import { parseArgs } from "node:util";
 import { createHash } from "node:crypto";
 import { mkdir, readFile, writeFile, rename } from "node:fs/promises";
@@ -62,6 +63,8 @@ export interface SourceResponse {
   http_status: number;
   headers: Record<string, string>;
   query?: string;
+  request_body?: string;
+  request_method?: string;
 }
 export interface CollectionManifest {
   schema_version: number;
@@ -79,10 +82,14 @@ export interface CollectionContext {
   options: CollectionOptions;
   metadata: Record<string, unknown>;
   sources: SourceResponse[];
-  get(
+  request(
     path: string,
     url: string,
-    headers?: Record<string, string>,
+    options?: {
+      headers?: Record<string, string>;
+      body?: string;
+      method?: "GET" | "POST";
+    },
   ): Promise<string>;
   query(
     path: string,
@@ -146,7 +153,7 @@ export async function runCollection(
     options,
     metadata: manifest.metadata,
     sources: manifest.sources,
-    async get(path, url, headers = {}) {
+    async request(path, url, request = {}) {
       if (!/^[a-zA-Z0-9_.-]+$/.test(path) || used.has(path))
         throw new Error(`Invalid or repeated source path: ${path}`);
       used.add(path);
@@ -156,16 +163,25 @@ export async function runCollection(
         if (
           !saved ||
           saved.url !== url ||
+          saved.request_body !== request.body ||
+          (saved.request_method ?? "GET") !== (request.method ?? "GET") ||
           createHash("sha256").update(body).digest("hex") !== saved.sha256
         )
           throw new Error(`Source checksum or URL mismatch: ${path}`);
+        if (saved.http_status >= 400)
+          throw new Error(
+            `HTTP ${saved.http_status} for ${url}: ${body.toString("utf8").slice(0, 200)}`,
+          );
         return body.toString("utf8");
       }
       const response = await (dependencies.fetcher ?? fetch)(url, {
         headers: {
           "User-Agent": "PL-Charts (https://github.com/Wilfred/pl-charts)",
-          ...headers,
+          ...githubHeaders(url),
+          ...request.headers,
         },
+        method: request.method ?? "GET",
+        body: request.body,
         signal: AbortSignal.timeout(90000),
       });
       const body = Buffer.from(await response.arrayBuffer());
@@ -173,6 +189,8 @@ export async function runCollection(
       manifest.sources.push({
         path,
         url,
+        request_body: request.body,
+        request_method: request.method,
         sha256: createHash("sha256").update(body).digest("hex"),
         bytes: body.length,
         observed_at: now().toISOString(),
@@ -200,7 +218,7 @@ export async function runCollection(
       const url = new URL(endpoint);
       url.searchParams.set("user", user);
       url.searchParams.set("query", sql);
-      const body = await context.get(path, url.href);
+      const body = await context.request(path, url.href);
       const saved = manifest.sources.find((source) => source.path === path)!;
       const sqlPath = join(directory, path.replace(/\.json$/, "") + ".sql");
       if (options.replay) {

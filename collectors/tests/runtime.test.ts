@@ -6,7 +6,7 @@ import { join } from "node:path";
 import { runCollection, type CollectionContext } from "../src/runtime.ts";
 const collect = async (context: CollectionContext) => {
   const body = JSON.parse(
-    await context.get("counts.json", "https://example.test/counts"),
+    await context.request("counts.json", "https://example.test/counts"),
   ) as { count: number };
   return [
     context.observation("example.count", "Python", body.count, "counts.json"),
@@ -91,4 +91,47 @@ test("failed collection retains evidence and preserves an existing export", asyn
     ),
   ) as { status: string };
   assert.equal(manifest.status, "failed");
+});
+
+test("replay verifies the body of read-only POST queries", async () => {
+  const dataDirectory = await mkdtemp(join(tmpdir(), "pl-runtime-post-"));
+  const collectPost = (body: string) => async (context: CollectionContext) => {
+    const parsed = JSON.parse(
+      await context.request("query.json", "https://example.test/graphql", {
+        method: "POST",
+        body,
+        headers: { "Content-Type": "application/json" },
+      }),
+    ) as { count: number };
+    return [
+      context.observation(
+        "example.count",
+        "Python",
+        parsed.count,
+        "query.json",
+      ),
+    ];
+  };
+  const result = await runCollection(
+    "example",
+    "post-v1",
+    { dataDirectory },
+    collectPost('{"query":"count"}'),
+    { fetcher: async () => new Response('{"count":42}') },
+  );
+  await runCollection(
+    "example",
+    "post-v1",
+    { dataDirectory, replay: result.runId },
+    collectPost('{"query":"count"}'),
+  );
+  await assert.rejects(
+    runCollection(
+      "example",
+      "post-v1",
+      { dataDirectory, replay: result.runId },
+      collectPost('{"query":"different"}'),
+    ),
+    /mismatch/,
+  );
 });

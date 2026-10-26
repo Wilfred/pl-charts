@@ -1,3 +1,4 @@
+import { collectPackages } from "../src/packages-collector.ts";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
 import {
@@ -12,12 +13,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
 import { PACKAGE_SOURCES } from "../src/packages.ts";
-import {
-  collectPackages,
-  COLUMNS,
-  csv,
-  type Observation,
-} from "../src/storage.ts";
+import { COLUMNS, csv, type Observation } from "../src/storage.ts";
 
 const fixtures = [
   "<p>1,234 projects</p><p>9,876 releases</p>",
@@ -78,9 +74,11 @@ test("successful collection saves exact raw responses, provenance, observations,
         join(directory, "raw/packages", result.runId, "manifest.json"),
         "utf8",
       ),
-    ) as { sources: { sha256: string; raw_path: string }[] };
+    ) as { sources: { sha256: string; path: string }[] };
     for (const source of manifest.sources) {
-      const body = await readFile(join(directory, source.raw_path));
+      const body = await readFile(
+        join(directory, "raw/packages", result.runId, source.path),
+      );
       assert.equal(
         createHash("sha256").update(body).digest("hex"),
         source.sha256,
@@ -113,7 +111,7 @@ test("failed collection preserves the previous export and saves failure evidence
         fetcher: fetcher(true),
         now,
       }),
-      /npm: HTTP 503/,
+      /HTTP 503/,
     );
     assert.equal(
       await readFile(join(directory, "exports/packages.csv"), "utf8"),
@@ -130,10 +128,10 @@ test("failed collection preserves the previous export and saves failure evidence
         join(directory, "raw/packages", run, "manifest.json"),
         "utf8",
       ),
-    ) as { sources: { status: string }[] };
+    ) as { status: string; sources: { http_status: number }[] };
     assert.deepEqual(
-      manifest.sources.map((source) => source.status),
-      ["ok", "error", "ok", "ok"],
+      manifest.sources.map((source) => source.http_status),
+      [200, 503],
     );
   } finally {
     await rm(directory, { recursive: true, force: true });
