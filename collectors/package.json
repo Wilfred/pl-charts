@@ -5,7 +5,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit",
     "test": "node --test tests/*.test.ts",
-    "collect:packages": "node src/collect-packages.ts"
+    "collect:packages": "node src/collect-packages.ts",
+    "collect:github": "node src/collect-github.ts"
   },
   "devDependencies": {
     "typescript": "6.0.3",

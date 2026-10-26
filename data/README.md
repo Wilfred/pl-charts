@@ -101,3 +101,16 @@ Suggested collection cadence is daily for package totals, monthly for GitHub/HN/
 The website renderer reads `exports/packages.csv` at build time. Its display maps npm to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java; Go and Ruby display zero. This attribution is a presentation convention: npm covers JavaScript and TypeScript, and Maven covers JVM languages. Raw observations retain registry entities and ecosystem scope.
 
 Package update badges show the latest `observed_at` date in the snapshot. Source freshness remains available in `source_updated_at`, including Maven’s older reported date. Other metrics continue to use design values and 1970 update dates on category pages.
+
+## Quarterly GitHub backfill
+
+```sh
+npm run collect:github
+npm run collect:github -- --replay RUN_ID
+```
+
+The GitHub collector imports GitHut 2.0's published quarterly push and pull-request counts from a pinned GitHub revision. It retains every language in the upstream files, exact response bytes, SHA-256 checksums, the upstream query, and its license. `--replay` verifies checksums and regenerates the normalized CSV offline, requiring an exact match with the saved observations. `--ref` accepts another full commit SHA for a reviewed upstream refresh.
+
+The source covers 2012 Q2–2024 Q1. These are filtered GH Archive event counts. Pull-request counts include event actions rather than only unique opened requests. The pinned query excludes bot-like actor names and actor/language/quarter/event groups above 1,000 events; repository-language attribution uses pull-request payloads. The published files contain at most 100 languages per quarter, and historical generation rules may differ from the archived query. Preserve absent language entries as missing values.
+
+The import is reproducible from the saved upstream aggregates. Recomputing the upstream aggregates directly from GH Archive uses the archived BigQuery query and requires a Google Cloud project and explicit query-cost review. Keep the published-data import and any future direct aggregation as separately versioned methods.
