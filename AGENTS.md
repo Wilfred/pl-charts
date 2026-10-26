@@ -24,3 +24,5 @@
 - Use strict TypeScript for application, collection, and tooling code.
 - Run formatting, lint, type checks, offline tests, and the production build before committing affected changes.
 - Use the installed pre-commit hook. Commit and push completed, validated stages when requested.
+
+- Keep commits small and conceptually contained. Separate data changes, rendering refactors, UI behavior, and tooling where practical. Validate each completed step before committing and pushing it.
