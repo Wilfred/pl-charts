@@ -27,7 +27,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Events use the latest known repository primary language at collection time. Repository metadata covers a subset of public activity; unmatched repositories and empty languages appear as Unknown in the CSV. Coverage varies over time. Bots and forks are included. The first and current quarters are partial.",
+      "Events use the latest known repository primary language at collection time. Repository metadata covers a subset of public activity; unmatched repositories and empty languages appear as Unknown in the CSV. Coverage varies over time. Bots and forks are included. Rankings and plots use complete quarters.",
   },
   packages: {
     items: [

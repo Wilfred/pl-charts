@@ -2,33 +2,20 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { JSDOM } from "jsdom";
-import { trendPaths } from "../src/components/trends.tsx";
+import { trendPath } from "../src/components/trends.tsx";
 import { initializeTrends } from "../src/trends.ts";
 import {
-  GITHUB_CUTOFF,
   GITHUB_QUARTERS,
   isPartialGithubQuarter,
   formatQuarter,
 } from "../src/data.ts";
 
-test("trend paths preserve zero, break across missing values, and separate partial intervals", () => {
-  const paths = trendPaths([0, 10, null, 20, 30, 40], 40, [
-    true,
-    false,
-    false,
-    false,
-    false,
-    true,
-  ]);
-  assert.equal(paths.complete, "M598.00,150.00L794.00,80.00");
+test("trend paths preserve zero and break across missing values", () => {
   assert.equal(
-    paths.partial,
-    "M10.00,290.00L206.00,220.00 M794.00,80.00L990.00,10.00",
+    trendPath([0, 10, null, 20, 30, 40], 40),
+    "M10.00,290.00 L206.00,220.00  M598.00,150.00 L794.00,80.00 L990.00,10.00",
   );
-  assert.deepEqual(trendPaths([null, null], 1, [false, false]), {
-    complete: "",
-    partial: "",
-  });
+  assert.equal(trendPath([null, null], 1).trim(), "");
 });
 test("both plots render statically and language toggles stay within their own plot", () => {
   const { window } = new JSDOM(
@@ -42,9 +29,13 @@ test("both plots render statically and language toggles stay within their own pl
     assert.equal(plot.querySelectorAll("button:disabled").length, 6);
     assert.match(
       plot.querySelector("svg[role='img'] desc")?.textContent ?? "",
-      /partial quarters/,
+      /Quarterly counts for six languages/,
     );
-    assert.ok(plot.querySelector(`time[datetime='${GITHUB_CUTOFF}']`));
+    assert.equal(plot.querySelectorAll("[stroke-dasharray]").length, 0);
+    assert.doesNotMatch(
+      plot.querySelector("svg[role=img] title")?.textContent ?? "",
+      /partial/,
+    );
     for (const path of plot.querySelectorAll(".trend-line"))
       assert.doesNotMatch(path.getAttribute("d") ?? "", /NaN|Infinity/);
   }
@@ -70,5 +61,10 @@ test("partial quarter labels distinguish incomplete archive coverage", () => {
   assert.equal(isPartialGithubQuarter("2011-Q1"), true);
   assert.equal(formatQuarter("2011-Q1"), "2011 Q1 (partial)");
   assert.equal(isPartialGithubQuarter("2025-Q1"), false);
-  assert.match(formatQuarter(GITHUB_QUARTERS.at(-1)!), /partial/);
+  assert.equal(
+    GITHUB_QUARTERS.every((quarter) => !isPartialGithubQuarter(quarter)),
+    true,
+  );
+  assert.equal(GITHUB_QUARTERS[0], "2011-Q2");
+  assert.equal(GITHUB_QUARTERS.at(-1), "2026-Q3");
 });

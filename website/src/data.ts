@@ -5,8 +5,12 @@ import type {
   GithubMetric,
 } from "../scripts/github-data.ts";
 const github: GithubSnapshot = githubSnapshot;
-export const GITHUB_QUARTERS = github.quarters;
-export const DEFAULT_GITHUB_QUARTER = github.latestQuarter;
+export const GITHUB_QUARTERS = github.quarters.filter(
+  (quarter) => !isPartialGithubQuarter(quarter),
+);
+const latestCompleteQuarter = GITHUB_QUARTERS.at(-1);
+if (!latestCompleteQuarter) throw new Error("No complete GitHub quarters");
+export const DEFAULT_GITHUB_QUARTER = latestCompleteQuarter;
 export const GITHUB_CUTOFF = github.cutoff;
 export const GITHUB_COVERAGE = github.coverage;
 export function isPartialGithubQuarter(quarter: string): boolean {

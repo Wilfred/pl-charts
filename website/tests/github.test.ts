@@ -7,6 +7,7 @@ import {
   DEFAULT_GITHUB_QUARTER,
   GITHUB_QUARTERS,
   githubCounts,
+  isPartialGithubQuarter,
   rankLanguages,
 } from "../src/data.ts";
 import { initializeRankings } from "../src/rankings.ts";
@@ -44,9 +45,12 @@ test("the rendered dataset matches the checked-in quarterly export", () => {
     "utf8",
   );
   const snapshot = readGithubSnapshot(source);
-  assert.equal(GITHUB_QUARTERS.length, snapshot.quarters.length);
-  assert.equal(DEFAULT_GITHUB_QUARTER, snapshot.latestQuarter);
-  assert.equal(GITHUB_QUARTERS[0], snapshot.quarters[0]);
+  assert.deepEqual(
+    GITHUB_QUARTERS,
+    snapshot.quarters.filter((quarter) => !isPartialGithubQuarter(quarter)),
+  );
+  assert.equal(DEFAULT_GITHUB_QUARTER, GITHUB_QUARTERS.at(-1));
+  assert.equal(DEFAULT_GITHUB_QUARTER, "2026-Q3");
   assert.deepEqual(
     githubCounts("github.pushes", DEFAULT_GITHUB_QUARTER),
     snapshot.counts["github.pushes"][DEFAULT_GITHUB_QUARTER],
