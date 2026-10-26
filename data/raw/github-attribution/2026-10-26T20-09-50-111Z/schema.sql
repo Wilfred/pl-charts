@@ -1,0 +1,1 @@
+DESCRIBE TABLE github_events FORMAT JSON

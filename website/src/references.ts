@@ -23,7 +23,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
         href: "https://madnight.github.io/githut/",
         title: "GitHut 2.0",
         description:
-          "An independent approach to quarterly language rankings, with separate views for pushes, pull requests, stars, and issues. Its language attribution and filtering rules differ from this collection.",
+          "An independent approach to quarterly language rankings, with separate views for pushes, pull requests, stars, and issues. Its query joins events to languages from pull-request payloads, omits unmatched repositories, and filters actors. Percentages use retained language counts.",
       },
     ],
     notes:

@@ -1,0 +1,156 @@
+{
+	"meta":
+	[
+		{
+			"name": "repo_name",
+			"type": "LowCardinality(String)"
+		},
+		{
+			"name": "pushes",
+			"type": "UInt64"
+		},
+		{
+			"name": "actors",
+			"type": "UInt64"
+		},
+		{
+			"name": "bot_named_pushes",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"repo_name": "CodeHub-Clients\/CodeHub_Licenses",
+			"pushes": 206837,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "bolividob\/bibkreyol-comments-data",
+			"pushes": 194973,
+			"actors": 2,
+			"bot_named_pushes": 22
+		},
+		{
+			"repo_name": "zerotraceh1\/er-forge-probe",
+			"pushes": 170400,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "Sepevalle\/SoloQ-Cerditos",
+			"pushes": 153085,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "ugmoddev\/noti-api-server",
+			"pushes": 140640,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "ugmoddev\/API-NEW-NAT-3-",
+			"pushes": 135452,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "Fadil123-hah\/DILZXJASHER",
+			"pushes": 126540,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "gaston1799\/RobloxLua",
+			"pushes": 117811,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "winson-00178005\/build-eye",
+			"pushes": 117222,
+			"actors": 1,
+			"bot_named_pushes": 117222
+		},
+		{
+			"repo_name": "escapingwork\/teenagerspopulation",
+			"pushes": 116775,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "loganfoxdale\/d3",
+			"pushes": 114386,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "open-telemetry\/shared-workflows",
+			"pushes": 99422,
+			"actors": 6,
+			"bot_named_pushes": 99359
+		},
+		{
+			"repo_name": "trieu1082\/db-backup",
+			"pushes": 95752,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "Vecens\/Signal-Permafrost",
+			"pushes": 92590,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "chenxi750328ai\/agent-jianghu",
+			"pushes": 91536,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "r00tsh00t12345\/email-probe",
+			"pushes": 86923,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "C22Tech\/C22-Data-CIC",
+			"pushes": 86897,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "Comme93\/n-plus-bot",
+			"pushes": 82635,
+			"actors": 2,
+			"bot_named_pushes": 82630
+		},
+		{
+			"repo_name": "VolpeUSDOT\/Public-Lands-Computer-Vision",
+			"pushes": 82477,
+			"actors": 1,
+			"bot_named_pushes": 0
+		},
+		{
+			"repo_name": "xiaoandy1974g\/gdl",
+			"pushes": 79933,
+			"actors": 1,
+			"bot_named_pushes": 0
+		}
+	],
+
+	"rows": 20,
+
+	"rows_before_limit_at_least": 14420549,
+
+	"statistics":
+	{
+		"elapsed": 7.712246155,
+		"rows_read": 4752935696,
+		"bytes_read": 40750668650
+	}
+}

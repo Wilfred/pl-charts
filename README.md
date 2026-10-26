@@ -57,7 +57,7 @@ npm run collect:packages
 npm run collect:github
 ```
 
-Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection queries public GH Archive events directly through the latest available archive hour, with quarterly backfill and explicit language-attribution coverage. The GitHub page exposes separate quarter selectors for pushes and pull-request events.
+Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection queries public GH Archive events directly through the latest available archive hour, with quarterly backfill and explicit language-attribution coverage. The GitHub page exposes separate quarter selectors and interactive trend plots for pushes and opened pull requests. Rankings and plots use complete quarters.
 
 Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV. The full quarterly dataset is [data/exports/github.csv](data/exports/github.csv), retaining every attributed language and an Unknown group.
 

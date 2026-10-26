@@ -1,0 +1,332 @@
+{
+	"meta":
+	[
+		{
+			"name": "year",
+			"type": "UInt16"
+		},
+		{
+			"name": "quarter",
+			"type": "UInt8"
+		},
+		{
+			"name": "reason",
+			"type": "String"
+		},
+		{
+			"name": "pushes",
+			"type": "UInt64"
+		},
+		{
+			"name": "pull_requests",
+			"type": "UInt64"
+		},
+		{
+			"name": "bot_named_pushes",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"year": 2024,
+			"quarter": 1,
+			"reason": "empty_language",
+			"pushes": 6817634,
+			"pull_requests": 129070,
+			"bot_named_pushes": 2317512
+		},
+		{
+			"year": 2024,
+			"quarter": 1,
+			"reason": "known_language",
+			"pushes": 25646704,
+			"pull_requests": 4502779,
+			"bot_named_pushes": 7021616
+		},
+		{
+			"year": 2024,
+			"quarter": 1,
+			"reason": "missing_repository",
+			"pushes": 277440374,
+			"pull_requests": 9075433,
+			"bot_named_pushes": 48374322
+		},
+		{
+			"year": 2024,
+			"quarter": 2,
+			"reason": "empty_language",
+			"pushes": 8068531,
+			"pull_requests": 131029,
+			"bot_named_pushes": 2475290
+		},
+		{
+			"year": 2024,
+			"quarter": 2,
+			"reason": "known_language",
+			"pushes": 33512945,
+			"pull_requests": 4795852,
+			"bot_named_pushes": 8424298
+		},
+		{
+			"year": 2024,
+			"quarter": 2,
+			"reason": "missing_repository",
+			"pushes": 232644052,
+			"pull_requests": 9344995,
+			"bot_named_pushes": 69743393
+		},
+		{
+			"year": 2024,
+			"quarter": 3,
+			"reason": "empty_language",
+			"pushes": 13930770,
+			"pull_requests": 173355,
+			"bot_named_pushes": 2773764
+		},
+		{
+			"year": 2024,
+			"quarter": 3,
+			"reason": "known_language",
+			"pushes": 38412099,
+			"pull_requests": 5238717,
+			"bot_named_pushes": 10722169
+		},
+		{
+			"year": 2024,
+			"quarter": 3,
+			"reason": "missing_repository",
+			"pushes": 211265533,
+			"pull_requests": 8966313,
+			"bot_named_pushes": 76621813
+		},
+		{
+			"year": 2024,
+			"quarter": 4,
+			"reason": "empty_language",
+			"pushes": 16009620,
+			"pull_requests": 140697,
+			"bot_named_pushes": 2754467
+		},
+		{
+			"year": 2024,
+			"quarter": 4,
+			"reason": "known_language",
+			"pushes": 31089350,
+			"pull_requests": 4604253,
+			"bot_named_pushes": 10869713
+		},
+		{
+			"year": 2024,
+			"quarter": 4,
+			"reason": "missing_repository",
+			"pushes": 232738459,
+			"pull_requests": 10151350,
+			"bot_named_pushes": 76970740
+		},
+		{
+			"year": 2025,
+			"quarter": 1,
+			"reason": "empty_language",
+			"pushes": 15778991,
+			"pull_requests": 130613,
+			"bot_named_pushes": 2829722
+		},
+		{
+			"year": 2025,
+			"quarter": 1,
+			"reason": "known_language",
+			"pushes": 30455006,
+			"pull_requests": 4521639,
+			"bot_named_pushes": 10832380
+		},
+		{
+			"year": 2025,
+			"quarter": 1,
+			"reason": "missing_repository",
+			"pushes": 267334422,
+			"pull_requests": 11035036,
+			"bot_named_pushes": 86341358
+		},
+		{
+			"year": 2025,
+			"quarter": 2,
+			"reason": "empty_language",
+			"pushes": 8320024,
+			"pull_requests": 106153,
+			"bot_named_pushes": 2107753
+		},
+		{
+			"year": 2025,
+			"quarter": 2,
+			"reason": "known_language",
+			"pushes": 24492151,
+			"pull_requests": 3676754,
+			"bot_named_pushes": 8600129
+		},
+		{
+			"year": 2025,
+			"quarter": 2,
+			"reason": "missing_repository",
+			"pushes": 234671584,
+			"pull_requests": 11034880,
+			"bot_named_pushes": 64718047
+		},
+		{
+			"year": 2025,
+			"quarter": 3,
+			"reason": "empty_language",
+			"pushes": 5449976,
+			"pull_requests": 94655,
+			"bot_named_pushes": 1525678
+		},
+		{
+			"year": 2025,
+			"quarter": 3,
+			"reason": "known_language",
+			"pushes": 17498642,
+			"pull_requests": 2794353,
+			"bot_named_pushes": 6281773
+		},
+		{
+			"year": 2025,
+			"quarter": 3,
+			"reason": "missing_repository",
+			"pushes": 192564352,
+			"pull_requests": 10290640,
+			"bot_named_pushes": 58648399
+		},
+		{
+			"year": 2025,
+			"quarter": 4,
+			"reason": "empty_language",
+			"pushes": 4390798,
+			"pull_requests": 54912,
+			"bot_named_pushes": 1334636
+		},
+		{
+			"year": 2025,
+			"quarter": 4,
+			"reason": "known_language",
+			"pushes": 15018111,
+			"pull_requests": 1819290,
+			"bot_named_pushes": 4833070
+		},
+		{
+			"year": 2025,
+			"quarter": 4,
+			"reason": "missing_repository",
+			"pushes": 192511995,
+			"pull_requests": 7521055,
+			"bot_named_pushes": 55475113
+		},
+		{
+			"year": 2026,
+			"quarter": 1,
+			"reason": "empty_language",
+			"pushes": 3642720,
+			"pull_requests": 42298,
+			"bot_named_pushes": 1061902
+		},
+		{
+			"year": 2026,
+			"quarter": 1,
+			"reason": "known_language",
+			"pushes": 14143885,
+			"pull_requests": 1559908,
+			"bot_named_pushes": 4273303
+		},
+		{
+			"year": 2026,
+			"quarter": 1,
+			"reason": "missing_repository",
+			"pushes": 206829359,
+			"pull_requests": 6759377,
+			"bot_named_pushes": 46101064
+		},
+		{
+			"year": 2026,
+			"quarter": 2,
+			"reason": "empty_language",
+			"pushes": 2528089,
+			"pull_requests": 16343,
+			"bot_named_pushes": 673845
+		},
+		{
+			"year": 2026,
+			"quarter": 2,
+			"reason": "known_language",
+			"pushes": 11006545,
+			"pull_requests": 532873,
+			"bot_named_pushes": 3273038
+		},
+		{
+			"year": 2026,
+			"quarter": 2,
+			"reason": "missing_repository",
+			"pushes": 250496735,
+			"pull_requests": 3197010,
+			"bot_named_pushes": 42352897
+		},
+		{
+			"year": 2026,
+			"quarter": 3,
+			"reason": "empty_language",
+			"pushes": 713476,
+			"pull_requests": 6007,
+			"bot_named_pushes": 215910
+		},
+		{
+			"year": 2026,
+			"quarter": 3,
+			"reason": "known_language",
+			"pushes": 3438951,
+			"pull_requests": 243005,
+			"bot_named_pushes": 981939
+		},
+		{
+			"year": 2026,
+			"quarter": 3,
+			"reason": "missing_repository",
+			"pushes": 228728686,
+			"pull_requests": 1899774,
+			"bot_named_pushes": 21671393
+		},
+		{
+			"year": 2026,
+			"quarter": 4,
+			"reason": "empty_language",
+			"pushes": 99780,
+			"pull_requests": 1360,
+			"bot_named_pushes": 29324
+		},
+		{
+			"year": 2026,
+			"quarter": 4,
+			"reason": "known_language",
+			"pushes": 723970,
+			"pull_requests": 46780,
+			"bot_named_pushes": 176724
+		},
+		{
+			"year": 2026,
+			"quarter": 4,
+			"reason": "missing_repository",
+			"pushes": 21287760,
+			"pull_requests": 413630,
+			"bot_named_pushes": 4792944
+		}
+	],
+
+	"rows": 36,
+
+	"rows_before_limit_at_least": 10297584,
+
+	"statistics":
+	{
+		"elapsed": 10.33864211,
+		"rows_read": 3567206222,
+		"bytes_read": 55337651186
+	}
+}

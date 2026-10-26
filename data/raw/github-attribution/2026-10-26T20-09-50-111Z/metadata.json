@@ -1,0 +1,60 @@
+{
+	"meta":
+	[
+		{
+			"name": "source",
+			"type": "String"
+		},
+		{
+			"name": "rows",
+			"type": "UInt64"
+		},
+		{
+			"name": "repositories",
+			"type": "UInt64"
+		},
+		{
+			"name": "first_snapshot",
+			"type": "DateTime"
+		},
+		{
+			"name": "last_snapshot",
+			"type": "DateTime"
+		},
+		{
+			"name": "repositories_with_language",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"source": "repos",
+			"rows": 12969883,
+			"repositories": 9061199,
+			"first_snapshot": "1970-01-01 00:00:00",
+			"last_snapshot": "2022-07-20 18:39:21",
+			"repositories_with_language": 7832963
+		},
+		{
+			"source": "github_repos_history",
+			"rows": 10297584,
+			"repositories": 3819295,
+			"first_snapshot": "2024-06-14 03:57:19",
+			"last_snapshot": "2026-06-16 07:55:03",
+			"repositories_with_language": 3120638
+		}
+	],
+
+	"rows": 2,
+
+	"rows_before_limit_at_least": 1,
+
+	"statistics":
+	{
+		"elapsed": 0.179324133,
+		"rows_read": 23267467,
+		"bytes_read": 673304667
+	}
+}

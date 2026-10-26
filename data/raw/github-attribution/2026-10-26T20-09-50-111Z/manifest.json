@@ -1,0 +1,32 @@
+{
+  "run_id": "2026-10-26T20-09-50-111Z",
+  "cutoff": "2026-10-26T19:00:00.000Z",
+  "endpoint": "https://play.clickhouse.com/",
+  "status": "complete",
+  "sources": [
+    {
+      "file": "metadata.json",
+      "sha256": "385a591af67d54d15e053e57ad222dc674da8b2a991cb2c026ac0f8c5ee644d5",
+      "observed_at": "2026-10-26T20:09:50.581Z",
+      "http_status": 200
+    },
+    {
+      "file": "schema.json",
+      "sha256": "b63d90371d89f0cbd32ff88655babf6a37a3ab189cbd10c77b2df95dd0510813",
+      "observed_at": "2026-10-26T20:09:50.611Z",
+      "http_status": 200
+    },
+    {
+      "file": "exact.json",
+      "sha256": "dc2c9d5a151931c48e673daf02f093657e0a3673cfe834a8d8dd7ae4d0b2e3f6",
+      "observed_at": "2026-10-26T20:10:01.724Z",
+      "http_status": 200
+    },
+    {
+      "file": "casefold.json",
+      "sha256": "3d49c20692f8367910bb8240eb3702f560e27e5b8d615bfe93013b9366fe8451",
+      "observed_at": "2026-10-26T20:10:11.758Z",
+      "http_status": 200
+    }
+  ]
+}
