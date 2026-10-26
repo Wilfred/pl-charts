@@ -1,0 +1,109 @@
+{
+  "selection": {
+    "url": "https://web.archive.org/web/20240115115215id_/http://www.modulecounts.com/",
+    "date": "2024-01-15",
+    "minimumPackagesPerDay": 2,
+    "rate": "Displayed rounded average growth over the preceding week",
+    "deduplication": "CPAN and CPAN (search) identify one host"
+  },
+  "hosts": [
+    {
+      "id": "npm",
+      "name": "npm",
+      "ecosystem": "javascript-typescript",
+      "url": "https://www.npmjs.com/",
+      "modulecountsNames": ["npm (node.js)"]
+    },
+    {
+      "id": "pypi",
+      "name": "PyPI",
+      "ecosystem": "python",
+      "url": "https://pypi.org/",
+      "modulecountsNames": ["PyPI"]
+    },
+    {
+      "id": "maven",
+      "name": "Maven Central",
+      "ecosystem": "jvm",
+      "url": "https://central.sonatype.com/",
+      "modulecountsNames": ["Maven Central (Java)"]
+    },
+    {
+      "id": "nuget",
+      "name": "NuGet",
+      "ecosystem": "dotnet",
+      "url": "https://www.nuget.org/",
+      "modulecountsNames": ["nuget (.NET)"]
+    },
+    {
+      "id": "packagist",
+      "name": "Packagist",
+      "ecosystem": "php",
+      "url": "https://packagist.org/",
+      "modulecountsNames": ["Packagist (PHP)"]
+    },
+    {
+      "id": "cargo",
+      "name": "crates.io",
+      "ecosystem": "rust",
+      "url": "https://crates.io/",
+      "modulecountsNames": ["Crates.io (Rust)"]
+    },
+    {
+      "id": "rubygems",
+      "name": "RubyGems",
+      "ecosystem": "ruby",
+      "url": "https://rubygems.org/",
+      "modulecountsNames": ["Rubygems.org"]
+    },
+    {
+      "id": "cpan",
+      "name": "CPAN",
+      "ecosystem": "perl",
+      "url": "https://www.cpan.org/",
+      "modulecountsNames": ["CPAN", "CPAN (search)"]
+    },
+    {
+      "id": "clojars",
+      "name": "Clojars",
+      "ecosystem": "clojure-clojurescript",
+      "url": "https://clojars.org/",
+      "modulecountsNames": ["Clojars (Clojure)"]
+    },
+    {
+      "id": "hex",
+      "name": "Hex",
+      "ecosystem": "elixir-erlang",
+      "url": "https://hex.pm/",
+      "modulecountsNames": ["Hex.pm (Elixir/Erlang)"]
+    },
+    {
+      "id": "luarocks",
+      "name": "LuaRocks",
+      "ecosystem": "lua",
+      "url": "https://luarocks.org/",
+      "modulecountsNames": ["LuaRocks (Lua)"]
+    },
+    {
+      "id": "crystalshards",
+      "name": "CrystalShards",
+      "ecosystem": "crystal",
+      "url": "https://crystalshards.org/",
+      "modulecountsNames": ["Crystal Shards"]
+    },
+    {
+      "id": "melpa",
+      "name": "MELPA",
+      "ecosystem": "emacs-lisp",
+      "url": "https://melpa.org/",
+      "modulecountsNames": ["MELPA (Emacs)"]
+    },
+    {
+      "id": "drupal",
+      "name": "Drupal",
+      "ecosystem": "php",
+      "url": "https://www.drupal.org/project/project_module",
+      "modulecountsNames": ["Drupal (php)"]
+    }
+  ]
+}

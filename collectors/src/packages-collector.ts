@@ -1,6 +1,10 @@
 import { readFile } from "node:fs/promises";
 import { join, resolve } from "node:path";
 import { runCollection, type CollectionOptions } from "./runtime.ts";
+import {
+  modulecountsSelection,
+  PACKAGE_SELECTION,
+} from "./package-selection.ts";
 import { PACKAGE_SOURCES } from "./packages.ts";
 import { DEFAULT_DATA_DIRECTORY } from "./storage.ts";
 import { replayLegacy } from "./legacy-replay.ts";
@@ -23,13 +27,18 @@ export async function collectPackages(
   }
   return runCollection(
     "packages",
-    "package-registry-snapshots-v2",
+    "package-host-snapshots-v3",
     options,
     async (context) => {
+      context.metadata.selection = modulecountsSelection(
+        await context.request("modulecounts.html", PACKAGE_SELECTION.url),
+      );
       const rows = [];
       for (const source of PACKAGE_SOURCES) {
         const parsed = source.parse(
-          await context.request(source.filename, source.url),
+          await context.request(source.filename, source.url, {
+            headers: source.headers,
+          }),
         );
         rows.push(
           context.observation(

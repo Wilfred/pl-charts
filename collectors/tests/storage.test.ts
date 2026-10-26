@@ -1,3 +1,5 @@
+import { PACKAGE_FIXTURES, MODULECOUNTS_FIXTURE } from "./fixtures/packages.ts";
+import { PACKAGE_SELECTION } from "../src/package-selection.ts";
 import { collectPackages } from "../src/packages-collector.ts";
 import assert from "node:assert/strict";
 import { createHash } from "node:crypto";
@@ -12,18 +14,17 @@ import {
 import { tmpdir } from "node:os";
 import { join } from "node:path";
 import test from "node:test";
-import { PACKAGE_SOURCES } from "../src/packages.ts";
+import { PACKAGE_SOURCES, ORIGINAL_PACKAGE_SOURCES } from "../src/packages.ts";
 import { COLUMNS, csv, type Observation } from "../src/storage.ts";
 
-const fixtures = [
-  "<p>1,234 projects</p><p>9,876 releases</p>",
-  '{"doc_count":2345}',
-  '{"num_crates":3456,"num_downloads":999999}',
-  '{"gaNumber":"4,567","gavNumber":"99,999","dateModified":"2026-06-26 20:33:56 UTC"}',
-];
+const fixtures = PACKAGE_SOURCES.map(
+  (source) => PACKAGE_FIXTURES[source.id]!.body,
+);
 const now = () => new Date("2026-10-26T12:00:00Z");
 function fetcher(fail = false): typeof fetch {
   return async (input) => {
+    if (String(input) === PACKAGE_SELECTION.url)
+      return new Response(MODULECOUNTS_FIXTURE);
     const index = PACKAGE_SOURCES.findIndex(
       (source) => source.url === String(input),
     );
@@ -47,10 +48,10 @@ test("successful collection saves exact raw responses, provenance, observations,
       fetcher: fetcher(),
       now,
     });
-    assert.equal(result.observations.length, 4);
+    assert.equal(result.observations.length, PACKAGE_SOURCES.length);
     assert.deepEqual(
       result.observations.map((row) => Number(row.value)),
-      [1234, 2345, 3456, 4567],
+      PACKAGE_SOURCES.map((source) => PACKAGE_FIXTURES[source.id]!.value),
     );
     const output = await readFile(
       join(directory, "exports/packages.csv"),
@@ -84,10 +85,7 @@ test("successful collection saves exact raw responses, provenance, observations,
         source.sha256,
       );
     }
-    assert.equal(
-      result.observations[3]?.source_updated_at,
-      "2026-06-26T20:33:56Z",
-    );
+    assert.equal(result.observations[3]?.source_updated_at, "");
     await assert.rejects(
       collectPackages({ dataDirectory: directory, fetcher: fetcher(), now }),
       /EEXIST/,
@@ -131,7 +129,7 @@ test("failed collection preserves the previous export and saves failure evidence
     ) as { status: string; sources: { http_status: number }[] };
     assert.deepEqual(
       manifest.sources.map((source) => source.http_status),
-      [200, 503],
+      [200, 200, 503],
     );
   } finally {
     await rm(directory, { recursive: true, force: true });
@@ -151,14 +149,15 @@ test("checked-in observations can be recomputed from the saved source bodies", a
   const output = await readFile(new URL("exports/packages.csv", root), "utf8");
   const [header, ...lines] = output.trim().split("\n");
   assert.equal(header, COLUMNS.join(","));
-  assert.equal(lines.length, 4);
+  assert.ok(lines.length >= ORIGINAL_PACKAGE_SOURCES.length);
   for (const line of lines) {
     const values = line.split(",");
     const row = Object.fromEntries(
       COLUMNS.map((key, index) => [key, values[index]]),
     );
-    const source = PACKAGE_SOURCES.find(
-      (source) => source.id === row.entity_id,
+    const source = [...PACKAGE_SOURCES, ...ORIGINAL_PACKAGE_SOURCES].find(
+      (source) =>
+        source.id === row.entity_id && source.method === row.method_version,
     );
     assert.ok(source);
     assert.ok(row.raw_path);

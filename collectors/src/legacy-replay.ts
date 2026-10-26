@@ -2,7 +2,7 @@ import { readFile } from "node:fs/promises";
 import { createHash } from "node:crypto";
 import { join } from "node:path";
 import { csv, type Observation } from "./storage.ts";
-import { PACKAGE_SOURCES } from "./packages.ts";
+import { ORIGINAL_PACKAGE_SOURCES } from "./packages.ts";
 import { githubObservations, parseGithubQuarterCounts } from "./github.ts";
 export async function replayLegacy(
   category: "packages" | "github",
@@ -52,7 +52,9 @@ export async function replayLegacy(
   }
   let observations: Observation[];
   if (category === "packages") {
-    observations = PACKAGE_SOURCES.map((source) => {
+    observations = ORIGINAL_PACKAGE_SOURCES.filter((source) =>
+      manifest.sources.some((row) => row.id === source.id),
+    ).map((source) => {
       const metadata = manifest.sources.find((row) => row.id === source.id)!;
       const parsed = source.parse(bodies.get(source.id)!);
       return {
