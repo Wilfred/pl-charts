@@ -2,13 +2,13 @@
 
 :root {
   color-scheme: dark;
-  --ink: #e3e9e6;
-  --muted: #a0ada5;
-  --green: #9bd3ac;
-  --line: #34433b;
-  --paper: #101713;
-  --surface: #17201b;
-  --raised: #202c24;
+  --ink: #e9ebf2;
+  --muted: #a4aabd;
+  --accent: #b7a8f0;
+  --line: #343846;
+  --paper: #111217;
+  --surface: #191b23;
+  --raised: #232633;
 }
 * {
   box-sizing: border-box;
@@ -27,14 +27,14 @@ a {
   text-underline-offset: 4px;
 }
 a:hover {
-  color: var(--green);
+  color: var(--accent);
 }
 select {
   font: inherit;
 }
 a:focus-visible,
 select:focus-visible {
-  outline: 3px solid var(--green);
+  outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
 [hidden] {
@@ -75,7 +75,7 @@ header {
   display: grid;
   place-items: center;
   background: var(--raised);
-  color: var(--green);
+  color: var(--accent);
   border-radius: 6px;
   width: 32px;
   height: 32px;
@@ -96,9 +96,9 @@ nav a {
   font-size: 13px;
 }
 nav a[aria-current] {
-  color: var(--green);
+  color: var(--accent);
   font-weight: 700;
-  border-color: var(--green);
+  border-color: var(--accent);
 }
 main {
   max-width: 1248px;
@@ -127,11 +127,6 @@ h2 {
   font-weight: 500;
   margin: 0;
 }
-.lede {
-  color: var(--muted);
-  font-size: 15px;
-  margin: 0;
-}
 .section-heading {
   margin-bottom: 20px;
 }
@@ -148,7 +143,7 @@ h2 {
   text-decoration: none;
 }
 .metric-card:hover {
-  border-color: var(--green);
+  border-color: var(--accent);
 }
 .metric-card h3 {
   display: flex;
@@ -159,7 +154,7 @@ h2 {
   margin: 0 0 10px;
 }
 .metric-card h3 span {
-  color: var(--green);
+  color: var(--accent);
 }
 .metric-card p {
   font-size: 12px;
@@ -249,8 +244,8 @@ tbody tr:hover {
   color: var(--muted);
 }
 .rank-badge.first {
-  background: #304735;
-  color: #c1e9b6;
+  background: var(--raised);
+  color: var(--ink);
   border-radius: 4px;
   padding: 2px 4px;
   font-weight: 600;
@@ -288,7 +283,7 @@ tbody tr:hover {
 .detail-table .rank-cell {
   width: 100px;
   font-family: "Space Grotesk", sans-serif;
-  color: var(--green);
+  color: var(--ink);
 }
 .detail-table .count-cell {
   font-size: 18px;

@@ -9,7 +9,7 @@ const files = execFileSync(
   .split("\0")
   .filter(Boolean);
 
-const unformatted = [];
+const unformatted: string[] = [];
 for (const file of files) {
   const info = await prettier.getFileInfo(file, {
     ignorePath: [".gitignore", ".prettierignore"],

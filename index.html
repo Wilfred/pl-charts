@@ -9,32 +9,38 @@
     />
     <title>Programming language rankings · PL Charts</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/data.js" defer></script>
-    <script src="js/rankings.js" defer></script>
+    <script type="module" src="src/main.ts"></script>
   </head>
   <body data-page="overview">
     <a class="skip-link" href="#main">Skip to content</a>
     <header>
       <div class="header-inner">
         <a class="site-title" href="index.html"
-          ><span class="brand-mark" aria-hidden="true">▥</span> PL Charts</a
+          ><span class="brand-mark" aria-hidden="true"
+            ><svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              focusable="false"
+            >
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+          ></span>
+          PL Charts</a
         >
         <nav aria-label="Main navigation">
           <a href="index.html" aria-current="page">Overview</a
           ><a href="github-repos.html">Repositories</a
-          ><a href="modules.html">Packages</a
-          ><a href="stackoverflow.html">Questions</a
-          ><a href="releases.html">Releases</a><a href="hiring.html">Hiring</a>
+          ><a href="packages.html">Packages</a
+          ><a href="stackoverflow.html">SO Questions</a
+          ><a href="releases.html">Releases</a
+          ><a href="hiring.html">Job Descriptions</a>
         </nav>
       </div>
     </header>
     <main id="main">
       <section class="intro">
-        <h1>Programming language rankings</h1>
-        <p class="lede">
-          Rankings by repository, package, question, release, and hiring-comment
-          counts.
-        </p>
+        <h1>Rankings</h1>
       </section>
 
       <section aria-labelledby="signals-heading">
@@ -45,27 +51,22 @@
           <a class="metric-card" href="github-repos.html">
             <h3>GitHub repositories<span aria-hidden="true">↗</span></h3>
             <p>Public repositories grouped by programming language.</p> </a
-          ><a class="metric-card" href="modules.html">
-            <h3>Packages & modules<span aria-hidden="true">↗</span></h3>
+          ><a class="metric-card" href="packages.html">
+            <h3>Packages<span aria-hidden="true">↗</span></h3>
             <p>Published packages in each language’s package registry.</p> </a
           ><a class="metric-card" href="stackoverflow.html">
-            <h3>Stack Overflow questions<span aria-hidden="true">↗</span></h3>
-            <p>Questions tagged with each programming language.</p> </a
+            <h3>SO Questions<span aria-hidden="true">↗</span></h3>
+            <p>Stack Overflow questions tagged by language.</p> </a
           ><a class="metric-card" href="releases.html">
-            <h3>Language releases<span aria-hidden="true">↗</span></h3>
-            <p>Language releases in a selected calendar year.</p> </a
+            <h3>Releases<span aria-hidden="true">↗</span></h3>
+            <p>Releases in a selected calendar year.</p> </a
           ><a class="metric-card" href="hiring.html">
-            <h3>Hacker News hiring<span aria-hidden="true">↗</span></h3>
+            <h3>Job Descriptions<span aria-hidden="true">↗</span></h3>
             <p>Language mentions in Hacker News “Who’s Hiring” threads.</p>
           </a>
         </div>
       </section>
-      <section class="ranking-section" aria-labelledby="rankings-heading">
-        <div class="section-heading">
-          <div>
-            <h2 id="rankings-heading">Rank comparison</h2>
-          </div>
-        </div>
+      <section class="ranking-section" aria-label="Rank comparison">
         <p class="section-description">
           Ranks are calculated separately for each metric. Release ranks use
           2025 counts.
@@ -74,10 +75,10 @@
           <label
             >Order by<select id="ranking-order">
               <option value="githubRepos">Repositories rank</option>
-              <option value="modules">Packages rank</option>
-              <option value="stackoverflow">Questions rank</option>
+              <option value="packages">Packages rank</option>
+              <option value="stackoverflow">SO Questions rank</option>
               <option value="releases">Releases rank</option>
-              <option value="hiring">Hiring rank</option>
+              <option value="hiring">Job Descriptions rank</option>
               <option value="language">Language A–Z</option>
             </select></label
           >
@@ -94,16 +95,16 @@
                   <a href="github-repos.html">Repositories ↗</a>
                 </th>
                 <th scope="col" class="numeric">
-                  <a href="modules.html">Packages ↗</a>
+                  <a href="packages.html">Packages ↗</a>
                 </th>
                 <th scope="col" class="numeric">
-                  <a href="stackoverflow.html">Questions ↗</a>
+                  <a href="stackoverflow.html">SO Questions ↗</a>
                 </th>
                 <th scope="col" class="numeric">
                   <a href="releases.html">Releases ↗</a>
                 </th>
                 <th scope="col" class="numeric">
-                  <a href="hiring.html">Hiring ↗</a>
+                  <a href="hiring.html">Job Descriptions ↗</a>
                 </th>
               </tr>
             </thead>

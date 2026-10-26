@@ -7,33 +7,40 @@
       name="description"
       content="Programming language rankings by repository, package, question, release, and hiring-comment counts."
     />
-    <title>Packages & modules · PL Charts</title>
+    <title>Packages · PL Charts</title>
     <link rel="stylesheet" href="css/style.css" />
-    <script src="js/data.js" defer></script>
-    <script src="js/rankings.js" defer></script>
+    <script type="module" src="src/main.ts"></script>
   </head>
-  <body data-page="modules">
+  <body data-page="packages">
     <a class="skip-link" href="#main">Skip to content</a>
     <header>
       <div class="header-inner">
         <a class="site-title" href="index.html"
-          ><span class="brand-mark" aria-hidden="true">▥</span> PL Charts</a
+          ><span class="brand-mark" aria-hidden="true"
+            ><svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              focusable="false"
+            >
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+          ></span>
+          PL Charts</a
         >
         <nav aria-label="Main navigation">
           <a href="index.html">Overview</a
           ><a href="github-repos.html">Repositories</a
-          ><a href="modules.html" aria-current="page">Packages</a
-          ><a href="stackoverflow.html">Questions</a
-          ><a href="releases.html">Releases</a><a href="hiring.html">Hiring</a>
+          ><a href="packages.html" aria-current="page">Packages</a
+          ><a href="stackoverflow.html">SO Questions</a
+          ><a href="releases.html">Releases</a
+          ><a href="hiring.html">Job Descriptions</a>
         </nav>
       </div>
     </header>
     <main id="main">
       <section class="detail-intro">
-        <h1>Packages & modules</h1>
-        <p class="lede">
-          Published packages in each language’s package registry.
-        </p>
+        <h1>Packages</h1>
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
@@ -48,14 +55,13 @@
         <div class="table-wrap">
           <table class="detail-table">
             <caption class="sr-only">
-              Illustrative packages & modules rankings among six sample
-              languages
+              Package rankings
             </caption>
             <thead>
               <tr>
                 <th scope="col" class="numeric">Rank</th>
                 <th scope="col">Language</th>
-                <th scope="col" class="numeric">Modules</th>
+                <th scope="col" class="numeric">Packages</th>
               </tr>
             </thead>
             <tbody id="ranking-body">

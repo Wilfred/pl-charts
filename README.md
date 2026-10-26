@@ -1,46 +1,46 @@
 # PL Charts
 
-A static prototype of programming language popularity rankings. Current work covers site structure, design, and interactions. The long-term goal is a reliable source of popularity data.
+A prototype of programming language popularity rankings for developers. Current work covers structure, design, and interactions, using placeholder counts.
 
 ## Scope
 
-- Display rankings and counts in tables.
-- Compare metrics in an overview and provide a detail page for each metric.
-- Include GitHub repositories, packages/modules, Stack Overflow questions, annual language releases, and language mentions in Hacker News “Who's Hiring” threads.
-- Use placeholder counts to develop the site structure and interactions.
-- Support responsive layouts, keyboard navigation, sorting, and release-year selection.
-- Use concise, factual descriptions and sentence-case headings.
-- Keep the dark interface focused on tables, metric definitions, and navigation.
+- Compare rankings in an overview, with a detail page for each metric.
+- Include Repositories (GitHub), Packages, SO Questions, Releases, and Job Descriptions (Hacker News “Who's Hiring” comments).
+- Use a dark theme, sentence-case headings, and concise descriptions.
+- Keep navigation and labels distinct; describe each counting method once.
+- Support semantic tables, keyboard navigation, sorting, and release-year selection.
 
-## Interpretation
-
-Ranks are calculated separately for each metric. Release counts describe release frequency. Hiring counts measure language mentions in Hacker News hiring comments.
-
-A production version should document definitions, sources, observation dates, coverage, limitations, and refresh schedules.
+Ranks are calculated separately for each metric. Ties share a rank and leave a gap: 1, 1, 3.
 
 ## Development
 
-The site uses HTML, CSS, and JavaScript. No build step is required.
-
-```sh
-python3 -m http.server 8000
-```
-
-Open <http://localhost:8000>. Metric pages: `github-repos.html`, `modules.html`, `stackoverflow.html`, `releases.html`, and `hiring.html`.
-
-## Formatting
-
-Use Node.js 22 and npm. Install the pinned Prettier dependency and enable the commit hook:
+Use Node.js 22.18 or later and npm.
 
 ```sh
 npm ci
+npm run dev
 ```
 
-The `prepare` script configures this clone to use `.githooks`. The pre-commit hook checks staged file contents, including partially staged files, and rejects unformatted changes. It does not modify files or stage changes.
+Open <http://localhost:8000>. The site uses TypeScript and Vite with six HTML entry points. Application code is in `src/`; tooling is in `scripts/`. Counts and ranking functions are defined in `src/data.ts`.
+
+```sh
+npm run typecheck
+npm test
+npm run build
+npm run preview
+```
+
+The production build writes all six pages and their assets to `dist/`. `npm run preview` serves that build on port 8000; stop the development server before starting it.
+
+The HTML includes initial ranking rows. Update those rows when changing counts in `src/data.ts`; tests check that they match the interactive tables.
+
+## Formatting and checks
+
+`npm ci` enables the pre-commit hook in `.githooks`. The hook checks staged file contents, including partially staged files. Format files and stage them before committing:
 
 ```sh
 npm run format
 npm run format:check
 ```
 
-After formatting, stage the files again before committing. GitHub Actions runs the same formatting check on pushes and pull requests when Actions is enabled.
+GitHub Actions checks formatting, runs tests, type-checks TypeScript, and builds all pages on pushes and pull requests.
