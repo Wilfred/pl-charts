@@ -92,3 +92,9 @@ npm run lint:fix
 ```
 
 GitHub Actions runs formatting, lint, type checks, offline tests, and the static build. Raw source bodies and reference clones are excluded from formatting and linting.
+
+## Deployment
+
+[PL Charts](https://www.wilfred.me.uk/pl-charts/) is hosted on GitHub Pages. Each push to `main` runs all checks, builds `website/dist/`, and deploys that artifact through the `github-pages` environment. Pull requests run the same checks without publishing. The Checks workflow also supports manual runs.
+
+Pages uses GitHub Actions as its publishing source. Relative page, asset, and CSV links support the `/pl-charts/` project path. Collection runs separately; deployment uses checked-in data and makes no live source queries.
