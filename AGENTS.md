@@ -22,7 +22,8 @@
 - `vendor/modulecounts/` and `vendor/githut/` are ignored reference checkouts. Keep its dependencies separate.
 - Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.
 - Render shared JSX components into static HTML at build time. Edit `website/src/pages.tsx` and `website/src/components/`; generated HTML and `.generated/` are ignored artifacts.
-- Derive all metric values from checked-in CSVs during rendering. Keep registry-to-language and implementation mappings documented. Display missing measurements as —; preserve measured zeros.
+- Derive all metric values from checked-in CSVs during rendering. Keep host counting definitions and implementation mappings documented. Display missing measurements as —; preserve measured zeros.
+- Packages ranks hosts from `data/package-hosts.json`; keep it outside the homepage language comparison. Preserve the archived Modulecounts threshold evidence and host-specific counting rules.
 - Use the reviewed 20-language cohort in `data/languages.json`. Preserve source-period labels, exact-value tooltips, and gaps in historical plots.
 - Use the shared collector CLI/runtime for new routine collectors. Keep source-specific parsing and counting rules in adapters. Reuse captured sources for normalization changes; preserve retrieval times.
 

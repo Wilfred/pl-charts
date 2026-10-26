@@ -2,9 +2,10 @@ import snapshotsJson from "../.generated/metrics.json" with { type: "json" };
 import packageSnapshot from "../.generated/packages.json" with { type: "json" };
 import type { MetricSnapshot } from "../scripts/metric-data.ts";
 import { LANGUAGES, type Language, type LanguageCounts } from "./languages.ts";
+import { HOST_NAMES } from "./package-hosts.ts";
 import { METRICS, DEFINITIONS, type Metric } from "./metrics.ts";
 export { LANGUAGES, type Language } from "./languages.ts";
-export { METRICS, type Metric } from "./metrics.ts";
+export { METRICS, LANGUAGE_METRICS, type Metric } from "./metrics.ts";
 export { CATEGORIES, type Category } from "./categories.ts";
 const snapshots: Partial<Record<Metric, MetricSnapshot>> = snapshotsJson;
 export function metricSnapshot(metric: Metric): MetricSnapshot {
@@ -71,20 +72,29 @@ export interface Ranking {
   value: number | null;
   rank: number | null;
 }
-export function rankValues(values: Readonly<LanguageCounts>): Ranking[] {
+export function metricEntities(metric: Metric): string[] {
+  return metric === "packages.published" ? HOST_NAMES : LANGUAGES;
+}
+export function rankValues(
+  values: Readonly<LanguageCounts>,
+  entities: readonly string[] = LANGUAGES,
+): Ranking[] {
   let previous: number | undefined;
   let rank = 0;
-  const available = LANGUAGES.flatMap((language) => {
-    const value = values[language] ?? null;
-    return value === null ? [] : [{ language, value }];
-  }).sort((a, b) => b.value - a.value || a.language.localeCompare(b.language));
+  const available = entities
+    .flatMap((language) => {
+      const value = values[language] ?? null;
+      return value === null ? [] : [{ language, value }];
+    })
+    .sort((a, b) => b.value - a.value || a.language.localeCompare(b.language));
   return [
     ...available.map((row, index) => {
       if (row.value !== previous) rank = index + 1;
       previous = row.value;
       return { ...row, rank };
     }),
-    ...LANGUAGES.filter((language) => values[language] == null)
+    ...entities
+      .filter((language) => values[language] == null)
       .sort((a, b) => a.localeCompare(b))
       .map((language) => ({ language, value: null, rank: null })),
   ];
@@ -93,7 +103,7 @@ export function rankLanguages(
   metric: Metric,
   period = defaultPeriod(metric),
 ): Ranking[] {
-  return rankValues(metricCounts(metric, period));
+  return rankValues(metricCounts(metric, period), metricEntities(metric));
 }
 export function isMetric(value: string | undefined): value is Metric {
   return METRICS.some((metric) => metric === value);

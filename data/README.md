@@ -71,16 +71,34 @@ The cohort is Python, Java, Go, JavaScript, C++, TypeScript, PHP, Ruby, C, C#, N
 
 ## Packages
 
-| Registry      | Endpoint                              | Counting unit                                   |
-| ------------- | ------------------------------------- | ----------------------------------------------- |
-| PyPI          | <https://pypi.org/>                   | Homepage project total                          |
-| npm           | <https://replicate.npmjs.com/>        | Registry `doc_count`                            |
-| crates.io     | <https://crates.io/api/v1/summary>    | `num_crates`                                    |
-| Maven Central | <https://search.maven.org/quickstats> | Distinct `groupId:artifactId` pairs, `gaNumber` |
+Package rows identify hosts, with `entity_kind=registry`. The website ranks hosts by name and does not assign their totals to individual languages. `package-hosts.json` defines the host cohort independently of `languages.json`.
 
-The display maps these totals to Python, JavaScript, Rust, and Java. Other language ecosystems are missing. npm and Maven span several languages; these are ecosystem totals. Versions and downloads are separate quantities.
+Selection uses the displayed, rounded average growth from [Modulecounts’ 15 January 2024 snapshot](https://web.archive.org/web/20240115115215/http://www.modulecounts.com/). Include rates ≥2 new packages/day, measured by Modulecounts over the preceding week. CPAN and CPAN (search) count as one host. CRAN’s displayed rate was −2/day; Hackage and Nimble were 1/day. These are historical inclusion criteria, rather than claims about present growth.
 
-The Maven response reports `2026-06-26T20:33:56Z` despite October retrieval. That freshness is preserved independently of `observed_at`. The original Modulecounts clone is ignored at `vendor/modulecounts/`, revision `0643af5f34e9af7d732d3e95f3d976cdf1389697`.
+The collector saves that exact archived page and verifies every qualifying row against the reviewed host aliases. A new qualifying host or a selected host below the threshold fails validation. Selection metadata retains all displayed rates, including excluded hosts.
+
+| Host          | Source                                                     | Counting unit                                                                   |
+| ------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| npm           | Registry replication metadata                              | `doc_count`; package documents                                                  |
+| PyPI          | Homepage                                                   | Projects                                                                        |
+| Maven Central | Official search API, all artifacts, default core           | Distinct group/artifact pairs, `response.numFound`                              |
+| NuGet         | Search API, empty query, prereleases and SemVer 2 included | Listed package IDs; unlisted-only packages are omitted                          |
+| Packagist     | Statistics page                                            | Registered packages                                                             |
+| crates.io     | Summary API                                                | `num_crates`                                                                    |
+| RubyGems      | Statistics page                                            | Total gems                                                                      |
+| CPAN          | MetaCPAN distribution index count                          | Distribution records, including retained historical names                       |
+| Clojars       | Project listing                                            | Artifacts, including noncanonical forks                                         |
+| Hex           | Homepage                                                   | Available packages                                                              |
+| LuaRocks      | All-packages listing                                       | Owner/package listings; identical names under different owners count separately |
+| CrystalShards | Current catalog at crystalshards.org                       | Indexed shard repositories                                                      |
+| MELPA         | JSON archive                                               | Package-name keys, once across versions                                         |
+| Drupal        | Project API, project_module, page size 1                   | Published module projects, using zero-based last-page index + 1                 |
+
+Source URLs and method versions are recorded per observation; bodies and checksums are retained for replay. Catalogs have different retention and visibility rules. Versions, downloads, forks, and removed packages are treated according to those stated source definitions. Maven’s search index may lag publication; it supplies no freshness timestamp. The earlier quickstats snapshot reported June 2026 freshness and remains preserved with its original parser.
+
+CrystalShards’ former `.xyz` domain now serves unrelated content. The collector uses the current `.org` catalog and records a separate method version. MELPA transfers use identity encoding to avoid a Node 22 HTTP-parser failure seen with its compressed response.
+
+The ignored Modulecounts reference clone is at `vendor/modulecounts/`, revision `0643af5f34e9af7d732d3e95f3d976cdf1389697`. Original four-host snapshots remain replayable.
 
 ## GitHub
 

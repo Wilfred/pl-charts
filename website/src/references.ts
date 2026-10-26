@@ -44,10 +44,16 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   packages: {
     items: [
       {
+        href: "https://github.com/Wilfred/pl-charts/blob/main/data/README.md#packages",
+        title: "Package-host counting definitions",
+        description:
+          "Source endpoints, visibility rules, archived host selection, and offline replay instructions.",
+      },
+      {
         href: "https://web.archive.org/web/20240115115215/http://www.modulecounts.com/",
         title: "Modulecounts.com — 15 January 2024 archive",
         description:
-          "Daily registry totals with growth averaged over the preceding week. Package names count once across versions. The archive documents missing observations, changes to registry sites, and comparability problems with the Go index.",
+          "Daily registry totals with growth averaged over the preceding week. Package names count once across versions. The host cohort uses its displayed growth rates of at least two packages per day. CPAN’s two entries identify one host.",
       },
       {
         href: "https://github.com/edebill/modulecounts",
@@ -63,7 +69,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Comparison variables: distinct package names, registry coverage, observation date, and collector changes. Preserve gaps and source changes when comparing historical growth.",
+      "Counts use host-specific definitions. NuGet includes listed IDs; CPAN uses distributions; LuaRocks uses owner/package listings; Drupal uses package projects. CrystalShards uses its current .org catalog. Source methods and raw responses are documented with the CSV.",
   },
   stackoverflow: {
     items: [

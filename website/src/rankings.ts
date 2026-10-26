@@ -1,10 +1,11 @@
+import { HOST_URLS } from "./package-hosts.ts";
 import {
   defaultPeriod,
   periodOptions,
   formatPeriod,
   formatRank,
   METRIC_INFO,
-  METRICS,
+  LANGUAGE_METRICS,
   isMetric,
   rankLanguages,
   formatValue,
@@ -16,9 +17,17 @@ type Direction = "ascending" | "descending";
 function languageCell(
   document: Document,
   language: Language,
+  host = false,
 ): HTMLTableCellElement {
   const cell = document.createElement("th");
   cell.scope = "row";
+  if (host) {
+    const link = document.createElement("a");
+    link.href = HOST_URLS[language]!;
+    link.textContent = language;
+    cell.append(link);
+    return cell;
+  }
   const dot = document.createElement("span");
   dot.className = `language-dot ${LANGUAGE_CLASSES[language]}`;
   dot.setAttribute("aria-hidden", "true");
@@ -40,7 +49,7 @@ export function initializeRankings(document: Document): void {
     ];
     const period = section.querySelector<HTMLSelectElement>(".metric-period");
     if (!body || !buttons.length) continue;
-    let sortKey: string = overview ? METRICS[0] : "rank";
+    let sortKey: string = overview ? LANGUAGE_METRICS[0]! : "rank";
     let direction: Direction = overview ? "descending" : "ascending";
     const render = (): void => {
       const selected = overview ? sortKey : metricId;
@@ -67,7 +76,7 @@ export function initializeRankings(document: Document): void {
         return sign * difference || a.language.localeCompare(b.language);
       });
       const ranks = new Map(
-        METRICS.map((key) => [
+        LANGUAGE_METRICS.map((key) => [
           key,
           new Map(rankLanguages(key).map((row) => [row.language, row.rank])),
         ]),
@@ -77,7 +86,7 @@ export function initializeRankings(document: Document): void {
         const tr = document.createElement("tr");
         if (overview) {
           tr.append(languageCell(document, row.language));
-          for (const key of METRICS) {
+          for (const key of LANGUAGE_METRICS) {
             const td = document.createElement("td");
             td.className = "numeric";
             const badge = document.createElement("span");
@@ -94,7 +103,15 @@ export function initializeRankings(document: Document): void {
           const count = document.createElement("td");
           count.className = "numeric count-cell";
           count.textContent = formatValue(metric, row.value);
-          tr.append(rank, languageCell(document, row.language), count);
+          tr.append(
+            rank,
+            languageCell(
+              document,
+              row.language,
+              metric === "packages.published",
+            ),
+            count,
+          );
         }
         body.append(tr);
       }

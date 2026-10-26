@@ -23,13 +23,15 @@ function staticPages(): Plugin {
       server.watcher.add([
         exportRoot,
         fileURLToPath(new URL("../data/languages.json", import.meta.url)),
+        fileURLToPath(new URL("../data/package-hosts.json", import.meta.url)),
       ]);
       let pending: ReturnType<typeof setTimeout> | undefined;
       const onChange = (file: string): void => {
         if (
           !(file.startsWith(sourceRoot) && /\.tsx?$/.test(file)) &&
           !(file.startsWith(exportRoot) && file.endsWith(".csv")) &&
-          file !== dataRoot + "languages.json"
+          file !== dataRoot + "languages.json" &&
+          file !== dataRoot + "package-hosts.json"
         )
           return;
         clearTimeout(pending);

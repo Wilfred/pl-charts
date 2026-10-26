@@ -2,23 +2,35 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { readPackageSnapshot } from "../scripts/package-data.ts";
-import { LANGUAGES, metricCounts, rankLanguages } from "../src/data.ts";
+import { JSDOM } from "jsdom";
+import { HOST_NAMES, HOST_URLS } from "../src/package-hosts.ts";
+import { initializeRankings } from "../src/rankings.ts";
+import { metricCounts, rankLanguages } from "../src/data.ts";
 const source = readFileSync(
   new URL("../../data/exports/packages.csv", import.meta.url),
   "utf8",
 );
-test("packages use the four collected registry totals and preserve unmeasured ecosystems", () => {
+test("packages rank hosts without assigning their totals to languages", () => {
   const snapshot = readPackageSnapshot(source);
   assert.deepEqual(snapshot.counts, metricCounts("packages.published"));
-  assert.equal(
-    Object.values(snapshot.counts).filter((value) => value !== null).length,
-    4,
+  assert.deepEqual(Object.keys(snapshot.counts).sort(), [...HOST_NAMES].sort());
+  assert.equal(Object.keys(snapshot.counts).length, 14);
+  for (const language of ["JavaScript", "TypeScript", "Java", "Python"])
+    assert.ok(!Object.hasOwn(snapshot.counts, language));
+  const rows = rankLanguages("packages.published");
+  assert.equal(rows.length, 14);
+  assert.ok(rows.every((row) => row.value !== null && row.rank !== null));
+  const { window } = new JSDOM(
+    readFileSync(new URL("../packages.html", import.meta.url), "utf8"),
   );
-  assert.equal(snapshot.counts.Go, null);
-  assert.equal(snapshot.counts.Ruby, null);
-  assert.equal(snapshot.counts.TypeScript, null);
-  assert.equal(Object.keys(snapshot.counts).length, LANGUAGES.length);
-  assert.equal(rankLanguages("packages.published").at(-1)?.rank, null);
+  const document = window.document;
+  const hostHeader = document.querySelector('[data-sort="language"]')!;
+  assert.equal(hostHeader.textContent?.trim(), "Host");
+  assert.equal(document.querySelectorAll("tbody th a").length, 14);
+  initializeRankings(document);
+  assert.equal(document.querySelectorAll("tbody th a").length, 14);
+  for (const link of document.querySelectorAll<HTMLAnchorElement>("tbody th a"))
+    assert.equal(link.getAttribute("href"), HOST_URLS[link.textContent!]);
 });
 test("incomplete, invalid, duplicate, or mixed package runs fail before rendering", () => {
   const lines = source.trim().split("\n");

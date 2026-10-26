@@ -4,7 +4,7 @@ import test from "node:test";
 import { JSDOM } from "jsdom";
 import {
   CATEGORIES,
-  LANGUAGES,
+  metricEntities,
   METRICS,
   METRIC_INFO,
   rankValues,
@@ -70,7 +70,7 @@ for (const category of CATEGORIES)
       const section = document.querySelector<HTMLElement>(
         `[data-metric="${metric}"]`,
       )!;
-      assert.equal(rows(section).length, LANGUAGES.length);
+      assert.equal(rows(section).length, metricEntities(metric).length);
       assert.deepEqual(rows(section), expected(metric));
       assert.equal(
         section.querySelector(".updated-badge time")?.textContent,
@@ -83,12 +83,12 @@ for (const category of CATEGORIES)
       button.click();
       assert.equal(
         rows(section)[0]?.[1],
-        [...LANGUAGES].sort((a, b) => a.localeCompare(b))[0],
+        [...metricEntities(metric)].sort((a, b) => a.localeCompare(b))[0],
       );
       button.click();
       assert.equal(
         rows(section)[0]?.[1],
-        [...LANGUAGES].sort((a, b) => b.localeCompare(a))[0],
+        [...metricEntities(metric)].sort((a, b) => b.localeCompare(a))[0],
       );
       section.querySelector<HTMLButtonElement>('[data-sort="rank"]')!.click();
       assert.deepEqual(rows(section), expected(metric));
@@ -116,14 +116,18 @@ for (const category of CATEGORIES)
       }
     }
   });
-test("overview exposes all 20 languages and eight measured metrics without update badges", () => {
+test("overview exposes all 20 languages and seven language metrics without update badges", () => {
   const { window } = load("index.html"),
     document = window.document;
   initializeRankings(document);
   const section = document.querySelector("[data-overview]")!;
   assert.equal(rows(section).length, 20);
-  assert.equal(rows(section)[0]?.length, 9);
+  assert.equal(rows(section)[0]?.length, 8);
   assert.equal(document.querySelectorAll("time,.updated-badge").length, 0);
+  assert.equal(
+    section.querySelectorAll('[data-sort="packages.published"]').length,
+    0,
+  );
   const before = rows(section);
   section
     .querySelector<HTMLButtonElement>('[data-sort="survey.usage"]')!

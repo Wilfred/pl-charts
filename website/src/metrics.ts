@@ -39,11 +39,10 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
   "packages.published": {
     label: "Published packages",
     unit: "Packages",
-    description:
-      "Registry totals from npm, PyPI, crates.io, and Maven Central, mapped to JavaScript, Python, Rust, and Java.",
+    description: "Package and project records, counted once across versions.",
     file: "packages",
     cadence: "snapshot",
-    note: "— indicates an unmeasured ecosystem. npm and Maven serve several languages.",
+    note: "Hosts with at least two new packages per day in Modulecounts’ 15 January 2024 snapshot. Totals use each host’s package or catalog definition.",
   },
   "stackoverflow.questions": {
     label: "Questions",
@@ -91,3 +90,7 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
     note: "Case-aware aliases identify mentions. One comment can contribute to several languages; omitted months remain missing.",
   },
 };
+
+export const LANGUAGE_METRICS = METRICS.filter(
+  (metric) => metric !== "packages.published",
+);

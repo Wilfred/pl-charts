@@ -1,14 +1,7 @@
 import { parse } from "csv-parse/sync";
-import { LANGUAGES, type LanguageCounts } from "../src/languages.ts";
-
-export const PACKAGE_LANGUAGES = {
-  npm: "JavaScript",
-  pypi: "Python",
-  cargo: "Rust",
-  maven: "Java",
-} as const;
+import { PACKAGE_HOSTS } from "../src/package-hosts.ts";
 export interface PackageSnapshot {
-  counts: LanguageCounts;
+  counts: Record<string, number | null>;
   updatedAt: string;
 }
 
@@ -17,17 +10,10 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     columns: true,
     skip_empty_lines: true,
   });
-  if (
-    !Array.isArray(records) ||
-    records.length !== Object.keys(PACKAGE_LANGUAGES).length
-  ) {
-    throw new Error(
-      "Expected one package observation for each of the four registries",
-    );
+  if (!Array.isArray(records) || records.length !== PACKAGE_HOSTS.length) {
+    throw new Error("Expected one package observation for each selected host");
   }
-  const counts = Object.fromEntries(
-    LANGUAGES.map((language) => [language, null]),
-  ) as LanguageCounts;
+  const counts: Record<string, number | null> = {};
   const seen = new Set<string>();
   let latest = "";
   let runId: string | undefined;
@@ -47,7 +33,7 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     const id = row.entity_id;
     if (
       typeof id !== "string" ||
-      !Object.hasOwn(PACKAGE_LANGUAGES, id) ||
+      !PACKAGE_HOSTS.some((host) => host.id === id) ||
       seen.has(id)
     ) {
       throw new Error("Unexpected or duplicate package registry");
@@ -76,8 +62,8 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     }
     runId = row.run_id;
     seen.add(id);
-    const language = PACKAGE_LANGUAGES[id as keyof typeof PACKAGE_LANGUAGES];
-    counts[language] = Number(row.value);
+    const host = PACKAGE_HOSTS.find((host) => host.id === id)!;
+    counts[host.name] = Number(row.value);
     const observed = new Date(row.observed_at).toISOString();
     if (observed > latest) latest = observed;
   }

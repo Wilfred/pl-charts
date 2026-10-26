@@ -1,3 +1,4 @@
+import { HOST_URLS } from "../package-hosts.ts";
 import { TrendPlot } from "./trends.tsx";
 import {
   CATEGORIES,
@@ -5,7 +6,7 @@ import {
   periodOptions,
   formatPeriod,
   formatRank,
-  METRICS,
+  LANGUAGE_METRICS,
   METRIC_INFO,
   formatValue,
   rankLanguages,
@@ -17,7 +18,19 @@ import { LANGUAGE_CLASSES, LANGUAGE_COLORS } from "../languages.ts";
 export function metricAnchor(metric: Metric): string {
   return metric.replaceAll(".", "-").replaceAll("_", "-");
 }
-function LanguageCell({ language }: { language: Language }) {
+function LanguageCell({
+  language,
+  host = false,
+}: {
+  language: Language;
+  host?: boolean;
+}) {
+  if (host)
+    return (
+      <th scope="row">
+        <a href={HOST_URLS[language]}>{language}</a>
+      </th>
+    );
   return (
     <th scope="row">
       <span
@@ -151,7 +164,10 @@ export function MetricSection({
                 numeric
                 initial="ascending"
               />
-              <SortHeader sortKey="language" label="Language" />
+              <SortHeader
+                sortKey="language"
+                label={metric === "packages.published" ? "Host" : "Language"}
+              />
               <SortHeader sortKey="value" label={info.unit} numeric />
             </tr>
           </thead>
@@ -159,7 +175,10 @@ export function MetricSection({
             {rankLanguages(metric).map((row) => (
               <tr key={row.language}>
                 <td className="numeric rank-cell">{formatRank(row.rank)}</td>
-                <LanguageCell language={row.language} />
+                <LanguageCell
+                  language={row.language}
+                  host={metric === "packages.published"}
+                />
                 <td className="numeric count-cell">
                   {formatValue(metric, row.value)}
                 </td>
@@ -175,7 +194,7 @@ export function MetricSection({
 
 export function Comparison() {
   const ranks = new Map(
-    METRICS.map((metric) => [
+    LANGUAGE_METRICS.map((metric) => [
       metric,
       new Map(rankLanguages(metric).map((row) => [row.language, row.rank])),
     ]),
@@ -206,34 +225,38 @@ export function Comparison() {
           <thead>
             <tr>
               <SortHeader sortKey="language" label="Language" rowSpan={2} />
-              {CATEGORIES.map((category) => (
-                <th
-                  key={category.id}
-                  scope="colgroup"
-                  colSpan={category.metrics.length}
-                  className="numeric"
-                >
-                  <a href={category.href}>{category.label}</a>
-                </th>
-              ))}
+              {CATEGORIES.filter((category) => category.id !== "packages").map(
+                (category) => (
+                  <th
+                    key={category.id}
+                    scope="colgroup"
+                    colSpan={category.metrics.length}
+                    className="numeric"
+                  >
+                    <a href={category.href}>{category.label}</a>
+                  </th>
+                ),
+              )}
             </tr>
             <tr>
-              {METRICS.map((metric) => (
+              {LANGUAGE_METRICS.map((metric) => (
                 <SortHeader
                   key={metric}
                   sortKey={metric}
                   label={METRIC_INFO[metric].label}
                   numeric
-                  initial={metric === METRICS[0] ? "descending" : undefined}
+                  initial={
+                    metric === LANGUAGE_METRICS[0] ? "descending" : undefined
+                  }
                 />
               ))}
             </tr>
           </thead>
           <tbody>
-            {rankLanguages(METRICS[0]).map((row) => (
+            {rankLanguages(LANGUAGE_METRICS[0]!).map((row) => (
               <tr key={row.language}>
                 <LanguageCell language={row.language} />
-                {METRICS.map((metric) => {
+                {LANGUAGE_METRICS.map((metric) => {
                   const rank = ranks.get(metric)?.get(row.language);
                   return (
                     <td key={metric} className="numeric">
