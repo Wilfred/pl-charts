@@ -1,0 +1,194 @@
+{
+  "selection": {
+    "source": "GitHut 2.0",
+    "revision": "401c43b4c206088b7a8a46ce3840d369c6b6e850",
+    "metric": "pull_requests",
+    "period": "2024-Q1"
+  },
+  "languages": [
+    {
+      "name": "Python",
+      "id": "py",
+      "color": "#72a2dc",
+      "stackoverflowTag": "python",
+      "surveyAliases": ["Python"],
+      "mentionPattern": "\\bpython\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Java",
+      "id": "java",
+      "color": "#d58b60",
+      "stackoverflowTag": "java",
+      "surveyAliases": ["Java"],
+      "mentionPattern": "\\bjava\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Go",
+      "id": "go",
+      "color": "#64b8c7",
+      "stackoverflowTag": "go",
+      "surveyAliases": ["Go"],
+      "mentionPattern": "(?:\\b[Gg]olang\\b|\\bGo(?:$|[,/|.)]|\\s+(?:engineer|developer|backend|language|experience|programming)))",
+      "mentionFlags": ""
+    },
+    {
+      "name": "JavaScript",
+      "id": "js",
+      "color": "#d1b83e",
+      "stackoverflowTag": "javascript",
+      "surveyAliases": ["JavaScript"],
+      "mentionPattern": "\\bjavascript\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "C++",
+      "id": "cpp",
+      "color": "#bd9aef",
+      "stackoverflowTag": "c++",
+      "surveyAliases": ["C++"],
+      "mentionPattern": "\\bc\\+\\+(?:$|[^+])",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "TypeScript",
+      "id": "ts",
+      "color": "#6e9ce8",
+      "stackoverflowTag": "typescript",
+      "surveyAliases": ["TypeScript"],
+      "mentionPattern": "\\btypescript\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "PHP",
+      "id": "php",
+      "color": "#a99cdb",
+      "stackoverflowTag": "php",
+      "surveyAliases": ["PHP"],
+      "mentionPattern": "\\bphp\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Ruby",
+      "id": "ruby",
+      "color": "#d57888",
+      "stackoverflowTag": "ruby",
+      "surveyAliases": ["Ruby"],
+      "mentionPattern": "\\bruby\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "C",
+      "id": "c",
+      "color": "#b8c4d9",
+      "stackoverflowTag": "c",
+      "surveyAliases": ["C"],
+      "mentionPattern": "(^|[^A-Za-z0-9_])C(?:$|[,/|.)]|\\s+(?:programming|language|code|developer|engineer))",
+      "mentionFlags": ""
+    },
+    {
+      "name": "C#",
+      "id": "csharp",
+      "color": "#8fc58a",
+      "stackoverflowTag": "c#",
+      "surveyAliases": ["C#"],
+      "mentionPattern": "\\b(?:c#|csharp)(?:$|\\W)",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Nix",
+      "id": "nix",
+      "color": "#9db6e2",
+      "stackoverflowTag": "nix",
+      "surveyAliases": ["Nix"],
+      "mentionPattern": "\\b(?:nix|nixos)\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Shell",
+      "id": "shell",
+      "color": "#a6c96d",
+      "stackoverflowTag": "bash",
+      "surveyAliases": [
+        "Bash/Shell",
+        "Bash/Shell (all shells)",
+        "Bash/Shell/PowerShell"
+      ],
+      "mentionPattern": "\\b(?:bash|shell)\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Rust",
+      "id": "rust",
+      "color": "#b1a196",
+      "stackoverflowTag": "rust",
+      "surveyAliases": ["Rust"],
+      "mentionPattern": "\\brust\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Scala",
+      "id": "scala",
+      "color": "#df7d77",
+      "stackoverflowTag": "scala",
+      "surveyAliases": ["Scala"],
+      "mentionPattern": "\\bscala\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Kotlin",
+      "id": "kotlin",
+      "color": "#c794cf",
+      "stackoverflowTag": "kotlin",
+      "surveyAliases": ["Kotlin"],
+      "mentionPattern": "\\bkotlin\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Swift",
+      "id": "swift",
+      "color": "#e6a277",
+      "stackoverflowTag": "swift",
+      "surveyAliases": ["Swift"],
+      "mentionPattern": "\\bswift\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Dart",
+      "id": "dart",
+      "color": "#69b8b0",
+      "stackoverflowTag": "dart",
+      "surveyAliases": ["Dart"],
+      "mentionPattern": "\\bdart\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Groovy",
+      "id": "groovy",
+      "color": "#b2b56d",
+      "stackoverflowTag": "groovy",
+      "surveyAliases": ["Groovy"],
+      "mentionPattern": "\\bgroovy\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Perl",
+      "id": "perl",
+      "color": "#d18fa9",
+      "stackoverflowTag": "perl",
+      "surveyAliases": ["Perl"],
+      "mentionPattern": "\\bperl\\b",
+      "mentionFlags": "i"
+    },
+    {
+      "name": "Lua",
+      "id": "lua",
+      "color": "#a3a5e5",
+      "stackoverflowTag": "lua",
+      "surveyAliases": ["Lua"],
+      "mentionPattern": "\\blua\\b",
+      "mentionFlags": "i"
+    }
+  ]
+}
