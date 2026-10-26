@@ -17,9 +17,9 @@
 - Implement a reproducible collector, raw snapshots, provenance, and offline validation when replacing design values. Keep missing historical values distinct from zero.
 - Collectors write to `data/`, independently of website implementation. Follow `data/README.md` for schema and provenance conventions.
 - Retain exact raw responses, source metadata, checksums, and dated CSV observations. Publish the current export only after every required source validates.
-- Query GitHub event data directly with the versioned collector. Preserve Unknown language counts, report attribution coverage, and distinguish partial quarters in labels and plots. Keep the old GitHut import as historical provenance.
+- Query GitHub event data directly with the versioned collector. Preserve Unknown language counts, report attribution coverage, and retain partial quarters in raw data and exports while displaying complete quarters on the website. Keep the old GitHut import as historical provenance.
 - Preserve missing observations and source-reported freshness. Keep registry counts distinct from language attribution and package names distinct from versions.
-- `vendor/modulecounts/` is an ignored reference checkout. Keep its dependencies separate.
+- `vendor/modulecounts/` and `vendor/githut/` are ignored reference checkouts. Keep its dependencies separate.
 - Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.
 - Render shared JSX components into static HTML at build time. Edit `website/src/pages.tsx` and `website/src/components/`; generated HTML and `.generated/` are ignored artifacts.
 - Derive package values from the checked-in CSV during rendering. Keep the registry-to-language display mapping documented. Show zero for Go and Ruby until instructed otherwise.
