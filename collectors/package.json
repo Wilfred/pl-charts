@@ -10,7 +10,10 @@
     "inspect:github": "node src/inspect-github-attribution.ts",
     "collect:languages": "node src/select-languages.ts",
     "collect:surveys": "node src/collect-surveys.ts",
-    "collect:releases": "node src/collect-releases.ts"
+    "collect:releases": "node src/collect-releases.ts",
+    "collect:stackoverflow": "node src/collect-stackoverflow.ts",
+    "collect:hiring": "node src/collect-hiring.ts",
+    "inspect:github-health": "node src/inspect-github-health.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",
