@@ -26,7 +26,7 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     );
   }
   const counts = Object.fromEntries(
-    LANGUAGES.map((language) => [language, 0]),
+    LANGUAGES.map((language) => [language, null]),
   ) as LanguageCounts;
   const seen = new Set<string>();
   let latest = "";

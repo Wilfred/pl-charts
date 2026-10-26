@@ -8,6 +8,18 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   github: {
     items: [
       {
+        href: "https://opensource.googleblog.com/2026/09/how-much-should-you-trust-your-oss-data.html",
+        title: "Google Open Source — GH Archive coverage",
+        description:
+          "Reports reduced archive retention after 2024 and its implications for event-volume comparisons.",
+      },
+      {
+        href: "github-health.csv",
+        title: "Archive capture audit (CSV)",
+        description:
+          "Monthly unjoined event counts, action checks, and represented archive hours from our saved queries.",
+      },
+      {
         href: "https://www.gharchive.org/",
         title: "GH Archive",
         description:
@@ -27,7 +39,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Events use the latest known repository primary language at collection time. Repository metadata covers a subset of public activity; unmatched repositories and empty languages appear as Unknown in the CSV. Coverage varies over time. Bots and forks are included. Rankings and plots use complete quarters.",
+      "Events use the latest known repository primary language at collection time. Repository metadata covers a subset of public activity; unmatched repositories and empty languages appear as Unknown in the CSV. Capture and attribution vary over time. Bots and forks are included. Rankings and plots use complete quarters.",
   },
   packages: {
     items: [
@@ -55,6 +67,12 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   },
   stackoverflow: {
     items: [
+      {
+        href: "https://clickhouse.com/docs/data-modeling/schema-design",
+        title: "Stack Overflow snapshot and schema",
+        description:
+          "Documents the public post snapshot through March 2024. Our queries count creation dates and join answers to parent-question tags.",
+      },
       {
         href: "https://api.stackexchange.com/docs/tags",
         title: "Stack Exchange tags API",
@@ -104,27 +122,32 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   releases: {
     items: [
       {
-        href: "https://peps.python.org/pep-0602/",
-        title: "Python — PEP 602",
+        href: "https://github.com/Wilfred/pl-charts/blob/main/collectors/src/collect-releases.ts",
+        title: "Implementation and source definitions",
         description:
-          "Specifies an annual feature-release cycle. Maintenance releases and security releases form separate series.",
+          "Defines each canonical implementation, stability filter, publication date, and historical aggregation rule.",
       },
       {
-        href: "https://go.dev/doc/devel/release",
-        title: "Go — release history",
+        href: "https://gcc.gnu.org/releases.html",
+        title: "GCC release history",
         description:
-          "Lists dated stable versions and their changes. Feature releases and patch releases can be classified from the version history.",
+          "Official dated release records for the shared C and C++ toolchain.",
       },
       {
-        href: "https://doc.rust-lang.org/book/appendix-07-nightly-rust.html",
-        title: "Rust — release channels",
+        href: "https://nodejs.org/dist/index.json",
+        title: "Node.js distribution history",
         description:
-          "Describes the six-week stable release train and the nightly and beta channels. Channel selection substantially changes the event count.",
+          "Version and distribution dates used for the JavaScript implementation series.",
+      },
+      {
+        href: "https://github.com/rust-lang/rust/blob/stable/RELEASES.md",
+        title: "Rust release sources",
+        description:
+          "The stable compiler changelog supplies explicitly dated releases, including maintenance versions.",
       },
     ],
-    notes: "",
-    preliminaryAnalysis:
-      "Release frequency depends on release policy. An initial comparison could count feature releases and maintenance releases separately, group events by calendar year, and record the implementation being measured. Python’s annual cycle and Rust’s six-week train illustrate how schedules influence the resulting ranks.",
+    notes:
+      "Source histories begin at different dates. GNU Bash uses source-archive and patch timestamps. Lightweight Nix tags use the tagged commit date. The CSV ecosystem field identifies each implementation; manifests retain canonical version/date events.",
   },
   "hacker-news": {
     items: [

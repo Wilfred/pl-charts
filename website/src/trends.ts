@@ -1,8 +1,10 @@
+import { historyPeriods, metricCounts, isMetric, pointLabel } from "./data.ts";
+import { pointPosition } from "./plot.ts";
 interface Point {
   element: SVGCircleElement;
   series: SVGGElement;
   language: string;
-  quarter: number;
+  index: number;
   x: number;
   y: number;
   label: string;
@@ -13,19 +15,30 @@ export function initializeTrends(root: Document): void {
     const frame = figure.querySelector<HTMLElement>(".trend-frame");
     const tooltip = figure.querySelector<HTMLElement>("[data-trend-tooltip]");
     if (!plot || !frame || !tooltip) return;
-    const points: Point[] = [
-      ...plot.querySelectorAll<SVGCircleElement>("[data-trend-point]"),
-    ].map((element) => ({
-      element,
-      series: element.closest<SVGGElement>("[data-trend-series]")!,
-      language: element.dataset.language!,
-      quarter: Number(element.dataset.quarterIndex),
-      x: Number(element.getAttribute("cx")),
-      y: Number(element.getAttribute("cy")),
-      label: element.dataset.label!,
-    }));
-    // The custom tooltip replaces native SVG titles when JavaScript is available.
-    points.forEach((point) => point.element.querySelector("title")?.remove());
+    const metric = figure.dataset.trend;
+    if (!isMetric(metric)) return;
+    const periods = historyPeriods(metric);
+    const maximum = Number(figure.dataset.maximum);
+    const points: Point[] = [];
+    for (const series of plot.querySelectorAll<SVGGElement>(
+      "[data-trend-series]",
+    )) {
+      const language = series.dataset.trendSeries!;
+      const element = series.querySelector<SVGCircleElement>(".trend-point")!;
+      series.querySelector("title")?.remove();
+      periods.forEach((period, index) => {
+        const value = metricCounts(metric, period)[language] ?? null;
+        if (value !== null)
+          points.push({
+            element,
+            series,
+            language,
+            index: index,
+            ...pointPosition(index, periods.length, value, maximum),
+            label: pointLabel(metric, language, period, value),
+          });
+      });
+    }
     let selected: Point | undefined;
     const visible = () =>
       points.filter((point) => point.series.style.display !== "none");
@@ -36,6 +49,8 @@ export function initializeTrends(root: Document): void {
     function show(point: Point): void {
       selected?.element.classList.remove("is-active");
       selected = point;
+      point.element.setAttribute("cx", String(point.x));
+      point.element.setAttribute("cy", String(point.y));
       point.element.classList.add("is-active");
       tooltip!.textContent = point.label;
       tooltip!.hidden = false;
@@ -76,7 +91,7 @@ export function initializeTrends(root: Document): void {
       const point = available.find(
         (point) =>
           point.language === available[0]?.language &&
-          point.quarter === Math.max(...available.map((item) => item.quarter)),
+          point.index === Math.max(...available.map((item) => item.index)),
       );
       if (point) show(point);
     });
@@ -117,7 +132,7 @@ export function initializeTrends(root: Document): void {
             )
           ]!;
       const series = available.filter((point) => point.language === language);
-      let index = series.findIndex((point) => point.quarter >= current.quarter);
+      let index = series.findIndex((point) => point.index >= current.index);
       if (index < 0) index = series.length - 1;
       if (event.key === "ArrowLeft") index--;
       if (event.key === "ArrowRight") index++;
@@ -131,7 +146,9 @@ export function initializeTrends(root: Document): void {
     figure
       .querySelectorAll<HTMLButtonElement>("[data-trend-language]")
       .forEach((button) => {
-        button.disabled = false;
+        button.disabled = !points.some(
+          (point) => point.language === button.dataset.trendLanguage,
+        );
         button.addEventListener("click", () => {
           const pressed = button.getAttribute("aria-pressed") !== "true";
           button.setAttribute("aria-pressed", String(pressed));

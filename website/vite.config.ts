@@ -5,12 +5,8 @@ import { CATEGORIES } from "./src/categories.ts";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const sourceRoot = fileURLToPath(new URL("src/", import.meta.url));
-const githubCsv = fileURLToPath(
-  new URL("../data/exports/github.csv", import.meta.url),
-);
-const packageCsv = fileURLToPath(
-  new URL("../data/exports/packages.csv", import.meta.url),
-);
+const dataRoot = fileURLToPath(new URL("../data/", import.meta.url));
+const exportRoot = fileURLToPath(new URL("../data/exports/", import.meta.url));
 
 function renderPages(): void {
   execFileSync(process.execPath, ["--import", "tsx", "scripts/render.tsx"], {
@@ -24,13 +20,16 @@ function staticPages(): Plugin {
     name: "static-jsx-pages",
     configureServer(server) {
       renderPages();
-      server.watcher.add([packageCsv, githubCsv]);
+      server.watcher.add([
+        exportRoot,
+        fileURLToPath(new URL("../data/languages.json", import.meta.url)),
+      ]);
       let pending: ReturnType<typeof setTimeout> | undefined;
       const onChange = (file: string): void => {
         if (
           !(file.startsWith(sourceRoot) && /\.tsx?$/.test(file)) &&
-          file !== packageCsv &&
-          file !== githubCsv
+          !(file.startsWith(exportRoot) && file.endsWith(".csv")) &&
+          file !== dataRoot + "languages.json"
         )
           return;
         clearTimeout(pending);

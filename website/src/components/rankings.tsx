@@ -1,20 +1,18 @@
 import { TrendPlot } from "./trends.tsx";
 import {
   CATEGORIES,
-  GITHUB_QUARTERS,
-  DEFAULT_GITHUB_QUARTER,
-  formatQuarter,
+  defaultPeriod,
+  periodOptions,
+  formatPeriod,
   formatRank,
-  DEFAULT_YEAR,
   METRICS,
   METRIC_INFO,
-  RELEASE_YEARS,
   formatValue,
   rankLanguages,
   type Language,
   type Metric,
 } from "../data.ts";
-import { LANGUAGE_CLASSES } from "../languages.ts";
+import { LANGUAGE_CLASSES, LANGUAGE_COLORS } from "../languages.ts";
 
 export function metricAnchor(metric: Metric): string {
   return metric.replaceAll(".", "-").replaceAll("_", "-");
@@ -25,6 +23,7 @@ function LanguageCell({ language }: { language: Language }) {
       <span
         className={`language-dot ${LANGUAGE_CLASSES[language]}`}
         aria-hidden="true"
+        style={{ background: LANGUAGE_COLORS[language] }}
       />
       {language}
     </th>
@@ -34,8 +33,7 @@ function UpdatedDate({ metric }: { metric: Metric }) {
   const date = METRIC_INFO[metric].updatedAt;
   return (
     <span className="updated-badge">
-      Updated{" "}
-      <time dateTime={date}>{date === "1970-01-01" ? "1970" : date}</time>
+      Updated <time dateTime={date}>{date}</time>
     </span>
   );
 }
@@ -83,15 +81,22 @@ function SortHeader({
   );
 }
 
-function ReleaseFilter() {
+function PeriodFilter({ metric }: { metric: Metric }) {
+  const options = periodOptions(metric);
+  if (!options.length) return null;
+  const cadence = METRIC_INFO[metric].cadence;
   return (
     <div className="table-controls" hidden>
       <label>
-        Year
-        <select className="release-year" defaultValue={String(DEFAULT_YEAR)}>
-          {RELEASE_YEARS.map((year) => (
-            <option key={year} value={year}>
-              {year}
+        {cadence === "year"
+          ? "Year"
+          : cadence === "month"
+            ? "Month"
+            : "Quarter"}
+        <select className="metric-period" defaultValue={defaultPeriod(metric)}>
+          {[...options].reverse().map((period) => (
+            <option key={period} value={period}>
+              {formatPeriod(period)}
             </option>
           ))}
         </select>
@@ -100,27 +105,13 @@ function ReleaseFilter() {
   );
 }
 
-function QuarterFilter() {
-  return (
-    <div className="table-controls" hidden>
-      <label>
-        Quarter
-        <select
-          className="github-quarter"
-          defaultValue={DEFAULT_GITHUB_QUARTER}
-        >
-          {[...GITHUB_QUARTERS].reverse().map((quarter) => (
-            <option key={quarter} value={quarter}>
-              {formatQuarter(quarter)}
-            </option>
-          ))}
-        </select>
-      </label>
-    </div>
-  );
-}
-
-export function MetricSection({ metric }: { metric: Metric }) {
+export function MetricSection({
+  metric,
+  showNote = true,
+}: {
+  metric: Metric;
+  showNote?: boolean;
+}) {
   const info = METRIC_INFO[metric];
   const anchor = metricAnchor(metric);
   return (
@@ -133,25 +124,15 @@ export function MetricSection({ metric }: { metric: Metric }) {
       <div className="metric-heading">
         <h2 id={`heading-${anchor}`}>{info.label}</h2>
         <UpdatedDate metric={metric} />
-        {(metric === "packages.published" ||
-          metric === "github.pushes" ||
-          metric === "github.pull_requests") && (
-          <a
-            href={
-              metric === "packages.published" ? "packages.csv" : "github.csv"
-            }
-            download
-            className="data-download"
-          >
-            CSV
-          </a>
-        )}
+        <a href={`${info.file}.csv`} download className="data-download">
+          CSV
+        </a>
       </div>
       <p className="metric-description">{info.description}</p>
-      {metric === "releases.stable" && <ReleaseFilter />}
-      {(metric === "github.pushes" || metric === "github.pull_requests") && (
-        <QuarterFilter />
+      {showNote && info.note && (
+        <p className="metric-description source-note">{info.note}</p>
       )}
+      <PeriodFilter metric={metric} />
       <div
         className="table-wrap"
         tabIndex={0}
@@ -160,9 +141,7 @@ export function MetricSection({ metric }: { metric: Metric }) {
       >
         <table className="detail-table">
           <caption className="sr-only">
-            {metric === "releases.stable"
-              ? `Stable release rankings, ${DEFAULT_YEAR}`
-              : `${info.label} rankings${metric.startsWith("github.") ? `, ${formatQuarter(DEFAULT_GITHUB_QUARTER)}` : ""}`}
+            {`${info.label} rankings${defaultPeriod(metric) ? ", " + formatPeriod(defaultPeriod(metric)) : ""}`}
           </caption>
           <thead>
             <tr>
@@ -189,9 +168,7 @@ export function MetricSection({ metric }: { metric: Metric }) {
           </tbody>
         </table>
       </div>
-      {(metric === "github.pushes" || metric === "github.pull_requests") && (
-        <TrendPlot metric={metric} />
-      )}
+      {periodOptions(metric).length > 1 && <TrendPlot metric={metric} />}
     </section>
   );
 }
@@ -210,8 +187,11 @@ export function Comparison() {
       aria-label="Metric comparison"
     >
       <p className="section-description">
-        GitHub ranks use {formatQuarter(DEFAULT_GITHUB_QUARTER)}. Release ranks
-        use {DEFAULT_YEAR} counts.
+        GitHub: {formatPeriod(defaultPeriod("github.pushes"))}. Stack Overflow:{" "}
+        {formatPeriod(defaultPeriod("stackoverflow.questions"))}. Survey:{" "}
+        {formatPeriod(defaultPeriod("survey.usage"))}. Releases:{" "}
+        {formatPeriod(defaultPeriod("releases.stable"))}. Job descriptions:{" "}
+        {formatPeriod(defaultPeriod("hacker_news.job_descriptions"))}.
       </p>
       <div
         className="table-wrap"

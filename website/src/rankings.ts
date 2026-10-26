@@ -1,18 +1,16 @@
 import {
-  DEFAULT_YEAR,
-  DEFAULT_GITHUB_QUARTER,
-  isGithubQuarter,
-  formatQuarter,
+  defaultPeriod,
+  periodOptions,
+  formatPeriod,
   formatRank,
   METRIC_INFO,
   METRICS,
   isMetric,
-  isReleaseYear,
   rankLanguages,
   formatValue,
   type Language,
 } from "./data.ts";
-import { LANGUAGE_CLASSES } from "./languages.ts";
+import { LANGUAGE_CLASSES, LANGUAGE_COLORS } from "./languages.ts";
 
 type Direction = "ascending" | "descending";
 function languageCell(
@@ -24,6 +22,7 @@ function languageCell(
   const dot = document.createElement("span");
   dot.className = `language-dot ${LANGUAGE_CLASSES[language]}`;
   dot.setAttribute("aria-hidden", "true");
+  dot.style.backgroundColor = LANGUAGE_COLORS[language] ?? "";
   cell.append(dot, language);
   return cell;
 }
@@ -39,20 +38,18 @@ export function initializeRankings(document: Document): void {
     const buttons = [
       ...section.querySelectorAll<HTMLButtonElement>("button[data-sort]"),
     ];
-    const year = section.querySelector<HTMLSelectElement>(".release-year");
-    const quarter = section.querySelector<HTMLSelectElement>(".github-quarter");
+    const period = section.querySelector<HTMLSelectElement>(".metric-period");
     if (!body || !buttons.length) continue;
     let sortKey: string = overview ? METRICS[0] : "rank";
     let direction: Direction = overview ? "descending" : "ascending";
     const render = (): void => {
       const selected = overview ? sortKey : metricId;
       const metric = isMetric(selected) ? selected : "github.pushes";
-      const chosenYear = Number(year?.value ?? DEFAULT_YEAR);
-      const releaseYear = isReleaseYear(chosenYear) ? chosenYear : DEFAULT_YEAR;
-      const selectedQuarter = isGithubQuarter(quarter?.value)
-        ? quarter.value
-        : DEFAULT_GITHUB_QUARTER;
-      const rows = rankLanguages(metric, releaseYear, selectedQuarter);
+      const selectedPeriod =
+        period && periodOptions(metric).includes(period.value)
+          ? period.value
+          : defaultPeriod(metric);
+      const rows = rankLanguages(metric, selectedPeriod);
       const sign = direction === "ascending" ? 1 : -1;
       rows.sort((a, b) => {
         if (sortKey === "language")
@@ -108,10 +105,8 @@ export function initializeRankings(document: Document): void {
         else header?.removeAttribute("aria-sort");
       }
       const caption = section.querySelector("caption");
-      if (year && caption)
-        caption.textContent = `Stable release rankings, ${releaseYear}`;
-      if (quarter && caption)
-        caption.textContent = `${METRIC_INFO[metric].label} rankings, ${formatQuarter(selectedQuarter)}`;
+      if (period && caption)
+        caption.textContent = `${METRIC_INFO[metric].label} rankings, ${formatPeriod(selectedPeriod)}`;
     };
     for (const button of buttons) {
       button.disabled = false;
@@ -130,8 +125,7 @@ export function initializeRankings(document: Document): void {
         render();
       });
     }
-    year?.addEventListener("change", render);
-    quarter?.addEventListener("change", render);
+    period?.addEventListener("change", render);
     render();
     const controls = section.querySelector<HTMLElement>(".table-controls");
     if (controls) controls.hidden = false;

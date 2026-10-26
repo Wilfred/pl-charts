@@ -1,6 +1,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { readGithubSnapshot } from "./github-data.ts";
+import { readMetricHistory, type MetricSnapshot } from "./metric-data.ts";
+import { METRICS, DEFINITIONS, type Metric } from "../src/metrics.ts";
 import { readPackageSnapshot } from "./package-data.ts";
 
 const root = new URL("../", import.meta.url);
@@ -24,15 +25,29 @@ writeChanged(
   new URL(".generated/packages.json", root),
   JSON.stringify(snapshot, null, 2) + "\n",
 );
-const github = readGithubSnapshot(
-  readFileSync(
-    new URL("../../data/exports/github.csv", import.meta.url),
-    "utf8",
+const snapshots: Partial<Record<Metric, MetricSnapshot>> = {};
+for (const file of [
+  ...new Set(
+    METRICS.filter((metric) => metric !== "packages.published").map(
+      (metric) => DEFINITIONS[metric].file,
+    ),
   ),
-);
+]) {
+  const metrics = METRICS.filter((metric) => DEFINITIONS[metric].file === file);
+  Object.assign(
+    snapshots,
+    readMetricHistory(
+      readFileSync(
+        new URL(`../../data/exports/${file}.csv`, import.meta.url),
+        "utf8",
+      ),
+      metrics,
+    ),
+  );
+}
 writeChanged(
-  new URL(".generated/github.json", root),
-  JSON.stringify(github, null, 2) + "\n",
+  new URL(".generated/metrics.json", root),
+  JSON.stringify(snapshots, null, 2) + "\n",
 );
 const { renderPage, PAGE_PATHS } = await import("../src/pages.tsx");
 const pages = PAGE_PATHS.map((page) => [page, renderPage(page)] as const);

@@ -2,126 +2,106 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import test from "node:test";
 import { JSDOM } from "jsdom";
-import { trendPath } from "../src/components/trends.tsx";
+import { trendPath } from "../src/plot.ts";
 import { initializeTrends } from "../src/trends.ts";
 import {
-  GITHUB_QUARTERS,
-  isPartialGithubQuarter,
-  formatQuarter,
+  CATEGORIES,
+  historyPeriods,
+  metricCounts,
+  pointLabel,
+  type Metric,
 } from "../src/data.ts";
-
-test("trend paths preserve zero and break across missing values", () => {
+test("trend paths preserve zero and break at missing observations", () => {
   assert.equal(
     trendPath([0, 10, null, 20, 30, 40], 40),
     "M10.00,290.00 L206.00,220.00  M598.00,150.00 L794.00,80.00 L990.00,10.00",
   );
   assert.equal(trendPath([null, null], 1).trim(), "");
 });
-test("both plots render statically and language toggles stay within their own plot", () => {
-  const { window } = new JSDOM(
-    readFileSync(new URL("../github.html", import.meta.url), "utf8"),
-  );
-  const document = window.document;
-  const plots = document.querySelectorAll<HTMLElement>("[data-trend]");
-  assert.equal(plots.length, 2);
-  for (const plot of plots) {
-    assert.equal(plot.querySelectorAll("[data-trend-series]").length, 6);
-    assert.equal(plot.querySelectorAll("button:disabled").length, 6);
-    assert.match(
-      plot.querySelector("svg[role='img'] desc")?.textContent ?? "",
-      /Quarterly counts for six languages/,
+for (const category of CATEGORIES.filter(
+  (category) => category.id !== "packages",
+))
+  test(`${category.label}: history plots have exact keyboard tooltips and independent language controls`, () => {
+    const { window } = new JSDOM(
+      readFileSync(new URL(`../${category.href}`, import.meta.url), "utf8"),
     );
-    assert.equal(plot.querySelectorAll("[stroke-dasharray]").length, 0);
-    assert.doesNotMatch(
-      plot.querySelector("svg[role=img] title")?.textContent ?? "",
-      /partial/,
-    );
-    for (const path of plot.querySelectorAll(".trend-line"))
-      assert.doesNotMatch(path.getAttribute("d") ?? "", /NaN|Infinity/);
-  }
-  initializeTrends(document);
-  const button = plots[0]!.querySelector<HTMLButtonElement>(
-    'button[data-trend-language="Python"]',
-  )!;
-  const first = plots[0]!.querySelector<SVGGElement>(
-    '[data-trend-series="Python"]',
-  )!;
-  const second = plots[1]!.querySelector<SVGGElement>(
-    '[data-trend-series="Python"]',
-  )!;
-  button.click();
-  assert.equal(button.getAttribute("aria-pressed"), "false");
-  assert.equal(first.style.display, "none");
-  assert.equal(second.style.display, "");
-  button.click();
-  assert.equal(button.getAttribute("aria-pressed"), "true");
-  assert.equal(first.style.display, "");
-});
-test("partial quarter labels distinguish incomplete archive coverage", () => {
-  assert.equal(isPartialGithubQuarter("2011-Q1"), true);
-  assert.equal(formatQuarter("2011-Q1"), "2011 Q1 (partial)");
-  assert.equal(isPartialGithubQuarter("2025-Q1"), false);
+    const document = window.document;
+    const figures = document.querySelectorAll<HTMLElement>("[data-trend]");
+    assert.equal(figures.length, category.metrics.length);
+    for (const figure of figures) {
+      assert.equal(figure.querySelectorAll("[data-trend-series]").length, 20);
+      assert.equal(figure.querySelectorAll("[stroke-dasharray]").length, 0);
+      assert.equal(
+        figure.querySelectorAll(".trend-legend button:disabled").length,
+        20,
+      );
+      for (const path of figure.querySelectorAll(".trend-line"))
+        assert.doesNotMatch(path.getAttribute("d") ?? "", /NaN|Infinity/);
+    }
+    initializeTrends(document);
+    for (const figure of figures) {
+      const metric = figure.dataset.trend as Metric,
+        periods = historyPeriods(metric);
+      const plot = figure.querySelector<SVGSVGElement>(".trend-plot")!,
+        tooltip = figure.querySelector<HTMLElement>("[data-trend-tooltip]")!;
+      plot.dispatchEvent(new window.FocusEvent("focus"));
+      assert.equal(tooltip.hidden, false);
+      const selected = figure
+        .querySelector(".trend-point.is-active")!
+        .closest<SVGGElement>("[data-trend-series]")!.dataset.trendSeries!;
+      const available = periods.filter(
+        (period) => metricCounts(metric, period)[selected] != null,
+      );
+      assert.equal(
+        tooltip.textContent,
+        pointLabel(
+          metric,
+          selected,
+          available.at(-1)!,
+          metricCounts(metric, available.at(-1)!)[selected]!,
+        ),
+      );
+      plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Home" }));
+      assert.equal(
+        tooltip.textContent,
+        pointLabel(
+          metric,
+          selected,
+          available[0]!,
+          metricCounts(metric, available[0]!)[selected]!,
+        ),
+      );
+      plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "End" }));
+      plot.dispatchEvent(
+        new window.KeyboardEvent("keydown", { key: "Escape" }),
+      );
+      assert.equal(tooltip.hidden, true);
+      const sibling = [...figures].find((other) => other !== figure);
+      const before = sibling?.querySelector(
+        "[data-trend-tooltip]",
+      )?.textContent;
+      const button = figure.querySelector<HTMLButtonElement>(
+        `button[data-trend-language="${selected}"]`,
+      )!;
+      button.click();
+      assert.equal(button.getAttribute("aria-pressed"), "false");
+      assert.equal(
+        figure.querySelector<SVGGElement>(`[data-trend-series="${selected}"]`)!
+          .style.display,
+        "none",
+      );
+      if (sibling)
+        assert.equal(
+          sibling.querySelector("[data-trend-tooltip]")?.textContent,
+          before,
+        );
+      button.click();
+      assert.equal(button.getAttribute("aria-pressed"), "true");
+    }
+  });
+test("survey point tooltips retain the full published precision", () => {
   assert.equal(
-    GITHUB_QUARTERS.every((quarter) => !isPartialGithubQuarter(quarter)),
-    true,
+    pointLabel("survey.usage", "Python", "2019", 41.7188),
+    "Python · 2019: 41.7188%",
   );
-  assert.equal(GITHUB_QUARTERS[0], "2011-Q2");
-  assert.equal(GITHUB_QUARTERS.at(-1), "2026-Q3");
-});
-
-test("point tooltips expose exact values and support keyboard navigation", () => {
-  const { window } = new JSDOM(
-    readFileSync(new URL("../github.html", import.meta.url), "utf8"),
-  );
-  const document = window.document;
-  const figure = document.querySelector<HTMLElement>("[data-trend]")!;
-  const plot = figure.querySelector<SVGSVGElement>(".trend-plot")!;
-  const tooltip = figure.querySelector<HTMLElement>("[data-trend-tooltip]")!;
-  const points = [
-    ...figure.querySelectorAll<SVGCircleElement>("[data-trend-point]"),
-  ];
-  assert.equal(points.length, GITHUB_QUARTERS.length * 6);
-  assert.equal(
-    points.every((point) => !isPartialGithubQuarter(point.dataset.quarter!)),
-    true,
-  );
-  for (const point of points)
-    assert.equal(
-      point.querySelector("title")?.textContent,
-      point.dataset.label,
-    );
-  initializeTrends(document);
-  plot.dispatchEvent(new window.FocusEvent("focus"));
-  const latest = points.find(
-    (point) =>
-      point.dataset.language === "JavaScript" &&
-      point.dataset.quarter === GITHUB_QUARTERS.at(-1),
-  )!;
-  assert.equal(tooltip.hidden, false);
-  assert.equal(tooltip.textContent, latest.dataset.label);
-  assert.match(tooltip.textContent!, /JavaScript · 2026 Q3: [\d,]+ pushes/);
-  plot.dispatchEvent(
-    new window.KeyboardEvent("keydown", { key: "ArrowDown", cancelable: true }),
-  );
-  const python = points.find(
-    (point) =>
-      point.dataset.language === "Python" &&
-      point.dataset.quarter === GITHUB_QUARTERS.at(-1),
-  )!;
-  assert.equal(tooltip.textContent, python.dataset.label);
-  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "ArrowLeft" }));
-  assert.match(tooltip.textContent!, /Python · 2026 Q2:/);
-  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Home" }));
-  assert.match(tooltip.textContent!, /Python · 2011 Q2:/);
-  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape" }));
-  assert.equal(tooltip.hidden, true);
-  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "End" }));
-  figure
-    .querySelector<HTMLButtonElement>('button[data-trend-language="Python"]')!
-    .click();
-  assert.equal(tooltip.hidden, true);
-  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "ArrowDown" }));
-  assert.doesNotMatch(tooltip.textContent!, /Python/);
-  plot.dispatchEvent(new window.FocusEvent("blur"));
-  assert.equal(tooltip.hidden, true);
 });

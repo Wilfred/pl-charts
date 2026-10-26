@@ -1,4 +1,4 @@
-import type { Metric } from "./data.ts";
+import type { Metric } from "./metrics.ts";
 
 export const CATEGORIES = [
   {
