@@ -3,7 +3,7 @@ import { defineConfig } from "vite";
 
 const pages = [
   "index",
-  "github-repos",
+  "github",
   "packages",
   "stackoverflow",
   "surveys",
@@ -13,6 +13,7 @@ const pages = [
 
 export default defineConfig({
   base: "./",
+  publicDir: "../data/exports",
   build: {
     rolldownOptions: {
       input: Object.fromEntries(

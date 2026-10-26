@@ -1,0 +1,5 @@
+schema_version,run_id,category,metric,entity_id,entity_kind,ecosystem,value,unit,period_start,period_end,observed_at,source_updated_at,source_url,method_version,raw_path
+1,2026-10-26T00-45-06-702Z,packages,packages.published,pypi,registry,python,924996,packages,,,2026-10-26T00:45:06.779Z,,https://pypi.org/,pypi-project-count-v1,raw/packages/2026-10-26T00-45-06-702Z/pypi.html
+1,2026-10-26T00-45-06-702Z,packages,packages.published,npm,registry,javascript-typescript,4532102,packages,,,2026-10-26T00:45:07.022Z,,https://replicate.npmjs.com/,npm-registry-doc-count-v1,raw/packages/2026-10-26T00-45-06-702Z/npm.json
+1,2026-10-26T00-45-06-702Z,packages,packages.published,cargo,registry,rust,361806,packages,,,2026-10-26T00:45:07.635Z,,https://crates.io/api/v1/summary,crates-num-crates-v1,raw/packages/2026-10-26T00-45-06-702Z/cargo.json
+1,2026-10-26T00-45-06-702Z,packages,packages.published,maven,registry,jvm,661801,packages,,,2026-10-26T00:45:08.044Z,2026-06-26T20:33:56Z,https://search.maven.org/quickstats,maven-distinct-group-artifact-v1,raw/packages/2026-10-26T00-45-06-702Z/maven.json

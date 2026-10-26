@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "run_id": "2026-10-26T00-45-06-702Z",
+  "collector": "packages-v1",
+  "git_commit": "c95808ca57cf7269bbdf67614053d606836e86ad",
+  "sources": [
+    {
+      "id": "pypi",
+      "entity": "PyPI",
+      "source_url": "https://pypi.org/",
+      "method_version": "pypi-project-count-v1",
+      "observed_at": "2026-10-26T00:45:06.779Z",
+      "status": "ok",
+      "http_status": 200,
+      "headers": {
+        "content-type": "text/html; charset=UTF-8",
+        "date": "Mon, 26 Oct 2026 00:45:06 GMT",
+        "etag": "\"DM7l8NHd3yhAHeM3zOtIAw\""
+      },
+      "raw_path": "raw/packages/2026-10-26T00-45-06-702Z/pypi.html",
+      "sha256": "a487380deab5d90c92a66def990db7e1ca9c02373d3d88191bedc61ad17ee814",
+      "bytes": 27884
+    },
+    {
+      "id": "npm",
+      "entity": "npm",
+      "source_url": "https://replicate.npmjs.com/",
+      "method_version": "npm-registry-doc-count-v1",
+      "observed_at": "2026-10-26T00:45:07.022Z",
+      "status": "ok",
+      "http_status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Mon, 26 Oct 2026 00:45:06 GMT",
+        "last-modified": "Mon, 26 Oct 2026 00:45:06 GMT"
+      },
+      "raw_path": "raw/packages/2026-10-26T00-45-06-702Z/npm.json",
+      "sha256": "3a0f4f1d606047a0d89c8b2c1fa723615795c8008fd36811b7a9b00781a491fb",
+      "bytes": 90
+    },
+    {
+      "id": "cargo",
+      "entity": "crates.io",
+      "source_url": "https://crates.io/api/v1/summary",
+      "method_version": "crates-num-crates-v1",
+      "observed_at": "2026-10-26T00:45:07.635Z",
+      "status": "ok",
+      "http_status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Mon, 26 Oct 2026 00:45:07 GMT"
+      },
+      "raw_path": "raw/packages/2026-10-26T00-45-06-702Z/cargo.json",
+      "sha256": "e2092ad1198a73a0db0fc1c179252544c39c15dfc2cd7252fd85241dda9976a3",
+      "bytes": 41739
+    },
+    {
+      "id": "maven",
+      "entity": "Maven Central",
+      "source_url": "https://search.maven.org/quickstats",
+      "method_version": "maven-distinct-group-artifact-v1",
+      "observed_at": "2026-10-26T00:45:08.044Z",
+      "status": "ok",
+      "http_status": 200,
+      "headers": {
+        "content-type": "application/json",
+        "date": "Mon, 26 Oct 2026 00:45:07 GMT"
+      },
+      "raw_path": "raw/packages/2026-10-26T00-45-06-702Z/maven.json",
+      "sha256": "1977cdfbd50c6eda24178079b747e8786b0e1637e28f99df0af29bfefc57ec37",
+      "bytes": 103
+    }
+  ]
+}

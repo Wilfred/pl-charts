@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Programming language rankings by repository, package, question, release, and hiring-comment counts."
+    />
+    <title>Programming language rankings · PL Charts</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script type="module" src="src/main.ts"></script>
+  </head>
+  <body data-page="overview">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <div class="header-inner">
+        <a class="site-title" href="index.html"
+          ><span class="brand-mark" aria-hidden="true"
+            ><svg
+              width="22"
+              height="22"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              focusable="false"
+            >
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
+          ></span>
+          PL Charts</a
+        >
+        <nav aria-label="Main navigation">
+          <a href="index.html" aria-current="page">Overview</a
+          ><a href="github.html">GitHub</a><a href="packages.html">Packages</a
+          ><a href="stackoverflow.html">Stack Overflow</a
+          ><a href="surveys.html">Stack Overflow Survey</a
+          ><a href="releases.html">Releases</a
+          ><a href="hiring.html">Hacker News</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <section class="intro"><h1>Rankings</h1></section>
+      <section class="categories">
+        <h2>Categories</h2>
+        <div class="metric-grid">
+          <a class="metric-card" href="github.html"
+            ><h3>GitHub<span aria-hidden="true">↗</span></h3>
+            <p>Public GitHub activity by language.</p></a
+          ><a class="metric-card" href="packages.html"
+            ><h3>Packages<span aria-hidden="true">↗</span></h3>
+            <p>Published packages by registry.</p></a
+          ><a class="metric-card" href="stackoverflow.html"
+            ><h3>Stack Overflow<span aria-hidden="true">↗</span></h3>
+            <p>Question and answer volume by language tag.</p></a
+          ><a class="metric-card" href="surveys.html"
+            ><h3>Stack Overflow Survey<span aria-hidden="true">↗</span></h3>
+            <p>Self-reported language use among survey respondents.</p></a
+          ><a class="metric-card" href="releases.html"
+            ><h3>Releases<span aria-hidden="true">↗</span></h3>
+            <p>Stable release frequency by year.</p></a
+          ><a class="metric-card" href="hiring.html"
+            ><h3>Hacker News<span aria-hidden="true">↗</span></h3>
+            <p>Language mentions in hiring comments.</p></a
+          >
+        </div>
+      </section>
+      <section
+        class="ranking-section"
+        data-overview=""
+        aria-label="Metric comparison"
+      >
+        <p class="section-description">
+          Ranks are calculated separately for each metric. Release ranks use
+          2025 counts.
+        </p>
+        <div class="table-controls" hidden="">
+          <label
+            >Order by<select class="ranking-order" id="order-overview">
+              <option value="github.pushes">GitHub · Pushes</option>
+              <option value="github.pull_requests">
+                GitHub · Pull Requests
+              </option>
+              <option value="packages.published">
+                Packages · Published packages
+              </option>
+              <option value="stackoverflow.questions">
+                Stack Overflow · Questions
+              </option>
+              <option value="stackoverflow.answers">
+                Stack Overflow · Answers
+              </option>
+              <option value="survey.usage">
+                Stack Overflow Survey · Usage
+              </option>
+              <option value="releases.stable">
+                Releases · Stable releases
+              </option>
+              <option value="hacker_news.job_descriptions">
+                Hacker News · Job descriptions
+              </option>
+              <option value="language">Language A–Z</option>
+            </select></label
+          >
+        </div>
+        <div
+          class="table-wrap"
+          role="region"
+          tabindex="0"
+          aria-label="Metric comparison"
+        >
+          <table>
+            <caption class="sr-only">
+              Language ranks by category and metric
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" rowspan="2">Language</th>
+                <th scope="colgroup" colspan="2" class="numeric">
+                  <a href="github.html">GitHub</a>
+                </th>
+                <th scope="colgroup" colspan="1" class="numeric">
+                  <a href="packages.html">Packages</a>
+                </th>
+                <th scope="colgroup" colspan="2" class="numeric">
+                  <a href="stackoverflow.html">Stack Overflow</a>
+                </th>
+                <th scope="colgroup" colspan="1" class="numeric">
+                  <a href="surveys.html">Stack Overflow Survey</a>
+                </th>
+                <th scope="colgroup" colspan="1" class="numeric">
+                  <a href="releases.html">Releases</a>
+                </th>
+                <th scope="colgroup" colspan="1" class="numeric">
+                  <a href="hiring.html">Hacker News</a>
+                </th>
+              </tr>
+              <tr>
+                <th scope="col" class="numeric">
+                  <a href="github.html#github-pushes">Pushes</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="github.html#github-pull-requests">Pull Requests</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="packages.html#packages-published"
+                    >Published packages</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="stackoverflow.html#stackoverflow-questions"
+                    >Questions</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="stackoverflow.html#stackoverflow-answers">Answers</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="surveys.html#survey-usage">Usage</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="releases.html#releases-stable">Stable releases</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="hiring.html#hacker-news-job-descriptions"
+                    >Job descriptions</a
+                  ><span class="updated-badge"
+                    >Updated <time datetime="1970-01-01">1970</time></span
+                  >
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot js" aria-hidden="true"></span
+                  >JavaScript
+                </th>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot py" aria-hidden="true"></span>Python
+                </th>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot java" aria-hidden="true"></span>Java
+                </th>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot go" aria-hidden="true"></span>Go
+                </th>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot ruby" aria-hidden="true"></span>Ruby
+                </th>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+              </tr>
+              <tr>
+                <th scope="row">
+                  <span class="language-dot rust" aria-hidden="true"></span>Rust
+                </th>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="table-note">Ties share a rank and leave a gap: 1, 1, 3.</p>
+      </section>
+    </main>
+  </body>
+</html>

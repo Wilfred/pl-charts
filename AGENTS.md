@@ -3,19 +3,24 @@
 ## Product
 
 - Build a ranking-focused programming language reference for developers.
-- Retain six metrics: Repositories, Packages, SO Questions, SO Surveys, Releases, and Job Descriptions (Hacker News hiring mentions).
-- Use placeholder data while prototyping structure and interactions.
-- Keep interface prose concise, factual, and clinical. Describe the counting method once. Use “Releases”, “Packages”, “SO Questions”, “SO Surveys”, and “Job Descriptions” as category labels.
-- Use sentence case. Keep each label, heading, and navigation element only where it adds information.
+- Pages represent categories; a category contains one or more independently defined metrics.
+- Categories are GitHub, Packages, Stack Overflow, Stack Overflow Survey, Releases, and Hacker News. Keep qualified metric IDs consistent with the data schema.
+- Keep interface prose concise and factual. Describe each counting method once. Use sentence case and omit redundant labels and navigation.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
-- Preserve the charcoal palette with muted violet accents and accessible contrast, keyboard focus, semantic tables, and responsive layouts.
-- Prototype notices and production data sourcing are managed separately by the owner.
+- Preserve the charcoal palette, violet accents, readable contrast, keyboard focus, semantic tables, and responsive layouts. Check changes at mobile widths.
+- Metric update badges use 1970 during this design iteration. Keep source observation dates accurate in the collected data.
 
-## Development
+## Structure and data
 
-- Keep dependencies and abstractions proportional to this small static site.
-- Use strict TypeScript for application and tooling code.
-- Keep data definitions, static HTML tables, and interactive rankings consistent.
-- Preserve shared ranks for ties, with gaps after tied positions.
-- Run the formatting check, lint, type check, tests, and production build before committing changes that affect them.
+- `website/` and `collectors/` are separate TypeScript npm workspaces. Declare their dependencies in their own package manifests; shared code-quality tooling belongs at the root.
+- Collectors write to `data/`, independently of website implementation. Follow `data/README.md` for schema and provenance conventions.
+- Retain exact raw responses, source metadata, checksums, and dated CSV observations. Publish the current export only after every required source validates.
+- Preserve missing observations and source-reported freshness. Keep registry counts distinct from language attribution and package names distinct from versions.
+- `vendor/modulecounts/` is an ignored reference checkout. Keep its dependencies separate.
+- Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.
+
+## Checks
+
+- Use strict TypeScript for application, collection, and tooling code.
+- Run formatting, lint, type checks, offline tests, and the production build before committing affected changes.
 - Use the installed pre-commit hook. Commit and push completed, validated stages when requested.

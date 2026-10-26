@@ -382,14 +382,15 @@ tbody tr:hover {
   outline: 3px solid var(--accent);
   outline-offset: 4px;
 }
-body[data-page="overview"] table th:first-child {
+body[data-page="overview"] tbody th[scope="row"],
+body[data-page="overview"] thead th[rowspan] {
   position: sticky;
   left: 0;
   z-index: 1;
   background: var(--surface);
   box-shadow: 1px 0 var(--line);
 }
-body[data-page="overview"] thead th:first-child {
+body[data-page="overview"] thead th[rowspan] {
   background: var(--raised);
 }
 @media (min-width: 1051px) {
@@ -433,8 +434,74 @@ body[data-page="overview"] thead th:first-child {
     order: 1;
     margin-top: 0;
   }
-  body[data-page="overview"] section[aria-labelledby="signals-heading"] {
+  body[data-page="overview"] .categories {
     order: 2;
     margin-top: 32px;
   }
+}
+.metric-heading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin-bottom: 12px;
+}
+.metric-heading h2 {
+  margin-right: auto;
+}
+.updated-badge {
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 4px;
+  color: var(--muted);
+  font:
+    11px/1.5 "DM Sans",
+    sans-serif;
+  white-space: nowrap;
+  font-weight: 400;
+}
+thead .updated-badge {
+  display: flex;
+  width: fit-content;
+  margin: 8px 0 0 auto;
+}
+.metric-description {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 84ch;
+  margin: 0 0 20px;
+}
+.metric-section + .metric-section {
+  border-top: 1px solid var(--line);
+  padding-top: 32px;
+  margin-top: 40px;
+}
+.metric-section {
+  scroll-margin-top: 24px;
+}
+.categories > h2 {
+  margin-bottom: 20px;
+}
+.data-download {
+  font-size: 13px;
+  color: var(--accent);
+}
+@media (max-width: 700px) {
+  .metric-heading {
+    gap: 10px;
+  }
+  .metric-heading h2 {
+    width: 100%;
+  }
+  .updated-badge {
+    padding: 3px 7px;
+  }
+}
+body[data-page="overview"] th,
+body[data-page="overview"] td {
+  padding-left: 12px;
+  padding-right: 12px;
 }

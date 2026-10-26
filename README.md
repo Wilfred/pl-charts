@@ -1,54 +1,69 @@
 # PL Charts
 
-A prototype of programming language popularity rankings for developers. Current work covers structure, design, and interactions, using placeholder counts.
+Programming language rankings grouped into categories. A category contains one or more metrics, each with its own definition, table, and update date.
 
-## Scope
+## Repository layout
 
-- Compare rankings in an overview, with a detail page for each metric.
-- Include Repositories (GitHub), Packages, SO Questions, SO Surveys, Releases, and Job Descriptions (Hacker News “Who's Hiring” comments).
-- Use a dark theme, sentence-case headings, and concise descriptions.
-- Keep navigation and labels distinct; describe each counting method once.
-- Support semantic tables, keyboard navigation, sorting, and release-year selection.
+| Directory              | Purpose                                                                          |
+| ---------------------- | -------------------------------------------------------------------------------- |
+| `website/`             | Static TypeScript/Vite website and DOM tests                                     |
+| `collectors/`          | TypeScript data collectors and offline tests; uses Node's built-in APIs          |
+| `data/`                | Checked-in source responses, provenance manifests, CSV observations, and exports |
+| `scripts/`, `tests/`   | Shared Git hooks and repository tooling tests                                    |
+| `vendor/modulecounts/` | Ignored reference clone of the original Modulecounts repository                  |
 
-Ranks are calculated separately for each metric. Ties share a rank and leave a gap: 1, 1, 3.
+The root npm workspace provides shared TypeScript, ESLint, and Prettier tooling. Website-specific dependencies are declared in `website/package.json`; collection dependencies are declared in `collectors/package.json`. One root lockfile pins the workspace dependencies.
 
 ## Development
 
-Use Node.js 22.18 or later and npm.
+Use Node.js 22.18 or later and npm. Run commands from the repository root:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open <http://localhost:8000>. The site uses TypeScript and Vite with seven HTML entry points. Application code is in `src/`; tooling is in `scripts/`. Counts and ranking functions are defined in `src/data.ts`.
+Open <http://localhost:8000>. The production build writes seven pages and downloadable data to `website/dist/`.
 
 ```sh
 npm run typecheck
+npm run lint
 npm test
 npm run build
 npm run preview
 ```
 
-The production build writes all seven pages and their assets to `dist/`. `npm run preview` serves that build on port 8000; stop the development server before starting it.
+`npm run preview` uses port 8000; stop the development server before starting it. Workspace commands can also be run directly, for example `npm run typecheck --workspace collectors`.
 
-The HTML includes initial ranking rows. Update those rows when changing counts in `src/data.ts`; tests check that they match the interactive tables.
+## Categories and metrics
 
-## Formatting, linting, and checks
+- GitHub: Pushes and Pull Requests.
+- Packages: Published packages.
+- Stack Overflow: Questions and Answers.
+- Stack Overflow Survey: Usage.
+- Releases: Stable releases.
+- Hacker News: Job descriptions.
 
-`npm ci` enables the pre-commit hook in `.githooks`. The hook checks formatting and ESLint rules against staged file contents, including partially staged files. Format files and stage them before committing:
+The category and metric definitions are in `website/src/data.ts`. Qualified metric identifiers match the collection schema. UI update badges currently display `1970`. Each category includes annotated references to existing analyses and approaches.
+
+## Data collection
+
+```sh
+npm run collect:packages
+```
+
+This collects aggregate PyPI, npm, crates.io, and Maven Central counts into dated snapshots. Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV.
+
+See [data/README.md](data/README.md) for endpoint definitions, freshness information, the observation schema, and collection plans for every category.
+
+## Formatting and checks
+
+`npm ci` enables the pre-commit hook. It checks formatting and ESLint rules against staged contents, including partially staged files.
 
 ```sh
 npm run format
 npm run format:check
-npm run lint
 npm run lint:fix
 ```
 
-ESLint uses the recommended JavaScript and TypeScript rules with formatting rules disabled in favor of Prettier.
-
-GitHub Actions checks formatting and lint, runs tests, type-checks TypeScript, and builds all pages on pushes and pull requests.
-
-## References
-
-Each metric page surveys existing analyses and documents comparison variables. Sources include GitHut 2.0, the January 2024 Modulecounts archive and source, HN hiring analyses, Stack Overflow surveys and tag analysis, and language release policies. Ranking values remain placeholders.
+GitHub Actions checks formatting, lint, tests, TypeScript, and the website build. Raw source responses and the reference clone are excluded from formatting and linting.
