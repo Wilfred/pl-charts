@@ -112,8 +112,10 @@ export async function replayLegacy(
     ))
   )
     throw new Error("Legacy observations differ");
-  console.log(
-    `Verified ${observations.length} ${category} observations offline (${runId})`,
-  );
+  const verified =
+    category === "github"
+      ? `${new Set(observations.map((row) => row.period_start)).size} quarters`
+      : `${observations.length} packages observations`;
+  console.log(`Verified ${verified} offline (${runId})`);
   return { runId, observations };
 }
