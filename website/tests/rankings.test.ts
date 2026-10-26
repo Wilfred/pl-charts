@@ -77,6 +77,17 @@ for (const category of CATEGORIES)
       )!;
       assert.equal(rows(section).length, metricEntities(metric).length);
       assert.deepEqual(rows(section), expected(metric));
+      const rankHeader = section.querySelector("thead th")!;
+      assert.equal(rankHeader.textContent?.trim(), "Rank");
+      assert.equal(rankHeader.querySelector("button"), null);
+      assert.equal(rankHeader.hasAttribute("aria-sort"), false);
+      assert.equal(
+        section
+          .querySelector('[data-sort="value"]')
+          ?.closest("th")
+          ?.getAttribute("aria-sort"),
+        "descending",
+      );
       assert.equal(
         section.querySelector(".updated-badge time")?.textContent,
         METRIC_INFO[metric].updatedAt,
@@ -95,7 +106,7 @@ for (const category of CATEGORIES)
         rows(section)[0]?.[1],
         [...metricEntities(metric)].sort((a, b) => b.localeCompare(a))[0],
       );
-      section.querySelector<HTMLButtonElement>('[data-sort="rank"]')!.click();
+      section.querySelector<HTMLButtonElement>('[data-sort="value"]')!.click();
       assert.deepEqual(rows(section), expected(metric));
       assert.equal(section.querySelectorAll("th[aria-sort]").length, 1);
       const control =

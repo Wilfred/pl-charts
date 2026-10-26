@@ -53,8 +53,8 @@ export function initializeRankings(document: Document): void {
     ];
     const period = section.querySelector<HTMLSelectElement>(".metric-period");
     if (!body || !buttons.length) continue;
-    let sortKey: string = overview ? LANGUAGE_METRICS[0]! : "rank";
-    let direction: Direction = overview ? "descending" : "ascending";
+    let sortKey: string = overview ? LANGUAGE_METRICS[0]! : "value";
+    let direction: Direction = "descending";
     const render = (): void => {
       const selected = overview ? sortKey : metricId;
       const metric = isMetric(selected) ? selected : "github.pushes";
@@ -73,11 +73,9 @@ export function initializeRankings(document: Document): void {
             : a.value === null
               ? 1
               : -1;
-        const difference =
-          sortKey === "rank"
-            ? (a.rank ?? 0) - (b.rank ?? 0)
-            : a.value - b.value;
-        return sign * difference || a.language.localeCompare(b.language);
+        return (
+          sign * (a.value - b.value) || a.language.localeCompare(b.language)
+        );
       });
       const ranks = new Map(
         LANGUAGE_METRICS.map((key) => [
@@ -138,10 +136,7 @@ export function initializeRankings(document: Document): void {
           direction = direction === "ascending" ? "descending" : "ascending";
         else {
           sortKey = selected;
-          direction =
-            selected === "language" || selected === "rank"
-              ? "ascending"
-              : "descending";
+          direction = selected === "language" ? "ascending" : "descending";
         }
         render();
       });

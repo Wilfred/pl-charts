@@ -159,17 +159,19 @@ export function MetricSection({
           </caption>
           <thead>
             <tr>
-              <SortHeader
-                sortKey="rank"
-                label="Rank"
-                numeric
-                initial="ascending"
-              />
+              <th scope="col" className="numeric">
+                Rank
+              </th>
               <SortHeader
                 sortKey="language"
                 label={metric === "packages.published" ? "Service" : "Language"}
               />
-              <SortHeader sortKey="value" label={info.unit} numeric />
+              <SortHeader
+                sortKey="value"
+                label={info.unit}
+                numeric
+                initial="descending"
+              />
             </tr>
           </thead>
           <tbody>
