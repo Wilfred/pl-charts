@@ -1,13 +1,6 @@
-// Placeholder counts used to prototype the ranking tables.
-export const LANGUAGES = [
-  "JavaScript",
-  "Python",
-  "Java",
-  "Go",
-  "Rust",
-  "Ruby",
-] as const;
-export type Language = (typeof LANGUAGES)[number];
+import packageSnapshot from "../.generated/packages.json" with { type: "json" };
+import { LANGUAGES, type Language } from "./languages.ts";
+export { LANGUAGES, type Language } from "./languages.ts";
 export const METRICS = [
   "github.pushes",
   "github.pull_requests",
@@ -84,16 +77,7 @@ export const DATA = {
       Ruby: 300000,
     },
   },
-  "packages.published": {
-    values: {
-      JavaScript: 3000000,
-      Python: 550000,
-      Java: 600000,
-      Go: 1500000,
-      Rust: 150000,
-      Ruby: 180000,
-    },
-  },
+  "packages.published": { values: packageSnapshot.counts },
   "stackoverflow.questions": {
     values: {
       JavaScript: 2500000,
@@ -230,9 +214,9 @@ export const METRIC_INFO: Record<Metric, MetricDefinition> = {
   "packages.published": {
     label: "Published packages",
     unit: "Packages",
-    updatedAt: "1970-01-01",
+    updatedAt: packageSnapshot.updatedAt,
     description:
-      "Counts distinct package names in each registry. Registry coverage and publishing rules vary.",
+      "Published package totals from npm, PyPI, crates.io, and Maven Central, attributed to JavaScript, Python, Rust, and Java respectively. npm and Maven cover shared language ecosystems.",
   },
   "stackoverflow.questions": {
     label: "Questions",

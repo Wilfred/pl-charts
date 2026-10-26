@@ -98,4 +98,6 @@ For events, use explicit half-open intervals `[period_start, period_end)` in UTC
 
 Suggested collection cadence is daily for package totals, monthly for GitHub/HN/Stack Overflow aggregates, annually for surveys, and at each published release for release histories. Introduce scheduling after validating each adapter's completeness and request cost. Large event-level datasets should use compressed, partitioned files or separately hosted archives with checked-in manifests and checksums; keep the small aggregate CSV exports in Git.
 
-Website metrics currently use design values and the requested `1970` update badges. The collected registry dataset is available as a separate download. Connecting it to language rankings requires explicit ecosystem-to-language mapping and coverage rules, especially for npm and Maven.
+The website renderer reads `exports/packages.csv` at build time. Its display maps npm to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java; Go and Ruby display zero. This attribution is a presentation convention: npm covers JavaScript and TypeScript, and Maven covers JVM languages. Raw observations retain registry entities and ecosystem scope.
+
+Package update badges show the latest `observed_at` date in the snapshot. Source freshness remains available in `source_updated_at`, including Maven’s older reported date. Other metrics continue to use design values and 1970 update dates on category pages.

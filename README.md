@@ -67,3 +67,5 @@ npm run lint:fix
 ```
 
 GitHub Actions checks formatting, lint, tests, TypeScript, and the website build. Raw source responses and the reference clone are excluded from formatting and linting.
+
+Package tables import the CSV during build. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. The package badge uses the collection date.

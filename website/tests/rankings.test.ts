@@ -103,9 +103,12 @@ for (const category of CATEGORIES) {
         assert.deepEqual(rows(sibling), initial[1]);
       }
       const date = section.querySelector("time");
-      assert.equal(date?.getAttribute("datetime"), "1970-01-01");
-      assert.equal(date?.textContent, "1970");
-      assert.equal(METRIC_INFO[metric].updatedAt, "1970-01-01");
+      const updatedAt = METRIC_INFO[metric].updatedAt;
+      assert.equal(date?.getAttribute("datetime"), updatedAt);
+      assert.equal(
+        date?.textContent,
+        updatedAt === "1970-01-01" ? "1970" : updatedAt,
+      );
     });
     assert.equal(
       document.querySelector(

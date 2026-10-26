@@ -2,3 +2,5 @@ node_modules/
 **/dist/
 
 /vendor/modulecounts/
+
+/website/.generated/
