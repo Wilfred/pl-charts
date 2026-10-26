@@ -1,6 +1,5 @@
 const page = document.body.dataset.page;
 const body = document.getElementById("ranking-body");
-const search = document.getElementById("language-search");
 const order = document.getElementById("ranking-order");
 const year = document.getElementById("release-year");
 const metrics = [
@@ -47,9 +46,6 @@ function renderRankings() {
   );
   if (order.value === "language")
     rows.sort((a, b) => a.language.localeCompare(b.language));
-  rows = rows.filter((row) =>
-    row.language.toLowerCase().includes(search.value.trim().toLowerCase()),
-  );
   body.replaceChildren();
   for (const row of rows) {
     const tr = document.createElement("tr");
@@ -76,25 +72,10 @@ function renderRankings() {
     }
     body.append(tr);
   }
-  if (!rows.length) {
-    const row = document.createElement("tr");
-    const cell = document.createElement("td");
-    cell.colSpan = overview ? 6 : 3;
-    cell.className = "empty-state";
-    cell.textContent =
-      "No matching languages. Try another name or clear your search.";
-    row.append(cell);
-    body.append(row);
-  }
-  document.getElementById("result-count").textContent =
-    `${rows.length} ${rows.length === 1 ? "language" : "languages"} shown`;
-  if (year)
-    document.getElementById("year-heading").textContent = `/ ${year.value}`;
 }
 
-if (body && search && order) {
+if (body && order) {
   document.querySelector(".table-controls").hidden = false;
-  search.addEventListener("input", renderRankings);
   order.addEventListener("change", renderRankings);
   if (year) year.addEventListener("change", renderRankings);
   renderRankings();

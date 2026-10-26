@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Programming language rankings by repository, package, question, release, and hiring-comment counts. Prototype data."
+      content="Programming language rankings by repository, package, question, release, and hiring-comment counts."
     />
     <title>Programming language rankings · PL Charts</title>
     <link rel="stylesheet" href="css/style.css" />
@@ -17,10 +17,7 @@
     <header>
       <div class="header-inner">
         <a class="site-title" href="index.html"
-          ><span class="brand-mark" aria-hidden="true">▥</span> PL Charts<span
-            class="prototype-tag"
-            >Prototype</span
-          ></a
+          ><span class="brand-mark" aria-hidden="true">▥</span> PL Charts</a
         >
         <nav aria-label="Main navigation">
           <a href="index.html" aria-current="page">Overview</a
@@ -33,81 +30,48 @@
     </header>
     <main id="main">
       <section class="intro">
-        <p class="eyebrow">PROGRAMMING LANGUAGES</p>
         <h1>Programming language rankings</h1>
         <p class="lede">
           Rankings by repository, package, question, release, and hiring-comment
           counts.
         </p>
       </section>
-      <aside class="sample-notice">
-        <span class="notice-mark" aria-hidden="true">i</span>
-        <p><strong>Prototype data.</strong> All counts are fictional.</p>
-      </aside>
+
       <section aria-labelledby="signals-heading">
         <div class="section-heading">
           <h2 id="signals-heading">Metrics</h2>
-          <span class="quiet">Metric details ↗</span>
         </div>
         <div class="metric-grid">
-          <a class="metric-card" href="github-repos.html"
-            ><span class="card-kicker">01 / Code</span>
+          <a class="metric-card" href="github-repos.html">
             <h3>GitHub repositories<span aria-hidden="true">↗</span></h3>
-            <p>Public repositories grouped by programming language.</p>
-            <div class="card-leader">
-              <span>Rank 1</span><strong>JavaScript</strong>
-            </div></a
-          ><a class="metric-card" href="modules.html"
-            ><span class="card-kicker">02 / Ecosystems</span>
+            <p>Public repositories grouped by programming language.</p> </a
+          ><a class="metric-card" href="modules.html">
             <h3>Packages & modules<span aria-hidden="true">↗</span></h3>
-            <p>Published packages in each language’s package registry.</p>
-            <div class="card-leader">
-              <span>Rank 1</span><strong>JavaScript</strong>
-            </div></a
-          ><a class="metric-card" href="stackoverflow.html"
-            ><span class="card-kicker">03 / Community</span>
+            <p>Published packages in each language’s package registry.</p> </a
+          ><a class="metric-card" href="stackoverflow.html">
             <h3>Stack Overflow questions<span aria-hidden="true">↗</span></h3>
-            <p>Questions tagged with each programming language.</p>
-            <div class="card-leader">
-              <span>Rank 1</span><strong>JavaScript</strong>
-            </div></a
-          ><a class="metric-card" href="releases.html"
-            ><span class="card-kicker">04 / Activity</span>
+            <p>Questions tagged with each programming language.</p> </a
+          ><a class="metric-card" href="releases.html">
             <h3>Language releases<span aria-hidden="true">↗</span></h3>
-            <p>Language releases in a selected calendar year.</p>
-            <div class="card-leader">
-              <span>Rank 1</span><strong>Rust</strong>
-            </div></a
-          ><a class="metric-card" href="hiring.html"
-            ><span class="card-kicker">05 / Demand</span>
+            <p>Language releases in a selected calendar year.</p> </a
+          ><a class="metric-card" href="hiring.html">
             <h3>Hacker News hiring<span aria-hidden="true">↗</span></h3>
             <p>Language mentions in Hacker News “Who’s Hiring” threads.</p>
-            <div class="card-leader">
-              <span>Rank 1</span><strong>Python</strong>
-            </div></a
-          >
+          </a>
         </div>
       </section>
       <section class="ranking-section" aria-labelledby="rankings-heading">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">RANKINGS</p>
             <h2 id="rankings-heading">Rank comparison</h2>
           </div>
-          <span class="sample-label">Sample rankings</span>
         </div>
         <p class="section-description">
-          Ranks are calculated separately for each metric. Release ranks use the
-          2025 sample.
+          Ranks are calculated separately for each metric. Release ranks use
+          2025 counts.
         </p>
         <div class="table-controls" hidden>
-          <label class="search-label"
-            >Find a language<input
-              id="language-search"
-              type="search"
-              placeholder="e.g. Python"
-              autocomplete="off" /></label
-          ><label
+          <label
             >Order by<select id="ranking-order">
               <option value="githubRepos">Repositories rank</option>
               <option value="modules">Packages rank</option>
@@ -121,8 +85,7 @@
         <div class="table-wrap">
           <table>
             <caption class="sr-only">
-              Illustrative language rankings across five metrics, among six
-              sample languages
+              Language rankings across five metrics
             </caption>
             <thead>
               <tr>
@@ -219,51 +182,9 @@
             </tbody>
           </table>
         </div>
-        <p id="result-count" class="quiet" role="status">6 languages shown</p>
-        <p class="table-note">
-          Ranks use all six languages, including filtered rows. Ties share a
-          rank and leave a gap: 1, 1, 3.
-        </p>
-      </section>
-      <section
-        class="methodology"
-        id="methodology"
-        aria-labelledby="methodology-heading"
-      >
-        <div>
-          <p class="eyebrow">METHODOLOGY</p>
-          <h2 id="methodology-heading">Interpretation</h2>
-        </div>
-        <div>
-          <p>
-            Each metric measures a different property. The site does not
-            calculate a combined popularity score.
-          </p>
-          <div class="method-points">
-            <div>
-              <h3>Metric limitations</h3>
-              <p>
-                Repository and question totals include historical activity.
-                Registry policies and release schedules differ between
-                languages. Hiring comments cover one community.
-              </p>
-            </div>
-            <div>
-              <h3>Coverage</h3>
-              <p>
-                The prototype contains six languages and fictional counts.
-                Source collection and verification are outside its current
-                scope.
-              </p>
-            </div>
-          </div>
-        </div>
+
+        <p class="table-note">Ties share a rank and leave a gap: 1, 1, 3.</p>
       </section>
     </main>
-    <footer>
-      <a class="footer-brand" href="index.html">PL Charts</a>
-      <p>Programming language rankings.</p>
-      <a href="index.html#methodology">About the rankings ↗</a>
-    </footer>
   </body>
 </html>

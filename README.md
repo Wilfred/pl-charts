@@ -7,13 +7,14 @@ A static prototype of programming language popularity rankings. Current work cov
 - Display rankings and counts in tables.
 - Compare metrics in an overview and provide a detail page for each metric.
 - Include GitHub repositories, packages/modules, Stack Overflow questions, annual language releases, and language mentions in Hacker News “Who's Hiring” threads.
-- Use clearly labelled fictional data. Data collection and verification are outside the prototype scope.
-- Support responsive layouts, keyboard navigation, filtering, and release-year selection.
-- Use concise, factual descriptions. Avoid slogans, promotional language, and unsupported conclusions.
+- Use placeholder counts to develop the site structure and interactions.
+- Support responsive layouts, keyboard navigation, sorting, and release-year selection.
+- Use concise, factual descriptions and sentence-case headings.
+- Keep the dark interface focused on tables, metric definitions, and navigation.
 
 ## Interpretation
 
-Each metric measures a different property. There is no combined popularity score. Release frequency does not measure adoption. Hiring-comment mentions do not represent distinct jobs or the wider job market.
+Ranks are calculated separately for each metric. Release counts describe release frequency. Hiring counts measure language mentions in Hacker News hiring comments.
 
 A production version should document definitions, sources, observation dates, coverage, limitations, and refresh schedules.
 
