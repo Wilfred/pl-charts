@@ -1,0 +1,333 @@
+{
+  "schema_version": 2,
+  "category": "packages",
+  "method": "package-host-snapshots-v3",
+  "run_id": "2026-10-26T23-14-11-860Z",
+  "status": "complete",
+  "options": {},
+  "sources": [
+    {
+      "path": "modulecounts.html",
+      "url": "https://web.archive.org/web/20240115115215id_/http://www.modulecounts.com/",
+      "sha256": "9c9743e48e2b2f4e4d3c95917012d8d94c8ef55b67c8e5bbe4ac730e5b131046",
+      "bytes": 1729238,
+      "observed_at": "2026-10-26T23:14:14.306Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:12 GMT",
+        "content-type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "path": "pypi.html",
+      "url": "https://pypi.org/",
+      "sha256": "144490379bcdace2b08efeab5f97766ee5983574c2a1d07e2b9d1f2ccea8872d",
+      "bytes": 27885,
+      "observed_at": "2026-10-26T23:14:14.352Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:14 GMT",
+        "etag": "\"NVW7NdQYZWsw8Jq9bYlCMw\"",
+        "content-type": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "path": "npm.json",
+      "url": "https://replicate.npmjs.com/",
+      "sha256": "e2c596b7a63b4ab1f40dbcc6a83767bbfe8e14602dd85671d03e3a103a738a00",
+      "bytes": 90,
+      "observed_at": "2026-10-26T23:14:14.570Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:14 GMT",
+        "last-modified": "Mon, 26 Oct 2026 23:14:14 GMT",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "path": "cargo.json",
+      "url": "https://crates.io/api/v1/summary",
+      "sha256": "72f8c18780dde837e0bfc2b57583e5d31b38692bd1ee4b323bf2b1aa6a8c857f",
+      "bytes": 41304,
+      "observed_at": "2026-10-26T23:14:15.105Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:15 GMT",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "path": "maven-search.json",
+      "url": "https://search.maven.org/solrsearch/select?q=*:*&rows=0&wt=json",
+      "sha256": "a25411fd397c34fceef4549f1f039b130e526d056a75347faf76f948f16cca46",
+      "bytes": 352,
+      "observed_at": "2026-10-26T23:14:15.287Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:15 GMT",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "path": "nuget.json",
+      "url": "https://azuresearch-usnc.nuget.org/query?q=&take=0&prerelease=true&semVerLevel=2.0.0",
+      "sha256": "f470e1207bc4a089197a5584b63200abb7afa514ee5f269a1c772eea2e1b2c01",
+      "bytes": 147,
+      "observed_at": "2026-10-26T23:14:15.922Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:14 GMT",
+        "content-type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "path": "packagist.html",
+      "url": "https://packagist.org/statistics",
+      "sha256": "e7a74c7a1e5c83959b1f23202e28050cfb94335e098817456b403cb6704ec108",
+      "bytes": 20810,
+      "observed_at": "2026-10-26T23:14:16.042Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:16 GMT",
+        "content-type": "text/html; charset=UTF-8"
+      }
+    },
+    {
+      "path": "rubygems.html",
+      "url": "https://rubygems.org/stats",
+      "sha256": "52931077677f802973572f98d51ff015664243f2c0718e4ea2057672b3deedc5",
+      "bytes": 45070,
+      "observed_at": "2026-10-26T23:14:16.094Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:16 GMT",
+        "content-type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "path": "cpan.json",
+      "url": "https://fastapi.metacpan.org/v1/distribution/_count",
+      "sha256": "2679f6b2b5295d4a6c88f348b62b5afe73947e3f482bdcd68d04f0ed5f3cf9d2",
+      "bytes": 129,
+      "observed_at": "2026-10-26T23:14:16.207Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:16 GMT",
+        "content-type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "path": "clojars.html",
+      "url": "https://clojars.org/projects",
+      "sha256": "f18c0d80b079e4f5ed7e61b7c3341c4f734e0d3546502e0b693682b74a842f1b",
+      "bytes": 12599,
+      "observed_at": "2026-10-26T23:14:16.942Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:16 GMT",
+        "content-type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "path": "hex.html",
+      "url": "https://hex.pm/",
+      "sha256": "92e98444ccd2faa95e2252bc5df28bf380d019f742dfff136399f7f99eec83af",
+      "bytes": 93048,
+      "observed_at": "2026-10-26T23:14:17.100Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:16 GMT",
+        "content-type": "text/html; charset=utf-8"
+      }
+    },
+    {
+      "path": "luarocks.html",
+      "url": "https://luarocks.org/modules",
+      "sha256": "c4f52d5cbd0f93dc7f8aae42e0af3f897158e211cdf7d331723fa859594ad122",
+      "bytes": 29162,
+      "observed_at": "2026-10-26T23:14:17.430Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:17 GMT",
+        "content-type": "text/html"
+      }
+    },
+    {
+      "path": "crystalshards.html",
+      "url": "https://crystalshards.org/",
+      "sha256": "5ac7a45a07bfdae4117d55e724f3016303e5ee08286f3e23575eee1ef9493905",
+      "bytes": 19862,
+      "observed_at": "2026-10-26T23:14:18.073Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:17 GMT",
+        "content-type": "text/html"
+      }
+    },
+    {
+      "path": "melpa.json",
+      "url": "https://melpa.org/archive.json",
+      "sha256": "6869628d25deba0b51273dad06bd7d67f2379a18ee0a8429a8818f101e7b3693",
+      "bytes": 2757650,
+      "observed_at": "2026-10-26T23:14:22.274Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:18 GMT",
+        "etag": "\"6adfde2b-2a1412\"",
+        "last-modified": "Mon, 26 Oct 2026 23:11:39 GMT",
+        "content-type": "application/json"
+      }
+    },
+    {
+      "path": "drupal.json",
+      "url": "https://www.drupal.org/api-d7/node.json?type=project_module&limit=1",
+      "sha256": "ee53f6931bc1cc782f704a14f95d4fa4d1b88f81c78502f46404fa58ab22197d",
+      "bytes": 5279,
+      "observed_at": "2026-10-26T23:14:23.191Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 23:14:23 GMT",
+        "content-type": "application/json"
+      }
+    }
+  ],
+  "metadata": {
+    "selection": {
+      "url": "https://web.archive.org/web/20240115115215id_/http://www.modulecounts.com/",
+      "date": "2024-01-15",
+      "minimumPackagesPerDay": 2,
+      "rate": "Displayed rounded average growth over the preceding week",
+      "deduplication": "CPAN and CPAN (search) identify one host",
+      "rows": [
+        {
+          "name": "Clojars (Clojure)",
+          "packagesPerDay": 2
+        },
+        {
+          "name": "CPAN",
+          "packagesPerDay": 2
+        },
+        {
+          "name": "CPAN (search)",
+          "packagesPerDay": 5
+        },
+        {
+          "name": "CRAN (R)",
+          "packagesPerDay": -2
+        },
+        {
+          "name": "Crates.io (Rust)",
+          "packagesPerDay": 119
+        },
+        {
+          "name": "Crystal Shards",
+          "packagesPerDay": 2
+        },
+        {
+          "name": "Drupal (php)",
+          "packagesPerDay": 3
+        },
+        {
+          "name": "DUB (dlang)",
+          "packagesPerDay": 0
+        },
+        {
+          "name": "Gopm (go)",
+          "packagesPerDay": 0
+        },
+        {
+          "name": "Hackage (Haskell)",
+          "packagesPerDay": 1
+        },
+        {
+          "name": "Hex.pm (Elixir/Erlang)",
+          "packagesPerDay": 4
+        },
+        {
+          "name": "Julia",
+          "packagesPerDay": 0
+        },
+        {
+          "name": "LuaRocks (Lua)",
+          "packagesPerDay": 2
+        },
+        {
+          "name": "Maven Central (Java)",
+          "packagesPerDay": 242
+        },
+        {
+          "name": "MELPA (Emacs)",
+          "packagesPerDay": 2
+        },
+        {
+          "name": "Nimble (Nim)",
+          "packagesPerDay": 1
+        },
+        {
+          "name": "npm (node.js)",
+          "packagesPerDay": 843
+        },
+        {
+          "name": "nuget (.NET)",
+          "packagesPerDay": 140
+        },
+        {
+          "name": "Packagist (PHP)",
+          "packagesPerDay": 76
+        },
+        {
+          "name": "Pear (PHP)",
+          "packagesPerDay": 0
+        },
+        {
+          "name": "Perl 6 Ecosystem (perl 6)",
+          "packagesPerDay": 0
+        },
+        {
+          "name": "PyPI",
+          "packagesPerDay": 201
+        },
+        {
+          "name": "Rubygems.org",
+          "packagesPerDay": 15
+        },
+        {
+          "name": "Vim Scripts",
+          "packagesPerDay": 0
+        }
+      ],
+      "hosts": [
+        "npm",
+        "pypi",
+        "maven",
+        "nuget",
+        "packagist",
+        "cargo",
+        "rubygems",
+        "cpan",
+        "clojars",
+        "hex",
+        "luarocks",
+        "crystalshards",
+        "melpa",
+        "drupal"
+      ]
+    },
+    "methods": {
+      "pypi": "pypi-project-count-v1",
+      "npm": "npm-registry-doc-count-v1",
+      "cargo": "crates-num-crates-v1",
+      "maven": "maven-search-distinct-group-artifact-v2",
+      "nuget": "nuget-listed-package-ids-v1",
+      "packagist": "packagist-registered-packages-v1",
+      "rubygems": "rubygems-total-gems-v1",
+      "cpan": "metacpan-indexed-distributions-v1",
+      "clojars": "clojars-projects-total-v1",
+      "hex": "hex-available-packages-v1",
+      "luarocks": "luarocks-owner-package-listings-v1",
+      "crystalshards": "crystalshards-indexed-shards-v1",
+      "melpa": "melpa-archive-package-names-v1",
+      "drupal": "drupal-module-projects-pagination-v1"
+    }
+  }
+}

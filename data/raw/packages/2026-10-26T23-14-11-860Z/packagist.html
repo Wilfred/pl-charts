@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+
+        <title>Install Statistics - Packagist.org</title>
+        <meta name="description" content="The PHP Package Repository" />
+        <meta name="author" content="Jordi Boggiano" />
+        <meta name="canonical" href="https://packagist.org/statistics" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <link rel="shortcut icon" href="/favicon.ico?v=1793008254" />
+
+        <link rel="stylesheet" href="/build/app.css?v=1793008254" />
+            <link rel="stylesheet" href="/build/charts.css?v=1793008254" />
+
+                <link rel="alternate" type="application/rss+xml" title="Newly Submitted Packages - Packagist.org" href="https://packagist.org/feeds/packages.rss" />
+        <link rel="alternate" type="application/rss+xml" title="New Releases - Packagist.org" href="https://packagist.org/feeds/releases.rss" />
+        
+        <link rel="search" type="application/opensearchdescription+xml" href="/search.osd?v=1793008254" title="Packagist.org" />
+
+        <script nonce="zQhUCuTW2o/Vg1wyD9acmQ==">
+            var onloadRecaptchaCallback = function() {
+                document.querySelectorAll('.recaptcha-protected').forEach((el) => {
+                    el.closest('form').querySelectorAll('button, input[type="submit"]').forEach((submit) => {
+                        grecaptcha.render(submit, {
+                            'sitekey' : '6LfKiPoUAAAAAGlKWkhEEx7X8muIVYy6oA0GNdX0',
+                            'callback' : function (token) {
+                                submit.form.submit();
+                            }
+                        });
+                    })
+                });
+            };
+        </script>
+        
+        <meta name="robots" content="noindex, nofollow">    </head>
+    <body>
+    <section class="wrap">
+        <header class="navbar-wrapper fixed-top">
+                        <nav class="container">
+                <div class="navbar navbar-expand-md" role="navigation">                        <h1 class="navbar-brand"><a href="/">Packagist</a> <em class="d-none d-lg-inline">The PHP Package Repository</em></h1>                    <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse">
+                        <span class="visually-hidden">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse">
+                        <ul class="nav navbar-nav">
+                            <li>
+                                <a href="/explore/">Browse</a>
+                            </li>
+                            <li>
+                                <a href="/about">About Packagist.org</a>
+                            </li>
+                            <li>
+                                <a href="/packages/submit">Submit</a>
+                            </li>                            <li>
+                                <a href="/register/">Create account</a>
+                            </li>
+                            <li class="nav-user">
+                                <section class="nav-user-signin">
+                                    <a href="/login/">Sign in</a>
+
+                                    <section class="signin-box">
+                                        <form action="/login/" method="POST" id="nav_login">
+                                            <div class="input-group">
+                                                <span class="input-group-text"><span class="icon-user"></span></span>
+                                                <input class="form-control" type="text" id="_username" name="_username" placeholder="Username / Email">
+                                            </div>
+                                            <div class="input-group">
+                                                <span class="input-group-text"><span class="icon-lock"></span></span>
+                                                <input class="form-control" type="password" id="_password" name="_password" placeholder="Password">
+                                            </div>
+
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" id="_remember_me" name="_remember_me" value="on" checked="checked" />
+                                                <label class="form-check-label" for="_remember_me">Remember me</label>
+                                            </div>
+                                            <div class="signin-box-buttons">
+                                                <a href="/login/github" class="float-end btn btn-primary btn-github"><span class="icon-github"></span>Use Github</a>
+                                                <button type="submit" class="btn btn-success" id="_submit_mini" name="_submit">Log in</button>
+                                            </div>
+                                        </form>
+
+                                        <div class="signin-box-register">
+                                            <a href="/register/">No account yet? Create one now!</a>
+                                        </div>
+                                    </section>
+                                </section>
+                            </li>                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <section class="wrapper wrapper-search">
+    <div class="container ">
+        <form name="search_query" method="get" action="/search/" id="search-form" autocomplete="off">
+            <div class="sortable row">
+                <div class="col-12 js-search-field-wrapper col-lg-9">
+                    <input type="search" id="search_query_query" name="query" required="required" autocomplete="off" placeholder="Search packages..." tabindex="1" class=" form-control" value="" />
+                </div>
+            </div>
+        </form>    </div>
+</section>
+
+
+                
+        
+        <section class="wrapper">
+            <section class="container content" role="main">
+                                    <div id="search-container" class="d-none">
+                        <div class="row">
+                            <div class="search-list col-lg-9"></div>
+
+                            <div class="search-facets col-lg-3">
+                                <div class="search-facets-active-filters-wrapper" style="display:none">
+                                    <div class="search-facets-active-filters-header">
+                                        <span>Active filters</span>
+                                        <div class="search-facets-clear-all"></div>
+                                    </div>
+                                    <div class="search-facets-active-filters"></div>
+                                </div>
+                                <div class="search-facets-type"></div>
+                                <div class="search-facets-tags"></div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <div id="powered-by">
+                                    Search by <a href="https://www.algolia.com/"><img src="/img/sponsors/algolia-logo-light.svg?v=1793008254"></a>
+                                </div>
+                                <div id="pagination-container">
+                                    <div class="pagination-mount"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                        
+    <h2 class="title">
+        Statistics
+        <small class="header-menu-item active"><a href="/statistics">Package Installs</a></small><small class="header-menu-item "><a href="/php-statistics">PHP Versions</a></small>    </h2>
+
+
+    <section class="row">
+        <div class="col-xl-12">
+            <h3>Packages/versions over time</h3>
+
+            <div class="row">
+                <div class="chart col-12" data-labels="2011-09,2011-10,2011-11,2011-12,2012-01,2012-02,2012-03,2012-04,2012-05,2012-06,2012-07,2012-08,2012-09,2012-10,2012-11,2012-12,2013-01,2013-02,2013-03,2013-04,2013-05,2013-06,2013-07,2013-08,2013-09,2013-10,2013-11,2013-12,2014-01,2014-02,2014-03,2014-04,2014-05,2014-06,2014-07,2014-08,2014-09,2014-10,2014-11,2014-12,2015-01,2015-02,2015-03,2015-04,2015-05,2015-06,2015-07,2015-08,2015-09,2015-10,2015-11,2015-12,2016-01,2016-02,2016-03,2016-04,2016-05,2016-06,2016-07,2016-08,2016-09,2016-10,2016-11,2016-12,2017-01,2017-02,2017-03,2017-04,2017-05,2017-06,2017-07,2017-08,2017-09,2017-10,2017-11,2017-12,2018-01,2018-02,2018-03,2018-04,2018-05,2018-06,2018-07,2018-08,2018-09,2018-10,2018-11,2018-12,2019-01,2019-02,2019-03,2019-04,2019-05,2019-06,2019-07,2019-08,2019-09,2019-10,2019-11,2019-12,2020-01,2020-02,2020-03,2020-04,2020-05,2020-06,2020-07,2020-08,2020-09,2020-10,2020-11,2020-12,2021-01,2021-02,2021-03,2021-04,2021-05,2021-06,2021-07,2021-08,2021-09,2021-10,2021-11,2021-12,2022-01,2022-02,2022-03,2022-04,2022-05,2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03,2023-04,2023-05,2023-06,2023-07,2023-08,2023-09,2023-10,2023-11,2023-12,2024-01,2024-02,2024-03,2024-04,2024-05,2024-06,2024-07,2024-08,2024-09,2024-10,2024-11,2024-12,2025-01,2025-02,2025-03,2025-04,2025-05,2025-06,2025-07,2025-08,2025-09,2025-10,2025-11,2025-12,2026-01,2026-02,2026-03,2026-04,2026-05,2026-06,2026-07,2026-08,2026-09,2026-10" data-values="Versions available:1162,1283,1518,1759,2476,2880,3333,5559,6582,7334,9076,10824,12823,15405,17886,20496,24966,29591,34856,39777,45497,50945,56789,62812,69392,76906,84168,92041,101818,110919,121345,131586,144239,154912,166016,178403,191113,204520,217076,231283,248175,267920,289430,308659,328514,349429,369503,388670,408850,428951,449810,472258,497771,522985,550165,575910,601770,627804,654115,683106,710737,737622,764029,787899,819340,850161,885692,915432,944307,974944,1005920,1037317,1071003,1104076,1137739,1167614,1205824,1243117,1281734,1314770,1346531,1376809,1409379,1442400,1475648,1511283,1544521,1573338,1609250,1643744,1680933,1716435,1814795,1850922,1884872,1921064,1963500,2004587,2042620,2086588,2126170,2163612,2210825,2254674,2302343,2342674,2386392,2425744,2472805,2521261,2567016,2614364,2657747,2696024,2741727,2783611,2826320,2865629,2904953,2941750,2981546,3024140,3065267,3102998,3147107,3188109,3232941,3271634,3314819,3355396,3392097,3434166,3472599,3510014,3548783,3584333,3627345,3674566,3721398,3760435,3801327,3842961,3881733,3925522,3966661,4007646,4052202,4090805,4135564,4176022,4226081,4270281,4311904,4351069,4394172,4433361,4477685,4519816,4562194,4602115,4646642,4695678,4745875,4788327,4832644,4871320,4912079,4950898,4993396,5039298,5084482,5128334,5180130,5232140,5312127,5380849,5453426,5533937,5621220,5718645,5831180,5984510|Packages:7,47,132,188,297,406,577,792,1139,1414,1776,2177,2682,3385,3995,4591,5431,6350,7276,8221,9139,10056,11145,12209,13333,14509,15731,16908,18296,19777,21367,22971,24628,26132,27820,29644,31314,33212,35108,37033,39208,41486,43952,46120,48379,50655,53127,55522,57891,60299,62883,65439,68007,70813,73681,76703,79498,82272,85160,88157,90908,93795,96903,99692,102771,105737,109491,112590,115794,119144,122491,125905,129233,132514,135912,139015,142444,145682,149460,152731,158635,161698,164715,168054,171421,174717,178136,181224,184783,188028,191760,195948,200969,204740,208260,211597,215015,218487,221867,224994,228181,231477,235173,239139,242830,246359,249854,253356,256992,260362,263677,266877,270203,273109,277050,280374,283937,287038,289911,292916,296009,299136,301909,304770,307588,310526,313694,316586,319470,322297,324931,327737,330518,333230,335979,338360,341064,343854,347029,349730,352500,354997,357587,360249,362705,365310,367891,370343,372987,375332,378087,380549,382943,385213,387611,390002,392575,395086,397400,399685,402085,404549,407389,409890,412555,415044,417805,420249,422872,425567,428277,431185,434166,437421,441605,445513,449321,453700,458510,463590,468541,476096"></div>
+            </div>
+            <p>The last data point is for the current month and shows partial data.</p>
+
+                            <h3>Packages installed in the last 30 days</h3>
+                <div class="row">
+                    <div class="chart col-12" data-labels="2026-09-27,2026-09-28,2026-09-29,2026-09-30,2026-10-01,2026-10-02,2026-10-03,2026-10-04,2026-10-05,2026-10-06,2026-10-07,2026-10-08,2026-10-09,2026-10-10,2026-10-11,2026-10-12,2026-10-13,2026-10-14,2026-10-15,2026-10-16,2026-10-17,2026-10-18,2026-10-19,2026-10-20,2026-10-21,2026-10-22,2026-10-23,2026-10-24,2026-10-25,2026-10-26" data-values="Installs:107927129,272901419,261856783,258752018,266987570,239196448,116155488,113552028,278937180,276073755,273551850,276829898,244407776,117360613,121995585,274463661,288721425,295583425,289499694,253321314,117961539,122692689,310754462,296444756,330929106,329611144,280824155,129080357,130354852,319185257"></div>
+                </div>
+                <p>The last data point is for the current day (UTC) and shows partial data.</p>
+                                        <h3>Packages installed per month</h3>
+                <div class="row">
+                    <div class="chart col-12" data-labels="2012-04,2012-05,2012-06,2012-07,2012-08,2012-09,2012-10,2012-11,2012-12,2013-01,2013-02,2013-03,2013-04,2013-05,2013-06,2013-07,2013-08,2013-09,2013-10,2013-11,2013-12,2014-01,2014-02,2014-03,2014-04,2014-05,2014-06,2014-07,2014-08,2014-09,2014-10,2014-11,2014-12,2015-01,2015-02,2015-03,2015-04,2015-05,2015-06,2015-07,2015-08,2015-09,2015-10,2015-11,2015-12,2016-01,2016-02,2016-03,2016-04,2016-05,2016-06,2016-07,2016-08,2016-09,2016-10,2016-11,2016-12,2017-01,2017-02,2017-03,2017-04,2017-05,2017-06,2017-07,2017-08,2017-09,2017-10,2017-11,2017-12,2018-01,2018-02,2018-03,2018-04,2018-05,2018-06,2018-07,2018-08,2018-09,2018-10,2018-11,2018-12,2019-01,2019-02,2019-03,2019-04,2019-05,2019-06,2019-07,2019-08,2019-09,2019-10,2019-11,2019-12,2020-01,2020-02,2020-03,2020-04,2020-05,2020-06,2020-07,2020-08,2020-09,2020-10,2020-11,2020-12,2021-01,2021-02,2021-03,2021-04,2021-05,2021-06,2021-07,2021-08,2021-09,2021-10,2021-11,2021-12,2022-01,2022-02,2022-03,2022-04,2022-05,2022-06,2022-07,2022-08,2022-09,2022-10,2022-11,2022-12,2023-01,2023-02,2023-03,2023-04,2023-05,2023-06,2023-07,2023-08,2023-09,2023-10,2023-11,2023-12,2024-01,2024-02,2024-03,2024-04,2024-05,2024-06,2024-07,2024-08,2024-09,2024-10,2024-11,2024-12,2025-01,2025-02,2025-03,2025-04,2025-05,2025-06,2025-07,2025-08,2025-09,2025-10,2025-11,2025-12,2026-01,2026-02,2026-03,2026-04,2026-05,2026-06,2026-07,2026-08,2026-09,2026-10" data-values="Installs:186606,390188,613540,864564,940688,1133304,1117561,1247853,1527239,2636340,2443470,5079994,5809065,6686901,8170503,9384254,9878557,11498392,13765384,13753917,14061884,17832246,18988742,22865086,24673014,27245921,29279578,33281714,33640468,38943615,44563295,42519607,44049267,50307970,56247322,65964568,67248899,68181961,83642871,88000176,84677019,94866036,102767397,104032138,105002547,117150852,129779092,145086678,146267560,156279612,168643010,166468024,186093378,192162324,198512432,218990512,204018238,233236144,238226686,286134649,252719002,286053393,294436410,299623376,321826583,333284395,365808039,367506150,328506973,386644764,382684998,410946192,391856230,414886226,412387296,433473857,455613744,440712024,514552406,502710387,453062294,552419409,544684931,592494999,596832162,623958766,599930077,688651165,603663914,672486139,791234102,764175320,721720545,828654637,834432364,975655314,962209904,939480297,959602923,978184559,999878651,1169184979,1239138617,1210684446,1182970861,1267301924,1311740611,1428754207,1328990727,1424869563,1515810072,1482026884,1533372445,1636459354,1674672861,1737117609,1632964730,1755355900,1763576228,2044072295,1869319185,1987510695,2008342410,1806204037,1926335201,2067587432,2173022007,2167567276,1822603812,1725271196,1708826622,2034231652,1755741007,1963520676,2038456622,2058825176,2241094768,2189733480,2375183838,2424978448,2081937996,2435067777,2457605252,2554414286,2525293787,2553562210,2481914097,2710511032,2525819550,2627769938,2899831928,2743651258,2517626936,2793943886,2756999064,3040227253,2637804987,3203441479,3888824379,3251444512,2581630751,2925124936,3133217973,2890271081,2847814570,2998563882,3200138065,3769572530,3654150418,3812960420,4253447140,4627073040,4930116205,5814447208,6094476027"></div>
+                </div>
+                <p>The last data point is for the current month and shows partial data.</p>
+            
+            <h3>Totals</h3>
+            <dl class="dl-horizontal">
+                <dt class="font-normal">Packages registered</dt>
+                <dd class="font-normal">476&#8201;096</dd>
+
+                <dt class="font-normal">Versions available</dt>
+                <dd class="font-normal">5&#8201;984&#8201;510</dd>
+
+                <dt class="font-normal">Packages installed<br><small>(since 2012-04-13)</small></dt>
+                <dd class="font-normal">208&#8201;431&#8201;320&#8201;751</dd>
+            </dl>
+        </div>
+    </section>
+            </section>
+        </section>
+    </section>
+
+        <footer class="wrapper-footer">
+            <nav class="container">
+                <div class="row">
+                    <div class="col-8 col-md-9 col-lg-10">
+                        <div class="row">
+                            <ul class="col-6 col-md-3">
+                                <li><a href="/about">About Packagist.org</a></li>
+                                <li><a href="/feeds/" rel="nofollow">Atom/RSS Feeds</a></li>
+                            </ul>
+
+                            <ul class="col-6 col-md-3">
+                                <li><a href="/statistics" rel="nofollow">Statistics</a></li>
+                                <li><a href="/explore/">Browse Packages</a></li>
+                            </ul>
+
+                            <ul class="col-6 col-md-3">
+                                <li><a href="/apidoc">API</a></li>
+                                <li><a href="/mirrors">Mirrors</a></li>
+                            </ul>
+
+                            <ul class="col-6 col-md-3">
+                                <li><a href="https://status.packagist.org/">Status</a></li>
+                                <li><a href="https://p.datadoghq.com/sb/x98w56x71erzshui-4a54c45f82bacc991e83302548934b6a">Dashboard</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-4 col-md-3 col-lg-2">
+                        <ul class="social">
+                            <li><a href="http://github.com/composer/packagist" title="GitHub"><span class="icon-github"></span></a></li>
+                            <li><a href="/contact" title="Contact"><span class="icon-mail"></span></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="row sponsor">
+                    <p class="col-12 col-lg-6"><a class="short" href="https://packagist.com/"><img alt="Private Packagist" src="/img/sponsors/private-packagist.svg?v=1793008254" /></a> provides maintenance and hosting</p>
+                    <p class="col-12 col-lg-6"><a class="long" href="https://bunny.net/"><img alt="Bunny.net" src="/img/sponsors/bunny-net.svg?v=1793008254" /></a> provides bandwidth and CDN</p>
+                    <p class="col-12 col-lg-6"><a class="short" href="https://www.aikido.dev/"><img alt="Aikido" src="/img/sponsors/aikido.svg?v=1793008254" /></a> provides malware detection</p>
+                    <p class="col-12 text-center"><a href="/sponsor/">Sponsor Packagist &amp; Composer</a></p>
+                </div>
+            </nav>
+        </footer>
+
+        <div class="notifications-container toast-container position-fixed top-0 start-50 translate-middle-x p-3"></div>
+
+        <script nonce="zQhUCuTW2o/Vg1wyD9acmQ==">
+                        var algoliaConfig = {"app_id":"M58222SH95","search_key":"0cdb98d788b15a422a65e7f2fcecff5b","index_name":"packagist"};
+                    </script>
+        
+        <script nonce="zQhUCuTW2o/Vg1wyD9acmQ==" src="/build/app.js?v=1793008254"></script>
+
+            <script nonce="zQhUCuTW2o/Vg1wyD9acmQ==" src="/build/charts.js?v=1793008254"></script>
+    </body>
+</html>
