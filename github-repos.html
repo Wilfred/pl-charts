@@ -3,26 +3,19 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>GitHub Repositories · PL Charts</title>
+  <meta name="description" content="Explore programming language rankings across code, ecosystems, community, activity, and hiring. Design prototype with illustrative data.">
+  <title>GitHub repositories · PL Charts</title>
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/data.js" defer></script>
+  <script src="js/rankings.js" defer></script>
 </head>
-<body>
-  <header>
-    <a class="site-title" href="index.html">PL Charts</a>
-    <nav>
-      <a href="github-repos.html">GitHub Repos</a>
-      <a href="releases.html">Releases</a>
-      <a href="modules.html">Modules</a>
-      <a href="stackoverflow.html">Stack Overflow</a>
-    </nav>
-  </header>
-  <main>
-    <h1>GitHub Repositories</h1>
-    <p>Number of public GitHub repositories per language.</p>
-    <div class="chart"><canvas data-metric="githubRepos"></canvas></div>
-  </main>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
-  <script src="js/data.js"></script>
-  <script src="js/charts.js"></script>
+<body data-page="githubRepos">
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header><div class="header-inner">
+    <a class="site-title" href="index.html"><span class="brand-mark" aria-hidden="true">▥</span> PL Charts<span class="prototype-tag">Prototype</span></a>
+    <nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="github-repos.html" aria-current="page">Repositories</a><a href="modules.html">Packages</a><a href="stackoverflow.html">Questions</a><a href="releases.html">Releases</a><a href="hiring.html">Hiring</a></nav>
+  </div></header>
+  <main id="main"><div class="breadcrumb"><a href="index.html">Overview</a><span aria-hidden="true">/</span>GitHub repositories</div><section class="detail-intro"><p class="eyebrow">01 / CODE</p><h1>GitHub repositories<span class="accent">.</span></h1><p class="lede">Public repositories grouped by programming language.</p></section><aside class="sample-notice"><span class="notice-mark" aria-hidden="true">i</span><p><strong>Illustrative data.</strong> This is a design prototype. All counts and rankings are fictional, not verified popularity statistics.</p></aside><section class="ranking-section" aria-labelledby="rankings-heading"><div class="section-heading"><h2 id="rankings-heading">Language rankings</h2><span class="sample-label">Sample counts</span></div><div class="table-controls" hidden><label class="search-label">Find a language<input id="language-search" type="search" placeholder="e.g. Python" autocomplete="off"></label><label>Order by<select id="ranking-order"><option value="rank">Rank</option><option value="language">Language A–Z</option></select></label></div><div class="table-wrap"><table class="detail-table"><caption class="sr-only">Illustrative github repositories rankings among six sample languages</caption><thead><tr><th scope="col" class="numeric">Rank</th><th scope="col">Language</th><th scope="col" class="numeric">Repositories</th></tr></thead><tbody id="ranking-body"><tr><td class="numeric rank-cell">#1</td><th scope="row"><span class="language-dot js" aria-hidden="true"></span>JavaScript</th><td class="numeric count-cell">1,200,000</td></tr><tr><td class="numeric rank-cell">#2</td><th scope="row"><span class="language-dot py" aria-hidden="true"></span>Python</th><td class="numeric count-cell">1,100,000</td></tr><tr><td class="numeric rank-cell">#3</td><th scope="row"><span class="language-dot java" aria-hidden="true"></span>Java</th><td class="numeric count-cell">900,000</td></tr><tr><td class="numeric rank-cell">#4</td><th scope="row"><span class="language-dot go" aria-hidden="true"></span>Go</th><td class="numeric count-cell">400,000</td></tr><tr><td class="numeric rank-cell">#5</td><th scope="row"><span class="language-dot ruby" aria-hidden="true"></span>Ruby</th><td class="numeric count-cell">300,000</td></tr><tr><td class="numeric rank-cell">#6</td><th scope="row"><span class="language-dot rust" aria-hidden="true"></span>Rust</th><td class="numeric count-cell">250,000</td></tr></tbody></table></div><p id="result-count" class="quiet" role="status">6 languages shown</p><p class="table-note">Ranks use all six sample languages, even when filtered. Equal counts share a rank; the next rank skips the tied positions.</p></section><section class="metric-context"><div><p class="eyebrow">WHAT THIS TELLS YOU</p><h2>Behind the count</h2><p>Repository counts reflect accumulated code, including inactive projects and forks. They do not measure how many developers use a language.</p></div><div class="context-card"><h3>Data status</h3><p>Fictional sample data for a design prototype.</p><dl><dt>Coverage</dt><dd>6 sample languages</dd><dt>Period</dt><dd>Illustrative snapshot, undated</dd><dt>Source</dt><dd>Placeholder; not collected</dd></dl></div></section><a class="back-link" href="index.html">← Compare all five rankings</a></main>
+  <footer><a class="footer-brand" href="index.html">PL Charts</a><p>Many signals. Different perspectives.</p><a href="index.html#methodology">About the rankings ↗</a></footer>
 </body>
 </html>

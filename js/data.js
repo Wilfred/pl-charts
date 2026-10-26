@@ -1,7 +1,11 @@
-// Dummy data, to be replaced with real metrics.
+// Fictional data for the design prototype. Not verified popularity statistics.
 const LANGUAGES = ["JavaScript", "Python", "Java", "Go", "Rust", "Ruby"];
 
 const DATA = {
+  hiring: {
+    label: "Hiring comments",
+    values: [186, 241, 98, 124, 67, 42],
+  },
   githubRepos: {
     label: "Repositories",
     values: [1200000, 1100000, 900000, 400000, 250000, 300000],
@@ -26,3 +30,22 @@ const DATA = {
     },
   },
 };
+
+// Competition ranking: tied values share a rank, with a gap after the tie.
+// Rank the complete dataset before applying any presentation filters.
+function rankLanguages(metric, year = 2025) {
+  const values = metric === "releases"
+    ? LANGUAGES.map(language => DATA.releases.series[language][DATA.releases.years.indexOf(Number(year))])
+    : DATA[metric].values;
+  let previousValue;
+  let rank;
+  return LANGUAGES.map((language, index) => ({ language, value: values[index] }))
+    .sort((a, b) => b.value - a.value || a.language.localeCompare(b.language))
+    .map((row, index) => {
+      if (row.value !== previousValue) rank = index + 1;
+      previousValue = row.value;
+      return { ...row, rank };
+    });
+}
+
+if (typeof module !== "undefined") module.exports = { LANGUAGES, DATA, rankLanguages };
