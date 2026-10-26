@@ -34,12 +34,21 @@ const DATA = {
 // Competition ranking: tied values share a rank, with a gap after the tie.
 // Rank the complete dataset before applying any presentation filters.
 function rankLanguages(metric, year = 2025) {
-  const values = metric === "releases"
-    ? LANGUAGES.map(language => DATA.releases.series[language][DATA.releases.years.indexOf(Number(year))])
-    : DATA[metric].values;
+  const values =
+    metric === "releases"
+      ? LANGUAGES.map(
+          (language) =>
+            DATA.releases.series[language][
+              DATA.releases.years.indexOf(Number(year))
+            ],
+        )
+      : DATA[metric].values;
   let previousValue;
   let rank;
-  return LANGUAGES.map((language, index) => ({ language, value: values[index] }))
+  return LANGUAGES.map((language, index) => ({
+    language,
+    value: values[index],
+  }))
     .sort((a, b) => b.value - a.value || a.language.localeCompare(b.language))
     .map((row, index) => {
       if (row.value !== previousValue) rank = index + 1;
@@ -48,4 +57,5 @@ function rankLanguages(metric, year = 2025) {
     });
 }
 
-if (typeof module !== "undefined") module.exports = { LANGUAGES, DATA, rankLanguages };
+if (typeof module !== "undefined")
+  module.exports = { LANGUAGES, DATA, rankLanguages };

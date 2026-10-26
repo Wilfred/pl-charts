@@ -1,28 +1,45 @@
 # PL Charts
 
-PL Charts is a prototype for a website about programming language popularity, viewed through several different metrics. The long-term aim is a reliable source of popularity data; the current work focuses on the site's structure, design, and usefulness rather than collecting accurate data.
+A static prototype of programming language popularity rankings. Current work covers site structure, design, and interactions. The long-term goal is a reliable source of popularity data.
 
-## Prototype goals
+## Scope
 
-- Put **rankings first**. “Charts” means ordered league tables: make language positions and comparisons easy to scan, rather than centering the experience on bar graphs.
-- Show different perspectives on popularity without combining them into an unexplained overall score.
-- Retain the four existing metrics: GitHub repository counts, annual language release counts, package/module counts, and Stack Overflow question counts. Add a fifth page for language mentions in Hacker News “Who's Hiring” threads, also using placeholder data.
-- Provide an overview for comparing rankings across metrics, plus a dedicated page for each metric with its counts and context.
-- Use illustrative data to explore the design and interactions. Label it clearly so visitors cannot mistake it for verified or current data.
-- Make the site readable, responsive, and accessible, with clear navigation between the overview and metric pages.
+- Display rankings and counts in tables.
+- Compare metrics in an overview and provide a detail page for each metric.
+- Include GitHub repositories, packages/modules, Stack Overflow questions, annual language releases, and language mentions in Hacker News “Who's Hiring” threads.
+- Use clearly labelled fictional data. Data collection and verification are outside the prototype scope.
+- Support responsive layouts, keyboard navigation, filtering, and release-year selection.
+- Use concise, factual descriptions. Avoid slogans, promotional language, and unsupported conclusions.
 
-## Data and interpretation
+## Interpretation
 
-All numbers in this prototype are fictional sample data. Accurate collection, source verification, refresh schedules, historical coverage, and a production data pipeline are outside the current scope.
+Each metric measures a different property. There is no combined popularity score. Release frequency does not measure adoption. Hiring-comment mentions do not represent distinct jobs or the wider job market.
 
-The eventual site should explain what each metric measures, its source, observation date, and limitations. Repository counts, registry sizes, question counts, release frequency, and hiring-thread mentions reflect different things. In particular, release frequency describes a language's release process and is not a direct measure of adoption. Mentions in Hacker News hiring comments are a signal of demand within that community, not a count of jobs or a representative survey of the job market. The prototype should leave room for that context without presenting a universal “most popular” ranking.
+A production version should document definitions, sources, observation dates, coverage, limitations, and refresh schedules.
 
 ## Development
 
-This is a static HTML, CSS, and JavaScript site. No build step is required.
+The site uses HTML, CSS, and JavaScript. No build step is required.
 
 ```sh
 python3 -m http.server 8000
 ```
 
-Open <http://localhost:8000>. Start at `index.html`; the five metric pages are `github-repos.html`, `releases.html`, `modules.html`, `stackoverflow.html`, and `hiring.html`.
+Open <http://localhost:8000>. Metric pages: `github-repos.html`, `modules.html`, `stackoverflow.html`, `releases.html`, and `hiring.html`.
+
+## Formatting
+
+Use Node.js 22 and npm. Install the pinned Prettier dependency and enable the commit hook:
+
+```sh
+npm ci
+```
+
+The `prepare` script configures this clone to use `.githooks`. The pre-commit hook checks staged file contents, including partially staged files, and rejects unformatted changes. It does not modify files or stage changes.
+
+```sh
+npm run format
+npm run format:check
+```
+
+After formatting, stage the files again before committing. GitHub Actions runs the same formatting check on pushes and pull requests when Actions is enabled.

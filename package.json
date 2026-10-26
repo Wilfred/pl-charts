@@ -1,0 +1,12 @@
+{
+  "name": "pl-charts",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "git config core.hooksPath .githooks"
+  },
+  "devDependencies": {
+    "prettier": "3.8.1"
+  }
+}

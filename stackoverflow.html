@@ -1,21 +1,163 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Explore programming language rankings across code, ecosystems, community, activity, and hiring. Design prototype with illustrative data.">
-  <title>Stack Overflow questions · PL Charts</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script src="js/data.js" defer></script>
-  <script src="js/rankings.js" defer></script>
-</head>
-<body data-page="stackoverflow">
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header><div class="header-inner">
-    <a class="site-title" href="index.html"><span class="brand-mark" aria-hidden="true">▥</span> PL Charts<span class="prototype-tag">Prototype</span></a>
-    <nav aria-label="Main navigation"><a href="index.html">Overview</a><a href="github-repos.html">Repositories</a><a href="modules.html">Packages</a><a href="stackoverflow.html" aria-current="page">Questions</a><a href="releases.html">Releases</a><a href="hiring.html">Hiring</a></nav>
-  </div></header>
-  <main id="main"><div class="breadcrumb"><a href="index.html">Overview</a><span aria-hidden="true">/</span>Stack Overflow questions</div><section class="detail-intro"><p class="eyebrow">03 / COMMUNITY</p><h1>Stack Overflow questions<span class="accent">.</span></h1><p class="lede">Questions tagged with each programming language.</p></section><aside class="sample-notice"><span class="notice-mark" aria-hidden="true">i</span><p><strong>Illustrative data.</strong> This is a design prototype. All counts and rankings are fictional, not verified popularity statistics.</p></aside><section class="ranking-section" aria-labelledby="rankings-heading"><div class="section-heading"><h2 id="rankings-heading">Language rankings</h2><span class="sample-label">Sample counts</span></div><div class="table-controls" hidden><label class="search-label">Find a language<input id="language-search" type="search" placeholder="e.g. Python" autocomplete="off"></label><label>Order by<select id="ranking-order"><option value="rank">Rank</option><option value="language">Language A–Z</option></select></label></div><div class="table-wrap"><table class="detail-table"><caption class="sr-only">Illustrative stack overflow questions rankings among six sample languages</caption><thead><tr><th scope="col" class="numeric">Rank</th><th scope="col">Language</th><th scope="col" class="numeric">Questions</th></tr></thead><tbody id="ranking-body"><tr><td class="numeric rank-cell">#1</td><th scope="row"><span class="language-dot js" aria-hidden="true"></span>JavaScript</th><td class="numeric count-cell">2,500,000</td></tr><tr><td class="numeric rank-cell">#2</td><th scope="row"><span class="language-dot py" aria-hidden="true"></span>Python</th><td class="numeric count-cell">2,200,000</td></tr><tr><td class="numeric rank-cell">#3</td><th scope="row"><span class="language-dot java" aria-hidden="true"></span>Java</th><td class="numeric count-cell">1,900,000</td></tr><tr><td class="numeric rank-cell">#4</td><th scope="row"><span class="language-dot ruby" aria-hidden="true"></span>Ruby</th><td class="numeric count-cell">230,000</td></tr><tr><td class="numeric rank-cell">#5</td><th scope="row"><span class="language-dot go" aria-hidden="true"></span>Go</th><td class="numeric count-cell">75,000</td></tr><tr><td class="numeric rank-cell">#6</td><th scope="row"><span class="language-dot rust" aria-hidden="true"></span>Rust</th><td class="numeric count-cell">45,000</td></tr></tbody></table></div><p id="result-count" class="quiet" role="status">6 languages shown</p><p class="table-note">Ranks use all six sample languages, even when filtered. Equal counts share a rank; the next rank skips the tied positions.</p></section><section class="metric-context"><div><p class="eyebrow">WHAT THIS TELLS YOU</p><h2>Behind the count</h2><p>A question can have multiple language tags. Historical totals reflect community activity and support needs, not just present-day adoption.</p></div><div class="context-card"><h3>Data status</h3><p>Fictional sample data for a design prototype.</p><dl><dt>Coverage</dt><dd>6 sample languages</dd><dt>Period</dt><dd>Illustrative snapshot, undated</dd><dt>Source</dt><dd>Placeholder; not collected</dd></dl></div></section><a class="back-link" href="index.html">← Compare all five rankings</a></main>
-  <footer><a class="footer-brand" href="index.html">PL Charts</a><p>Many signals. Different perspectives.</p><a href="index.html#methodology">About the rankings ↗</a></footer>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Programming language rankings by repository, package, question, release, and hiring-comment counts. Prototype data."
+    />
+    <title>Stack Overflow questions · PL Charts</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/data.js" defer></script>
+    <script src="js/rankings.js" defer></script>
+  </head>
+  <body data-page="stackoverflow">
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header>
+      <div class="header-inner">
+        <a class="site-title" href="index.html"
+          ><span class="brand-mark" aria-hidden="true">▥</span> PL Charts<span
+            class="prototype-tag"
+            >Prototype</span
+          ></a
+        >
+        <nav aria-label="Main navigation">
+          <a href="index.html">Overview</a
+          ><a href="github-repos.html">Repositories</a
+          ><a href="modules.html">Packages</a
+          ><a href="stackoverflow.html" aria-current="page">Questions</a
+          ><a href="releases.html">Releases</a><a href="hiring.html">Hiring</a>
+        </nav>
+      </div>
+    </header>
+    <main id="main">
+      <div class="breadcrumb">
+        <a href="index.html">Overview</a><span aria-hidden="true">/</span>Stack
+        Overflow questions
+      </div>
+      <section class="detail-intro">
+        <p class="eyebrow">03 / COMMUNITY</p>
+        <h1>Stack Overflow questions</h1>
+        <p class="lede">Questions tagged with each programming language.</p>
+      </section>
+      <aside class="sample-notice">
+        <span class="notice-mark" aria-hidden="true">i</span>
+        <p><strong>Prototype data.</strong> All counts are fictional.</p>
+      </aside>
+      <section class="ranking-section" aria-labelledby="rankings-heading">
+        <div class="section-heading">
+          <h2 id="rankings-heading">Language rankings</h2>
+          <span class="sample-label">Sample counts</span>
+        </div>
+        <div class="table-controls" hidden>
+          <label class="search-label"
+            >Find a language<input
+              id="language-search"
+              type="search"
+              placeholder="e.g. Python"
+              autocomplete="off" /></label
+          ><label
+            >Order by<select id="ranking-order">
+              <option value="rank">Rank</option>
+              <option value="language">Language A–Z</option>
+            </select></label
+          >
+        </div>
+        <div class="table-wrap">
+          <table class="detail-table">
+            <caption class="sr-only">
+              Illustrative stack overflow questions rankings among six sample
+              languages
+            </caption>
+            <thead>
+              <tr>
+                <th scope="col" class="numeric">Rank</th>
+                <th scope="col">Language</th>
+                <th scope="col" class="numeric">Questions</th>
+              </tr>
+            </thead>
+            <tbody id="ranking-body">
+              <tr>
+                <td class="numeric rank-cell">#1</td>
+                <th scope="row">
+                  <span class="language-dot js" aria-hidden="true"></span
+                  >JavaScript
+                </th>
+                <td class="numeric count-cell">2,500,000</td>
+              </tr>
+              <tr>
+                <td class="numeric rank-cell">#2</td>
+                <th scope="row">
+                  <span class="language-dot py" aria-hidden="true"></span>Python
+                </th>
+                <td class="numeric count-cell">2,200,000</td>
+              </tr>
+              <tr>
+                <td class="numeric rank-cell">#3</td>
+                <th scope="row">
+                  <span class="language-dot java" aria-hidden="true"></span>Java
+                </th>
+                <td class="numeric count-cell">1,900,000</td>
+              </tr>
+              <tr>
+                <td class="numeric rank-cell">#4</td>
+                <th scope="row">
+                  <span class="language-dot ruby" aria-hidden="true"></span>Ruby
+                </th>
+                <td class="numeric count-cell">230,000</td>
+              </tr>
+              <tr>
+                <td class="numeric rank-cell">#5</td>
+                <th scope="row">
+                  <span class="language-dot go" aria-hidden="true"></span>Go
+                </th>
+                <td class="numeric count-cell">75,000</td>
+              </tr>
+              <tr>
+                <td class="numeric rank-cell">#6</td>
+                <th scope="row">
+                  <span class="language-dot rust" aria-hidden="true"></span>Rust
+                </th>
+                <td class="numeric count-cell">45,000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p id="result-count" class="quiet" role="status">6 languages shown</p>
+        <p class="table-note">
+          Ranks use all six languages, including filtered rows. Ties share a
+          rank and leave a gap: 1, 1, 3.
+        </p>
+      </section>
+      <section class="metric-context">
+        <div>
+          <p class="eyebrow">METHODOLOGY</p>
+          <h2>Definition and limitations</h2>
+          <p>
+            A question may have several language tags. Cumulative totals measure
+            historical question volume, not current adoption.
+          </p>
+        </div>
+        <div class="context-card">
+          <h3>Data status</h3>
+          <p>Fictional counts.</p>
+          <dl>
+            <dt>Coverage</dt>
+            <dd>6 sample languages</dd>
+            <dt>Period</dt>
+            <dd>Illustrative snapshot, undated</dd>
+            <dt>Source</dt>
+            <dd>Placeholder; not collected</dd>
+          </dl>
+        </div>
+      </section>
+      <a class="back-link" href="index.html">← Compare all five rankings</a>
+    </main>
+    <footer>
+      <a class="footer-brand" href="index.html">PL Charts</a>
+      <p>Programming language rankings.</p>
+      <a href="index.html#methodology">About the rankings ↗</a>
+    </footer>
+  </body>
 </html>
