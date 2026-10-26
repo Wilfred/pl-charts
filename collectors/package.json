@@ -9,7 +9,8 @@
     "collect:github": "node src/collect-github.ts",
     "inspect:github": "node src/inspect-github-attribution.ts",
     "collect:languages": "node src/select-languages.ts",
-    "collect:surveys": "node src/collect-surveys.ts"
+    "collect:surveys": "node src/collect-surveys.ts",
+    "collect:releases": "node src/collect-releases.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",
