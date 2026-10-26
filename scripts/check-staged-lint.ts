@@ -7,7 +7,7 @@ const files = execFileSync(
   { encoding: "utf8" },
 )
   .split("\0")
-  .filter((file) => file.endsWith(".ts"));
+  .filter((file) => /\.tsx?$/.test(file));
 
 const eslint = new ESLint();
 const results: ESLint.LintResult[] = [];

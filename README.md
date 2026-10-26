@@ -6,7 +6,7 @@ Programming language rankings grouped into categories. A category contains one o
 
 | Directory              | Purpose                                                                          |
 | ---------------------- | -------------------------------------------------------------------------------- |
-| `website/`             | Static TypeScript/Vite website and DOM tests                                     |
+| `website/`             | JSX static renderer, TypeScript/Vite website, and DOM tests                      |
 | `collectors/`          | TypeScript data collectors and offline tests; uses Node's built-in APIs          |
 | `data/`                | Checked-in source responses, provenance manifests, CSV observations, and exports |
 | `scripts/`, `tests/`   | Shared Git hooks and repository tooling tests                                    |
@@ -44,7 +44,11 @@ npm run preview
 - Releases: Stable releases.
 - Hacker News: Job descriptions.
 
-The category and metric definitions are in `website/src/data.ts`. Qualified metric identifiers match the collection schema. UI update badges currently display `1970`. Each category includes annotated references to existing analyses and approaches.
+Category definitions are in `website/src/categories.ts`; metric definitions and ranking values are in `website/src/data.ts`. Qualified metric identifiers match the collection schema. Each category includes annotated references to existing analyses and approaches.
+
+Pages are rendered from `website/src/pages.tsx` and shared components in `website/src/components/`. React renders the JSX to HTML during type checks, tests, and production builds. Vite also rerenders pages when JSX, data, or the package CSV changes during development. Generated `website/*.html` and `website/.generated/` are ignored by Git; edit the JSX source.
+
+The renderer reads `data/exports/packages.csv` and generates the package values used by both static tables and interactive sorting. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. Package update dates use the collection timestamp; other category metrics currently use `1970`.
 
 ## Data collection
 
@@ -67,5 +71,3 @@ npm run lint:fix
 ```
 
 GitHub Actions checks formatting, lint, tests, TypeScript, and the website build. Raw source responses and the reference clone are excluded from formatting and linting.
-
-Package tables import the CSV during build. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. The package badge uses the collection date.

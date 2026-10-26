@@ -8,7 +8,7 @@
 - Keep interface prose concise and factual. Describe each counting method once. Use sentence case and omit redundant labels and navigation.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
 - Preserve the charcoal palette, violet accents, readable contrast, keyboard focus, semantic tables, and responsive layouts. Check changes at mobile widths.
-- Metric update badges use 1970 during this design iteration. Keep source observation dates accurate in the collected data.
+- Category metric badges show their update dates; omit update badges on the homepage. Packages use the collected snapshot date; other metrics currently use 1970.
 
 ## Structure and data
 
@@ -18,6 +18,8 @@
 - Preserve missing observations and source-reported freshness. Keep registry counts distinct from language attribution and package names distinct from versions.
 - `vendor/modulecounts/` is an ignored reference checkout. Keep its dependencies separate.
 - Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.
+- Render shared JSX components into static HTML at build time. Edit `website/src/pages.tsx` and `website/src/components/`; generated HTML and `.generated/` are ignored artifacts.
+- Derive package values from the checked-in CSV during rendering. Keep the registry-to-language display mapping documented. Show zero for Go and Ruby until instructed otherwise.
 
 ## Checks
 

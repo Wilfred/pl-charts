@@ -1,6 +1,9 @@
+import { CATEGORIES, type Category } from "./categories.ts";
+export { CATEGORIES, type Category } from "./categories.ts";
 import packageSnapshot from "../.generated/packages.json" with { type: "json" };
-import { LANGUAGES, type Language } from "./languages.ts";
+import { LANGUAGES, type Language, type LanguageCounts } from "./languages.ts";
 export { LANGUAGES, type Language } from "./languages.ts";
+
 export const METRICS = [
   "github.pushes",
   "github.pull_requests",
@@ -15,7 +18,7 @@ export type Metric = (typeof METRICS)[number];
 export const RELEASE_YEARS = [2020, 2021, 2022, 2023, 2024, 2025] as const;
 export type ReleaseYear = (typeof RELEASE_YEARS)[number];
 export const DEFAULT_YEAR: ReleaseYear = 2025;
-type Counts = Record<Language, number>;
+type Counts = LanguageCounts;
 type ReleaseCounts = readonly [number, number, number, number, number, number];
 type RankingData = Record<
   Exclude<Metric, "releases.stable">,
@@ -137,58 +140,6 @@ export function rankLanguages(
   }
   return rankValues(counts);
 }
-
-export const CATEGORIES = [
-  {
-    id: "github",
-    label: "GitHub",
-    href: "github.html",
-    description: "Public GitHub activity by language.",
-    metrics: ["github.pushes", "github.pull_requests"],
-  },
-  {
-    id: "packages",
-    label: "Packages",
-    href: "packages.html",
-    description: "Published packages by registry.",
-    metrics: ["packages.published"],
-  },
-  {
-    id: "stackoverflow",
-    label: "Stack Overflow",
-    href: "stackoverflow.html",
-    description: "Question and answer volume by language tag.",
-    metrics: ["stackoverflow.questions", "stackoverflow.answers"],
-  },
-  {
-    id: "survey",
-    label: "Stack Overflow Survey",
-    href: "surveys.html",
-    description: "Self-reported language use among survey respondents.",
-    metrics: ["survey.usage"],
-  },
-  {
-    id: "releases",
-    label: "Releases",
-    href: "releases.html",
-    description: "Stable release frequency by year.",
-    metrics: ["releases.stable"],
-  },
-  {
-    id: "hacker-news",
-    label: "Hacker News",
-    href: "hiring.html",
-    description: "Language mentions in hiring comments.",
-    metrics: ["hacker_news.job_descriptions"],
-  },
-] as const satisfies readonly {
-  id: string;
-  label: string;
-  href: string;
-  description: string;
-  metrics: readonly Metric[];
-}[];
-export type Category = (typeof CATEGORIES)[number];
 
 interface MetricDefinition {
   label: string;

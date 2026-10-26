@@ -52,6 +52,18 @@ test("commit hook checks staged formatting and lint without modifying files", ()
     const validResult = hook();
     assert.equal(validResult.status, 0, validResult.stderr);
     assert.equal(git("show", `:${file}`), valid);
+    const jsxFile = "sample component.tsx";
+    const jsxFixture = join(directory, jsxFile);
+    const jsx = "export const Heading = () => <h1>Heading</h1>;\n";
+    writeFileSync(jsxFixture, "debugger;\n");
+    git("add", "--", jsxFile);
+    writeFileSync(jsxFixture, jsx);
+    const jsxResult = hook();
+    assert.equal(jsxResult.status, 1);
+    assert.match(jsxResult.stderr, /no-debugger/);
+    git("add", "--", jsxFile);
+    const validJsxResult = hook();
+    assert.equal(validJsxResult.status, 0, validJsxResult.stderr);
   } finally {
     rmSync(directory, { recursive: true, force: true });
   }
