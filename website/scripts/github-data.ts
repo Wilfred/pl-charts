@@ -11,6 +11,9 @@ export interface GithubSnapshot {
   quarters: string[];
   latestQuarter: string;
   updatedAt: string;
+  cutoff: string;
+  periodEnds: Record<string, string>;
+  coverage: Record<GithubMetric, Record<string, number>>;
   counts: Record<GithubMetric, Record<string, GithubCounts>>;
 }
 export function readGithubSnapshot(source: string): GithubSnapshot {
@@ -24,6 +27,11 @@ export function readGithubSnapshot(source: string): GithubSnapshot {
     "github.pushes": {},
     "github.pull_requests": {},
   };
+  const periodEnds: Record<string, string> = {};
+  const totals: Record<
+    GithubMetric,
+    Record<string, { known: number; total: number }>
+  > = { "github.pushes": {}, "github.pull_requests": {} };
   const seen = new Set<string>();
   let latest = "";
   let runId: string | undefined;
@@ -59,7 +67,13 @@ export function readGithubSnapshot(source: string): GithubSnapshot {
     const end = new Date(
       Date.UTC(start.getUTCFullYear(), start.getUTCMonth() + 3, 1),
     );
-    if (end.toISOString() !== row.period_end)
+    const actualEnd = new Date(row.period_end);
+    if (
+      !Number.isFinite(actualEnd.valueOf()) ||
+      actualEnd.toISOString() !== row.period_end ||
+      actualEnd <= start ||
+      actualEnd > end
+    )
       throw new Error("Invalid quarter end");
     if (
       typeof row.entity_id !== "string" ||
@@ -82,6 +96,13 @@ export function readGithubSnapshot(source: string): GithubSnapshot {
       throw new Error("Mixed GitHub collection runs");
     runId = row.run_id;
     const period = `${start.getUTCFullYear()}-Q${start.getUTCMonth() / 3 + 1}`;
+    if (periodEnds[period] && periodEnds[period] !== row.period_end)
+      throw new Error("Inconsistent quarter end");
+    periodEnds[period] = row.period_end;
+    const total = totals[row.metric][period] ?? { known: 0, total: 0 };
+    total.total += Number(row.value);
+    if (row.entity_id !== "Unknown") total.known += Number(row.value);
+    totals[row.metric][period] = total;
     const key = `${row.metric}:${period}:${row.entity_id}`;
     if (seen.has(key)) throw new Error("Duplicate GitHub observation");
     seen.add(key);
@@ -103,5 +124,24 @@ export function readGithubSnapshot(source: string): GithubSnapshot {
     throw new Error("GitHub metric coverage differs");
   const latestQuarter = quarters.at(-1);
   if (!latestQuarter) throw new Error("Missing GitHub quarters");
-  return { quarters, latestQuarter, updatedAt: latest.slice(0, 10), counts };
+  const coverage = Object.fromEntries(
+    GITHUB_METRICS.map((metric) => [
+      metric,
+      Object.fromEntries(
+        Object.entries(totals[metric]).map(([period, total]) => [
+          period,
+          total.total ? total.known / total.total : 0,
+        ]),
+      ),
+    ]),
+  ) as GithubSnapshot["coverage"];
+  return {
+    quarters,
+    latestQuarter,
+    updatedAt: latest.slice(0, 10),
+    counts,
+    periodEnds,
+    cutoff: periodEnds[latestQuarter]!,
+    coverage,
+  };
 }

@@ -44,9 +44,9 @@ test("the rendered dataset matches the checked-in quarterly export", () => {
     "utf8",
   );
   const snapshot = readGithubSnapshot(source);
-  assert.equal(snapshot.quarters.length, 48);
-  assert.equal(DEFAULT_GITHUB_QUARTER, "2024-Q1");
-  assert.equal(GITHUB_QUARTERS[0], "2012-Q2");
+  assert.equal(GITHUB_QUARTERS.length, snapshot.quarters.length);
+  assert.equal(DEFAULT_GITHUB_QUARTER, snapshot.latestQuarter);
+  assert.equal(GITHUB_QUARTERS[0], snapshot.quarters[0]);
   assert.deepEqual(
     githubCounts("github.pushes", DEFAULT_GITHUB_QUARTER),
     snapshot.counts["github.pushes"][DEFAULT_GITHUB_QUARTER],
@@ -91,5 +91,19 @@ test("quarter selectors update their metric independently and keep unavailable c
     pushes.querySelector("caption")?.textContent,
     "Pushes rankings, 2012 Q2",
   );
-  assert.equal(select.options.length, 48);
+  assert.equal(select.options.length, GITHUB_QUARTERS.length);
+});
+
+test("partial quarters retain exact cutoff and all-language attribution coverage", () => {
+  const source =
+    fixture.replaceAll("2024-04-01T00:00:00.000Z", "2024-02-01T12:00:00.000Z") +
+    "\n1,run-1,github,github.pushes,language,events,Unknown,60,2024-01-01T00:00:00.000Z,2024-02-01T12:00:00.000Z,2026-10-26T00:00:01Z";
+  const snapshot = readGithubSnapshot(source);
+  assert.equal(snapshot.cutoff, "2024-02-01T12:00:00.000Z");
+  assert.equal(snapshot.coverage["github.pushes"]["2024-Q1"], 0.25);
+  assert.equal(snapshot.coverage["github.pull_requests"]["2024-Q1"], 1);
+  assert.throws(
+    () => readGithubSnapshot(source.replace("Unknown,60", "Unknown,-60")),
+    /count/,
+  );
 });
