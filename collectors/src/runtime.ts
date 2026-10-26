@@ -8,6 +8,7 @@ import { DEFAULT_DATA_DIRECTORY, csv, type Observation } from "./storage.ts";
 export interface CollectionOptions {
   dataDirectory?: string;
   replay?: string;
+  sourceRun?: string;
   from?: number;
   to?: number;
 }
@@ -19,6 +20,7 @@ export function collectionOptions(
     options: {
       "data-dir": { type: "string" },
       replay: { type: "string" },
+      "source-run": { type: "string" },
       help: { type: "boolean" },
       ...(history
         ? { from: { type: "string" as const }, to: { type: "string" as const } }
@@ -27,7 +29,7 @@ export function collectionOptions(
   });
   if (values.help) {
     console.log(
-      `${description}\n\nOptions:\n  --data-dir PATH   Data root (default: repository data/)\n  --replay RUN      Verify saved responses and observations offline\n  --help            Show this help${history ? "\n  --from YEAR       First calendar year (inclusive)\n  --to YEAR         Last calendar year (inclusive)" : ""}`,
+      `${description}\n\nOptions:\n  --data-dir PATH   Data root (default: repository data/)\n  --replay RUN      Verify saved responses and observations offline\n  --source-run RUN  Create a derived run from saved responses, without network access\n  --help            Show this help${history ? "\n  --from YEAR       First calendar year (inclusive)\n  --to YEAR         Last calendar year (inclusive)" : ""}`,
     );
     process.exit(0);
   }
@@ -44,9 +46,14 @@ export function collectionOptions(
   };
   if (values.replay && !/^[0-9TZ-]+$/.test(values.replay))
     throw new Error("Invalid replay run identifier");
+  if (values["source-run"] && !/^[0-9TZ-]+$/.test(values["source-run"]))
+    throw new Error("Invalid source run identifier");
+  if (values["source-run"] && values.replay)
+    throw new Error("Choose either --replay or --source-run");
   const options = {
     dataDirectory: values["data-dir"],
     replay: values.replay,
+    sourceRun: values["source-run"],
     from: year(values.from),
     to: year(values.to),
   };
@@ -118,6 +125,30 @@ export async function runCollection(
     options.replay ??
     now().toISOString().replaceAll(":", "-").replaceAll(".", "-");
   const directory = join(root, "raw", category, runId);
+  let sourceManifest: CollectionManifest | undefined;
+  const sourceDirectory = options.sourceRun
+    ? join(root, "raw", category, options.sourceRun)
+    : directory;
+  if (options.sourceRun) {
+    sourceManifest = JSON.parse(
+      await readFile(join(sourceDirectory, "manifest.json"), "utf8"),
+    ) as CollectionManifest;
+    if (
+      sourceManifest.status !== "complete" ||
+      sourceManifest.method !== method ||
+      sourceManifest.schema_version !== 2
+    )
+      throw new Error(
+        "Source reuse requires a complete run using the same method",
+      );
+    options = {
+      ...options,
+      to:
+        options.to ??
+        sourceManifest.options.to ??
+        Number(sourceManifest.run_id.slice(0, 4)),
+    };
+  }
   let manifest: CollectionManifest;
   if (options.replay) {
     manifest = JSON.parse(
@@ -128,8 +159,12 @@ export async function runCollection(
         "Replay requires a complete run with the same method version",
       );
     if (
-      (options.from !== undefined && options.from !== manifest.options.from) ||
-      (options.to !== undefined && options.to !== manifest.options.to)
+      (options.from !== undefined &&
+        manifest.options.from !== undefined &&
+        options.from !== manifest.options.from) ||
+      (options.to !== undefined &&
+        manifest.options.to !== undefined &&
+        options.to !== manifest.options.to)
     )
       throw new Error("Replay year bounds differ from saved collection");
     options = { ...options, ...manifest.options };
@@ -144,7 +179,7 @@ export async function runCollection(
       status: "running",
       options: { from: options.from, to: options.to },
       sources: [],
-      metadata: {},
+      metadata: options.sourceRun ? { source_run: options.sourceRun } : {},
     };
   }
   const used = new Set<string>();
@@ -157,9 +192,13 @@ export async function runCollection(
       if (!/^[a-zA-Z0-9_.-]+$/.test(path) || used.has(path))
         throw new Error(`Invalid or repeated source path: ${path}`);
       used.add(path);
-      const saved = manifest.sources.find((source) => source.path === path);
-      if (options.replay) {
-        const body = await readFile(join(directory, path));
+      const saved = (sourceManifest ?? manifest).sources.find(
+        (source) => source.path === path,
+      );
+      if (options.replay || sourceManifest) {
+        const body = await readFile(
+          join(sourceManifest ? sourceDirectory : directory, path),
+        );
         if (
           !saved ||
           saved.url !== url ||
@@ -172,6 +211,10 @@ export async function runCollection(
           throw new Error(
             `HTTP ${saved.http_status} for ${url}: ${body.toString("utf8").slice(0, 200)}`,
           );
+        if (sourceManifest) {
+          await writeFile(join(directory, path), body);
+          manifest.sources.push({ ...saved });
+        }
         return body.toString("utf8");
       }
       const response = await (dependencies.fetcher ?? fetch)(url, {

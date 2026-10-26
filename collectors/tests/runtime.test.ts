@@ -135,3 +135,40 @@ test("replay verifies the body of read-only POST queries", async () => {
     /mismatch/,
   );
 });
+
+test("source reuse creates an independent derived run while preserving original observation times", async () => {
+  const dataDirectory = await mkdtemp(join(tmpdir(), "pl-runtime-source-"));
+  const original = await runCollection(
+    "example",
+    "source-v1",
+    { dataDirectory },
+    collect,
+    {
+      fetcher: async () => new Response('{"count":42}'),
+      now: () => new Date("2026-01-01T00:00:00Z"),
+    },
+  );
+  const derived = await runCollection(
+    "example",
+    "source-v1",
+    { dataDirectory, sourceRun: original.runId },
+    collect,
+    {
+      fetcher: () => {
+        throw new Error("Network forbidden");
+      },
+      now: () => new Date("2027-01-01T00:00:00Z"),
+    },
+  );
+  assert.notEqual(derived.runId, original.runId);
+  assert.equal(
+    derived.observations[0]?.observed_at,
+    original.observations[0]?.observed_at,
+  );
+  await runCollection(
+    "example",
+    "source-v1",
+    { dataDirectory, replay: derived.runId },
+    collect,
+  );
+});
