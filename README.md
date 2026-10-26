@@ -98,3 +98,5 @@ GitHub Actions runs formatting, lint, type checks, offline tests, and the static
 [PL Charts](https://www.wilfred.me.uk/pl-charts/) is hosted on GitHub Pages. Each push to `main` runs all checks, builds `website/dist/`, and deploys that artifact through the `github-pages` environment. Pull requests run the same checks without publishing. The Checks workflow also supports manual runs.
 
 Pages uses GitHub Actions as its publishing source. Relative page, asset, and CSV links support the `/pl-charts/` project path. Collection runs separately; deployment uses checked-in data and makes no live source queries.
+
+`website/robots.txt` permits all crawlers, including archival agents, and is copied into the production build. The current Pages domain also permits all crawlers in its domain-root `/robots.txt`, which governs the project path.

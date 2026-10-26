@@ -1,4 +1,5 @@
 import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { defineConfig, type Plugin } from "vite";
 import { CATEGORIES } from "./src/categories.ts";
@@ -18,6 +19,13 @@ function renderPages(): void {
 function staticPages(): Plugin {
   return {
     name: "static-jsx-pages",
+    generateBundle() {
+      this.emitFile({
+        type: "asset",
+        fileName: "robots.txt",
+        source: readFileSync(new URL("robots.txt", import.meta.url), "utf8"),
+      });
+    },
     configureServer(server) {
       renderPages();
       server.watcher.add([
