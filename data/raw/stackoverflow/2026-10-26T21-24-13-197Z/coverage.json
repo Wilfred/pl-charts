@@ -1,0 +1,35 @@
+{
+	"meta":
+	[
+		{
+			"name": "first",
+			"type": "DateTime64(3, 'UTC')"
+		},
+		{
+			"name": "last",
+			"type": "DateTime64(3, 'UTC')"
+		},
+		{
+			"name": "rows",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"first": "2008-07-31 21:42:52.667",
+			"last": "2024-03-31 23:59:19.670",
+			"rows": "59819048"
+		}
+	],
+
+	"rows": 1,
+
+	"statistics":
+	{
+		"elapsed": 0.0026275,
+		"rows_read": 50,
+		"bytes_read": 5200
+	}
+}

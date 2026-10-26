@@ -1,0 +1,1 @@
+SELECT toStartOfMonth(file_time) AS month,uniqExact(file_time) AS recorded_hours FROM github_events WHERE toYear(file_time) BETWEEN 2023 AND 2026 AND file_time<'2026-10-26 21:00:00' GROUP BY month ORDER BY month SETTINGS max_execution_time=60 FORMAT JSON

@@ -1,0 +1,25 @@
+{
+	"meta":
+	[
+		{
+			"name": "cutoff",
+			"type": "DateTime"
+		}
+	],
+
+	"data":
+	[
+		{
+			"cutoff": "2026-10-26 21:00:22"
+		}
+	],
+
+	"rows": 1,
+
+	"statistics":
+	{
+		"elapsed": 0.061563608,
+		"rows_read": 50207056,
+		"bytes_read": 200828224
+	}
+}

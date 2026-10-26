@@ -1,0 +1,360 @@
+{
+	"meta":
+	[
+		{
+			"name": "month",
+			"type": "Date"
+		},
+		{
+			"name": "pushes",
+			"type": "UInt64"
+		},
+		{
+			"name": "pull_request_events",
+			"type": "UInt64"
+		},
+		{
+			"name": "opened_pull_requests",
+			"type": "UInt64"
+		},
+		{
+			"name": "missing_pr_actions",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"month": "2023-01-01",
+			"pushes": 65769480,
+			"pull_request_events": 11642389,
+			"opened_pull_requests": 7047349,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-02-01",
+			"pushes": 60066543,
+			"pull_request_events": 9095749,
+			"opened_pull_requests": 4786327,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-03-01",
+			"pushes": 65992525,
+			"pull_request_events": 9618653,
+			"opened_pull_requests": 4995759,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-04-01",
+			"pushes": 62322914,
+			"pull_request_events": 8436744,
+			"opened_pull_requests": 4366806,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-05-01",
+			"pushes": 62110286,
+			"pull_request_events": 8577068,
+			"opened_pull_requests": 4551300,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-06-01",
+			"pushes": 59959065,
+			"pull_request_events": 7959007,
+			"opened_pull_requests": 4113028,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-07-01",
+			"pushes": 63507525,
+			"pull_request_events": 8399943,
+			"opened_pull_requests": 4493575,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-08-01",
+			"pushes": 67372957,
+			"pull_request_events": 8013761,
+			"opened_pull_requests": 4099068,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-09-01",
+			"pushes": 66637188,
+			"pull_request_events": 8115222,
+			"opened_pull_requests": 4184820,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-10-01",
+			"pushes": 69974380,
+			"pull_request_events": 9594631,
+			"opened_pull_requests": 5047306,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-11-01",
+			"pushes": 80592175,
+			"pull_request_events": 8810671,
+			"opened_pull_requests": 4553101,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2023-12-01",
+			"pushes": 102031243,
+			"pull_request_events": 7579655,
+			"opened_pull_requests": 3919781,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-01-01",
+			"pushes": 97433184,
+			"pull_request_events": 8758274,
+			"opened_pull_requests": 4509947,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-02-01",
+			"pushes": 114595080,
+			"pull_request_events": 8530662,
+			"opened_pull_requests": 4397646,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-03-01",
+			"pushes": 97876448,
+			"pull_request_events": 9275641,
+			"opened_pull_requests": 4799689,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-04-01",
+			"pushes": 98944413,
+			"pull_request_events": 9337591,
+			"opened_pull_requests": 4823512,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-05-01",
+			"pushes": 90730042,
+			"pull_request_events": 9272118,
+			"opened_pull_requests": 4808752,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-06-01",
+			"pushes": 84551073,
+			"pull_request_events": 8992198,
+			"opened_pull_requests": 4639612,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-07-01",
+			"pushes": 86351143,
+			"pull_request_events": 9295954,
+			"opened_pull_requests": 4807538,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-08-01",
+			"pushes": 88838018,
+			"pull_request_events": 8939766,
+			"opened_pull_requests": 4618366,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-09-01",
+			"pushes": 88419241,
+			"pull_request_events": 9446149,
+			"opened_pull_requests": 4952481,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-10-01",
+			"pushes": 94363000,
+			"pull_request_events": 10201658,
+			"opened_pull_requests": 5267566,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-11-01",
+			"pushes": 90903931,
+			"pull_request_events": 9214648,
+			"opened_pull_requests": 4748065,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2024-12-01",
+			"pushes": 94570498,
+			"pull_request_events": 9514694,
+			"opened_pull_requests": 4880669,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-01-01",
+			"pushes": 103615910,
+			"pull_request_events": 9717809,
+			"opened_pull_requests": 4958862,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-02-01",
+			"pushes": 98465171,
+			"pull_request_events": 9673456,
+			"opened_pull_requests": 5019555,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-03-01",
+			"pushes": 111487338,
+			"pull_request_events": 11068415,
+			"opened_pull_requests": 5708871,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-04-01",
+			"pushes": 104383735,
+			"pull_request_events": 10660724,
+			"opened_pull_requests": 5466378,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-05-01",
+			"pushes": 96087662,
+			"pull_request_events": 10079311,
+			"opened_pull_requests": 5166798,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-06-01",
+			"pushes": 67012362,
+			"pull_request_events": 7951065,
+			"opened_pull_requests": 4184611,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-07-01",
+			"pushes": 71747913,
+			"pull_request_events": 8169733,
+			"opened_pull_requests": 4322643,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-08-01",
+			"pushes": 71991494,
+			"pull_request_events": 8389546,
+			"opened_pull_requests": 4456056,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-09-01",
+			"pushes": 71773563,
+			"pull_request_events": 8224250,
+			"opened_pull_requests": 4400949,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-10-01",
+			"pushes": 61226053,
+			"pull_request_events": 6268230,
+			"opened_pull_requests": 3070806,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-11-01",
+			"pushes": 75069424,
+			"pull_request_events": 6653352,
+			"opened_pull_requests": 3147865,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2025-12-01",
+			"pushes": 75625427,
+			"pull_request_events": 9184361,
+			"opened_pull_requests": 3176586,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-01-01",
+			"pushes": 74652688,
+			"pull_request_events": 9208937,
+			"opened_pull_requests": 3182595,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-02-01",
+			"pushes": 65997599,
+			"pull_request_events": 8352302,
+			"opened_pull_requests": 2930569,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-03-01",
+			"pushes": 83965677,
+			"pull_request_events": 6235706,
+			"opened_pull_requests": 2248419,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-04-01",
+			"pushes": 79950331,
+			"pull_request_events": 5378552,
+			"opened_pull_requests": 1970848,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-05-01",
+			"pushes": 88682757,
+			"pull_request_events": 3493300,
+			"opened_pull_requests": 1311652,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-06-01",
+			"pushes": 95398281,
+			"pull_request_events": 1163246,
+			"opened_pull_requests": 463726,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-07-01",
+			"pushes": 112891188,
+			"pull_request_events": 333048,
+			"opened_pull_requests": 126164,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-08-01",
+			"pushes": 83158500,
+			"pull_request_events": 348205,
+			"opened_pull_requests": 131065,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-09-01",
+			"pushes": 36831425,
+			"pull_request_events": 4979767,
+			"opened_pull_requests": 1891557,
+			"missing_pr_actions": 0
+		},
+		{
+			"month": "2026-10-01",
+			"pushes": 22111510,
+			"pull_request_events": 1107937,
+			"opened_pull_requests": 463126,
+			"missing_pr_actions": 0
+		}
+	],
+
+	"rows": 46,
+
+	"statistics":
+	{
+		"elapsed": 1.704002383,
+		"rows_read": 6856572140,
+		"bytes_read": 54738140111
+	}
+}

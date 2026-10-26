@@ -1,0 +1,185 @@
+[
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 2823596,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "7d6beba8cfc0a8347f278f7414351191a95a707d46b6586e9a786f2669af0f8b",
+                    "checksum_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2.1_1.tar.gz.sha256.txt",
+                    "download_count": 2823596,
+                    "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2.1_1.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2.1_1.tar.gz.json",
+                    "name": "OpenJDK18U-jdk_x64_linux_hotspot_18.0.2.1_1.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2.1_1.tar.gz.sig",
+                    "size": 192590674
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-18.0.2.1+1_adopt",
+                "updated_at": "2022-08-26T22:31:48Z"
+            }
+        ],
+        "download_count": 5375906,
+        "id": "RE_kwDOFmqclc4Ef8lX.CIv22Gyj+GF48g==",
+        "release_link": "https://github.com/adoptium/temurin18-binaries/releases/tag/jdk-18.0.2.1%2B1",
+        "release_name": "jdk-18.0.2.1+1",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk-release-notes_18.0.2.1_1.json",
+            "name": "OpenJDK18U-jdk-release-notes_18.0.2.1_1.json",
+            "size": 44602
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2.1%2B1/OpenJDK18U-jdk-sources_18.0.2.1_1.tar.gz",
+            "name": "OpenJDK18U-jdk-sources_18.0.2.1_1.tar.gz",
+            "size": 106376586
+        },
+        "timestamp": "2022-08-26T15:50:57Z",
+        "updated_at": "2023-03-03T12:37:37Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 1,
+            "major": 18,
+            "minor": 0,
+            "openjdk_version": "18.0.2.1+1",
+            "patch": 1,
+            "security": 2,
+            "semver": "18.0.2+101"
+        }
+    },
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 107238,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "5e5dbf6f1308829528778e00631ec83e252d90fc444503091e71a66465e88941",
+                    "checksum_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz.sha256.txt",
+                    "download_count": 107238,
+                    "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz.json",
+                    "name": "OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk_x64_linux_hotspot_18.0.2_9.tar.gz.sig",
+                    "size": 192589998
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-18.0.2+9_adopt",
+                "updated_at": "2022-07-22T20:29:11Z"
+            }
+        ],
+        "download_count": 770356,
+        "id": "MDc6UmVsZWFzZTcyNjUxNDU5.Zkm1PwdbTIaCvA==",
+        "release_link": "https://github.com/adoptium/temurin18-binaries/releases/tag/jdk-18.0.2%2B9",
+        "release_name": "jdk-18.0.2+9",
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.2%2B9/OpenJDK18U-jdk-sources_18.0.2_9.tar.gz",
+            "name": "OpenJDK18U-jdk-sources_18.0.2_9.tar.gz",
+            "size": 106306237
+        },
+        "timestamp": "2022-07-22T20:28:46Z",
+        "updated_at": "2022-08-14T11:37:13Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 9,
+            "major": 18,
+            "minor": 0,
+            "openjdk_version": "18.0.2+9",
+            "security": 2,
+            "semver": "18.0.2+9"
+        }
+    },
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 1083816,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "16b1d9d75f22c157af04a1fd9c664324c7f4b5163c022b382a2f2e8897c1b0a2",
+                    "checksum_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.1%2B10/OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz.sha256.txt",
+                    "download_count": 1083816,
+                    "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.1%2B10/OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.1%2B10/OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz.json",
+                    "name": "OpenJDK18U-jdk_x64_linux_hotspot_18.0.1_10.tar.gz",
+                    "size": 192550912
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-18.0.1+10_adopt",
+                "updated_at": "2022-04-22T15:09:23Z"
+            }
+        ],
+        "download_count": 2095702,
+        "id": "MDc6UmVsZWFzZTY1MDg2NjQw.BcRnWUpM6E9uyA==",
+        "release_link": "https://github.com/adoptium/temurin18-binaries/releases/tag/jdk-18.0.1%2B10",
+        "release_name": "jdk-18.0.1+10",
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18.0.1%2B10/OpenJDK18U-sources_18.0.1_10.tar.gz",
+            "name": "OpenJDK18U-sources_18.0.1_10.tar.gz",
+            "size": 106282936
+        },
+        "timestamp": "2022-04-22T15:09:06Z",
+        "updated_at": "2022-05-13T09:54:04Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 10,
+            "major": 18,
+            "minor": 0,
+            "openjdk_version": "18.0.1+10",
+            "security": 1,
+            "semver": "18.0.1+10"
+        }
+    },
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 58276,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "82d67983f92f16b5fb57176fa4c228e44ecc6f671b3c3523140fba7fb904dceb",
+                    "checksum_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18%2B36/OpenJDK18U-jdk_x64_linux_hotspot_18_36.tar.gz.sha256.txt",
+                    "download_count": 58276,
+                    "link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18%2B36/OpenJDK18U-jdk_x64_linux_hotspot_18_36.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin18-binaries/releases/download/jdk-18%2B36/OpenJDK18U-jdk_x64_linux_hotspot_18_36.tar.gz.json",
+                    "name": "OpenJDK18U-jdk_x64_linux_hotspot_18_36.tar.gz",
+                    "size": 192448149
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-18+36_adopt",
+                "updated_at": "2022-03-24T15:56:37Z"
+            }
+        ],
+        "download_count": 513711,
+        "id": "MDc6UmVsZWFzZTYyNjk4OTI2.G8Djz3skJZK0bQ==",
+        "release_link": "https://github.com/adoptium/temurin18-binaries/releases/tag/jdk-18%2B36",
+        "release_name": "jdk-18+36",
+        "release_type": "ga",
+        "timestamp": "2022-03-24T15:56:28Z",
+        "updated_at": "2022-04-07T13:00:41Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 36,
+            "major": 18,
+            "minor": 0,
+            "openjdk_version": "18+36",
+            "security": 0,
+            "semver": "18.0.0+36"
+        }
+    }
+]

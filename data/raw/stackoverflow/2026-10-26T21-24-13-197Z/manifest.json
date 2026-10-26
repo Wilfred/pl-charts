@@ -1,0 +1,78 @@
+{
+  "schema_version": 2,
+  "category": "stackoverflow",
+  "method": "stackoverflow-post-creation-parent-tags-v1",
+  "run_id": "2026-10-26T21-24-13-197Z",
+  "status": "complete",
+  "options": {},
+  "sources": [
+    {
+      "path": "coverage.json",
+      "url": "https://sql-clickhouse.clickhouse.com/?user=demo&query=SELECT+min%28CreationDate%29+AS+first%2Cmax%28CreationDate%29+AS+last%2Ccount%28%29+AS+rows+FROM+stackoverflow.posts+FORMAT+JSON",
+      "sha256": "48cd984750fc13c84f1cd1777f74974ce0e1943b5c855c414689dde2a010dd0c",
+      "bytes": 415,
+      "observed_at": "2026-10-26T21:24:13.614Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 21:24:13 GMT",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "query": "SELECT min(CreationDate) AS first,max(CreationDate) AS last,count() AS rows FROM stackoverflow.posts FORMAT JSON"
+    },
+    {
+      "path": "questions.json",
+      "url": "https://sql-clickhouse.clickhouse.com/?user=demo&query=SELECT+arrayJoin%28arrayFilter%28tag+-%3E+tag+IN+%28%27python%27%2C%27java%27%2C%27go%27%2C%27javascript%27%2C%27c%2B%2B%27%2C%27typescript%27%2C%27php%27%2C%27ruby%27%2C%27c%27%2C%27c%23%27%2C%27nix%27%2C%27bash%27%2C%27rust%27%2C%27scala%27%2C%27kotlin%27%2C%27swift%27%2C%27dart%27%2C%27groovy%27%2C%27perl%27%2C%27lua%27%29%2CsplitByChar%28%27%7C%27%2CTags%29%29%29+AS+tag%2CtoYear%28CreationDate%29+AS+year%2CtoQuarter%28CreationDate%29+AS+quarter%2Ccount%28%29+AS+count+FROM+stackoverflow.posts+WHERE+PostTypeId%3D%27Question%27+AND+toYear%28CreationDate%29+BETWEEN+2008+AND+2026+GROUP+BY+tag%2Cyear%2Cquarter+ORDER+BY+year%2Cquarter%2Ctag+SETTINGS+max_execution_time%3D60+FORMAT+JSON",
+      "sha256": "b5b6df9ace484d6022ef12df5913966bfb35402562a7471516d9e1767ff5e3ad",
+      "bytes": 94879,
+      "observed_at": "2026-10-26T21:24:13.912Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 21:24:13 GMT",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "query": "SELECT arrayJoin(arrayFilter(tag -> tag IN ('python','java','go','javascript','c++','typescript','php','ruby','c','c#','nix','bash','rust','scala','kotlin','swift','dart','groovy','perl','lua'),splitByChar('|',Tags))) AS tag,toYear(CreationDate) AS year,toQuarter(CreationDate) AS quarter,count() AS count FROM stackoverflow.posts WHERE PostTypeId='Question' AND toYear(CreationDate) BETWEEN 2008 AND 2026 GROUP BY tag,year,quarter ORDER BY year,quarter,tag SETTINGS max_execution_time=60 FORMAT JSON"
+    },
+    {
+      "path": "answers.json",
+      "url": "https://sql-clickhouse.clickhouse.com/?user=demo&query=SELECT+tag%2CtoYear%28a.CreationDate%29+AS+year%2CtoQuarter%28a.CreationDate%29+AS+quarter%2Ccount%28%29+AS+count+FROM+stackoverflow.posts+a+INNER+JOIN+%28SELECT+Id%2CarrayFilter%28tag+-%3E+tag+IN+%28%27python%27%2C%27java%27%2C%27go%27%2C%27javascript%27%2C%27c%2B%2B%27%2C%27typescript%27%2C%27php%27%2C%27ruby%27%2C%27c%27%2C%27c%23%27%2C%27nix%27%2C%27bash%27%2C%27rust%27%2C%27scala%27%2C%27kotlin%27%2C%27swift%27%2C%27dart%27%2C%27groovy%27%2C%27perl%27%2C%27lua%27%29%2CsplitByChar%28%27%7C%27%2CTags%29%29+AS+langs+FROM+stackoverflow.posts+WHERE+PostTypeId%3D%27Question%27+AND+notEmpty%28langs%29%29+q+ON+toInt32OrZero%28a.ParentId%29%3Dq.Id+ARRAY+JOIN+q.langs+AS+tag+WHERE+a.PostTypeId%3D%27Answer%27+AND+toYear%28a.CreationDate%29+BETWEEN+2008+AND+2026+GROUP+BY+tag%2Cyear%2Cquarter+ORDER+BY+year%2Cquarter%2Ctag+SETTINGS+max_execution_time%3D60%2Cmax_memory_usage%3D28000000000+FORMAT+JSON",
+      "sha256": "d1223e338665a05bdb66db53f55331b58ef819b290dec7b4a250c0ce758255c6",
+      "bytes": 95075,
+      "observed_at": "2026-10-26T21:24:14.635Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 21:24:14 GMT",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "query": "SELECT tag,toYear(a.CreationDate) AS year,toQuarter(a.CreationDate) AS quarter,count() AS count FROM stackoverflow.posts a INNER JOIN (SELECT Id,arrayFilter(tag -> tag IN ('python','java','go','javascript','c++','typescript','php','ruby','c','c#','nix','bash','rust','scala','kotlin','swift','dart','groovy','perl','lua'),splitByChar('|',Tags)) AS langs FROM stackoverflow.posts WHERE PostTypeId='Question' AND notEmpty(langs)) q ON toInt32OrZero(a.ParentId)=q.Id ARRAY JOIN q.langs AS tag WHERE a.PostTypeId='Answer' AND toYear(a.CreationDate) BETWEEN 2008 AND 2026 GROUP BY tag,year,quarter ORDER BY year,quarter,tag SETTINGS max_execution_time=60,max_memory_usage=28000000000 FORMAT JSON"
+    }
+  ],
+  "metadata": {
+    "snapshot": {
+      "first": "2008-07-31 21:42:52.667",
+      "last": "2024-03-31 23:59:19.670",
+      "rows": "59819048"
+    },
+    "tags": {
+      "Python": "python",
+      "Java": "java",
+      "Go": "go",
+      "JavaScript": "javascript",
+      "C++": "c++",
+      "TypeScript": "typescript",
+      "PHP": "php",
+      "Ruby": "ruby",
+      "C": "c",
+      "C#": "c#",
+      "Nix": "nix",
+      "Shell": "bash",
+      "Rust": "rust",
+      "Scala": "scala",
+      "Kotlin": "kotlin",
+      "Swift": "swift",
+      "Dart": "dart",
+      "Groovy": "groovy",
+      "Perl": "perl",
+      "Lua": "lua"
+    }
+  }
+}

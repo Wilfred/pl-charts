@@ -1,0 +1,1660 @@
+{
+   "_shards" : {
+      "failed" : 0,
+      "skipped" : 0,
+      "successful" : 1,
+      "total" : 1
+   },
+   "hits" : {
+      "hits" : [
+         {
+            "_id" : "RdfvxkFlIbLL1HsAWdFt0MWQjpQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1999-04-29T20:04:24",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004_05",
+               "version" : "5.004_05"
+            }
+         },
+         {
+            "_id" : "QfS1_HGycjW44MsCl73JLC8Is_s",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2003-09-25T11:49:06",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.1",
+               "version" : "v5.8.1"
+            }
+         },
+         {
+            "_id" : "_4qBgkSieeCULX5Fd4f_6q93B6Y",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-10-11T03:39:44",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_07",
+               "version" : "5.003_07"
+            }
+         },
+         {
+            "_id" : "M3dpLADfy9b_BLj59PL6DeYBhcY",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-11-19T07:27:23",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_08",
+               "version" : "5.003_08"
+            }
+         },
+         {
+            "_id" : "TfFuTMTUuP8TsE5K_vcbfMBQzX4",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-29T06:05:11",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_24",
+               "version" : "5.003_24"
+            }
+         },
+         {
+            "_id" : "WS7D8WVT209d2cay_Gb6OpyKRgc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-04T06:02:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_19",
+               "version" : "5.003_19"
+            }
+         },
+         {
+            "_id" : "O_g6aqU_yeJn_RvVdzI17IQkw94",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-24T23:22:02",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_16",
+               "version" : "5.003_16"
+            }
+         },
+         {
+            "_id" : "7E3jAfestR_qCAJoU3YcFNwKZ1Q",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-25T10:04:29",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_23",
+               "version" : "5.003_23"
+            }
+         },
+         {
+            "_id" : "Lz5NYKrDZeiH60IclPg3ZmFlTgw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-02-21T17:17:57",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_28",
+               "version" : "5.003_28"
+            }
+         },
+         {
+            "_id" : "qxPjvV7svzD02VA0Tldp5Bc7uj8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-07-21T11:36:27",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005-beta2",
+               "version" : "5.005"
+            }
+         },
+         {
+            "_id" : "x4oodLUzEfUDCK05J3tWTU5ISDI",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2018-11-29T19:03:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.28.1",
+               "version" : "5.028001"
+            }
+         },
+         {
+            "_id" : "Qg_LnJmNBfLA2aORJ2lIGYEJ5_U",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-09-22T21:30:56",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.26.1",
+               "version" : "5.026001"
+            }
+         },
+         {
+            "_id" : "qsngU1vx5Yp_57OoBWnlmEfO6tc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-02-03T07:48:14",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.002b3",
+               "version" : "5.002"
+            }
+         },
+         {
+            "_id" : "YswfF3NQ8M6VHQVJ2pQKvfJTFUM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-10-08T21:59:27",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_06",
+               "version" : "5.003_06"
+            }
+         },
+         {
+            "_id" : "36dFZmJHuKH4pMdUH0khXuWS2LE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2015-12-13T19:48:31",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.22.1",
+               "version" : "5.022001"
+            }
+         },
+         {
+            "_id" : "S8g_FYAddHRJk9xOQBobdRscFLo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-02-04T05:41:02",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_25",
+               "version" : "5.003_25"
+            }
+         },
+         {
+            "_id" : "X_upsS_rB_15MrZtksLheQCBnFc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-08T02:15:49",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_20",
+               "version" : "5.003_20"
+            }
+         },
+         {
+            "_id" : "JEoijhwea1LuEck6GIddf8xKrPs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-31T21:35:40",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_18",
+               "version" : "5.003_18"
+            }
+         },
+         {
+            "_id" : "xmK75Xbt0m9X8P9U04kobYE6n9w",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-15T23:12:15",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_21",
+               "version" : "5.003_21"
+            }
+         },
+         {
+            "_id" : "WuKH3MnShcU7v6pZdx4mUvdnl9w",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-23T22:09:26",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_15",
+               "version" : "5.003_15"
+            }
+         },
+         {
+            "_id" : "w3HkgCU8gU2AZsnksOA0zfjZm5A",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-07-02T23:00:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.0",
+               "version" : "5.038000"
+            }
+         },
+         {
+            "_id" : "ocntS2RRRvdIEwdqpJOV7bHHTDg",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:59:01",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.36.2a",
+               "version" : "5.036002"
+            }
+         },
+         {
+            "_id" : "UThQvXxWI1bk22lIdmHs1xh3tpE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:19:49",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.34.2",
+               "version" : "5.034002"
+            }
+         },
+         {
+            "_id" : "0iqXsWq50z_4_p7rTWq2_RuBDX8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:21:49",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.1",
+               "version" : "5.038001"
+            }
+         },
+         {
+            "_id" : "v6zv1nXTMglxKfM0JF94FWBU8SU",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:58:49",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.34.2a",
+               "version" : "5.034002"
+            }
+         },
+         {
+            "_id" : "FHBedCFu6EDPbusPk2C3v6hUNFo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-07-23T00:55:19",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005",
+               "version" : "5.005"
+            }
+         },
+         {
+            "_id" : "7MIXoXAMLZWlXfwWTs7L3w26rqk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2000-03-23T06:06:13",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.6.0",
+               "version" : "v5.6.0"
+            }
+         },
+         {
+            "_id" : "s1KAHCs1AVrk5qp8zbTjcyj9abU",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2004-02-23T14:02:10",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005_04",
+               "version" : "5.005"
+            }
+         },
+         {
+            "_id" : "AB_oYSKUik4MEmhZ3_Cdwhw_eQk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:20:11",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.36.2",
+               "version" : "5.036002"
+            }
+         },
+         {
+            "_id" : "IzbaeZ8E9nhrX_opYGtDevxsnSY",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2022-03-13T08:40:18",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.34.1",
+               "version" : "5.034001"
+            }
+         },
+         {
+            "_id" : "Dh0XyTf90G2iaioJ34i3awsZYRo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2021-01-23T14:56:24",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.32.1",
+               "version" : "5.032001"
+            }
+         },
+         {
+            "_id" : "kaGIP1ik_ctRrfZSwTF4hy4ueKw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-01-18T19:48:20",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.1",
+               "version" : "5.040001"
+            }
+         },
+         {
+            "_id" : "qKsgyeJNjRCSlfyi7SBG6f3Tr_A",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-04-13T13:07:01",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.2",
+               "version" : "5.040002"
+            }
+         },
+         {
+            "_id" : "m5qUVunE6ghfra9L_7syLyphZho",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-29T16:10:36",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.2",
+               "version" : "5.038002"
+            }
+         },
+         {
+            "_id" : "4AlDnqO2MPFy9IqEmrm9xCGHJak",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-07-15T11:29:51",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005-beta1",
+               "version" : "5.005"
+            }
+         },
+         {
+            "_id" : "enmzKCVmaRJto3z2_jH2FpXfabo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-29T16:08:59",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.36.3",
+               "version" : "5.036003"
+            }
+         },
+         {
+            "_id" : "4AadgGTPI8BFNWVwGoxMRBFUVRQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-29T13:10:30",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.34.3",
+               "version" : "5.034003"
+            }
+         },
+         {
+            "_id" : "_7XKuIVoBWprb4pSUyheBHCPnFw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2024-06-09T20:45:37",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.0",
+               "version" : "5.040000"
+            }
+         },
+         {
+            "_id" : "cDgRv1cxGlcqW3qEAMwZWupKPx4",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-04-13T13:06:16",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.4",
+               "version" : "5.038004"
+            }
+         },
+         {
+            "_id" : "ANvdqp6ipaUdy9w8SBjISJWrUnA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2022-05-28T00:26:10",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.36.0",
+               "version" : "5.036000"
+            }
+         },
+         {
+            "_id" : "iXb7fwYt3ygsGULbJz1RQ9l5pDA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-09-19T18:22:20",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m4t1",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "vmCm6h_mZG0sOElOY_Htja2yM_U",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-10-14T19:19:40",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m4t4",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "fLikA73X89nUvJDbn3RbmZ_T2TE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2020-06-20T20:38:54",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.32.0",
+               "version" : "5.032000"
+            }
+         },
+         {
+            "_id" : "dyZeAEE6hHsTvWH6dwCI8hNxFO0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-06-13T15:08:00",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004_01",
+               "version" : "5.004_01"
+            }
+         },
+         {
+            "_id" : "Cq2sOuQP71_z_8shMl58BVzq3pQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-10-15T16:28:24",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004_04",
+               "version" : "5.004_04"
+            }
+         },
+         {
+            "_id" : "46OIpPkY2A2wzSn6LUsoDvMHLeM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2019-05-22T09:35:50",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.30.0",
+               "version" : "5.030000"
+            }
+         },
+         {
+            "_id" : "g1FYWtQPcw6yrR5dXP2fYH6I1zo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2001-04-09T04:47:17",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.6.1",
+               "version" : "v5.6.1"
+            }
+         },
+         {
+            "_id" : "PdHfhNGOjY4y91UEjv19uqH_yAM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-09-05T18:13:00",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m3t2",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "MD3GLe1TVLBSnbhVVng13Sy_5TU",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-04-23T15:22:26",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.36.1",
+               "version" : "5.036001"
+            }
+         },
+         {
+            "_id" : "XnGoq0maCNYWWR3HaDJdnakJAnU",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2019-04-19T15:07:44",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.28.2",
+               "version" : "5.028002"
+            }
+         },
+         {
+            "_id" : "6YbmfIXsv0IghoL8RsswA6Bcl8M",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2018-06-23T02:05:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.28.0",
+               "version" : "5.028000"
+            }
+         },
+         {
+            "_id" : "nNi1Knyqy7wSnH_mKvSfhl_deGo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2002-07-18T23:32:56",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.0",
+               "version" : "v5.8.0"
+            }
+         },
+         {
+            "_id" : "iP_k_vREBuMUFb9AcgnpSM44Jo0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2023-11-25T15:59:13",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.1a",
+               "version" : "5.038001"
+            }
+         },
+         {
+            "_id" : "MLhHV7zvJ2zZ5e_I3MKfsk_iM6A",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-09-22T21:29:50",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.24.3",
+               "version" : "5.024003"
+            }
+         },
+         {
+            "_id" : "Le9v3KcvNCMcOuhVLWqJHuhg0Is",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-11-30T01:22:23",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_10",
+               "version" : "5.003_10"
+            }
+         },
+         {
+            "_id" : "ahU8LYzTWuQkFy_OM5i_IUc5Lzs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-11-26T09:46:17",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_09",
+               "version" : "5.003_09"
+            }
+         },
+         {
+            "_id" : "BPB4Z2Vsbhf3xAQdSwF0VOn1XNo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-06T09:08:18",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_11",
+               "version" : "5.003_11"
+            }
+         },
+         {
+            "_id" : "CX_rQHAAWLIvYLTCbzJdLixyDGM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-20T02:59:16",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.003_13",
+               "version" : "5.003_13"
+            }
+         },
+         {
+            "_id" : "Snhx6eJeDEH6M6aT0N89fVlbhEc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-19T04:59:47",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_12",
+               "version" : "5.003_12"
+            }
+         },
+         {
+            "_id" : "aSvmTsXEVLUPz0aHKZ7nu0YTgsk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-02-10T19:37:44",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_26",
+               "version" : "5.003_26"
+            }
+         },
+         {
+            "_id" : "GF6Gn3Ovzas2__vy0HcI8ckKyRA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-12-27T20:20:05",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_17",
+               "version" : "5.003_17"
+            }
+         },
+         {
+            "_id" : "VibpmZ5R3XP_KCfvS9jmQtIxMps",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-02-18T01:13:23",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_27",
+               "version" : "5.003_27"
+            }
+         },
+         {
+            "_id" : "uSXW3X1BnnWTkIViqeRwcL3c76s",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-01-16T20:04:16",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_22",
+               "version" : "5.003_22"
+            }
+         },
+         {
+            "_id" : "u3crMSxknJJzzxYBwxYmFLTz8EE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2019-11-10T14:14:00",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.30.1",
+               "version" : "5.030001"
+            }
+         },
+         {
+            "_id" : "a2OrP7aZ89dKOkz0YOrTYq_s5hs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-09-02T23:25:30",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_04",
+               "version" : "5.003_04"
+            }
+         },
+         {
+            "_id" : "T8he_8V2PUC8GQDxC__zWGV6gU0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-09-12T20:10:42",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_05",
+               "version" : "5.003_05"
+            }
+         },
+         {
+            "_id" : "C_8R6G6s3aKXmECt6LxpT5XQse4",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-08-28T16:43:47",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_03",
+               "version" : "5.003_03"
+            }
+         },
+         {
+            "_id" : "lcklYv_aTtu1Q5KZeQ6iRoZnjPs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2021-05-20T20:07:59",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.34.0",
+               "version" : "5.034000"
+            }
+         },
+         {
+            "_id" : "rcgmiz3xI5EF01IrJp_UXGMNwjc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2018-11-29T19:03:17",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.26.3",
+               "version" : "5.026003"
+            }
+         },
+         {
+            "_id" : "bMUgwm4eIPz1ljDFi6aBBFMf6dA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-01-14T20:04:05",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.22.3",
+               "version" : "5.022003"
+            }
+         },
+         {
+            "_id" : "Th2j1wnwPb7shkVX9y6P6Ni5NVg",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2020-06-01T19:19:54",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.30.3",
+               "version" : "5.030003"
+            }
+         },
+         {
+            "_id" : "SPMWYdPjP_a76kz9tjMfhGNBgaA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2018-04-14T11:27:18",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.26.2",
+               "version" : "5.026002"
+            }
+         },
+         {
+            "_id" : "GJ1n_ZmQLOwf6sXsqVM7sADx0Fs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1996-08-10T19:07:27",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.003_02",
+               "version" : "5.003_02"
+            }
+         },
+         {
+            "_id" : "XP2C_u0HrGQGXrvEN4CYSGX7SDI",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2020-06-01T19:17:48",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.28.3",
+               "version" : "5.028003"
+            }
+         },
+         {
+            "_id" : "Uci8btftLIEtNgKc4luuS4Te_Ws",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-03-04T19:46:42",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m5t1",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "JnMK2tyJbvcDyg3HCSh2puq9UfY",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-09-23T06:21:18",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m4t2",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "LN2poSqJddDZe_5c3ElPnPZcvx8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-10-09T23:16:38",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004m4t3",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "FQcEqBLJ1KFUXzuxqey9Lb3Oxs0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-09-05T17:46:00",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004_03",
+               "version" : "5.004_03"
+            }
+         },
+         {
+            "_id" : "GbX6L4l6iFuOGQOqMnq6GfqBQEw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-08-07T20:07:25",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004_02",
+               "version" : "5.004_02"
+            }
+         },
+         {
+            "_id" : "kE4fS1Dw7DiYhulNeUpKJA7n0O0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1999-03-29T00:50:43",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005_03",
+               "version" : "5.005_03"
+            }
+         },
+         {
+            "_id" : "hRAkyqRC0BJAk2K3rmbDzPpKw3k",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-07-27T00:16:22",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005_01",
+               "version" : "5.005_01"
+            }
+         },
+         {
+            "_id" : "wfc7JJwuCTJvmW9C4J4tZIActHM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2007-12-18T17:41:41",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.10.0",
+               "version" : "5.010000"
+            }
+         },
+         {
+            "_id" : "9X4t_9wlwZJMS5d5jIUEdnL1SCA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2003-11-15T12:53:43",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.6.2",
+               "version" : "v5.6.2"
+            }
+         },
+         {
+            "_id" : "L3jXLMhdo2vkhFIvEc3ZU_vyjZY",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1998-08-08T05:46:05",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.005_02",
+               "version" : "5.005_02"
+            }
+         },
+         {
+            "_id" : "p5Qf2u7NP7oACZz09HYSBoXeHtk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-08-03T10:10:35",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.5",
+               "version" : "5.038005"
+            }
+         },
+         {
+            "_id" : "HbsnVdvaX7SpSOfnenVKdBAPuTs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-08-03T10:12:20",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.3",
+               "version" : "5.040003"
+            }
+         },
+         {
+            "_id" : "1rwJbxpit3uIv6lk5WcUe4zxxSA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-07-15T17:29:00",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.24.2",
+               "version" : "5.024002"
+            }
+         },
+         {
+            "_id" : "7pkaFMhoXGWa1p03wsWhzhLlAfc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-01-18T19:43:21",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.38.3",
+               "version" : "5.038003"
+            }
+         },
+         {
+            "_id" : "k4tD0K2qrojzSwtfXA5A_oxu074",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2018-04-14T11:25:22",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.24.4",
+               "version" : "5.024004"
+            }
+         },
+         {
+            "_id" : "h8s3MUfxgrQFDfyrmkJf_uopMoM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2020-03-14T17:04:56",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.30.2",
+               "version" : "5.030002"
+            }
+         },
+         {
+            "_id" : "1El4oUs4ksXvRLKeRLKaxfyOhJg",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2012-10-12T20:25:20",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.14.3",
+               "version" : "5.014003"
+            }
+         },
+         {
+            "_id" : "vpElkRHfYPVCJ_gbTx6YXGanaA8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "1997-05-15T22:54:01",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl5.004",
+               "version" : "5.004"
+            }
+         },
+         {
+            "_id" : "pDLGzB_LzWaVUvwxlkxVgS5eRBk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2025-07-03T15:23:01",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.42.0",
+               "version" : "5.042000"
+            }
+         },
+         {
+            "_id" : "UxTGMI7fi0KfPXiI5nI7SQnJ7zQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-03-08T18:47:44",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.42.1",
+               "version" : "5.042001"
+            }
+         },
+         {
+            "_id" : "G2waWJhGClq8_ykR6m15rp9I1lY",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-03-29T14:12:32",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.4",
+               "version" : "5.040004"
+            }
+         },
+         {
+            "_id" : "HUjinUPz4q3wE8bRdW4jWGr6Sww",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2013-03-10T23:49:20",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.14.4",
+               "version" : "5.014004"
+            }
+         },
+         {
+            "_id" : "5ZHkeK_e4OdjzZWM0L5EHCHZClc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2009-08-23T14:23:21",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.10.1",
+               "version" : "5.010001"
+            }
+         },
+         {
+            "_id" : "OMgLyeIm_q5PNp7zDZKlGXeDUAc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2012-11-10T14:02:55",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.5",
+               "version" : "5.012005"
+            }
+         },
+         {
+            "_id" : "chz5_sxAS_32oR2cfgWIMH2cE8o",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-05-30T19:41:19",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.26.0",
+               "version" : "5.026000"
+            }
+         },
+         {
+            "_id" : "z6cr_RWnGduYQ69vXcmDOhtRrQo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2016-04-29T21:40:06",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.22.2",
+               "version" : "5.022002"
+            }
+         },
+         {
+            "_id" : "s8T_Rtugpi9ofX8vdjli4CmMGRk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-07-15T17:27:25",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.22.4",
+               "version" : "5.022004"
+            }
+         },
+         {
+            "_id" : "tfaYKYDzBelmqUeLeZc_IvFGUak",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2017-01-14T20:05:16",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.24.1",
+               "version" : "5.024001"
+            }
+         },
+         {
+            "_id" : "QTBFDwN9H8i7GUb_9wJAe1qCxss",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2015-02-14T18:27:06",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.20.2",
+               "version" : "5.020002"
+            }
+         },
+         {
+            "_id" : "NPFglpBzySzLtasHoOcyeqGwbh4",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2015-09-12T19:09:36",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.20.3",
+               "version" : "5.020003"
+            }
+         },
+         {
+            "_id" : "vmuY4xjSN3gcovPkBxnXpFWHHm0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2014-09-14T13:11:35",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.20.1",
+               "version" : "5.020001"
+            }
+         },
+         {
+            "_id" : "LMTOVIIpc90sXU3_OdwuZKkLp8Q",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2016-05-09T11:35:50",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.24.0",
+               "version" : "5.024000"
+            }
+         },
+         {
+            "_id" : "TuwYSQsxM9KtdPq47Xl4YBUSpPw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2015-06-01T17:53:44",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.22.0",
+               "version" : "5.022000"
+            }
+         },
+         {
+            "_id" : "m9N5g66Zafs5NbQ2JJDbwmq5ifc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2011-06-20T10:43:36",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.4",
+               "version" : "5.012004"
+            }
+         },
+         {
+            "_id" : "qkWIYKLztqeRXbhsW6NHu4xyWqA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2010-09-07T01:43:55",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.2",
+               "version" : "5.012002"
+            }
+         },
+         {
+            "_id" : "QmRuD2ZttVgXIMrF66jDeLMgMUQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2011-09-26T14:57:10",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.14.2",
+               "version" : "5.014002"
+            }
+         },
+         {
+            "_id" : "EB6O8G_5GIeGkrlM_PJz_LQYVN4",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2012-08-08T22:29:07",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.16.1",
+               "version" : "5.016001"
+            }
+         },
+         {
+            "_id" : "_biErdp76nh_NIssGDTipUUO40I",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2012-11-01T13:42:59",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.16.2",
+               "version" : "5.016002"
+            }
+         },
+         {
+            "_id" : "Y7G_83zBoAf058nMREwPiKwccvE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2010-04-12T22:36:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.0",
+               "version" : "5.012000"
+            }
+         },
+         {
+            "_id" : "J2GCs0FvkUweD5spAONSl_2yxjk",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2011-06-17T02:41:03",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.14.1",
+               "version" : "5.014001"
+            }
+         },
+         {
+            "_id" : "h7e8FMgbl36K08bF8mvUBBe0DTE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-03-29T14:14:40",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.42.2",
+               "version" : "5.042002"
+            }
+         },
+         {
+            "_id" : "mQr2kk2SmeZLQRzxiPnoADIKrL0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2004-07-19T21:57:32",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.5",
+               "version" : "5.008005"
+            }
+         },
+         {
+            "_id" : "xlxzPqrTj4QFoRMmqCSUNyhpshs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2004-11-27T23:58:37",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.6",
+               "version" : "5.008006"
+            }
+         },
+         {
+            "_id" : "ekhCQeq7vI_xlMA_xaEqxfoKV8k",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2011-05-14T20:35:11",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.14.0",
+               "version" : "5.014000"
+            }
+         },
+         {
+            "_id" : "SpxejNhuqdTcPfnng6k4hdYWqQc",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2008-12-14T23:08:54",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.9",
+               "version" : "5.008009"
+            }
+         },
+         {
+            "_id" : "Dcw7bqK2foqgdRdCcANnJataN_k",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2006-02-01T00:03:53",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.8",
+               "version" : "5.008008"
+            }
+         },
+         {
+            "_id" : "PhLwaL9jcNS5zvA1fnVF8QrQEBA",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2005-05-30T22:19:50",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.7",
+               "version" : "5.008007"
+            }
+         },
+         {
+            "_id" : "4X1YvWXTLJAXBPAC8RjQcSFSIKE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2004-04-21T23:05:25",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.4",
+               "version" : "5.008003"
+            }
+         },
+         {
+            "_id" : "3HXelp4ebM1QiKFyOpJ764AW_qw",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2004-01-14T19:05:35",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.3",
+               "version" : "5.008003"
+            }
+         },
+         {
+            "_id" : "09nA4fyD0bTXvIA_6wstgHWbadQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2003-11-05T23:36:21",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.8.2",
+               "version" : "5.008001"
+            }
+         },
+         {
+            "_id" : "iN8zJH6h_Bri_22DCgyb94fQdz8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2011-01-22T02:40:28",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.3",
+               "version" : "5.012003"
+            }
+         },
+         {
+            "_id" : "ngDzS8xIllfaqqNDwUILMpAvuyQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2010-05-16T22:42:33",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.12.1",
+               "version" : "5.012001"
+            }
+         },
+         {
+            "_id" : "axmGd3j22sy1yNJkDrTuBnPupyM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2013-05-18T13:33:29",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.18.0",
+               "version" : "5.018000"
+            }
+         },
+         {
+            "_id" : "cQWDqX0U9R_azx1rbM9S8S_FNQs",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2013-08-12T14:31:34",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.18.1",
+               "version" : "5.018001"
+            }
+         },
+         {
+            "_id" : "sZFZipgXGaz75iNlA222lUj59sQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2012-05-20T22:52:34",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.16.0",
+               "version" : "5.016000"
+            }
+         },
+         {
+            "_id" : "8sMtbkC_T1Y0H0e44zmHoJ45VeE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2013-03-11T20:53:23",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.16.3",
+               "version" : "5.016003"
+            }
+         },
+         {
+            "_id" : "XwqUjqW296X6Th13IIPJxiMd8h0",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2014-01-07T01:52:17",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.18.2",
+               "version" : "5.018002"
+            }
+         },
+         {
+            "_id" : "7MMs5L8G5ET38_aPEFyRe1VY_mQ",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2014-10-01T13:23:19",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.18.3",
+               "version" : "5.018003"
+            }
+         },
+         {
+            "_id" : "wGTFBo7x8RQ8dROvYk4Rz_0I1qE",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2014-10-02T00:48:58",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.18.4",
+               "version" : "5.018004"
+            }
+         },
+         {
+            "_id" : "9E_1wGdQ9YVbVqvLmCOabNd6IEo",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2014-05-27T01:35:40",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.20.0",
+               "version" : "5.020000"
+            }
+         },
+         {
+            "_id" : "RMkb5RtE8_KE6eBypCK9FDLlW6o",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-07-15T20:15:01",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.44.0",
+               "version" : "5.044000"
+            }
+         },
+         {
+            "_id" : "epHWy7h9QATljdeaYhf8zjXHVUM",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-08-02T13:16:40",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.40.5",
+               "version" : "5.040005"
+            }
+         },
+         {
+            "_id" : "nMvrLR6k_WXiiJMn2cogs4xQ_P8",
+            "_index" : "release_01",
+            "_score" : 6.357437,
+            "_source" : {
+               "date" : "2026-08-02T13:17:07",
+               "distribution" : "perl",
+               "maturity" : "released",
+               "name" : "perl-5.42.3",
+               "version" : "5.042003"
+            }
+         }
+      ],
+      "max_score" : 6.357437,
+      "total" : 137
+   },
+   "timed_out" : false,
+   "took" : 12
+}

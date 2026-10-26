@@ -1,0 +1,25 @@
+{
+	"meta":
+	[
+		{
+			"name": "last_file",
+			"type": "DateTime"
+		}
+	],
+
+	"data":
+	[
+		{
+			"last_file": "2026-10-26 20:00:00"
+		}
+	],
+
+	"rows": 1,
+
+	"statistics":
+	{
+		"elapsed": 0.007153486,
+		"rows_read": 920031,
+		"bytes_read": 14720496
+	}
+}

@@ -1,0 +1,7102 @@
+{
+	"meta":
+	[
+		{
+			"name": "tag",
+			"type": "String"
+		},
+		{
+			"name": "year",
+			"type": "UInt16"
+		},
+		{
+			"name": "quarter",
+			"type": "UInt8"
+		},
+		{
+			"name": "count",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"tag": "bash",
+			"year": 2008,
+			"quarter": 3,
+			"count": "447"
+		},
+		{
+			"tag": "c",
+			"year": 2008,
+			"quarter": 3,
+			"count": "2272"
+		},
+		{
+			"tag": "c#",
+			"year": 2008,
+			"quarter": 3,
+			"count": "8990"
+		},
+		{
+			"tag": "c++",
+			"year": 2008,
+			"quarter": 3,
+			"count": "5033"
+		},
+		{
+			"tag": "groovy",
+			"year": 2008,
+			"quarter": 3,
+			"count": "65"
+		},
+		{
+			"tag": "java",
+			"year": 2008,
+			"quarter": 3,
+			"count": "5733"
+		},
+		{
+			"tag": "javascript",
+			"year": 2008,
+			"quarter": 3,
+			"count": "3254"
+		},
+		{
+			"tag": "lua",
+			"year": 2008,
+			"quarter": 3,
+			"count": "37"
+		},
+		{
+			"tag": "perl",
+			"year": 2008,
+			"quarter": 3,
+			"count": "925"
+		},
+		{
+			"tag": "php",
+			"year": 2008,
+			"quarter": 3,
+			"count": "2813"
+		},
+		{
+			"tag": "python",
+			"year": 2008,
+			"quarter": 3,
+			"count": "2725"
+		},
+		{
+			"tag": "ruby",
+			"year": 2008,
+			"quarter": 3,
+			"count": "1285"
+		},
+		{
+			"tag": "scala",
+			"year": 2008,
+			"quarter": 3,
+			"count": "18"
+		},
+		{
+			"tag": "bash",
+			"year": 2008,
+			"quarter": 4,
+			"count": "586"
+		},
+		{
+			"tag": "c",
+			"year": 2008,
+			"quarter": 4,
+			"count": "3669"
+		},
+		{
+			"tag": "c#",
+			"year": 2008,
+			"quarter": 4,
+			"count": "18042"
+		},
+		{
+			"tag": "c++",
+			"year": 2008,
+			"quarter": 4,
+			"count": "9810"
+		},
+		{
+			"tag": "groovy",
+			"year": 2008,
+			"quarter": 4,
+			"count": "190"
+		},
+		{
+			"tag": "java",
+			"year": 2008,
+			"quarter": 4,
+			"count": "10448"
+		},
+		{
+			"tag": "javascript",
+			"year": 2008,
+			"quarter": 4,
+			"count": "6203"
+		},
+		{
+			"tag": "lua",
+			"year": 2008,
+			"quarter": 4,
+			"count": "100"
+		},
+		{
+			"tag": "perl",
+			"year": 2008,
+			"quarter": 4,
+			"count": "1458"
+		},
+		{
+			"tag": "php",
+			"year": 2008,
+			"quarter": 4,
+			"count": "5466"
+		},
+		{
+			"tag": "python",
+			"year": 2008,
+			"quarter": 4,
+			"count": "4977"
+		},
+		{
+			"tag": "ruby",
+			"year": 2008,
+			"quarter": 4,
+			"count": "1817"
+		},
+		{
+			"tag": "scala",
+			"year": 2008,
+			"quarter": 4,
+			"count": "43"
+		},
+		{
+			"tag": "bash",
+			"year": 2009,
+			"quarter": 1,
+			"count": "828"
+		},
+		{
+			"tag": "c",
+			"year": 2009,
+			"quarter": 1,
+			"count": "5229"
+		},
+		{
+			"tag": "c#",
+			"year": 2009,
+			"quarter": 1,
+			"count": "26034"
+		},
+		{
+			"tag": "c++",
+			"year": 2009,
+			"quarter": 1,
+			"count": "11695"
+		},
+		{
+			"tag": "groovy",
+			"year": 2009,
+			"quarter": 1,
+			"count": "173"
+		},
+		{
+			"tag": "java",
+			"year": 2009,
+			"quarter": 1,
+			"count": "13456"
+		},
+		{
+			"tag": "javascript",
+			"year": 2009,
+			"quarter": 1,
+			"count": "8465"
+		},
+		{
+			"tag": "lua",
+			"year": 2009,
+			"quarter": 1,
+			"count": "97"
+		},
+		{
+			"tag": "perl",
+			"year": 2009,
+			"quarter": 1,
+			"count": "1664"
+		},
+		{
+			"tag": "php",
+			"year": 2009,
+			"quarter": 1,
+			"count": "7844"
+		},
+		{
+			"tag": "python",
+			"year": 2009,
+			"quarter": 1,
+			"count": "6803"
+		},
+		{
+			"tag": "ruby",
+			"year": 2009,
+			"quarter": 1,
+			"count": "2366"
+		},
+		{
+			"tag": "scala",
+			"year": 2009,
+			"quarter": 1,
+			"count": "80"
+		},
+		{
+			"tag": "swift",
+			"year": 2009,
+			"quarter": 1,
+			"count": "3"
+		},
+		{
+			"tag": "bash",
+			"year": 2009,
+			"quarter": 2,
+			"count": "1025"
+		},
+		{
+			"tag": "c",
+			"year": 2009,
+			"quarter": 2,
+			"count": "6344"
+		},
+		{
+			"tag": "c#",
+			"year": 2009,
+			"quarter": 2,
+			"count": "32496"
+		},
+		{
+			"tag": "c++",
+			"year": 2009,
+			"quarter": 2,
+			"count": "14019"
+		},
+		{
+			"tag": "groovy",
+			"year": 2009,
+			"quarter": 2,
+			"count": "233"
+		},
+		{
+			"tag": "java",
+			"year": 2009,
+			"quarter": 2,
+			"count": "17783"
+		},
+		{
+			"tag": "javascript",
+			"year": 2009,
+			"quarter": 2,
+			"count": "11414"
+		},
+		{
+			"tag": "lua",
+			"year": 2009,
+			"quarter": 2,
+			"count": "148"
+		},
+		{
+			"tag": "perl",
+			"year": 2009,
+			"quarter": 2,
+			"count": "2140"
+		},
+		{
+			"tag": "php",
+			"year": 2009,
+			"quarter": 2,
+			"count": "11295"
+		},
+		{
+			"tag": "python",
+			"year": 2009,
+			"quarter": 2,
+			"count": "8723"
+		},
+		{
+			"tag": "ruby",
+			"year": 2009,
+			"quarter": 2,
+			"count": "3177"
+		},
+		{
+			"tag": "scala",
+			"year": 2009,
+			"quarter": 2,
+			"count": "264"
+		},
+		{
+			"tag": "swift",
+			"year": 2009,
+			"quarter": 2,
+			"count": "6"
+		},
+		{
+			"tag": "typescript",
+			"year": 2009,
+			"quarter": 2,
+			"count": "2"
+		},
+		{
+			"tag": "bash",
+			"year": 2009,
+			"quarter": 3,
+			"count": "1118"
+		},
+		{
+			"tag": "c",
+			"year": 2009,
+			"quarter": 3,
+			"count": "6885"
+		},
+		{
+			"tag": "c#",
+			"year": 2009,
+			"quarter": 3,
+			"count": "36792"
+		},
+		{
+			"tag": "c++",
+			"year": 2009,
+			"quarter": 3,
+			"count": "15758"
+		},
+		{
+			"tag": "groovy",
+			"year": 2009,
+			"quarter": 3,
+			"count": "305"
+		},
+		{
+			"tag": "java",
+			"year": 2009,
+			"quarter": 3,
+			"count": "19563"
+		},
+		{
+			"tag": "javascript",
+			"year": 2009,
+			"quarter": 3,
+			"count": "14242"
+		},
+		{
+			"tag": "lua",
+			"year": 2009,
+			"quarter": 3,
+			"count": "187"
+		},
+		{
+			"tag": "perl",
+			"year": 2009,
+			"quarter": 3,
+			"count": "2550"
+		},
+		{
+			"tag": "php",
+			"year": 2009,
+			"quarter": 3,
+			"count": "18116"
+		},
+		{
+			"tag": "python",
+			"year": 2009,
+			"quarter": 3,
+			"count": "10001"
+		},
+		{
+			"tag": "ruby",
+			"year": 2009,
+			"quarter": 3,
+			"count": "3607"
+		},
+		{
+			"tag": "scala",
+			"year": 2009,
+			"quarter": 3,
+			"count": "556"
+		},
+		{
+			"tag": "swift",
+			"year": 2009,
+			"quarter": 3,
+			"count": "7"
+		},
+		{
+			"tag": "bash",
+			"year": 2009,
+			"quarter": 4,
+			"count": "1404"
+		},
+		{
+			"tag": "c",
+			"year": 2009,
+			"quarter": 4,
+			"count": "10440"
+		},
+		{
+			"tag": "c#",
+			"year": 2009,
+			"quarter": 4,
+			"count": "38482"
+		},
+		{
+			"tag": "c++",
+			"year": 2009,
+			"quarter": 4,
+			"count": "18527"
+		},
+		{
+			"tag": "go",
+			"year": 2009,
+			"quarter": 4,
+			"count": "234"
+		},
+		{
+			"tag": "groovy",
+			"year": 2009,
+			"quarter": 4,
+			"count": "320"
+		},
+		{
+			"tag": "java",
+			"year": 2009,
+			"quarter": 4,
+			"count": "23706"
+		},
+		{
+			"tag": "javascript",
+			"year": 2009,
+			"quarter": 4,
+			"count": "17413"
+		},
+		{
+			"tag": "lua",
+			"year": 2009,
+			"quarter": 4,
+			"count": "167"
+		},
+		{
+			"tag": "perl",
+			"year": 2009,
+			"quarter": 4,
+			"count": "2963"
+		},
+		{
+			"tag": "php",
+			"year": 2009,
+			"quarter": 4,
+			"count": "21404"
+		},
+		{
+			"tag": "python",
+			"year": 2009,
+			"quarter": 4,
+			"count": "13053"
+		},
+		{
+			"tag": "ruby",
+			"year": 2009,
+			"quarter": 4,
+			"count": "4335"
+		},
+		{
+			"tag": "scala",
+			"year": 2009,
+			"quarter": 4,
+			"count": "715"
+		},
+		{
+			"tag": "swift",
+			"year": 2009,
+			"quarter": 4,
+			"count": "16"
+		},
+		{
+			"tag": "bash",
+			"year": 2010,
+			"quarter": 1,
+			"count": "1779"
+		},
+		{
+			"tag": "c",
+			"year": 2010,
+			"quarter": 1,
+			"count": "11074"
+		},
+		{
+			"tag": "c#",
+			"year": 2010,
+			"quarter": 1,
+			"count": "41871"
+		},
+		{
+			"tag": "c++",
+			"year": 2010,
+			"quarter": 1,
+			"count": "22072"
+		},
+		{
+			"tag": "go",
+			"year": 2010,
+			"quarter": 1,
+			"count": "77"
+		},
+		{
+			"tag": "groovy",
+			"year": 2010,
+			"quarter": 1,
+			"count": "374"
+		},
+		{
+			"tag": "java",
+			"year": 2010,
+			"quarter": 1,
+			"count": "31159"
+		},
+		{
+			"tag": "javascript",
+			"year": 2010,
+			"quarter": 1,
+			"count": "19875"
+		},
+		{
+			"tag": "lua",
+			"year": 2010,
+			"quarter": 1,
+			"count": "166"
+		},
+		{
+			"tag": "perl",
+			"year": 2010,
+			"quarter": 1,
+			"count": "3072"
+		},
+		{
+			"tag": "php",
+			"year": 2010,
+			"quarter": 1,
+			"count": "26161"
+		},
+		{
+			"tag": "python",
+			"year": 2010,
+			"quarter": 1,
+			"count": "14826"
+		},
+		{
+			"tag": "ruby",
+			"year": 2010,
+			"quarter": 1,
+			"count": "4639"
+		},
+		{
+			"tag": "scala",
+			"year": 2010,
+			"quarter": 1,
+			"count": "898"
+		},
+		{
+			"tag": "swift",
+			"year": 2010,
+			"quarter": 1,
+			"count": "7"
+		},
+		{
+			"tag": "bash",
+			"year": 2010,
+			"quarter": 2,
+			"count": "1772"
+		},
+		{
+			"tag": "c",
+			"year": 2010,
+			"quarter": 2,
+			"count": "11259"
+		},
+		{
+			"tag": "c#",
+			"year": 2010,
+			"quarter": 2,
+			"count": "43089"
+		},
+		{
+			"tag": "c++",
+			"year": 2010,
+			"quarter": 2,
+			"count": "23136"
+		},
+		{
+			"tag": "go",
+			"year": 2010,
+			"quarter": 2,
+			"count": "83"
+		},
+		{
+			"tag": "groovy",
+			"year": 2010,
+			"quarter": 2,
+			"count": "414"
+		},
+		{
+			"tag": "java",
+			"year": 2010,
+			"quarter": 2,
+			"count": "30645"
+		},
+		{
+			"tag": "javascript",
+			"year": 2010,
+			"quarter": 2,
+			"count": "21624"
+		},
+		{
+			"tag": "lua",
+			"year": 2010,
+			"quarter": 2,
+			"count": "299"
+		},
+		{
+			"tag": "perl",
+			"year": 2010,
+			"quarter": 2,
+			"count": "2739"
+		},
+		{
+			"tag": "php",
+			"year": 2010,
+			"quarter": 2,
+			"count": "27811"
+		},
+		{
+			"tag": "python",
+			"year": 2010,
+			"quarter": 2,
+			"count": "13652"
+		},
+		{
+			"tag": "ruby",
+			"year": 2010,
+			"quarter": 2,
+			"count": "4600"
+		},
+		{
+			"tag": "scala",
+			"year": 2010,
+			"quarter": 2,
+			"count": "1180"
+		},
+		{
+			"tag": "swift",
+			"year": 2010,
+			"quarter": 2,
+			"count": "13"
+		},
+		{
+			"tag": "bash",
+			"year": 2010,
+			"quarter": 3,
+			"count": "1998"
+		},
+		{
+			"tag": "c",
+			"year": 2010,
+			"quarter": 3,
+			"count": "13095"
+		},
+		{
+			"tag": "c#",
+			"year": 2010,
+			"quarter": 3,
+			"count": "47594"
+		},
+		{
+			"tag": "c++",
+			"year": 2010,
+			"quarter": 3,
+			"count": "23709"
+		},
+		{
+			"tag": "go",
+			"year": 2010,
+			"quarter": 3,
+			"count": "63"
+		},
+		{
+			"tag": "groovy",
+			"year": 2010,
+			"quarter": 3,
+			"count": "375"
+		},
+		{
+			"tag": "java",
+			"year": 2010,
+			"quarter": 3,
+			"count": "32621"
+		},
+		{
+			"tag": "javascript",
+			"year": 2010,
+			"quarter": 3,
+			"count": "26160"
+		},
+		{
+			"tag": "lua",
+			"year": 2010,
+			"quarter": 3,
+			"count": "252"
+		},
+		{
+			"tag": "perl",
+			"year": 2010,
+			"quarter": 3,
+			"count": "3673"
+		},
+		{
+			"tag": "php",
+			"year": 2010,
+			"quarter": 3,
+			"count": "33610"
+		},
+		{
+			"tag": "python",
+			"year": 2010,
+			"quarter": 3,
+			"count": "16496"
+		},
+		{
+			"tag": "ruby",
+			"year": 2010,
+			"quarter": 3,
+			"count": "5576"
+		},
+		{
+			"tag": "rust",
+			"year": 2010,
+			"quarter": 3,
+			"count": "2"
+		},
+		{
+			"tag": "scala",
+			"year": 2010,
+			"quarter": 3,
+			"count": "1349"
+		},
+		{
+			"tag": "swift",
+			"year": 2010,
+			"quarter": 3,
+			"count": "10"
+		},
+		{
+			"tag": "bash",
+			"year": 2010,
+			"quarter": 4,
+			"count": "2241"
+		},
+		{
+			"tag": "c",
+			"year": 2010,
+			"quarter": 4,
+			"count": "13822"
+		},
+		{
+			"tag": "c#",
+			"year": 2010,
+			"quarter": 4,
+			"count": "49384"
+		},
+		{
+			"tag": "c++",
+			"year": 2010,
+			"quarter": 4,
+			"count": "26695"
+		},
+		{
+			"tag": "go",
+			"year": 2010,
+			"quarter": 4,
+			"count": "80"
+		},
+		{
+			"tag": "groovy",
+			"year": 2010,
+			"quarter": 4,
+			"count": "480"
+		},
+		{
+			"tag": "java",
+			"year": 2010,
+			"quarter": 4,
+			"count": "37547"
+		},
+		{
+			"tag": "javascript",
+			"year": 2010,
+			"quarter": 4,
+			"count": "30187"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2010,
+			"quarter": 4,
+			"count": "3"
+		},
+		{
+			"tag": "lua",
+			"year": 2010,
+			"quarter": 4,
+			"count": "295"
+		},
+		{
+			"tag": "perl",
+			"year": 2010,
+			"quarter": 4,
+			"count": "3553"
+		},
+		{
+			"tag": "php",
+			"year": 2010,
+			"quarter": 4,
+			"count": "34076"
+		},
+		{
+			"tag": "python",
+			"year": 2010,
+			"quarter": 4,
+			"count": "17652"
+		},
+		{
+			"tag": "ruby",
+			"year": 2010,
+			"quarter": 4,
+			"count": "5878"
+		},
+		{
+			"tag": "scala",
+			"year": 2010,
+			"quarter": 4,
+			"count": "1650"
+		},
+		{
+			"tag": "swift",
+			"year": 2010,
+			"quarter": 4,
+			"count": "9"
+		},
+		{
+			"tag": "bash",
+			"year": 2011,
+			"quarter": 1,
+			"count": "2516"
+		},
+		{
+			"tag": "c",
+			"year": 2011,
+			"quarter": 1,
+			"count": "14559"
+		},
+		{
+			"tag": "c#",
+			"year": 2011,
+			"quarter": 1,
+			"count": "59711"
+		},
+		{
+			"tag": "c++",
+			"year": 2011,
+			"quarter": 1,
+			"count": "29950"
+		},
+		{
+			"tag": "go",
+			"year": 2011,
+			"quarter": 1,
+			"count": "86"
+		},
+		{
+			"tag": "groovy",
+			"year": 2011,
+			"quarter": 1,
+			"count": "672"
+		},
+		{
+			"tag": "java",
+			"year": 2011,
+			"quarter": 1,
+			"count": "49948"
+		},
+		{
+			"tag": "javascript",
+			"year": 2011,
+			"quarter": 1,
+			"count": "38859"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2011,
+			"quarter": 1,
+			"count": "4"
+		},
+		{
+			"tag": "lua",
+			"year": 2011,
+			"quarter": 1,
+			"count": "395"
+		},
+		{
+			"tag": "perl",
+			"year": 2011,
+			"quarter": 1,
+			"count": "3609"
+		},
+		{
+			"tag": "php",
+			"year": 2011,
+			"quarter": 1,
+			"count": "47179"
+		},
+		{
+			"tag": "python",
+			"year": 2011,
+			"quarter": 1,
+			"count": "20994"
+		},
+		{
+			"tag": "ruby",
+			"year": 2011,
+			"quarter": 1,
+			"count": "8192"
+		},
+		{
+			"tag": "scala",
+			"year": 2011,
+			"quarter": 1,
+			"count": "1903"
+		},
+		{
+			"tag": "swift",
+			"year": 2011,
+			"quarter": 1,
+			"count": "27"
+		},
+		{
+			"tag": "bash",
+			"year": 2011,
+			"quarter": 2,
+			"count": "2981"
+		},
+		{
+			"tag": "c",
+			"year": 2011,
+			"quarter": 2,
+			"count": "14641"
+		},
+		{
+			"tag": "c#",
+			"year": 2011,
+			"quarter": 2,
+			"count": "64350"
+		},
+		{
+			"tag": "c++",
+			"year": 2011,
+			"quarter": 2,
+			"count": "30150"
+		},
+		{
+			"tag": "go",
+			"year": 2011,
+			"quarter": 2,
+			"count": "156"
+		},
+		{
+			"tag": "groovy",
+			"year": 2011,
+			"quarter": 2,
+			"count": "780"
+		},
+		{
+			"tag": "java",
+			"year": 2011,
+			"quarter": 2,
+			"count": "53145"
+		},
+		{
+			"tag": "javascript",
+			"year": 2011,
+			"quarter": 2,
+			"count": "47669"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2011,
+			"quarter": 2,
+			"count": "11"
+		},
+		{
+			"tag": "lua",
+			"year": 2011,
+			"quarter": 2,
+			"count": "538"
+		},
+		{
+			"tag": "perl",
+			"year": 2011,
+			"quarter": 2,
+			"count": "4059"
+		},
+		{
+			"tag": "php",
+			"year": 2011,
+			"quarter": 2,
+			"count": "52926"
+		},
+		{
+			"tag": "python",
+			"year": 2011,
+			"quarter": 2,
+			"count": "21409"
+		},
+		{
+			"tag": "ruby",
+			"year": 2011,
+			"quarter": 2,
+			"count": "8994"
+		},
+		{
+			"tag": "scala",
+			"year": 2011,
+			"quarter": 2,
+			"count": "1896"
+		},
+		{
+			"tag": "swift",
+			"year": 2011,
+			"quarter": 2,
+			"count": "20"
+		},
+		{
+			"tag": "bash",
+			"year": 2011,
+			"quarter": 3,
+			"count": "3091"
+		},
+		{
+			"tag": "c",
+			"year": 2011,
+			"quarter": 3,
+			"count": "14207"
+		},
+		{
+			"tag": "c#",
+			"year": 2011,
+			"quarter": 3,
+			"count": "61803"
+		},
+		{
+			"tag": "c++",
+			"year": 2011,
+			"quarter": 3,
+			"count": "29852"
+		},
+		{
+			"tag": "dart",
+			"year": 2011,
+			"quarter": 3,
+			"count": "3"
+		},
+		{
+			"tag": "go",
+			"year": 2011,
+			"quarter": 3,
+			"count": "158"
+		},
+		{
+			"tag": "groovy",
+			"year": 2011,
+			"quarter": 3,
+			"count": "716"
+		},
+		{
+			"tag": "java",
+			"year": 2011,
+			"quarter": 3,
+			"count": "53788"
+		},
+		{
+			"tag": "javascript",
+			"year": 2011,
+			"quarter": 3,
+			"count": "54096"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2011,
+			"quarter": 3,
+			"count": "12"
+		},
+		{
+			"tag": "lua",
+			"year": 2011,
+			"quarter": 3,
+			"count": "449"
+		},
+		{
+			"tag": "perl",
+			"year": 2011,
+			"quarter": 3,
+			"count": "3858"
+		},
+		{
+			"tag": "php",
+			"year": 2011,
+			"quarter": 3,
+			"count": "54244"
+		},
+		{
+			"tag": "python",
+			"year": 2011,
+			"quarter": 3,
+			"count": "22376"
+		},
+		{
+			"tag": "ruby",
+			"year": 2011,
+			"quarter": 3,
+			"count": "8836"
+		},
+		{
+			"tag": "scala",
+			"year": 2011,
+			"quarter": 3,
+			"count": "2664"
+		},
+		{
+			"tag": "swift",
+			"year": 2011,
+			"quarter": 3,
+			"count": "45"
+		},
+		{
+			"tag": "typescript",
+			"year": 2011,
+			"quarter": 3,
+			"count": "3"
+		},
+		{
+			"tag": "bash",
+			"year": 2011,
+			"quarter": 4,
+			"count": "3691"
+		},
+		{
+			"tag": "c",
+			"year": 2011,
+			"quarter": 4,
+			"count": "15805"
+		},
+		{
+			"tag": "c#",
+			"year": 2011,
+			"quarter": 4,
+			"count": "59833"
+		},
+		{
+			"tag": "c++",
+			"year": 2011,
+			"quarter": 4,
+			"count": "30555"
+		},
+		{
+			"tag": "dart",
+			"year": 2011,
+			"quarter": 4,
+			"count": "53"
+		},
+		{
+			"tag": "go",
+			"year": 2011,
+			"quarter": 4,
+			"count": "280"
+		},
+		{
+			"tag": "groovy",
+			"year": 2011,
+			"quarter": 4,
+			"count": "793"
+		},
+		{
+			"tag": "java",
+			"year": 2011,
+			"quarter": 4,
+			"count": "57052"
+		},
+		{
+			"tag": "javascript",
+			"year": 2011,
+			"quarter": 4,
+			"count": "51056"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2011,
+			"quarter": 4,
+			"count": "6"
+		},
+		{
+			"tag": "lua",
+			"year": 2011,
+			"quarter": 4,
+			"count": "356"
+		},
+		{
+			"tag": "perl",
+			"year": 2011,
+			"quarter": 4,
+			"count": "3914"
+		},
+		{
+			"tag": "php",
+			"year": 2011,
+			"quarter": 4,
+			"count": "51091"
+		},
+		{
+			"tag": "python",
+			"year": 2011,
+			"quarter": 4,
+			"count": "21757"
+		},
+		{
+			"tag": "ruby",
+			"year": 2011,
+			"quarter": 4,
+			"count": "9038"
+		},
+		{
+			"tag": "scala",
+			"year": 2011,
+			"quarter": 4,
+			"count": "2516"
+		},
+		{
+			"tag": "swift",
+			"year": 2011,
+			"quarter": 4,
+			"count": "28"
+		},
+		{
+			"tag": "bash",
+			"year": 2012,
+			"quarter": 1,
+			"count": "4704"
+		},
+		{
+			"tag": "c",
+			"year": 2012,
+			"quarter": 1,
+			"count": "17460"
+		},
+		{
+			"tag": "c#",
+			"year": 2012,
+			"quarter": 1,
+			"count": "67326"
+		},
+		{
+			"tag": "c++",
+			"year": 2012,
+			"quarter": 1,
+			"count": "32896"
+		},
+		{
+			"tag": "dart",
+			"year": 2012,
+			"quarter": 1,
+			"count": "38"
+		},
+		{
+			"tag": "go",
+			"year": 2012,
+			"quarter": 1,
+			"count": "218"
+		},
+		{
+			"tag": "groovy",
+			"year": 2012,
+			"quarter": 1,
+			"count": "859"
+		},
+		{
+			"tag": "java",
+			"year": 2012,
+			"quarter": 1,
+			"count": "68329"
+		},
+		{
+			"tag": "javascript",
+			"year": 2012,
+			"quarter": 1,
+			"count": "61459"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2012,
+			"quarter": 1,
+			"count": "9"
+		},
+		{
+			"tag": "lua",
+			"year": 2012,
+			"quarter": 1,
+			"count": "451"
+		},
+		{
+			"tag": "perl",
+			"year": 2012,
+			"quarter": 1,
+			"count": "3986"
+		},
+		{
+			"tag": "php",
+			"year": 2012,
+			"quarter": 1,
+			"count": "60834"
+		},
+		{
+			"tag": "python",
+			"year": 2012,
+			"quarter": 1,
+			"count": "27385"
+		},
+		{
+			"tag": "ruby",
+			"year": 2012,
+			"quarter": 1,
+			"count": "10699"
+		},
+		{
+			"tag": "rust",
+			"year": 2012,
+			"quarter": 1,
+			"count": "15"
+		},
+		{
+			"tag": "scala",
+			"year": 2012,
+			"quarter": 1,
+			"count": "2246"
+		},
+		{
+			"tag": "swift",
+			"year": 2012,
+			"quarter": 1,
+			"count": "38"
+		},
+		{
+			"tag": "bash",
+			"year": 2012,
+			"quarter": 2,
+			"count": "4518"
+		},
+		{
+			"tag": "c",
+			"year": 2012,
+			"quarter": 2,
+			"count": "16374"
+		},
+		{
+			"tag": "c#",
+			"year": 2012,
+			"quarter": 2,
+			"count": "65689"
+		},
+		{
+			"tag": "c++",
+			"year": 2012,
+			"quarter": 2,
+			"count": "29824"
+		},
+		{
+			"tag": "dart",
+			"year": 2012,
+			"quarter": 2,
+			"count": "100"
+		},
+		{
+			"tag": "go",
+			"year": 2012,
+			"quarter": 2,
+			"count": "397"
+		},
+		{
+			"tag": "groovy",
+			"year": 2012,
+			"quarter": 2,
+			"count": "733"
+		},
+		{
+			"tag": "java",
+			"year": 2012,
+			"quarter": 2,
+			"count": "68776"
+		},
+		{
+			"tag": "javascript",
+			"year": 2012,
+			"quarter": 2,
+			"count": "64855"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2012,
+			"quarter": 2,
+			"count": "8"
+		},
+		{
+			"tag": "lua",
+			"year": 2012,
+			"quarter": 2,
+			"count": "533"
+		},
+		{
+			"tag": "perl",
+			"year": 2012,
+			"quarter": 2,
+			"count": "4205"
+		},
+		{
+			"tag": "php",
+			"year": 2012,
+			"quarter": 2,
+			"count": "61716"
+		},
+		{
+			"tag": "python",
+			"year": 2012,
+			"quarter": 2,
+			"count": "28881"
+		},
+		{
+			"tag": "ruby",
+			"year": 2012,
+			"quarter": 2,
+			"count": "10103"
+		},
+		{
+			"tag": "rust",
+			"year": 2012,
+			"quarter": 2,
+			"count": "3"
+		},
+		{
+			"tag": "scala",
+			"year": 2012,
+			"quarter": 2,
+			"count": "2224"
+		},
+		{
+			"tag": "swift",
+			"year": 2012,
+			"quarter": 2,
+			"count": "39"
+		},
+		{
+			"tag": "bash",
+			"year": 2012,
+			"quarter": 3,
+			"count": "4652"
+		},
+		{
+			"tag": "c",
+			"year": 2012,
+			"quarter": 3,
+			"count": "16520"
+		},
+		{
+			"tag": "c#",
+			"year": 2012,
+			"quarter": 3,
+			"count": "67980"
+		},
+		{
+			"tag": "c++",
+			"year": 2012,
+			"quarter": 3,
+			"count": "31251"
+		},
+		{
+			"tag": "dart",
+			"year": 2012,
+			"quarter": 3,
+			"count": "171"
+		},
+		{
+			"tag": "go",
+			"year": 2012,
+			"quarter": 3,
+			"count": "492"
+		},
+		{
+			"tag": "groovy",
+			"year": 2012,
+			"quarter": 3,
+			"count": "712"
+		},
+		{
+			"tag": "java",
+			"year": 2012,
+			"quarter": 3,
+			"count": "70615"
+		},
+		{
+			"tag": "javascript",
+			"year": 2012,
+			"quarter": 3,
+			"count": "68419"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2012,
+			"quarter": 3,
+			"count": "10"
+		},
+		{
+			"tag": "lua",
+			"year": 2012,
+			"quarter": 3,
+			"count": "617"
+		},
+		{
+			"tag": "perl",
+			"year": 2012,
+			"quarter": 3,
+			"count": "4344"
+		},
+		{
+			"tag": "php",
+			"year": 2012,
+			"quarter": 3,
+			"count": "65255"
+		},
+		{
+			"tag": "python",
+			"year": 2012,
+			"quarter": 3,
+			"count": "31157"
+		},
+		{
+			"tag": "ruby",
+			"year": 2012,
+			"quarter": 3,
+			"count": "10245"
+		},
+		{
+			"tag": "rust",
+			"year": 2012,
+			"quarter": 3,
+			"count": "10"
+		},
+		{
+			"tag": "scala",
+			"year": 2012,
+			"quarter": 3,
+			"count": "2648"
+		},
+		{
+			"tag": "swift",
+			"year": 2012,
+			"quarter": 3,
+			"count": "51"
+		},
+		{
+			"tag": "bash",
+			"year": 2012,
+			"quarter": 4,
+			"count": "5101"
+		},
+		{
+			"tag": "c",
+			"year": 2012,
+			"quarter": 4,
+			"count": "19459"
+		},
+		{
+			"tag": "c#",
+			"year": 2012,
+			"quarter": 4,
+			"count": "65657"
+		},
+		{
+			"tag": "c++",
+			"year": 2012,
+			"quarter": 4,
+			"count": "34664"
+		},
+		{
+			"tag": "dart",
+			"year": 2012,
+			"quarter": 4,
+			"count": "363"
+		},
+		{
+			"tag": "go",
+			"year": 2012,
+			"quarter": 4,
+			"count": "578"
+		},
+		{
+			"tag": "groovy",
+			"year": 2012,
+			"quarter": 4,
+			"count": "708"
+		},
+		{
+			"tag": "java",
+			"year": 2012,
+			"quarter": 4,
+			"count": "76134"
+		},
+		{
+			"tag": "javascript",
+			"year": 2012,
+			"quarter": 4,
+			"count": "68552"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2012,
+			"quarter": 4,
+			"count": "10"
+		},
+		{
+			"tag": "lua",
+			"year": 2012,
+			"quarter": 4,
+			"count": "450"
+		},
+		{
+			"tag": "perl",
+			"year": 2012,
+			"quarter": 4,
+			"count": "3920"
+		},
+		{
+			"tag": "php",
+			"year": 2012,
+			"quarter": 4,
+			"count": "65189"
+		},
+		{
+			"tag": "python",
+			"year": 2012,
+			"quarter": 4,
+			"count": "32649"
+		},
+		{
+			"tag": "ruby",
+			"year": 2012,
+			"quarter": 4,
+			"count": "11118"
+		},
+		{
+			"tag": "rust",
+			"year": 2012,
+			"quarter": 4,
+			"count": "12"
+		},
+		{
+			"tag": "scala",
+			"year": 2012,
+			"quarter": 4,
+			"count": "2695"
+		},
+		{
+			"tag": "swift",
+			"year": 2012,
+			"quarter": 4,
+			"count": "34"
+		},
+		{
+			"tag": "typescript",
+			"year": 2012,
+			"quarter": 4,
+			"count": "823"
+		},
+		{
+			"tag": "bash",
+			"year": 2013,
+			"quarter": 1,
+			"count": "5971"
+		},
+		{
+			"tag": "c",
+			"year": 2013,
+			"quarter": 1,
+			"count": "19696"
+		},
+		{
+			"tag": "c#",
+			"year": 2013,
+			"quarter": 1,
+			"count": "71424"
+		},
+		{
+			"tag": "c++",
+			"year": 2013,
+			"quarter": 1,
+			"count": "36643"
+		},
+		{
+			"tag": "dart",
+			"year": 2013,
+			"quarter": 1,
+			"count": "385"
+		},
+		{
+			"tag": "go",
+			"year": 2013,
+			"quarter": 1,
+			"count": "617"
+		},
+		{
+			"tag": "groovy",
+			"year": 2013,
+			"quarter": 1,
+			"count": "748"
+		},
+		{
+			"tag": "java",
+			"year": 2013,
+			"quarter": 1,
+			"count": "81365"
+		},
+		{
+			"tag": "javascript",
+			"year": 2013,
+			"quarter": 1,
+			"count": "76722"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2013,
+			"quarter": 1,
+			"count": "9"
+		},
+		{
+			"tag": "lua",
+			"year": 2013,
+			"quarter": 1,
+			"count": "612"
+		},
+		{
+			"tag": "perl",
+			"year": 2013,
+			"quarter": 1,
+			"count": "4521"
+		},
+		{
+			"tag": "php",
+			"year": 2013,
+			"quarter": 1,
+			"count": "71647"
+		},
+		{
+			"tag": "python",
+			"year": 2013,
+			"quarter": 1,
+			"count": "35818"
+		},
+		{
+			"tag": "ruby",
+			"year": 2013,
+			"quarter": 1,
+			"count": "11831"
+		},
+		{
+			"tag": "rust",
+			"year": 2013,
+			"quarter": 1,
+			"count": "19"
+		},
+		{
+			"tag": "scala",
+			"year": 2013,
+			"quarter": 1,
+			"count": "3008"
+		},
+		{
+			"tag": "swift",
+			"year": 2013,
+			"quarter": 1,
+			"count": "60"
+		},
+		{
+			"tag": "typescript",
+			"year": 2013,
+			"quarter": 1,
+			"count": "414"
+		},
+		{
+			"tag": "bash",
+			"year": 2013,
+			"quarter": 2,
+			"count": "6025"
+		},
+		{
+			"tag": "c",
+			"year": 2013,
+			"quarter": 2,
+			"count": "19743"
+		},
+		{
+			"tag": "c#",
+			"year": 2013,
+			"quarter": 2,
+			"count": "69657"
+		},
+		{
+			"tag": "c++",
+			"year": 2013,
+			"quarter": 2,
+			"count": "36737"
+		},
+		{
+			"tag": "dart",
+			"year": 2013,
+			"quarter": 2,
+			"count": "552"
+		},
+		{
+			"tag": "go",
+			"year": 2013,
+			"quarter": 2,
+			"count": "722"
+		},
+		{
+			"tag": "groovy",
+			"year": 2013,
+			"quarter": 2,
+			"count": "715"
+		},
+		{
+			"tag": "java",
+			"year": 2013,
+			"quarter": 2,
+			"count": "82841"
+		},
+		{
+			"tag": "javascript",
+			"year": 2013,
+			"quarter": 2,
+			"count": "79019"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2013,
+			"quarter": 2,
+			"count": "17"
+		},
+		{
+			"tag": "lua",
+			"year": 2013,
+			"quarter": 2,
+			"count": "798"
+		},
+		{
+			"tag": "perl",
+			"year": 2013,
+			"quarter": 2,
+			"count": "4920"
+		},
+		{
+			"tag": "php",
+			"year": 2013,
+			"quarter": 2,
+			"count": "70403"
+		},
+		{
+			"tag": "python",
+			"year": 2013,
+			"quarter": 2,
+			"count": "39298"
+		},
+		{
+			"tag": "ruby",
+			"year": 2013,
+			"quarter": 2,
+			"count": "11902"
+		},
+		{
+			"tag": "rust",
+			"year": 2013,
+			"quarter": 2,
+			"count": "48"
+		},
+		{
+			"tag": "scala",
+			"year": 2013,
+			"quarter": 2,
+			"count": "3178"
+		},
+		{
+			"tag": "swift",
+			"year": 2013,
+			"quarter": 2,
+			"count": "54"
+		},
+		{
+			"tag": "typescript",
+			"year": 2013,
+			"quarter": 2,
+			"count": "423"
+		},
+		{
+			"tag": "bash",
+			"year": 2013,
+			"quarter": 3,
+			"count": "6716"
+		},
+		{
+			"tag": "c",
+			"year": 2013,
+			"quarter": 3,
+			"count": "20397"
+		},
+		{
+			"tag": "c#",
+			"year": 2013,
+			"quarter": 3,
+			"count": "71629"
+		},
+		{
+			"tag": "c++",
+			"year": 2013,
+			"quarter": 3,
+			"count": "35918"
+		},
+		{
+			"tag": "dart",
+			"year": 2013,
+			"quarter": 3,
+			"count": "404"
+		},
+		{
+			"tag": "go",
+			"year": 2013,
+			"quarter": 3,
+			"count": "1078"
+		},
+		{
+			"tag": "groovy",
+			"year": 2013,
+			"quarter": 3,
+			"count": "788"
+		},
+		{
+			"tag": "java",
+			"year": 2013,
+			"quarter": 3,
+			"count": "85910"
+		},
+		{
+			"tag": "javascript",
+			"year": 2013,
+			"quarter": 3,
+			"count": "89384"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2013,
+			"quarter": 3,
+			"count": "8"
+		},
+		{
+			"tag": "lua",
+			"year": 2013,
+			"quarter": 3,
+			"count": "878"
+		},
+		{
+			"tag": "perl",
+			"year": 2013,
+			"quarter": 3,
+			"count": "4646"
+		},
+		{
+			"tag": "php",
+			"year": 2013,
+			"quarter": 3,
+			"count": "74461"
+		},
+		{
+			"tag": "python",
+			"year": 2013,
+			"quarter": 3,
+			"count": "41167"
+		},
+		{
+			"tag": "ruby",
+			"year": 2013,
+			"quarter": 3,
+			"count": "12205"
+		},
+		{
+			"tag": "rust",
+			"year": 2013,
+			"quarter": 3,
+			"count": "53"
+		},
+		{
+			"tag": "scala",
+			"year": 2013,
+			"quarter": 3,
+			"count": "3350"
+		},
+		{
+			"tag": "swift",
+			"year": 2013,
+			"quarter": 3,
+			"count": "74"
+		},
+		{
+			"tag": "typescript",
+			"year": 2013,
+			"quarter": 3,
+			"count": "453"
+		},
+		{
+			"tag": "bash",
+			"year": 2013,
+			"quarter": 4,
+			"count": "7437"
+		},
+		{
+			"tag": "c",
+			"year": 2013,
+			"quarter": 4,
+			"count": "23488"
+		},
+		{
+			"tag": "c#",
+			"year": 2013,
+			"quarter": 4,
+			"count": "72557"
+		},
+		{
+			"tag": "c++",
+			"year": 2013,
+			"quarter": 4,
+			"count": "40026"
+		},
+		{
+			"tag": "dart",
+			"year": 2013,
+			"quarter": 4,
+			"count": "690"
+		},
+		{
+			"tag": "go",
+			"year": 2013,
+			"quarter": 4,
+			"count": "1054"
+		},
+		{
+			"tag": "groovy",
+			"year": 2013,
+			"quarter": 4,
+			"count": "835"
+		},
+		{
+			"tag": "java",
+			"year": 2013,
+			"quarter": 4,
+			"count": "99352"
+		},
+		{
+			"tag": "javascript",
+			"year": 2013,
+			"quarter": 4,
+			"count": "94581"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2013,
+			"quarter": 4,
+			"count": "18"
+		},
+		{
+			"tag": "lua",
+			"year": 2013,
+			"quarter": 4,
+			"count": "909"
+		},
+		{
+			"tag": "perl",
+			"year": 2013,
+			"quarter": 4,
+			"count": "4420"
+		},
+		{
+			"tag": "php",
+			"year": 2013,
+			"quarter": 4,
+			"count": "74636"
+		},
+		{
+			"tag": "python",
+			"year": 2013,
+			"quarter": 4,
+			"count": "45543"
+		},
+		{
+			"tag": "ruby",
+			"year": 2013,
+			"quarter": 4,
+			"count": "13063"
+		},
+		{
+			"tag": "rust",
+			"year": 2013,
+			"quarter": 4,
+			"count": "56"
+		},
+		{
+			"tag": "scala",
+			"year": 2013,
+			"quarter": 4,
+			"count": "3778"
+		},
+		{
+			"tag": "swift",
+			"year": 2013,
+			"quarter": 4,
+			"count": "89"
+		},
+		{
+			"tag": "typescript",
+			"year": 2013,
+			"quarter": 4,
+			"count": "449"
+		},
+		{
+			"tag": "bash",
+			"year": 2014,
+			"quarter": 1,
+			"count": "8501"
+		},
+		{
+			"tag": "c",
+			"year": 2014,
+			"quarter": 1,
+			"count": "23871"
+		},
+		{
+			"tag": "c#",
+			"year": 2014,
+			"quarter": 1,
+			"count": "76153"
+		},
+		{
+			"tag": "c++",
+			"year": 2014,
+			"quarter": 1,
+			"count": "41106"
+		},
+		{
+			"tag": "dart",
+			"year": 2014,
+			"quarter": 1,
+			"count": "1130"
+		},
+		{
+			"tag": "go",
+			"year": 2014,
+			"quarter": 1,
+			"count": "1181"
+		},
+		{
+			"tag": "groovy",
+			"year": 2014,
+			"quarter": 1,
+			"count": "918"
+		},
+		{
+			"tag": "java",
+			"year": 2014,
+			"quarter": 1,
+			"count": "101718"
+		},
+		{
+			"tag": "javascript",
+			"year": 2014,
+			"quarter": 1,
+			"count": "107275"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2014,
+			"quarter": 1,
+			"count": "7"
+		},
+		{
+			"tag": "lua",
+			"year": 2014,
+			"quarter": 1,
+			"count": "961"
+		},
+		{
+			"tag": "perl",
+			"year": 2014,
+			"quarter": 1,
+			"count": "4486"
+		},
+		{
+			"tag": "php",
+			"year": 2014,
+			"quarter": 1,
+			"count": "84287"
+		},
+		{
+			"tag": "python",
+			"year": 2014,
+			"quarter": 1,
+			"count": "48848"
+		},
+		{
+			"tag": "ruby",
+			"year": 2014,
+			"quarter": 1,
+			"count": "13499"
+		},
+		{
+			"tag": "rust",
+			"year": 2014,
+			"quarter": 1,
+			"count": "126"
+		},
+		{
+			"tag": "scala",
+			"year": 2014,
+			"quarter": 1,
+			"count": "3662"
+		},
+		{
+			"tag": "swift",
+			"year": 2014,
+			"quarter": 1,
+			"count": "85"
+		},
+		{
+			"tag": "typescript",
+			"year": 2014,
+			"quarter": 1,
+			"count": "561"
+		},
+		{
+			"tag": "bash",
+			"year": 2014,
+			"quarter": 2,
+			"count": "7289"
+		},
+		{
+			"tag": "c",
+			"year": 2014,
+			"quarter": 2,
+			"count": "17751"
+		},
+		{
+			"tag": "c#",
+			"year": 2014,
+			"quarter": 2,
+			"count": "63383"
+		},
+		{
+			"tag": "c++",
+			"year": 2014,
+			"quarter": 2,
+			"count": "33171"
+		},
+		{
+			"tag": "dart",
+			"year": 2014,
+			"quarter": 2,
+			"count": "703"
+		},
+		{
+			"tag": "go",
+			"year": 2014,
+			"quarter": 2,
+			"count": "1320"
+		},
+		{
+			"tag": "groovy",
+			"year": 2014,
+			"quarter": 2,
+			"count": "969"
+		},
+		{
+			"tag": "java",
+			"year": 2014,
+			"quarter": 2,
+			"count": "85663"
+		},
+		{
+			"tag": "javascript",
+			"year": 2014,
+			"quarter": 2,
+			"count": "92801"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2014,
+			"quarter": 2,
+			"count": "22"
+		},
+		{
+			"tag": "lua",
+			"year": 2014,
+			"quarter": 2,
+			"count": "850"
+		},
+		{
+			"tag": "perl",
+			"year": 2014,
+			"quarter": 2,
+			"count": "4204"
+		},
+		{
+			"tag": "php",
+			"year": 2014,
+			"quarter": 2,
+			"count": "69544"
+		},
+		{
+			"tag": "python",
+			"year": 2014,
+			"quarter": 2,
+			"count": "42550"
+		},
+		{
+			"tag": "ruby",
+			"year": 2014,
+			"quarter": 2,
+			"count": "11892"
+		},
+		{
+			"tag": "rust",
+			"year": 2014,
+			"quarter": 2,
+			"count": "174"
+		},
+		{
+			"tag": "scala",
+			"year": 2014,
+			"quarter": 2,
+			"count": "3838"
+		},
+		{
+			"tag": "swift",
+			"year": 2014,
+			"quarter": 2,
+			"count": "3938"
+		},
+		{
+			"tag": "typescript",
+			"year": 2014,
+			"quarter": 2,
+			"count": "561"
+		},
+		{
+			"tag": "bash",
+			"year": 2014,
+			"quarter": 3,
+			"count": "7218"
+		},
+		{
+			"tag": "c",
+			"year": 2014,
+			"quarter": 3,
+			"count": "16359"
+		},
+		{
+			"tag": "c#",
+			"year": 2014,
+			"quarter": 3,
+			"count": "57040"
+		},
+		{
+			"tag": "c++",
+			"year": 2014,
+			"quarter": 3,
+			"count": "29185"
+		},
+		{
+			"tag": "dart",
+			"year": 2014,
+			"quarter": 3,
+			"count": "785"
+		},
+		{
+			"tag": "go",
+			"year": 2014,
+			"quarter": 3,
+			"count": "1873"
+		},
+		{
+			"tag": "groovy",
+			"year": 2014,
+			"quarter": 3,
+			"count": "1098"
+		},
+		{
+			"tag": "java",
+			"year": 2014,
+			"quarter": 3,
+			"count": "79003"
+		},
+		{
+			"tag": "javascript",
+			"year": 2014,
+			"quarter": 3,
+			"count": "87656"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2014,
+			"quarter": 3,
+			"count": "26"
+		},
+		{
+			"tag": "lua",
+			"year": 2014,
+			"quarter": 3,
+			"count": "719"
+		},
+		{
+			"tag": "perl",
+			"year": 2014,
+			"quarter": 3,
+			"count": "3837"
+		},
+		{
+			"tag": "php",
+			"year": 2014,
+			"quarter": 3,
+			"count": "62648"
+		},
+		{
+			"tag": "python",
+			"year": 2014,
+			"quarter": 3,
+			"count": "41316"
+		},
+		{
+			"tag": "ruby",
+			"year": 2014,
+			"quarter": 3,
+			"count": "11289"
+		},
+		{
+			"tag": "rust",
+			"year": 2014,
+			"quarter": 3,
+			"count": "384"
+		},
+		{
+			"tag": "scala",
+			"year": 2014,
+			"quarter": 3,
+			"count": "3817"
+		},
+		{
+			"tag": "swift",
+			"year": 2014,
+			"quarter": 3,
+			"count": "6953"
+		},
+		{
+			"tag": "typescript",
+			"year": 2014,
+			"quarter": 3,
+			"count": "593"
+		},
+		{
+			"tag": "bash",
+			"year": 2014,
+			"quarter": 4,
+			"count": "6853"
+		},
+		{
+			"tag": "c",
+			"year": 2014,
+			"quarter": 4,
+			"count": "18693"
+		},
+		{
+			"tag": "c#",
+			"year": 2014,
+			"quarter": 4,
+			"count": "51900"
+		},
+		{
+			"tag": "c++",
+			"year": 2014,
+			"quarter": 4,
+			"count": "30539"
+		},
+		{
+			"tag": "dart",
+			"year": 2014,
+			"quarter": 4,
+			"count": "668"
+		},
+		{
+			"tag": "go",
+			"year": 2014,
+			"quarter": 4,
+			"count": "1463"
+		},
+		{
+			"tag": "groovy",
+			"year": 2014,
+			"quarter": 4,
+			"count": "969"
+		},
+		{
+			"tag": "java",
+			"year": 2014,
+			"quarter": 4,
+			"count": "81958"
+		},
+		{
+			"tag": "javascript",
+			"year": 2014,
+			"quarter": 4,
+			"count": "82506"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2014,
+			"quarter": 4,
+			"count": "65"
+		},
+		{
+			"tag": "lua",
+			"year": 2014,
+			"quarter": 4,
+			"count": "686"
+		},
+		{
+			"tag": "perl",
+			"year": 2014,
+			"quarter": 4,
+			"count": "3106"
+		},
+		{
+			"tag": "php",
+			"year": 2014,
+			"quarter": 4,
+			"count": "59029"
+		},
+		{
+			"tag": "python",
+			"year": 2014,
+			"quarter": 4,
+			"count": "42228"
+		},
+		{
+			"tag": "ruby",
+			"year": 2014,
+			"quarter": 4,
+			"count": "10272"
+		},
+		{
+			"tag": "rust",
+			"year": 2014,
+			"quarter": 4,
+			"count": "649"
+		},
+		{
+			"tag": "scala",
+			"year": 2014,
+			"quarter": 4,
+			"count": "3797"
+		},
+		{
+			"tag": "swift",
+			"year": 2014,
+			"quarter": 4,
+			"count": "9846"
+		},
+		{
+			"tag": "typescript",
+			"year": 2014,
+			"quarter": 4,
+			"count": "592"
+		},
+		{
+			"tag": "bash",
+			"year": 2015,
+			"quarter": 1,
+			"count": "6974"
+		},
+		{
+			"tag": "c",
+			"year": 2015,
+			"quarter": 1,
+			"count": "18160"
+		},
+		{
+			"tag": "c#",
+			"year": 2015,
+			"quarter": 1,
+			"count": "52922"
+		},
+		{
+			"tag": "c++",
+			"year": 2015,
+			"quarter": 1,
+			"count": "30260"
+		},
+		{
+			"tag": "dart",
+			"year": 2015,
+			"quarter": 1,
+			"count": "426"
+		},
+		{
+			"tag": "go",
+			"year": 2015,
+			"quarter": 1,
+			"count": "1826"
+		},
+		{
+			"tag": "groovy",
+			"year": 2015,
+			"quarter": 1,
+			"count": "899"
+		},
+		{
+			"tag": "java",
+			"year": 2015,
+			"quarter": 1,
+			"count": "80935"
+		},
+		{
+			"tag": "javascript",
+			"year": 2015,
+			"quarter": 1,
+			"count": "86685"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2015,
+			"quarter": 1,
+			"count": "84"
+		},
+		{
+			"tag": "lua",
+			"year": 2015,
+			"quarter": 1,
+			"count": "641"
+		},
+		{
+			"tag": "nix",
+			"year": 2015,
+			"quarter": 1,
+			"count": "11"
+		},
+		{
+			"tag": "perl",
+			"year": 2015,
+			"quarter": 1,
+			"count": "3168"
+		},
+		{
+			"tag": "php",
+			"year": 2015,
+			"quarter": 1,
+			"count": "61071"
+		},
+		{
+			"tag": "python",
+			"year": 2015,
+			"quarter": 1,
+			"count": "46428"
+		},
+		{
+			"tag": "ruby",
+			"year": 2015,
+			"quarter": 1,
+			"count": "10813"
+		},
+		{
+			"tag": "rust",
+			"year": 2015,
+			"quarter": 1,
+			"count": "761"
+		},
+		{
+			"tag": "scala",
+			"year": 2015,
+			"quarter": 1,
+			"count": "3870"
+		},
+		{
+			"tag": "swift",
+			"year": 2015,
+			"quarter": 1,
+			"count": "12891"
+		},
+		{
+			"tag": "typescript",
+			"year": 2015,
+			"quarter": 1,
+			"count": "589"
+		},
+		{
+			"tag": "bash",
+			"year": 2015,
+			"quarter": 2,
+			"count": "7111"
+		},
+		{
+			"tag": "c",
+			"year": 2015,
+			"quarter": 2,
+			"count": "18696"
+		},
+		{
+			"tag": "c#",
+			"year": 2015,
+			"quarter": 2,
+			"count": "59022"
+		},
+		{
+			"tag": "c++",
+			"year": 2015,
+			"quarter": 2,
+			"count": "31422"
+		},
+		{
+			"tag": "dart",
+			"year": 2015,
+			"quarter": 2,
+			"count": "379"
+		},
+		{
+			"tag": "go",
+			"year": 2015,
+			"quarter": 2,
+			"count": "1721"
+		},
+		{
+			"tag": "groovy",
+			"year": 2015,
+			"quarter": 2,
+			"count": "825"
+		},
+		{
+			"tag": "java",
+			"year": 2015,
+			"quarter": 2,
+			"count": "87030"
+		},
+		{
+			"tag": "javascript",
+			"year": 2015,
+			"quarter": 2,
+			"count": "102485"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2015,
+			"quarter": 2,
+			"count": "108"
+		},
+		{
+			"tag": "lua",
+			"year": 2015,
+			"quarter": 2,
+			"count": "615"
+		},
+		{
+			"tag": "nix",
+			"year": 2015,
+			"quarter": 2,
+			"count": "9"
+		},
+		{
+			"tag": "perl",
+			"year": 2015,
+			"quarter": 2,
+			"count": "2958"
+		},
+		{
+			"tag": "php",
+			"year": 2015,
+			"quarter": 2,
+			"count": "63518"
+		},
+		{
+			"tag": "python",
+			"year": 2015,
+			"quarter": 2,
+			"count": "52071"
+		},
+		{
+			"tag": "ruby",
+			"year": 2015,
+			"quarter": 2,
+			"count": "11990"
+		},
+		{
+			"tag": "rust",
+			"year": 2015,
+			"quarter": 2,
+			"count": "902"
+		},
+		{
+			"tag": "scala",
+			"year": 2015,
+			"quarter": 2,
+			"count": "4510"
+		},
+		{
+			"tag": "swift",
+			"year": 2015,
+			"quarter": 2,
+			"count": "16679"
+		},
+		{
+			"tag": "typescript",
+			"year": 2015,
+			"quarter": 2,
+			"count": "965"
+		},
+		{
+			"tag": "bash",
+			"year": 2015,
+			"quarter": 3,
+			"count": "6158"
+		},
+		{
+			"tag": "c",
+			"year": 2015,
+			"quarter": 3,
+			"count": "15861"
+		},
+		{
+			"tag": "c#",
+			"year": 2015,
+			"quarter": 3,
+			"count": "59232"
+		},
+		{
+			"tag": "c++",
+			"year": 2015,
+			"quarter": 3,
+			"count": "28763"
+		},
+		{
+			"tag": "dart",
+			"year": 2015,
+			"quarter": 3,
+			"count": "275"
+		},
+		{
+			"tag": "go",
+			"year": 2015,
+			"quarter": 3,
+			"count": "1827"
+		},
+		{
+			"tag": "groovy",
+			"year": 2015,
+			"quarter": 3,
+			"count": "984"
+		},
+		{
+			"tag": "java",
+			"year": 2015,
+			"quarter": 3,
+			"count": "80334"
+		},
+		{
+			"tag": "javascript",
+			"year": 2015,
+			"quarter": 3,
+			"count": "102194"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2015,
+			"quarter": 3,
+			"count": "93"
+		},
+		{
+			"tag": "lua",
+			"year": 2015,
+			"quarter": 3,
+			"count": "615"
+		},
+		{
+			"tag": "nix",
+			"year": 2015,
+			"quarter": 3,
+			"count": "7"
+		},
+		{
+			"tag": "perl",
+			"year": 2015,
+			"quarter": 3,
+			"count": "2868"
+		},
+		{
+			"tag": "php",
+			"year": 2015,
+			"quarter": 3,
+			"count": "60923"
+		},
+		{
+			"tag": "python",
+			"year": 2015,
+			"quarter": 3,
+			"count": "50765"
+		},
+		{
+			"tag": "ruby",
+			"year": 2015,
+			"quarter": 3,
+			"count": "10897"
+		},
+		{
+			"tag": "rust",
+			"year": 2015,
+			"quarter": 3,
+			"count": "735"
+		},
+		{
+			"tag": "scala",
+			"year": 2015,
+			"quarter": 3,
+			"count": "4813"
+		},
+		{
+			"tag": "swift",
+			"year": 2015,
+			"quarter": 3,
+			"count": "20019"
+		},
+		{
+			"tag": "typescript",
+			"year": 2015,
+			"quarter": 3,
+			"count": "1221"
+		},
+		{
+			"tag": "bash",
+			"year": 2015,
+			"quarter": 4,
+			"count": "6198"
+		},
+		{
+			"tag": "c",
+			"year": 2015,
+			"quarter": 4,
+			"count": "17583"
+		},
+		{
+			"tag": "c#",
+			"year": 2015,
+			"quarter": 4,
+			"count": "54132"
+		},
+		{
+			"tag": "c++",
+			"year": 2015,
+			"quarter": 4,
+			"count": "31290"
+		},
+		{
+			"tag": "dart",
+			"year": 2015,
+			"quarter": 4,
+			"count": "241"
+		},
+		{
+			"tag": "go",
+			"year": 2015,
+			"quarter": 4,
+			"count": "1707"
+		},
+		{
+			"tag": "groovy",
+			"year": 2015,
+			"quarter": 4,
+			"count": "806"
+		},
+		{
+			"tag": "java",
+			"year": 2015,
+			"quarter": 4,
+			"count": "77826"
+		},
+		{
+			"tag": "javascript",
+			"year": 2015,
+			"quarter": 4,
+			"count": "96113"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2015,
+			"quarter": 4,
+			"count": "314"
+		},
+		{
+			"tag": "lua",
+			"year": 2015,
+			"quarter": 4,
+			"count": "587"
+		},
+		{
+			"tag": "nix",
+			"year": 2015,
+			"quarter": 4,
+			"count": "15"
+		},
+		{
+			"tag": "perl",
+			"year": 2015,
+			"quarter": 4,
+			"count": "2421"
+		},
+		{
+			"tag": "php",
+			"year": 2015,
+			"quarter": 4,
+			"count": "58138"
+		},
+		{
+			"tag": "python",
+			"year": 2015,
+			"quarter": 4,
+			"count": "52666"
+		},
+		{
+			"tag": "ruby",
+			"year": 2015,
+			"quarter": 4,
+			"count": "9626"
+		},
+		{
+			"tag": "rust",
+			"year": 2015,
+			"quarter": 4,
+			"count": "512"
+		},
+		{
+			"tag": "scala",
+			"year": 2015,
+			"quarter": 4,
+			"count": "4501"
+		},
+		{
+			"tag": "swift",
+			"year": 2015,
+			"quarter": 4,
+			"count": "17777"
+		},
+		{
+			"tag": "typescript",
+			"year": 2015,
+			"quarter": 4,
+			"count": "1601"
+		},
+		{
+			"tag": "bash",
+			"year": 2016,
+			"quarter": 1,
+			"count": "7008"
+		},
+		{
+			"tag": "c",
+			"year": 2016,
+			"quarter": 1,
+			"count": "17328"
+		},
+		{
+			"tag": "c#",
+			"year": 2016,
+			"quarter": 1,
+			"count": "56274"
+		},
+		{
+			"tag": "c++",
+			"year": 2016,
+			"quarter": 1,
+			"count": "29727"
+		},
+		{
+			"tag": "dart",
+			"year": 2016,
+			"quarter": 1,
+			"count": "250"
+		},
+		{
+			"tag": "go",
+			"year": 2016,
+			"quarter": 1,
+			"count": "2209"
+		},
+		{
+			"tag": "groovy",
+			"year": 2016,
+			"quarter": 1,
+			"count": "921"
+		},
+		{
+			"tag": "java",
+			"year": 2016,
+			"quarter": 1,
+			"count": "81268"
+		},
+		{
+			"tag": "javascript",
+			"year": 2016,
+			"quarter": 1,
+			"count": "103622"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2016,
+			"quarter": 1,
+			"count": "542"
+		},
+		{
+			"tag": "lua",
+			"year": 2016,
+			"quarter": 1,
+			"count": "772"
+		},
+		{
+			"tag": "nix",
+			"year": 2016,
+			"quarter": 1,
+			"count": "15"
+		},
+		{
+			"tag": "perl",
+			"year": 2016,
+			"quarter": 1,
+			"count": "2462"
+		},
+		{
+			"tag": "php",
+			"year": 2016,
+			"quarter": 1,
+			"count": "62951"
+		},
+		{
+			"tag": "python",
+			"year": 2016,
+			"quarter": 1,
+			"count": "58307"
+		},
+		{
+			"tag": "ruby",
+			"year": 2016,
+			"quarter": 1,
+			"count": "10581"
+		},
+		{
+			"tag": "rust",
+			"year": 2016,
+			"quarter": 1,
+			"count": "648"
+		},
+		{
+			"tag": "scala",
+			"year": 2016,
+			"quarter": 1,
+			"count": "4623"
+		},
+		{
+			"tag": "swift",
+			"year": 2016,
+			"quarter": 1,
+			"count": "20094"
+		},
+		{
+			"tag": "typescript",
+			"year": 2016,
+			"quarter": 1,
+			"count": "2981"
+		},
+		{
+			"tag": "bash",
+			"year": 2016,
+			"quarter": 2,
+			"count": "7500"
+		},
+		{
+			"tag": "c",
+			"year": 2016,
+			"quarter": 2,
+			"count": "13787"
+		},
+		{
+			"tag": "c#",
+			"year": 2016,
+			"quarter": 2,
+			"count": "57462"
+		},
+		{
+			"tag": "c++",
+			"year": 2016,
+			"quarter": 2,
+			"count": "27915"
+		},
+		{
+			"tag": "dart",
+			"year": 2016,
+			"quarter": 2,
+			"count": "179"
+		},
+		{
+			"tag": "go",
+			"year": 2016,
+			"quarter": 2,
+			"count": "2379"
+		},
+		{
+			"tag": "groovy",
+			"year": 2016,
+			"quarter": 2,
+			"count": "874"
+		},
+		{
+			"tag": "java",
+			"year": 2016,
+			"quarter": 2,
+			"count": "74843"
+		},
+		{
+			"tag": "javascript",
+			"year": 2016,
+			"quarter": 2,
+			"count": "103403"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2016,
+			"quarter": 2,
+			"count": "456"
+		},
+		{
+			"tag": "lua",
+			"year": 2016,
+			"quarter": 2,
+			"count": "698"
+		},
+		{
+			"tag": "nix",
+			"year": 2016,
+			"quarter": 2,
+			"count": "11"
+		},
+		{
+			"tag": "perl",
+			"year": 2016,
+			"quarter": 2,
+			"count": "2513"
+		},
+		{
+			"tag": "php",
+			"year": 2016,
+			"quarter": 2,
+			"count": "60433"
+		},
+		{
+			"tag": "python",
+			"year": 2016,
+			"quarter": 2,
+			"count": "56704"
+		},
+		{
+			"tag": "ruby",
+			"year": 2016,
+			"quarter": 2,
+			"count": "10078"
+		},
+		{
+			"tag": "rust",
+			"year": 2016,
+			"quarter": 2,
+			"count": "753"
+		},
+		{
+			"tag": "scala",
+			"year": 2016,
+			"quarter": 2,
+			"count": "4568"
+		},
+		{
+			"tag": "swift",
+			"year": 2016,
+			"quarter": 2,
+			"count": "19177"
+		},
+		{
+			"tag": "typescript",
+			"year": 2016,
+			"quarter": 2,
+			"count": "4046"
+		},
+		{
+			"tag": "bash",
+			"year": 2016,
+			"quarter": 3,
+			"count": "6875"
+		},
+		{
+			"tag": "c",
+			"year": 2016,
+			"quarter": 3,
+			"count": "12045"
+		},
+		{
+			"tag": "c#",
+			"year": 2016,
+			"quarter": 3,
+			"count": "51098"
+		},
+		{
+			"tag": "c++",
+			"year": 2016,
+			"quarter": 3,
+			"count": "23624"
+		},
+		{
+			"tag": "dart",
+			"year": 2016,
+			"quarter": 3,
+			"count": "177"
+		},
+		{
+			"tag": "go",
+			"year": 2016,
+			"quarter": 3,
+			"count": "2166"
+		},
+		{
+			"tag": "groovy",
+			"year": 2016,
+			"quarter": 3,
+			"count": "1012"
+		},
+		{
+			"tag": "java",
+			"year": 2016,
+			"quarter": 3,
+			"count": "64100"
+		},
+		{
+			"tag": "javascript",
+			"year": 2016,
+			"quarter": 3,
+			"count": "97121"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2016,
+			"quarter": 3,
+			"count": "459"
+		},
+		{
+			"tag": "lua",
+			"year": 2016,
+			"quarter": 3,
+			"count": "651"
+		},
+		{
+			"tag": "nix",
+			"year": 2016,
+			"quarter": 3,
+			"count": "14"
+		},
+		{
+			"tag": "perl",
+			"year": 2016,
+			"quarter": 3,
+			"count": "2184"
+		},
+		{
+			"tag": "php",
+			"year": 2016,
+			"quarter": 3,
+			"count": "52954"
+		},
+		{
+			"tag": "python",
+			"year": 2016,
+			"quarter": 3,
+			"count": "54187"
+		},
+		{
+			"tag": "ruby",
+			"year": 2016,
+			"quarter": 3,
+			"count": "8726"
+		},
+		{
+			"tag": "rust",
+			"year": 2016,
+			"quarter": 3,
+			"count": "800"
+		},
+		{
+			"tag": "scala",
+			"year": 2016,
+			"quarter": 3,
+			"count": "4892"
+		},
+		{
+			"tag": "swift",
+			"year": 2016,
+			"quarter": 3,
+			"count": "19671"
+		},
+		{
+			"tag": "typescript",
+			"year": 2016,
+			"quarter": 3,
+			"count": "4934"
+		},
+		{
+			"tag": "bash",
+			"year": 2016,
+			"quarter": 4,
+			"count": "6438"
+		},
+		{
+			"tag": "c",
+			"year": 2016,
+			"quarter": 4,
+			"count": "14417"
+		},
+		{
+			"tag": "c#",
+			"year": 2016,
+			"quarter": 4,
+			"count": "47033"
+		},
+		{
+			"tag": "c++",
+			"year": 2016,
+			"quarter": 4,
+			"count": "24480"
+		},
+		{
+			"tag": "dart",
+			"year": 2016,
+			"quarter": 4,
+			"count": "163"
+		},
+		{
+			"tag": "go",
+			"year": 2016,
+			"quarter": 4,
+			"count": "1993"
+		},
+		{
+			"tag": "groovy",
+			"year": 2016,
+			"quarter": 4,
+			"count": "778"
+		},
+		{
+			"tag": "java",
+			"year": 2016,
+			"quarter": 4,
+			"count": "64089"
+		},
+		{
+			"tag": "javascript",
+			"year": 2016,
+			"quarter": 4,
+			"count": "90762"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2016,
+			"quarter": 4,
+			"count": "475"
+		},
+		{
+			"tag": "lua",
+			"year": 2016,
+			"quarter": 4,
+			"count": "562"
+		},
+		{
+			"tag": "nix",
+			"year": 2016,
+			"quarter": 4,
+			"count": "10"
+		},
+		{
+			"tag": "perl",
+			"year": 2016,
+			"quarter": 4,
+			"count": "1843"
+		},
+		{
+			"tag": "php",
+			"year": 2016,
+			"quarter": 4,
+			"count": "47930"
+		},
+		{
+			"tag": "python",
+			"year": 2016,
+			"quarter": 4,
+			"count": "57462"
+		},
+		{
+			"tag": "ruby",
+			"year": 2016,
+			"quarter": 4,
+			"count": "7816"
+		},
+		{
+			"tag": "rust",
+			"year": 2016,
+			"quarter": 4,
+			"count": "766"
+		},
+		{
+			"tag": "scala",
+			"year": 2016,
+			"quarter": 4,
+			"count": "5126"
+		},
+		{
+			"tag": "swift",
+			"year": 2016,
+			"quarter": 4,
+			"count": "18439"
+		},
+		{
+			"tag": "typescript",
+			"year": 2016,
+			"quarter": 4,
+			"count": "5179"
+		},
+		{
+			"tag": "bash",
+			"year": 2017,
+			"quarter": 1,
+			"count": "7203"
+		},
+		{
+			"tag": "c",
+			"year": 2017,
+			"quarter": 1,
+			"count": "13744"
+		},
+		{
+			"tag": "c#",
+			"year": 2017,
+			"quarter": 1,
+			"count": "50879"
+		},
+		{
+			"tag": "c++",
+			"year": 2017,
+			"quarter": 1,
+			"count": "23891"
+		},
+		{
+			"tag": "dart",
+			"year": 2017,
+			"quarter": 1,
+			"count": "215"
+		},
+		{
+			"tag": "go",
+			"year": 2017,
+			"quarter": 1,
+			"count": "2385"
+		},
+		{
+			"tag": "groovy",
+			"year": 2017,
+			"quarter": 1,
+			"count": "946"
+		},
+		{
+			"tag": "java",
+			"year": 2017,
+			"quarter": 1,
+			"count": "67716"
+		},
+		{
+			"tag": "javascript",
+			"year": 2017,
+			"quarter": 1,
+			"count": "99514"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2017,
+			"quarter": 1,
+			"count": "563"
+		},
+		{
+			"tag": "lua",
+			"year": 2017,
+			"quarter": 1,
+			"count": "585"
+		},
+		{
+			"tag": "nix",
+			"year": 2017,
+			"quarter": 1,
+			"count": "19"
+		},
+		{
+			"tag": "perl",
+			"year": 2017,
+			"quarter": 1,
+			"count": "1886"
+		},
+		{
+			"tag": "php",
+			"year": 2017,
+			"quarter": 1,
+			"count": "53201"
+		},
+		{
+			"tag": "python",
+			"year": 2017,
+			"quarter": 1,
+			"count": "64475"
+		},
+		{
+			"tag": "ruby",
+			"year": 2017,
+			"quarter": 1,
+			"count": "8181"
+		},
+		{
+			"tag": "rust",
+			"year": 2017,
+			"quarter": 1,
+			"count": "791"
+		},
+		{
+			"tag": "scala",
+			"year": 2017,
+			"quarter": 1,
+			"count": "4726"
+		},
+		{
+			"tag": "swift",
+			"year": 2017,
+			"quarter": 1,
+			"count": "18699"
+		},
+		{
+			"tag": "typescript",
+			"year": 2017,
+			"quarter": 1,
+			"count": "6385"
+		},
+		{
+			"tag": "bash",
+			"year": 2017,
+			"quarter": 2,
+			"count": "7169"
+		},
+		{
+			"tag": "c",
+			"year": 2017,
+			"quarter": 2,
+			"count": "12586"
+		},
+		{
+			"tag": "c#",
+			"year": 2017,
+			"quarter": 2,
+			"count": "46993"
+		},
+		{
+			"tag": "c++",
+			"year": 2017,
+			"quarter": 2,
+			"count": "21563"
+		},
+		{
+			"tag": "dart",
+			"year": 2017,
+			"quarter": 2,
+			"count": "329"
+		},
+		{
+			"tag": "go",
+			"year": 2017,
+			"quarter": 2,
+			"count": "2211"
+		},
+		{
+			"tag": "groovy",
+			"year": 2017,
+			"quarter": 2,
+			"count": "1050"
+		},
+		{
+			"tag": "java",
+			"year": 2017,
+			"quarter": 2,
+			"count": "67621"
+		},
+		{
+			"tag": "javascript",
+			"year": 2017,
+			"quarter": 2,
+			"count": "95758"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2017,
+			"quarter": 2,
+			"count": "1687"
+		},
+		{
+			"tag": "lua",
+			"year": 2017,
+			"quarter": 2,
+			"count": "596"
+		},
+		{
+			"tag": "nix",
+			"year": 2017,
+			"quarter": 2,
+			"count": "28"
+		},
+		{
+			"tag": "perl",
+			"year": 2017,
+			"quarter": 2,
+			"count": "1679"
+		},
+		{
+			"tag": "php",
+			"year": 2017,
+			"quarter": 2,
+			"count": "50991"
+		},
+		{
+			"tag": "python",
+			"year": 2017,
+			"quarter": 2,
+			"count": "67323"
+		},
+		{
+			"tag": "ruby",
+			"year": 2017,
+			"quarter": 2,
+			"count": "6853"
+		},
+		{
+			"tag": "rust",
+			"year": 2017,
+			"quarter": 2,
+			"count": "664"
+		},
+		{
+			"tag": "scala",
+			"year": 2017,
+			"quarter": 2,
+			"count": "4863"
+		},
+		{
+			"tag": "swift",
+			"year": 2017,
+			"quarter": 2,
+			"count": "17574"
+		},
+		{
+			"tag": "typescript",
+			"year": 2017,
+			"quarter": 2,
+			"count": "7002"
+		},
+		{
+			"tag": "bash",
+			"year": 2017,
+			"quarter": 3,
+			"count": "6470"
+		},
+		{
+			"tag": "c",
+			"year": 2017,
+			"quarter": 3,
+			"count": "10549"
+		},
+		{
+			"tag": "c#",
+			"year": 2017,
+			"quarter": 3,
+			"count": "43687"
+		},
+		{
+			"tag": "c++",
+			"year": 2017,
+			"quarter": 3,
+			"count": "20195"
+		},
+		{
+			"tag": "dart",
+			"year": 2017,
+			"quarter": 3,
+			"count": "324"
+		},
+		{
+			"tag": "go",
+			"year": 2017,
+			"quarter": 3,
+			"count": "2460"
+		},
+		{
+			"tag": "groovy",
+			"year": 2017,
+			"quarter": 3,
+			"count": "974"
+		},
+		{
+			"tag": "java",
+			"year": 2017,
+			"quarter": 3,
+			"count": "59057"
+		},
+		{
+			"tag": "javascript",
+			"year": 2017,
+			"quarter": 3,
+			"count": "93178"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2017,
+			"quarter": 3,
+			"count": "2345"
+		},
+		{
+			"tag": "lua",
+			"year": 2017,
+			"quarter": 3,
+			"count": "499"
+		},
+		{
+			"tag": "nix",
+			"year": 2017,
+			"quarter": 3,
+			"count": "35"
+		},
+		{
+			"tag": "perl",
+			"year": 2017,
+			"quarter": 3,
+			"count": "1593"
+		},
+		{
+			"tag": "php",
+			"year": 2017,
+			"quarter": 3,
+			"count": "49095"
+		},
+		{
+			"tag": "python",
+			"year": 2017,
+			"quarter": 3,
+			"count": "69824"
+		},
+		{
+			"tag": "ruby",
+			"year": 2017,
+			"quarter": 3,
+			"count": "6228"
+		},
+		{
+			"tag": "rust",
+			"year": 2017,
+			"quarter": 3,
+			"count": "660"
+		},
+		{
+			"tag": "scala",
+			"year": 2017,
+			"quarter": 3,
+			"count": "4788"
+		},
+		{
+			"tag": "swift",
+			"year": 2017,
+			"quarter": 3,
+			"count": "17886"
+		},
+		{
+			"tag": "typescript",
+			"year": 2017,
+			"quarter": 3,
+			"count": "7700"
+		},
+		{
+			"tag": "bash",
+			"year": 2017,
+			"quarter": 4,
+			"count": "6235"
+		},
+		{
+			"tag": "c",
+			"year": 2017,
+			"quarter": 4,
+			"count": "11942"
+		},
+		{
+			"tag": "c#",
+			"year": 2017,
+			"quarter": 4,
+			"count": "37607"
+		},
+		{
+			"tag": "c++",
+			"year": 2017,
+			"quarter": 4,
+			"count": "20171"
+		},
+		{
+			"tag": "dart",
+			"year": 2017,
+			"quarter": 4,
+			"count": "280"
+		},
+		{
+			"tag": "go",
+			"year": 2017,
+			"quarter": 4,
+			"count": "2463"
+		},
+		{
+			"tag": "groovy",
+			"year": 2017,
+			"quarter": 4,
+			"count": "1024"
+		},
+		{
+			"tag": "java",
+			"year": 2017,
+			"quarter": 4,
+			"count": "56943"
+		},
+		{
+			"tag": "javascript",
+			"year": 2017,
+			"quarter": 4,
+			"count": "81515"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2017,
+			"quarter": 4,
+			"count": "2593"
+		},
+		{
+			"tag": "lua",
+			"year": 2017,
+			"quarter": 4,
+			"count": "398"
+		},
+		{
+			"tag": "nix",
+			"year": 2017,
+			"quarter": 4,
+			"count": "30"
+		},
+		{
+			"tag": "perl",
+			"year": 2017,
+			"quarter": 4,
+			"count": "1331"
+		},
+		{
+			"tag": "php",
+			"year": 2017,
+			"quarter": 4,
+			"count": "41714"
+		},
+		{
+			"tag": "python",
+			"year": 2017,
+			"quarter": 4,
+			"count": "68035"
+		},
+		{
+			"tag": "ruby",
+			"year": 2017,
+			"quarter": 4,
+			"count": "5174"
+		},
+		{
+			"tag": "rust",
+			"year": 2017,
+			"quarter": 4,
+			"count": "692"
+		},
+		{
+			"tag": "scala",
+			"year": 2017,
+			"quarter": 4,
+			"count": "4081"
+		},
+		{
+			"tag": "swift",
+			"year": 2017,
+			"quarter": 4,
+			"count": "14968"
+		},
+		{
+			"tag": "typescript",
+			"year": 2017,
+			"quarter": 4,
+			"count": "7277"
+		},
+		{
+			"tag": "bash",
+			"year": 2018,
+			"quarter": 1,
+			"count": "6103"
+		},
+		{
+			"tag": "c",
+			"year": 2018,
+			"quarter": 1,
+			"count": "10830"
+		},
+		{
+			"tag": "c#",
+			"year": 2018,
+			"quarter": 1,
+			"count": "37146"
+		},
+		{
+			"tag": "c++",
+			"year": 2018,
+			"quarter": 1,
+			"count": "20139"
+		},
+		{
+			"tag": "dart",
+			"year": 2018,
+			"quarter": 1,
+			"count": "542"
+		},
+		{
+			"tag": "go",
+			"year": 2018,
+			"quarter": 1,
+			"count": "2330"
+		},
+		{
+			"tag": "groovy",
+			"year": 2018,
+			"quarter": 1,
+			"count": "909"
+		},
+		{
+			"tag": "java",
+			"year": 2018,
+			"quarter": 1,
+			"count": "52948"
+		},
+		{
+			"tag": "javascript",
+			"year": 2018,
+			"quarter": 1,
+			"count": "81312"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2018,
+			"quarter": 1,
+			"count": "2942"
+		},
+		{
+			"tag": "lua",
+			"year": 2018,
+			"quarter": 1,
+			"count": "456"
+		},
+		{
+			"tag": "nix",
+			"year": 2018,
+			"quarter": 1,
+			"count": "31"
+		},
+		{
+			"tag": "perl",
+			"year": 2018,
+			"quarter": 1,
+			"count": "1280"
+		},
+		{
+			"tag": "php",
+			"year": 2018,
+			"quarter": 1,
+			"count": "39524"
+		},
+		{
+			"tag": "python",
+			"year": 2018,
+			"quarter": 1,
+			"count": "70307"
+		},
+		{
+			"tag": "ruby",
+			"year": 2018,
+			"quarter": 1,
+			"count": "4865"
+		},
+		{
+			"tag": "rust",
+			"year": 2018,
+			"quarter": 1,
+			"count": "788"
+		},
+		{
+			"tag": "scala",
+			"year": 2018,
+			"quarter": 1,
+			"count": "4505"
+		},
+		{
+			"tag": "swift",
+			"year": 2018,
+			"quarter": 1,
+			"count": "15782"
+		},
+		{
+			"tag": "typescript",
+			"year": 2018,
+			"quarter": 1,
+			"count": "8128"
+		},
+		{
+			"tag": "bash",
+			"year": 2018,
+			"quarter": 2,
+			"count": "5483"
+		},
+		{
+			"tag": "c",
+			"year": 2018,
+			"quarter": 2,
+			"count": "9682"
+		},
+		{
+			"tag": "c#",
+			"year": 2018,
+			"quarter": 2,
+			"count": "36303"
+		},
+		{
+			"tag": "c++",
+			"year": 2018,
+			"quarter": 2,
+			"count": "18359"
+		},
+		{
+			"tag": "dart",
+			"year": 2018,
+			"quarter": 2,
+			"count": "1429"
+		},
+		{
+			"tag": "go",
+			"year": 2018,
+			"quarter": 2,
+			"count": "2477"
+		},
+		{
+			"tag": "groovy",
+			"year": 2018,
+			"quarter": 2,
+			"count": "868"
+		},
+		{
+			"tag": "java",
+			"year": 2018,
+			"quarter": 2,
+			"count": "54682"
+		},
+		{
+			"tag": "javascript",
+			"year": 2018,
+			"quarter": 2,
+			"count": "77991"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2018,
+			"quarter": 2,
+			"count": "3250"
+		},
+		{
+			"tag": "lua",
+			"year": 2018,
+			"quarter": 2,
+			"count": "457"
+		},
+		{
+			"tag": "nix",
+			"year": 2018,
+			"quarter": 2,
+			"count": "16"
+		},
+		{
+			"tag": "perl",
+			"year": 2018,
+			"quarter": 2,
+			"count": "1177"
+		},
+		{
+			"tag": "php",
+			"year": 2018,
+			"quarter": 2,
+			"count": "36164"
+		},
+		{
+			"tag": "python",
+			"year": 2018,
+			"quarter": 2,
+			"count": "70540"
+		},
+		{
+			"tag": "ruby",
+			"year": 2018,
+			"quarter": 2,
+			"count": "4529"
+		},
+		{
+			"tag": "rust",
+			"year": 2018,
+			"quarter": 2,
+			"count": "795"
+		},
+		{
+			"tag": "scala",
+			"year": 2018,
+			"quarter": 2,
+			"count": "4225"
+		},
+		{
+			"tag": "swift",
+			"year": 2018,
+			"quarter": 2,
+			"count": "14858"
+		},
+		{
+			"tag": "typescript",
+			"year": 2018,
+			"quarter": 2,
+			"count": "8345"
+		},
+		{
+			"tag": "bash",
+			"year": 2018,
+			"quarter": 3,
+			"count": "5062"
+		},
+		{
+			"tag": "c",
+			"year": 2018,
+			"quarter": 3,
+			"count": "8466"
+		},
+		{
+			"tag": "c#",
+			"year": 2018,
+			"quarter": 3,
+			"count": "36415"
+		},
+		{
+			"tag": "c++",
+			"year": 2018,
+			"quarter": 3,
+			"count": "16688"
+		},
+		{
+			"tag": "dart",
+			"year": 2018,
+			"quarter": 3,
+			"count": "1835"
+		},
+		{
+			"tag": "go",
+			"year": 2018,
+			"quarter": 3,
+			"count": "2735"
+		},
+		{
+			"tag": "groovy",
+			"year": 2018,
+			"quarter": 3,
+			"count": "875"
+		},
+		{
+			"tag": "java",
+			"year": 2018,
+			"quarter": 3,
+			"count": "49757"
+		},
+		{
+			"tag": "javascript",
+			"year": 2018,
+			"quarter": 3,
+			"count": "77595"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2018,
+			"quarter": 3,
+			"count": "3689"
+		},
+		{
+			"tag": "lua",
+			"year": 2018,
+			"quarter": 3,
+			"count": "528"
+		},
+		{
+			"tag": "nix",
+			"year": 2018,
+			"quarter": 3,
+			"count": "33"
+		},
+		{
+			"tag": "perl",
+			"year": 2018,
+			"quarter": 3,
+			"count": "1115"
+		},
+		{
+			"tag": "php",
+			"year": 2018,
+			"quarter": 3,
+			"count": "34414"
+		},
+		{
+			"tag": "python",
+			"year": 2018,
+			"quarter": 3,
+			"count": "73602"
+		},
+		{
+			"tag": "ruby",
+			"year": 2018,
+			"quarter": 3,
+			"count": "3957"
+		},
+		{
+			"tag": "rust",
+			"year": 2018,
+			"quarter": 3,
+			"count": "734"
+		},
+		{
+			"tag": "scala",
+			"year": 2018,
+			"quarter": 3,
+			"count": "3657"
+		},
+		{
+			"tag": "swift",
+			"year": 2018,
+			"quarter": 3,
+			"count": "14550"
+		},
+		{
+			"tag": "typescript",
+			"year": 2018,
+			"quarter": 3,
+			"count": "9201"
+		},
+		{
+			"tag": "bash",
+			"year": 2018,
+			"quarter": 4,
+			"count": "5056"
+		},
+		{
+			"tag": "c",
+			"year": 2018,
+			"quarter": 4,
+			"count": "10683"
+		},
+		{
+			"tag": "c#",
+			"year": 2018,
+			"quarter": 4,
+			"count": "34251"
+		},
+		{
+			"tag": "c++",
+			"year": 2018,
+			"quarter": 4,
+			"count": "17102"
+		},
+		{
+			"tag": "dart",
+			"year": 2018,
+			"quarter": 4,
+			"count": "1926"
+		},
+		{
+			"tag": "go",
+			"year": 2018,
+			"quarter": 4,
+			"count": "2843"
+		},
+		{
+			"tag": "groovy",
+			"year": 2018,
+			"quarter": 4,
+			"count": "688"
+		},
+		{
+			"tag": "java",
+			"year": 2018,
+			"quarter": 4,
+			"count": "49977"
+		},
+		{
+			"tag": "javascript",
+			"year": 2018,
+			"quarter": 4,
+			"count": "71541"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2018,
+			"quarter": 4,
+			"count": "3990"
+		},
+		{
+			"tag": "lua",
+			"year": 2018,
+			"quarter": 4,
+			"count": "375"
+		},
+		{
+			"tag": "nix",
+			"year": 2018,
+			"quarter": 4,
+			"count": "33"
+		},
+		{
+			"tag": "perl",
+			"year": 2018,
+			"quarter": 4,
+			"count": "1187"
+		},
+		{
+			"tag": "php",
+			"year": 2018,
+			"quarter": 4,
+			"count": "29948"
+		},
+		{
+			"tag": "python",
+			"year": 2018,
+			"quarter": 4,
+			"count": "73866"
+		},
+		{
+			"tag": "ruby",
+			"year": 2018,
+			"quarter": 4,
+			"count": "3936"
+		},
+		{
+			"tag": "rust",
+			"year": 2018,
+			"quarter": 4,
+			"count": "807"
+		},
+		{
+			"tag": "scala",
+			"year": 2018,
+			"quarter": 4,
+			"count": "3466"
+		},
+		{
+			"tag": "swift",
+			"year": 2018,
+			"quarter": 4,
+			"count": "12844"
+		},
+		{
+			"tag": "typescript",
+			"year": 2018,
+			"quarter": 4,
+			"count": "8800"
+		},
+		{
+			"tag": "bash",
+			"year": 2019,
+			"quarter": 1,
+			"count": "5372"
+		},
+		{
+			"tag": "c",
+			"year": 2019,
+			"quarter": 1,
+			"count": "10365"
+		},
+		{
+			"tag": "c#",
+			"year": 2019,
+			"quarter": 1,
+			"count": "35033"
+		},
+		{
+			"tag": "c++",
+			"year": 2019,
+			"quarter": 1,
+			"count": "16865"
+		},
+		{
+			"tag": "dart",
+			"year": 2019,
+			"quarter": 1,
+			"count": "2770"
+		},
+		{
+			"tag": "go",
+			"year": 2019,
+			"quarter": 1,
+			"count": "2642"
+		},
+		{
+			"tag": "groovy",
+			"year": 2019,
+			"quarter": 1,
+			"count": "800"
+		},
+		{
+			"tag": "java",
+			"year": 2019,
+			"quarter": 1,
+			"count": "48948"
+		},
+		{
+			"tag": "javascript",
+			"year": 2019,
+			"quarter": 1,
+			"count": "75790"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2019,
+			"quarter": 1,
+			"count": "4272"
+		},
+		{
+			"tag": "lua",
+			"year": 2019,
+			"quarter": 1,
+			"count": "400"
+		},
+		{
+			"tag": "nix",
+			"year": 2019,
+			"quarter": 1,
+			"count": "28"
+		},
+		{
+			"tag": "perl",
+			"year": 2019,
+			"quarter": 1,
+			"count": "1250"
+		},
+		{
+			"tag": "php",
+			"year": 2019,
+			"quarter": 1,
+			"count": "30955"
+		},
+		{
+			"tag": "python",
+			"year": 2019,
+			"quarter": 1,
+			"count": "78369"
+		},
+		{
+			"tag": "ruby",
+			"year": 2019,
+			"quarter": 1,
+			"count": "4117"
+		},
+		{
+			"tag": "rust",
+			"year": 2019,
+			"quarter": 1,
+			"count": "920"
+		},
+		{
+			"tag": "scala",
+			"year": 2019,
+			"quarter": 1,
+			"count": "3201"
+		},
+		{
+			"tag": "swift",
+			"year": 2019,
+			"quarter": 1,
+			"count": "12520"
+		},
+		{
+			"tag": "typescript",
+			"year": 2019,
+			"quarter": 1,
+			"count": "9740"
+		},
+		{
+			"tag": "bash",
+			"year": 2019,
+			"quarter": 2,
+			"count": "5053"
+		},
+		{
+			"tag": "c",
+			"year": 2019,
+			"quarter": 2,
+			"count": "8888"
+		},
+		{
+			"tag": "c#",
+			"year": 2019,
+			"quarter": 2,
+			"count": "32648"
+		},
+		{
+			"tag": "c++",
+			"year": 2019,
+			"quarter": 2,
+			"count": "16348"
+		},
+		{
+			"tag": "dart",
+			"year": 2019,
+			"quarter": 2,
+			"count": "3152"
+		},
+		{
+			"tag": "go",
+			"year": 2019,
+			"quarter": 2,
+			"count": "2290"
+		},
+		{
+			"tag": "groovy",
+			"year": 2019,
+			"quarter": 2,
+			"count": "776"
+		},
+		{
+			"tag": "java",
+			"year": 2019,
+			"quarter": 2,
+			"count": "43313"
+		},
+		{
+			"tag": "javascript",
+			"year": 2019,
+			"quarter": 2,
+			"count": "70331"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2019,
+			"quarter": 2,
+			"count": "4331"
+		},
+		{
+			"tag": "lua",
+			"year": 2019,
+			"quarter": 2,
+			"count": "388"
+		},
+		{
+			"tag": "nix",
+			"year": 2019,
+			"quarter": 2,
+			"count": "31"
+		},
+		{
+			"tag": "perl",
+			"year": 2019,
+			"quarter": 2,
+			"count": "1161"
+		},
+		{
+			"tag": "php",
+			"year": 2019,
+			"quarter": 2,
+			"count": "27161"
+		},
+		{
+			"tag": "python",
+			"year": 2019,
+			"quarter": 2,
+			"count": "78801"
+		},
+		{
+			"tag": "ruby",
+			"year": 2019,
+			"quarter": 2,
+			"count": "3529"
+		},
+		{
+			"tag": "rust",
+			"year": 2019,
+			"quarter": 2,
+			"count": "912"
+		},
+		{
+			"tag": "scala",
+			"year": 2019,
+			"quarter": 2,
+			"count": "3326"
+		},
+		{
+			"tag": "swift",
+			"year": 2019,
+			"quarter": 2,
+			"count": "13012"
+		},
+		{
+			"tag": "typescript",
+			"year": 2019,
+			"quarter": 2,
+			"count": "9643"
+		},
+		{
+			"tag": "bash",
+			"year": 2019,
+			"quarter": 3,
+			"count": "4636"
+		},
+		{
+			"tag": "c",
+			"year": 2019,
+			"quarter": 3,
+			"count": "7988"
+		},
+		{
+			"tag": "c#",
+			"year": 2019,
+			"quarter": 3,
+			"count": "31454"
+		},
+		{
+			"tag": "c++",
+			"year": 2019,
+			"quarter": 3,
+			"count": "15704"
+		},
+		{
+			"tag": "dart",
+			"year": 2019,
+			"quarter": 3,
+			"count": "3934"
+		},
+		{
+			"tag": "go",
+			"year": 2019,
+			"quarter": 3,
+			"count": "2481"
+		},
+		{
+			"tag": "groovy",
+			"year": 2019,
+			"quarter": 3,
+			"count": "624"
+		},
+		{
+			"tag": "java",
+			"year": 2019,
+			"quarter": 3,
+			"count": "41331"
+		},
+		{
+			"tag": "javascript",
+			"year": 2019,
+			"quarter": 3,
+			"count": "69107"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2019,
+			"quarter": 3,
+			"count": "4657"
+		},
+		{
+			"tag": "lua",
+			"year": 2019,
+			"quarter": 3,
+			"count": "385"
+		},
+		{
+			"tag": "nix",
+			"year": 2019,
+			"quarter": 3,
+			"count": "31"
+		},
+		{
+			"tag": "perl",
+			"year": 2019,
+			"quarter": 3,
+			"count": "999"
+		},
+		{
+			"tag": "php",
+			"year": 2019,
+			"quarter": 3,
+			"count": "24772"
+		},
+		{
+			"tag": "python",
+			"year": 2019,
+			"quarter": 3,
+			"count": "77474"
+		},
+		{
+			"tag": "ruby",
+			"year": 2019,
+			"quarter": 3,
+			"count": "3435"
+		},
+		{
+			"tag": "rust",
+			"year": 2019,
+			"quarter": 3,
+			"count": "1084"
+		},
+		{
+			"tag": "scala",
+			"year": 2019,
+			"quarter": 3,
+			"count": "3038"
+		},
+		{
+			"tag": "swift",
+			"year": 2019,
+			"quarter": 3,
+			"count": "11171"
+		},
+		{
+			"tag": "typescript",
+			"year": 2019,
+			"quarter": 3,
+			"count": "9748"
+		},
+		{
+			"tag": "bash",
+			"year": 2019,
+			"quarter": 4,
+			"count": "4729"
+		},
+		{
+			"tag": "c",
+			"year": 2019,
+			"quarter": 4,
+			"count": "9721"
+		},
+		{
+			"tag": "c#",
+			"year": 2019,
+			"quarter": 4,
+			"count": "32218"
+		},
+		{
+			"tag": "c++",
+			"year": 2019,
+			"quarter": 4,
+			"count": "18310"
+		},
+		{
+			"tag": "dart",
+			"year": 2019,
+			"quarter": 4,
+			"count": "4303"
+		},
+		{
+			"tag": "go",
+			"year": 2019,
+			"quarter": 4,
+			"count": "2492"
+		},
+		{
+			"tag": "groovy",
+			"year": 2019,
+			"quarter": 4,
+			"count": "605"
+		},
+		{
+			"tag": "java",
+			"year": 2019,
+			"quarter": 4,
+			"count": "42672"
+		},
+		{
+			"tag": "javascript",
+			"year": 2019,
+			"quarter": 4,
+			"count": "67926"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2019,
+			"quarter": 4,
+			"count": "4841"
+		},
+		{
+			"tag": "lua",
+			"year": 2019,
+			"quarter": 4,
+			"count": "399"
+		},
+		{
+			"tag": "nix",
+			"year": 2019,
+			"quarter": 4,
+			"count": "45"
+		},
+		{
+			"tag": "perl",
+			"year": 2019,
+			"quarter": 4,
+			"count": "963"
+		},
+		{
+			"tag": "php",
+			"year": 2019,
+			"quarter": 4,
+			"count": "23742"
+		},
+		{
+			"tag": "python",
+			"year": 2019,
+			"quarter": 4,
+			"count": "81674"
+		},
+		{
+			"tag": "ruby",
+			"year": 2019,
+			"quarter": 4,
+			"count": "3324"
+		},
+		{
+			"tag": "rust",
+			"year": 2019,
+			"quarter": 4,
+			"count": "1029"
+		},
+		{
+			"tag": "scala",
+			"year": 2019,
+			"quarter": 4,
+			"count": "2650"
+		},
+		{
+			"tag": "swift",
+			"year": 2019,
+			"quarter": 4,
+			"count": "12202"
+		},
+		{
+			"tag": "typescript",
+			"year": 2019,
+			"quarter": 4,
+			"count": "10469"
+		},
+		{
+			"tag": "bash",
+			"year": 2020,
+			"quarter": 1,
+			"count": "5032"
+		},
+		{
+			"tag": "c",
+			"year": 2020,
+			"quarter": 1,
+			"count": "9218"
+		},
+		{
+			"tag": "c#",
+			"year": 2020,
+			"quarter": 1,
+			"count": "30409"
+		},
+		{
+			"tag": "c++",
+			"year": 2020,
+			"quarter": 1,
+			"count": "16941"
+		},
+		{
+			"tag": "dart",
+			"year": 2020,
+			"quarter": 1,
+			"count": "4775"
+		},
+		{
+			"tag": "go",
+			"year": 2020,
+			"quarter": 1,
+			"count": "2488"
+		},
+		{
+			"tag": "groovy",
+			"year": 2020,
+			"quarter": 1,
+			"count": "640"
+		},
+		{
+			"tag": "java",
+			"year": 2020,
+			"quarter": 1,
+			"count": "42218"
+		},
+		{
+			"tag": "javascript",
+			"year": 2020,
+			"quarter": 1,
+			"count": "70368"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2020,
+			"quarter": 1,
+			"count": "5213"
+		},
+		{
+			"tag": "lua",
+			"year": 2020,
+			"quarter": 1,
+			"count": "381"
+		},
+		{
+			"tag": "nix",
+			"year": 2020,
+			"quarter": 1,
+			"count": "19"
+		},
+		{
+			"tag": "perl",
+			"year": 2020,
+			"quarter": 1,
+			"count": "965"
+		},
+		{
+			"tag": "php",
+			"year": 2020,
+			"quarter": 1,
+			"count": "22644"
+		},
+		{
+			"tag": "python",
+			"year": 2020,
+			"quarter": 1,
+			"count": "82926"
+		},
+		{
+			"tag": "ruby",
+			"year": 2020,
+			"quarter": 1,
+			"count": "3162"
+		},
+		{
+			"tag": "rust",
+			"year": 2020,
+			"quarter": 1,
+			"count": "1050"
+		},
+		{
+			"tag": "scala",
+			"year": 2020,
+			"quarter": 1,
+			"count": "2760"
+		},
+		{
+			"tag": "swift",
+			"year": 2020,
+			"quarter": 1,
+			"count": "11842"
+		},
+		{
+			"tag": "typescript",
+			"year": 2020,
+			"quarter": 1,
+			"count": "10317"
+		},
+		{
+			"tag": "bash",
+			"year": 2020,
+			"quarter": 2,
+			"count": "5306"
+		},
+		{
+			"tag": "c",
+			"year": 2020,
+			"quarter": 2,
+			"count": "12407"
+		},
+		{
+			"tag": "c#",
+			"year": 2020,
+			"quarter": 2,
+			"count": "31944"
+		},
+		{
+			"tag": "c++",
+			"year": 2020,
+			"quarter": 2,
+			"count": "22391"
+		},
+		{
+			"tag": "dart",
+			"year": 2020,
+			"quarter": 2,
+			"count": "7253"
+		},
+		{
+			"tag": "go",
+			"year": 2020,
+			"quarter": 2,
+			"count": "2879"
+		},
+		{
+			"tag": "groovy",
+			"year": 2020,
+			"quarter": 2,
+			"count": "571"
+		},
+		{
+			"tag": "java",
+			"year": 2020,
+			"quarter": 2,
+			"count": "46831"
+		},
+		{
+			"tag": "javascript",
+			"year": 2020,
+			"quarter": 2,
+			"count": "86717"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2020,
+			"quarter": 2,
+			"count": "5806"
+		},
+		{
+			"tag": "lua",
+			"year": 2020,
+			"quarter": 2,
+			"count": "543"
+		},
+		{
+			"tag": "nix",
+			"year": 2020,
+			"quarter": 2,
+			"count": "22"
+		},
+		{
+			"tag": "perl",
+			"year": 2020,
+			"quarter": 2,
+			"count": "1000"
+		},
+		{
+			"tag": "php",
+			"year": 2020,
+			"quarter": 2,
+			"count": "23276"
+		},
+		{
+			"tag": "python",
+			"year": 2020,
+			"quarter": 2,
+			"count": "113146"
+		},
+		{
+			"tag": "ruby",
+			"year": 2020,
+			"quarter": 2,
+			"count": "3027"
+		},
+		{
+			"tag": "rust",
+			"year": 2020,
+			"quarter": 2,
+			"count": "1498"
+		},
+		{
+			"tag": "scala",
+			"year": 2020,
+			"quarter": 2,
+			"count": "3431"
+		},
+		{
+			"tag": "swift",
+			"year": 2020,
+			"quarter": 2,
+			"count": "13182"
+		},
+		{
+			"tag": "typescript",
+			"year": 2020,
+			"quarter": 2,
+			"count": "12546"
+		},
+		{
+			"tag": "bash",
+			"year": 2020,
+			"quarter": 3,
+			"count": "4561"
+		},
+		{
+			"tag": "c",
+			"year": 2020,
+			"quarter": 3,
+			"count": "8942"
+		},
+		{
+			"tag": "c#",
+			"year": 2020,
+			"quarter": 3,
+			"count": "27228"
+		},
+		{
+			"tag": "c++",
+			"year": 2020,
+			"quarter": 3,
+			"count": "17867"
+		},
+		{
+			"tag": "dart",
+			"year": 2020,
+			"quarter": 3,
+			"count": "6837"
+		},
+		{
+			"tag": "go",
+			"year": 2020,
+			"quarter": 3,
+			"count": "2660"
+		},
+		{
+			"tag": "groovy",
+			"year": 2020,
+			"quarter": 3,
+			"count": "534"
+		},
+		{
+			"tag": "java",
+			"year": 2020,
+			"quarter": 3,
+			"count": "39336"
+		},
+		{
+			"tag": "javascript",
+			"year": 2020,
+			"quarter": 3,
+			"count": "77056"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2020,
+			"quarter": 3,
+			"count": "4931"
+		},
+		{
+			"tag": "lua",
+			"year": 2020,
+			"quarter": 3,
+			"count": "482"
+		},
+		{
+			"tag": "nix",
+			"year": 2020,
+			"quarter": 3,
+			"count": "19"
+		},
+		{
+			"tag": "perl",
+			"year": 2020,
+			"quarter": 3,
+			"count": "843"
+		},
+		{
+			"tag": "php",
+			"year": 2020,
+			"quarter": 3,
+			"count": "19923"
+		},
+		{
+			"tag": "python",
+			"year": 2020,
+			"quarter": 3,
+			"count": "97290"
+		},
+		{
+			"tag": "ruby",
+			"year": 2020,
+			"quarter": 3,
+			"count": "2789"
+		},
+		{
+			"tag": "rust",
+			"year": 2020,
+			"quarter": 3,
+			"count": "1478"
+		},
+		{
+			"tag": "scala",
+			"year": 2020,
+			"quarter": 3,
+			"count": "2380"
+		},
+		{
+			"tag": "swift",
+			"year": 2020,
+			"quarter": 3,
+			"count": "10581"
+		},
+		{
+			"tag": "typescript",
+			"year": 2020,
+			"quarter": 3,
+			"count": "11275"
+		},
+		{
+			"tag": "bash",
+			"year": 2020,
+			"quarter": 4,
+			"count": "4361"
+		},
+		{
+			"tag": "c",
+			"year": 2020,
+			"quarter": 4,
+			"count": "10333"
+		},
+		{
+			"tag": "c#",
+			"year": 2020,
+			"quarter": 4,
+			"count": "23293"
+		},
+		{
+			"tag": "c++",
+			"year": 2020,
+			"quarter": 4,
+			"count": "16145"
+		},
+		{
+			"tag": "dart",
+			"year": 2020,
+			"quarter": 4,
+			"count": "6244"
+		},
+		{
+			"tag": "go",
+			"year": 2020,
+			"quarter": 4,
+			"count": "2165"
+		},
+		{
+			"tag": "groovy",
+			"year": 2020,
+			"quarter": 4,
+			"count": "481"
+		},
+		{
+			"tag": "java",
+			"year": 2020,
+			"quarter": 4,
+			"count": "34536"
+		},
+		{
+			"tag": "javascript",
+			"year": 2020,
+			"quarter": 4,
+			"count": "66628"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2020,
+			"quarter": 4,
+			"count": "5133"
+		},
+		{
+			"tag": "lua",
+			"year": 2020,
+			"quarter": 4,
+			"count": "548"
+		},
+		{
+			"tag": "nix",
+			"year": 2020,
+			"quarter": 4,
+			"count": "30"
+		},
+		{
+			"tag": "perl",
+			"year": 2020,
+			"quarter": 4,
+			"count": "802"
+		},
+		{
+			"tag": "php",
+			"year": 2020,
+			"quarter": 4,
+			"count": "17698"
+		},
+		{
+			"tag": "python",
+			"year": 2020,
+			"quarter": 4,
+			"count": "91262"
+		},
+		{
+			"tag": "ruby",
+			"year": 2020,
+			"quarter": 4,
+			"count": "2411"
+		},
+		{
+			"tag": "rust",
+			"year": 2020,
+			"quarter": 4,
+			"count": "1500"
+		},
+		{
+			"tag": "scala",
+			"year": 2020,
+			"quarter": 4,
+			"count": "2068"
+		},
+		{
+			"tag": "swift",
+			"year": 2020,
+			"quarter": 4,
+			"count": "8466"
+		},
+		{
+			"tag": "typescript",
+			"year": 2020,
+			"quarter": 4,
+			"count": "10216"
+		},
+		{
+			"tag": "bash",
+			"year": 2021,
+			"quarter": 1,
+			"count": "3885"
+		},
+		{
+			"tag": "c",
+			"year": 2021,
+			"quarter": 1,
+			"count": "10115"
+		},
+		{
+			"tag": "c#",
+			"year": 2021,
+			"quarter": 1,
+			"count": "23344"
+		},
+		{
+			"tag": "c++",
+			"year": 2021,
+			"quarter": 1,
+			"count": "15613"
+		},
+		{
+			"tag": "dart",
+			"year": 2021,
+			"quarter": 1,
+			"count": "6822"
+		},
+		{
+			"tag": "go",
+			"year": 2021,
+			"quarter": 1,
+			"count": "2545"
+		},
+		{
+			"tag": "groovy",
+			"year": 2021,
+			"quarter": 1,
+			"count": "518"
+		},
+		{
+			"tag": "java",
+			"year": 2021,
+			"quarter": 1,
+			"count": "33503"
+		},
+		{
+			"tag": "javascript",
+			"year": 2021,
+			"quarter": 1,
+			"count": "66002"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2021,
+			"quarter": 1,
+			"count": "4924"
+		},
+		{
+			"tag": "lua",
+			"year": 2021,
+			"quarter": 1,
+			"count": "542"
+		},
+		{
+			"tag": "nix",
+			"year": 2021,
+			"quarter": 1,
+			"count": "21"
+		},
+		{
+			"tag": "perl",
+			"year": 2021,
+			"quarter": 1,
+			"count": "669"
+		},
+		{
+			"tag": "php",
+			"year": 2021,
+			"quarter": 1,
+			"count": "17365"
+		},
+		{
+			"tag": "python",
+			"year": 2021,
+			"quarter": 1,
+			"count": "90697"
+		},
+		{
+			"tag": "ruby",
+			"year": 2021,
+			"quarter": 1,
+			"count": "2321"
+		},
+		{
+			"tag": "rust",
+			"year": 2021,
+			"quarter": 1,
+			"count": "1733"
+		},
+		{
+			"tag": "scala",
+			"year": 2021,
+			"quarter": 1,
+			"count": "1888"
+		},
+		{
+			"tag": "swift",
+			"year": 2021,
+			"quarter": 1,
+			"count": "8406"
+		},
+		{
+			"tag": "typescript",
+			"year": 2021,
+			"quarter": 1,
+			"count": "10365"
+		},
+		{
+			"tag": "bash",
+			"year": 2021,
+			"quarter": 2,
+			"count": "3828"
+		},
+		{
+			"tag": "c",
+			"year": 2021,
+			"quarter": 2,
+			"count": "8174"
+		},
+		{
+			"tag": "c#",
+			"year": 2021,
+			"quarter": 2,
+			"count": "21769"
+		},
+		{
+			"tag": "c++",
+			"year": 2021,
+			"quarter": 2,
+			"count": "13972"
+		},
+		{
+			"tag": "dart",
+			"year": 2021,
+			"quarter": 2,
+			"count": "7270"
+		},
+		{
+			"tag": "go",
+			"year": 2021,
+			"quarter": 2,
+			"count": "2754"
+		},
+		{
+			"tag": "groovy",
+			"year": 2021,
+			"quarter": 2,
+			"count": "465"
+		},
+		{
+			"tag": "java",
+			"year": 2021,
+			"quarter": 2,
+			"count": "30793"
+		},
+		{
+			"tag": "javascript",
+			"year": 2021,
+			"quarter": 2,
+			"count": "63775"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2021,
+			"quarter": 2,
+			"count": "5112"
+		},
+		{
+			"tag": "lua",
+			"year": 2021,
+			"quarter": 2,
+			"count": "507"
+		},
+		{
+			"tag": "nix",
+			"year": 2021,
+			"quarter": 2,
+			"count": "24"
+		},
+		{
+			"tag": "perl",
+			"year": 2021,
+			"quarter": 2,
+			"count": "685"
+		},
+		{
+			"tag": "php",
+			"year": 2021,
+			"quarter": 2,
+			"count": "15886"
+		},
+		{
+			"tag": "python",
+			"year": 2021,
+			"quarter": 2,
+			"count": "86691"
+		},
+		{
+			"tag": "ruby",
+			"year": 2021,
+			"quarter": 2,
+			"count": "1939"
+		},
+		{
+			"tag": "rust",
+			"year": 2021,
+			"quarter": 2,
+			"count": "1646"
+		},
+		{
+			"tag": "scala",
+			"year": 2021,
+			"quarter": 2,
+			"count": "1639"
+		},
+		{
+			"tag": "swift",
+			"year": 2021,
+			"quarter": 2,
+			"count": "7192"
+		},
+		{
+			"tag": "typescript",
+			"year": 2021,
+			"quarter": 2,
+			"count": "10536"
+		},
+		{
+			"tag": "bash",
+			"year": 2021,
+			"quarter": 3,
+			"count": "3501"
+		},
+		{
+			"tag": "c",
+			"year": 2021,
+			"quarter": 3,
+			"count": "7020"
+		},
+		{
+			"tag": "c#",
+			"year": 2021,
+			"quarter": 3,
+			"count": "19665"
+		},
+		{
+			"tag": "c++",
+			"year": 2021,
+			"quarter": 3,
+			"count": "12944"
+		},
+		{
+			"tag": "dart",
+			"year": 2021,
+			"quarter": 3,
+			"count": "7135"
+		},
+		{
+			"tag": "go",
+			"year": 2021,
+			"quarter": 3,
+			"count": "2931"
+		},
+		{
+			"tag": "groovy",
+			"year": 2021,
+			"quarter": 3,
+			"count": "508"
+		},
+		{
+			"tag": "java",
+			"year": 2021,
+			"quarter": 3,
+			"count": "27324"
+		},
+		{
+			"tag": "javascript",
+			"year": 2021,
+			"quarter": 3,
+			"count": "60500"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2021,
+			"quarter": 3,
+			"count": "5230"
+		},
+		{
+			"tag": "lua",
+			"year": 2021,
+			"quarter": 3,
+			"count": "390"
+		},
+		{
+			"tag": "nix",
+			"year": 2021,
+			"quarter": 3,
+			"count": "30"
+		},
+		{
+			"tag": "perl",
+			"year": 2021,
+			"quarter": 3,
+			"count": "584"
+		},
+		{
+			"tag": "php",
+			"year": 2021,
+			"quarter": 3,
+			"count": "14459"
+		},
+		{
+			"tag": "python",
+			"year": 2021,
+			"quarter": 3,
+			"count": "80300"
+		},
+		{
+			"tag": "ruby",
+			"year": 2021,
+			"quarter": 3,
+			"count": "1917"
+		},
+		{
+			"tag": "rust",
+			"year": 2021,
+			"quarter": 3,
+			"count": "1542"
+		},
+		{
+			"tag": "scala",
+			"year": 2021,
+			"quarter": 3,
+			"count": "1419"
+		},
+		{
+			"tag": "swift",
+			"year": 2021,
+			"quarter": 3,
+			"count": "6663"
+		},
+		{
+			"tag": "typescript",
+			"year": 2021,
+			"quarter": 3,
+			"count": "10748"
+		},
+		{
+			"tag": "bash",
+			"year": 2021,
+			"quarter": 4,
+			"count": "3999"
+		},
+		{
+			"tag": "c",
+			"year": 2021,
+			"quarter": 4,
+			"count": "8221"
+		},
+		{
+			"tag": "c#",
+			"year": 2021,
+			"quarter": 4,
+			"count": "20402"
+		},
+		{
+			"tag": "c++",
+			"year": 2021,
+			"quarter": 4,
+			"count": "13141"
+		},
+		{
+			"tag": "dart",
+			"year": 2021,
+			"quarter": 4,
+			"count": "6309"
+		},
+		{
+			"tag": "go",
+			"year": 2021,
+			"quarter": 4,
+			"count": "2574"
+		},
+		{
+			"tag": "groovy",
+			"year": 2021,
+			"quarter": 4,
+			"count": "472"
+		},
+		{
+			"tag": "java",
+			"year": 2021,
+			"quarter": 4,
+			"count": "25827"
+		},
+		{
+			"tag": "javascript",
+			"year": 2021,
+			"quarter": 4,
+			"count": "54818"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2021,
+			"quarter": 4,
+			"count": "4896"
+		},
+		{
+			"tag": "lua",
+			"year": 2021,
+			"quarter": 4,
+			"count": "478"
+		},
+		{
+			"tag": "nix",
+			"year": 2021,
+			"quarter": 4,
+			"count": "15"
+		},
+		{
+			"tag": "perl",
+			"year": 2021,
+			"quarter": 4,
+			"count": "535"
+		},
+		{
+			"tag": "php",
+			"year": 2021,
+			"quarter": 4,
+			"count": "13212"
+		},
+		{
+			"tag": "python",
+			"year": 2021,
+			"quarter": 4,
+			"count": "77894"
+		},
+		{
+			"tag": "ruby",
+			"year": 2021,
+			"quarter": 4,
+			"count": "1720"
+		},
+		{
+			"tag": "rust",
+			"year": 2021,
+			"quarter": 4,
+			"count": "1908"
+		},
+		{
+			"tag": "scala",
+			"year": 2021,
+			"quarter": 4,
+			"count": "1420"
+		},
+		{
+			"tag": "swift",
+			"year": 2021,
+			"quarter": 4,
+			"count": "5554"
+		},
+		{
+			"tag": "typescript",
+			"year": 2021,
+			"quarter": 4,
+			"count": "10151"
+		},
+		{
+			"tag": "bash",
+			"year": 2022,
+			"quarter": 1,
+			"count": "4158"
+		},
+		{
+			"tag": "c",
+			"year": 2022,
+			"quarter": 1,
+			"count": "7245"
+		},
+		{
+			"tag": "c#",
+			"year": 2022,
+			"quarter": 1,
+			"count": "19782"
+		},
+		{
+			"tag": "c++",
+			"year": 2022,
+			"quarter": 1,
+			"count": "12168"
+		},
+		{
+			"tag": "dart",
+			"year": 2022,
+			"quarter": 1,
+			"count": "7633"
+		},
+		{
+			"tag": "go",
+			"year": 2022,
+			"quarter": 1,
+			"count": "2716"
+		},
+		{
+			"tag": "groovy",
+			"year": 2022,
+			"quarter": 1,
+			"count": "474"
+		},
+		{
+			"tag": "java",
+			"year": 2022,
+			"quarter": 1,
+			"count": "24077"
+		},
+		{
+			"tag": "javascript",
+			"year": 2022,
+			"quarter": 1,
+			"count": "54269"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2022,
+			"quarter": 1,
+			"count": "4934"
+		},
+		{
+			"tag": "lua",
+			"year": 2022,
+			"quarter": 1,
+			"count": "445"
+		},
+		{
+			"tag": "nix",
+			"year": 2022,
+			"quarter": 1,
+			"count": "24"
+		},
+		{
+			"tag": "perl",
+			"year": 2022,
+			"quarter": 1,
+			"count": "550"
+		},
+		{
+			"tag": "php",
+			"year": 2022,
+			"quarter": 1,
+			"count": "12290"
+		},
+		{
+			"tag": "python",
+			"year": 2022,
+			"quarter": 1,
+			"count": "77815"
+		},
+		{
+			"tag": "ruby",
+			"year": 2022,
+			"quarter": 1,
+			"count": "1841"
+		},
+		{
+			"tag": "rust",
+			"year": 2022,
+			"quarter": 1,
+			"count": "1968"
+		},
+		{
+			"tag": "scala",
+			"year": 2022,
+			"quarter": 1,
+			"count": "1138"
+		},
+		{
+			"tag": "swift",
+			"year": 2022,
+			"quarter": 1,
+			"count": "6041"
+		},
+		{
+			"tag": "typescript",
+			"year": 2022,
+			"quarter": 1,
+			"count": "10788"
+		},
+		{
+			"tag": "bash",
+			"year": 2022,
+			"quarter": 2,
+			"count": "4077"
+		},
+		{
+			"tag": "c",
+			"year": 2022,
+			"quarter": 2,
+			"count": "6369"
+		},
+		{
+			"tag": "c#",
+			"year": 2022,
+			"quarter": 2,
+			"count": "19660"
+		},
+		{
+			"tag": "c++",
+			"year": 2022,
+			"quarter": 2,
+			"count": "11336"
+		},
+		{
+			"tag": "dart",
+			"year": 2022,
+			"quarter": 2,
+			"count": "7057"
+		},
+		{
+			"tag": "go",
+			"year": 2022,
+			"quarter": 2,
+			"count": "2392"
+		},
+		{
+			"tag": "groovy",
+			"year": 2022,
+			"quarter": 2,
+			"count": "439"
+		},
+		{
+			"tag": "java",
+			"year": 2022,
+			"quarter": 2,
+			"count": "23625"
+		},
+		{
+			"tag": "javascript",
+			"year": 2022,
+			"quarter": 2,
+			"count": "53300"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2022,
+			"quarter": 2,
+			"count": "4705"
+		},
+		{
+			"tag": "lua",
+			"year": 2022,
+			"quarter": 2,
+			"count": "502"
+		},
+		{
+			"tag": "nix",
+			"year": 2022,
+			"quarter": 2,
+			"count": "9"
+		},
+		{
+			"tag": "perl",
+			"year": 2022,
+			"quarter": 2,
+			"count": "511"
+		},
+		{
+			"tag": "php",
+			"year": 2022,
+			"quarter": 2,
+			"count": "11993"
+		},
+		{
+			"tag": "python",
+			"year": 2022,
+			"quarter": 2,
+			"count": "75120"
+		},
+		{
+			"tag": "ruby",
+			"year": 2022,
+			"quarter": 2,
+			"count": "1878"
+		},
+		{
+			"tag": "rust",
+			"year": 2022,
+			"quarter": 2,
+			"count": "2103"
+		},
+		{
+			"tag": "scala",
+			"year": 2022,
+			"quarter": 2,
+			"count": "1049"
+		},
+		{
+			"tag": "swift",
+			"year": 2022,
+			"quarter": 2,
+			"count": "5324"
+		},
+		{
+			"tag": "typescript",
+			"year": 2022,
+			"quarter": 2,
+			"count": "10249"
+		},
+		{
+			"tag": "bash",
+			"year": 2022,
+			"quarter": 3,
+			"count": "3954"
+		},
+		{
+			"tag": "c",
+			"year": 2022,
+			"quarter": 3,
+			"count": "6206"
+		},
+		{
+			"tag": "c#",
+			"year": 2022,
+			"quarter": 3,
+			"count": "19612"
+		},
+		{
+			"tag": "c++",
+			"year": 2022,
+			"quarter": 3,
+			"count": "10132"
+		},
+		{
+			"tag": "dart",
+			"year": 2022,
+			"quarter": 3,
+			"count": "8207"
+		},
+		{
+			"tag": "go",
+			"year": 2022,
+			"quarter": 3,
+			"count": "2703"
+		},
+		{
+			"tag": "groovy",
+			"year": 2022,
+			"quarter": 3,
+			"count": "460"
+		},
+		{
+			"tag": "java",
+			"year": 2022,
+			"quarter": 3,
+			"count": "20488"
+		},
+		{
+			"tag": "javascript",
+			"year": 2022,
+			"quarter": 3,
+			"count": "52134"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2022,
+			"quarter": 3,
+			"count": "5020"
+		},
+		{
+			"tag": "lua",
+			"year": 2022,
+			"quarter": 3,
+			"count": "560"
+		},
+		{
+			"tag": "nix",
+			"year": 2022,
+			"quarter": 3,
+			"count": "39"
+		},
+		{
+			"tag": "perl",
+			"year": 2022,
+			"quarter": 3,
+			"count": "532"
+		},
+		{
+			"tag": "php",
+			"year": 2022,
+			"quarter": 3,
+			"count": "11753"
+		},
+		{
+			"tag": "python",
+			"year": 2022,
+			"quarter": 3,
+			"count": "73814"
+		},
+		{
+			"tag": "ruby",
+			"year": 2022,
+			"quarter": 3,
+			"count": "1824"
+		},
+		{
+			"tag": "rust",
+			"year": 2022,
+			"quarter": 3,
+			"count": "2401"
+		},
+		{
+			"tag": "scala",
+			"year": 2022,
+			"quarter": 3,
+			"count": "1086"
+		},
+		{
+			"tag": "swift",
+			"year": 2022,
+			"quarter": 3,
+			"count": "5483"
+		},
+		{
+			"tag": "typescript",
+			"year": 2022,
+			"quarter": 3,
+			"count": "11129"
+		},
+		{
+			"tag": "bash",
+			"year": 2022,
+			"quarter": 4,
+			"count": "3439"
+		},
+		{
+			"tag": "c",
+			"year": 2022,
+			"quarter": 4,
+			"count": "6890"
+		},
+		{
+			"tag": "c#",
+			"year": 2022,
+			"quarter": 4,
+			"count": "19071"
+		},
+		{
+			"tag": "c++",
+			"year": 2022,
+			"quarter": 4,
+			"count": "9527"
+		},
+		{
+			"tag": "dart",
+			"year": 2022,
+			"quarter": 4,
+			"count": "7353"
+		},
+		{
+			"tag": "go",
+			"year": 2022,
+			"quarter": 4,
+			"count": "2165"
+		},
+		{
+			"tag": "groovy",
+			"year": 2022,
+			"quarter": 4,
+			"count": "403"
+		},
+		{
+			"tag": "java",
+			"year": 2022,
+			"quarter": 4,
+			"count": "19992"
+		},
+		{
+			"tag": "javascript",
+			"year": 2022,
+			"quarter": 4,
+			"count": "45389"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2022,
+			"quarter": 4,
+			"count": "4467"
+		},
+		{
+			"tag": "lua",
+			"year": 2022,
+			"quarter": 4,
+			"count": "509"
+		},
+		{
+			"tag": "nix",
+			"year": 2022,
+			"quarter": 4,
+			"count": "32"
+		},
+		{
+			"tag": "perl",
+			"year": 2022,
+			"quarter": 4,
+			"count": "440"
+		},
+		{
+			"tag": "php",
+			"year": 2022,
+			"quarter": 4,
+			"count": "10186"
+		},
+		{
+			"tag": "python",
+			"year": 2022,
+			"quarter": 4,
+			"count": "69996"
+		},
+		{
+			"tag": "ruby",
+			"year": 2022,
+			"quarter": 4,
+			"count": "1659"
+		},
+		{
+			"tag": "rust",
+			"year": 2022,
+			"quarter": 4,
+			"count": "2392"
+		},
+		{
+			"tag": "scala",
+			"year": 2022,
+			"quarter": 4,
+			"count": "1024"
+		},
+		{
+			"tag": "swift",
+			"year": 2022,
+			"quarter": 4,
+			"count": "4859"
+		},
+		{
+			"tag": "typescript",
+			"year": 2022,
+			"quarter": 4,
+			"count": "10304"
+		},
+		{
+			"tag": "bash",
+			"year": 2023,
+			"quarter": 1,
+			"count": "3096"
+		},
+		{
+			"tag": "c",
+			"year": 2023,
+			"quarter": 1,
+			"count": "5287"
+		},
+		{
+			"tag": "c#",
+			"year": 2023,
+			"quarter": 1,
+			"count": "16857"
+		},
+		{
+			"tag": "c++",
+			"year": 2023,
+			"quarter": 1,
+			"count": "8157"
+		},
+		{
+			"tag": "dart",
+			"year": 2023,
+			"quarter": 1,
+			"count": "5876"
+		},
+		{
+			"tag": "go",
+			"year": 2023,
+			"quarter": 1,
+			"count": "2131"
+		},
+		{
+			"tag": "groovy",
+			"year": 2023,
+			"quarter": 1,
+			"count": "441"
+		},
+		{
+			"tag": "java",
+			"year": 2023,
+			"quarter": 1,
+			"count": "17107"
+		},
+		{
+			"tag": "javascript",
+			"year": 2023,
+			"quarter": 1,
+			"count": "36347"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2023,
+			"quarter": 1,
+			"count": "4125"
+		},
+		{
+			"tag": "lua",
+			"year": 2023,
+			"quarter": 1,
+			"count": "431"
+		},
+		{
+			"tag": "nix",
+			"year": 2023,
+			"quarter": 1,
+			"count": "46"
+		},
+		{
+			"tag": "perl",
+			"year": 2023,
+			"quarter": 1,
+			"count": "446"
+		},
+		{
+			"tag": "php",
+			"year": 2023,
+			"quarter": 1,
+			"count": "8388"
+		},
+		{
+			"tag": "python",
+			"year": 2023,
+			"quarter": 1,
+			"count": "54658"
+		},
+		{
+			"tag": "ruby",
+			"year": 2023,
+			"quarter": 1,
+			"count": "1463"
+		},
+		{
+			"tag": "rust",
+			"year": 2023,
+			"quarter": 1,
+			"count": "2379"
+		},
+		{
+			"tag": "scala",
+			"year": 2023,
+			"quarter": 1,
+			"count": "842"
+		},
+		{
+			"tag": "swift",
+			"year": 2023,
+			"quarter": 1,
+			"count": "4441"
+		},
+		{
+			"tag": "typescript",
+			"year": 2023,
+			"quarter": 1,
+			"count": "9409"
+		},
+		{
+			"tag": "bash",
+			"year": 2023,
+			"quarter": 2,
+			"count": "2127"
+		},
+		{
+			"tag": "c",
+			"year": 2023,
+			"quarter": 2,
+			"count": "3648"
+		},
+		{
+			"tag": "c#",
+			"year": 2023,
+			"quarter": 2,
+			"count": "12040"
+		},
+		{
+			"tag": "c++",
+			"year": 2023,
+			"quarter": 2,
+			"count": "6116"
+		},
+		{
+			"tag": "dart",
+			"year": 2023,
+			"quarter": 2,
+			"count": "3763"
+		},
+		{
+			"tag": "go",
+			"year": 2023,
+			"quarter": 2,
+			"count": "1669"
+		},
+		{
+			"tag": "groovy",
+			"year": 2023,
+			"quarter": 2,
+			"count": "266"
+		},
+		{
+			"tag": "java",
+			"year": 2023,
+			"quarter": 2,
+			"count": "13554"
+		},
+		{
+			"tag": "javascript",
+			"year": 2023,
+			"quarter": 2,
+			"count": "24984"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2023,
+			"quarter": 2,
+			"count": "3243"
+		},
+		{
+			"tag": "lua",
+			"year": 2023,
+			"quarter": 2,
+			"count": "363"
+		},
+		{
+			"tag": "nix",
+			"year": 2023,
+			"quarter": 2,
+			"count": "20"
+		},
+		{
+			"tag": "perl",
+			"year": 2023,
+			"quarter": 2,
+			"count": "297"
+		},
+		{
+			"tag": "php",
+			"year": 2023,
+			"quarter": 2,
+			"count": "6205"
+		},
+		{
+			"tag": "python",
+			"year": 2023,
+			"quarter": 2,
+			"count": "37001"
+		},
+		{
+			"tag": "ruby",
+			"year": 2023,
+			"quarter": 2,
+			"count": "912"
+		},
+		{
+			"tag": "rust",
+			"year": 2023,
+			"quarter": 2,
+			"count": "1749"
+		},
+		{
+			"tag": "scala",
+			"year": 2023,
+			"quarter": 2,
+			"count": "590"
+		},
+		{
+			"tag": "swift",
+			"year": 2023,
+			"quarter": 2,
+			"count": "3297"
+		},
+		{
+			"tag": "typescript",
+			"year": 2023,
+			"quarter": 2,
+			"count": "6751"
+		},
+		{
+			"tag": "bash",
+			"year": 2023,
+			"quarter": 3,
+			"count": "2058"
+		},
+		{
+			"tag": "c",
+			"year": 2023,
+			"quarter": 3,
+			"count": "3487"
+		},
+		{
+			"tag": "c#",
+			"year": 2023,
+			"quarter": 3,
+			"count": "11365"
+		},
+		{
+			"tag": "c++",
+			"year": 2023,
+			"quarter": 3,
+			"count": "5817"
+		},
+		{
+			"tag": "dart",
+			"year": 2023,
+			"quarter": 3,
+			"count": "3433"
+		},
+		{
+			"tag": "go",
+			"year": 2023,
+			"quarter": 3,
+			"count": "1429"
+		},
+		{
+			"tag": "groovy",
+			"year": 2023,
+			"quarter": 3,
+			"count": "277"
+		},
+		{
+			"tag": "java",
+			"year": 2023,
+			"quarter": 3,
+			"count": "12107"
+		},
+		{
+			"tag": "javascript",
+			"year": 2023,
+			"quarter": 3,
+			"count": "22238"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2023,
+			"quarter": 3,
+			"count": "2937"
+		},
+		{
+			"tag": "lua",
+			"year": 2023,
+			"quarter": 3,
+			"count": "287"
+		},
+		{
+			"tag": "nix",
+			"year": 2023,
+			"quarter": 3,
+			"count": "27"
+		},
+		{
+			"tag": "perl",
+			"year": 2023,
+			"quarter": 3,
+			"count": "307"
+		},
+		{
+			"tag": "php",
+			"year": 2023,
+			"quarter": 3,
+			"count": "5773"
+		},
+		{
+			"tag": "python",
+			"year": 2023,
+			"quarter": 3,
+			"count": "33132"
+		},
+		{
+			"tag": "ruby",
+			"year": 2023,
+			"quarter": 3,
+			"count": "918"
+		},
+		{
+			"tag": "rust",
+			"year": 2023,
+			"quarter": 3,
+			"count": "1694"
+		},
+		{
+			"tag": "scala",
+			"year": 2023,
+			"quarter": 3,
+			"count": "529"
+		},
+		{
+			"tag": "swift",
+			"year": 2023,
+			"quarter": 3,
+			"count": "2993"
+		},
+		{
+			"tag": "typescript",
+			"year": 2023,
+			"quarter": 3,
+			"count": "6687"
+		},
+		{
+			"tag": "bash",
+			"year": 2023,
+			"quarter": 4,
+			"count": "1545"
+		},
+		{
+			"tag": "c",
+			"year": 2023,
+			"quarter": 4,
+			"count": "3484"
+		},
+		{
+			"tag": "c#",
+			"year": 2023,
+			"quarter": 4,
+			"count": "9682"
+		},
+		{
+			"tag": "c++",
+			"year": 2023,
+			"quarter": 4,
+			"count": "4952"
+		},
+		{
+			"tag": "dart",
+			"year": 2023,
+			"quarter": 4,
+			"count": "2654"
+		},
+		{
+			"tag": "go",
+			"year": 2023,
+			"quarter": 4,
+			"count": "1231"
+		},
+		{
+			"tag": "groovy",
+			"year": 2023,
+			"quarter": 4,
+			"count": "204"
+		},
+		{
+			"tag": "java",
+			"year": 2023,
+			"quarter": 4,
+			"count": "10389"
+		},
+		{
+			"tag": "javascript",
+			"year": 2023,
+			"quarter": 4,
+			"count": "17527"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2023,
+			"quarter": 4,
+			"count": "2571"
+		},
+		{
+			"tag": "lua",
+			"year": 2023,
+			"quarter": 4,
+			"count": "230"
+		},
+		{
+			"tag": "nix",
+			"year": 2023,
+			"quarter": 4,
+			"count": "40"
+		},
+		{
+			"tag": "perl",
+			"year": 2023,
+			"quarter": 4,
+			"count": "272"
+		},
+		{
+			"tag": "php",
+			"year": 2023,
+			"quarter": 4,
+			"count": "4727"
+		},
+		{
+			"tag": "python",
+			"year": 2023,
+			"quarter": 4,
+			"count": "26653"
+		},
+		{
+			"tag": "ruby",
+			"year": 2023,
+			"quarter": 4,
+			"count": "749"
+		},
+		{
+			"tag": "rust",
+			"year": 2023,
+			"quarter": 4,
+			"count": "1399"
+		},
+		{
+			"tag": "scala",
+			"year": 2023,
+			"quarter": 4,
+			"count": "373"
+		},
+		{
+			"tag": "swift",
+			"year": 2023,
+			"quarter": 4,
+			"count": "2607"
+		},
+		{
+			"tag": "typescript",
+			"year": 2023,
+			"quarter": 4,
+			"count": "5251"
+		},
+		{
+			"tag": "bash",
+			"year": 2024,
+			"quarter": 1,
+			"count": "1507"
+		},
+		{
+			"tag": "c",
+			"year": 2024,
+			"quarter": 1,
+			"count": "2994"
+		},
+		{
+			"tag": "c#",
+			"year": 2024,
+			"quarter": 1,
+			"count": "9091"
+		},
+		{
+			"tag": "c++",
+			"year": 2024,
+			"quarter": 1,
+			"count": "4883"
+		},
+		{
+			"tag": "dart",
+			"year": 2024,
+			"quarter": 1,
+			"count": "2618"
+		},
+		{
+			"tag": "go",
+			"year": 2024,
+			"quarter": 1,
+			"count": "1149"
+		},
+		{
+			"tag": "groovy",
+			"year": 2024,
+			"quarter": 1,
+			"count": "175"
+		},
+		{
+			"tag": "java",
+			"year": 2024,
+			"quarter": 1,
+			"count": "9534"
+		},
+		{
+			"tag": "javascript",
+			"year": 2024,
+			"quarter": 1,
+			"count": "16716"
+		},
+		{
+			"tag": "kotlin",
+			"year": 2024,
+			"quarter": 1,
+			"count": "2405"
+		},
+		{
+			"tag": "lua",
+			"year": 2024,
+			"quarter": 1,
+			"count": "252"
+		},
+		{
+			"tag": "nix",
+			"year": 2024,
+			"quarter": 1,
+			"count": "25"
+		},
+		{
+			"tag": "perl",
+			"year": 2024,
+			"quarter": 1,
+			"count": "210"
+		},
+		{
+			"tag": "php",
+			"year": 2024,
+			"quarter": 1,
+			"count": "4580"
+		},
+		{
+			"tag": "python",
+			"year": 2024,
+			"quarter": 1,
+			"count": "25274"
+		},
+		{
+			"tag": "ruby",
+			"year": 2024,
+			"quarter": 1,
+			"count": "672"
+		},
+		{
+			"tag": "rust",
+			"year": 2024,
+			"quarter": 1,
+			"count": "1411"
+		},
+		{
+			"tag": "scala",
+			"year": 2024,
+			"quarter": 1,
+			"count": "367"
+		},
+		{
+			"tag": "swift",
+			"year": 2024,
+			"quarter": 1,
+			"count": "2572"
+		},
+		{
+			"tag": "typescript",
+			"year": 2024,
+			"quarter": 1,
+			"count": "5125"
+		}
+	],
+
+	"rows": 1178,
+
+	"statistics":
+	{
+		"elapsed": 0.475465859,
+		"rows_read": 60068672,
+		"bytes_read": 1568735948
+	}
+}

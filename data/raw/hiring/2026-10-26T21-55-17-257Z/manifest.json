@@ -1,0 +1,1441 @@
+{
+  "schema_version": 2,
+  "category": "hiring",
+  "method": "hn-hiring-top-level-aliases-v1",
+  "run_id": "2026-10-26T21-55-17-257Z",
+  "status": "complete",
+  "options": {},
+  "sources": [
+    {
+      "path": "coverage.json",
+      "url": "https://sql-clickhouse.clickhouse.com/?user=demo&query=SELECT+max%28time%29+AS+cutoff+FROM+hackernews.hackernews+FORMAT+JSON",
+      "sha256": "7294d0736d878a423ef74e0f62dc416b2de4d5df713dd3a3e26f10842e42b2d3",
+      "bytes": 243,
+      "observed_at": "2026-10-26T21:55:17.736Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 21:55:17 GMT",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "query": "SELECT max(time) AS cutoff FROM hackernews.hackernews FORMAT JSON"
+    },
+    {
+      "path": "months.json",
+      "url": "https://sql-clickhouse.clickhouse.com/?user=demo&query=SELECT+toStartOfMonth%28t.thread_time%29+AS+month%2CuniqExact%28c.id%29+AS+comments%2CgroupUniqArray%28t.id%29+AS+thread_ids%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbpython%5C%5Cb%27%29%29+AS+py%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbjava%5C%5Cb%27%29%29+AS+java%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3F%3A%5C%5Cb%5BGg%5Dolang%5C%5Cb%7C%5C%5CbGo%28%3F%3A%24%7C%5B%2C%2F%7C.%29%5D%7C%5C%5Cs%2B%28%3F%3Aengineer%7Cdeveloper%7Cbackend%7Clanguage%7Cexperience%7Cprogramming%29%29%29%27%29%29+AS+go%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbjavascript%5C%5Cb%27%29%29+AS+js%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbc%5C%5C%2B%5C%5C%2B%28%3F%3A%24%7C%5B%5E%2B%5D%29%27%29%29+AS+cpp%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbtypescript%5C%5Cb%27%29%29+AS+ts%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbphp%5C%5Cb%27%29%29+AS+php%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbruby%5C%5Cb%27%29%29+AS+ruby%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%5E%7C%5B%5EA-Za-z0-9_%5D%29C%28%3F%3A%24%7C%5B%2C%2F%7C.%29%5D%7C%5C%5Cs%2B%28%3F%3Aprogramming%7Clanguage%7Ccode%7Cdeveloper%7Cengineer%29%29%27%29%29+AS+c%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cb%28%3F%3Ac%23%7Ccsharp%29%28%3F%3A%24%7C%5C%5CW%29%27%29%29+AS+csharp%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cb%28%3F%3Anix%7Cnixos%29%5C%5Cb%27%29%29+AS+nix%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cb%28%3F%3Abash%7Cshell%29%5C%5Cb%27%29%29+AS+shell%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbrust%5C%5Cb%27%29%29+AS+rust%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbscala%5C%5Cb%27%29%29+AS+scala%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbkotlin%5C%5Cb%27%29%29+AS+kotlin%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbswift%5C%5Cb%27%29%29+AS+swift%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbdart%5C%5Cb%27%29%29+AS+dart%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbgroovy%5C%5Cb%27%29%29+AS+groovy%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cbperl%5C%5Cb%27%29%29+AS+perl%2C%0A++uniqExactIf%28c.id%2Cmatch%28clean_text%2C%27%28%3Fi%29%5C%5Cblua%5C%5Cb%27%29%29+AS+lua%0AFROM+%28SELECT+*%2CreplaceRegexpAll%28decodeXMLComponent%28extractTextFromHTML%28text%29%29%2C%27%28%3Fi%29%5C%5Cbseries%5B+-%5D%2Bc%5C%5Cb%27%2C%27%27%29+AS+clean_text+FROM+hackernews.hackernews%29+c%0AINNER+JOIN+%28SELECT+id%2Cmin%28time%29+AS+thread_time+FROM+hackernews.hackernews+WHERE+by%3D%27whoishiring%27+AND+type%3D%27story%27+AND+startsWith%28lower%28title%29%2C%27ask+hn%3A+who+is+hiring%3F%27%29+GROUP+BY+id%29+t+ON+c.parent%3Dt.id%0AWHERE+c.type%3D%27comment%27+AND+c.deleted%3D0+AND+c.dead%3D0+AND+c.time+%3C%3D+%272026-10-26+21%3A00%3A22%27+AND+toYear%28t.thread_time%29+BETWEEN+2011+AND+2026%0AGROUP+BY+month+ORDER+BY+month+SETTINGS+max_execution_time%3D60+FORMAT+JSON",
+      "sha256": "5699fe819dd971cf1fc8107d5146da8326683254af88cbe4403d76814a058235",
+      "bytes": 76906,
+      "observed_at": "2026-10-26T21:55:19.871Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 21:55:17 GMT",
+        "content-type": "application/json; charset=UTF-8"
+      },
+      "query": "SELECT toStartOfMonth(t.thread_time) AS month,uniqExact(c.id) AS comments,groupUniqArray(t.id) AS thread_ids,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bpython\\\\b')) AS py,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bjava\\\\b')) AS java,\n  uniqExactIf(c.id,match(clean_text,'(?:\\\\b[Gg]olang\\\\b|\\\\bGo(?:$|[,/|.)]|\\\\s+(?:engineer|developer|backend|language|experience|programming)))')) AS go,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bjavascript\\\\b')) AS js,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bc\\\\+\\\\+(?:$|[^+])')) AS cpp,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\btypescript\\\\b')) AS ts,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bphp\\\\b')) AS php,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bruby\\\\b')) AS ruby,\n  uniqExactIf(c.id,match(clean_text,'(^|[^A-Za-z0-9_])C(?:$|[,/|.)]|\\\\s+(?:programming|language|code|developer|engineer))')) AS c,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\b(?:c#|csharp)(?:$|\\\\W)')) AS csharp,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\b(?:nix|nixos)\\\\b')) AS nix,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\b(?:bash|shell)\\\\b')) AS shell,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\brust\\\\b')) AS rust,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bscala\\\\b')) AS scala,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bkotlin\\\\b')) AS kotlin,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bswift\\\\b')) AS swift,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bdart\\\\b')) AS dart,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bgroovy\\\\b')) AS groovy,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\bperl\\\\b')) AS perl,\n  uniqExactIf(c.id,match(clean_text,'(?i)\\\\blua\\\\b')) AS lua\nFROM (SELECT *,replaceRegexpAll(decodeXMLComponent(extractTextFromHTML(text)),'(?i)\\\\bseries[ -]+c\\\\b','') AS clean_text FROM hackernews.hackernews) c\nINNER JOIN (SELECT id,min(time) AS thread_time FROM hackernews.hackernews WHERE by='whoishiring' AND type='story' AND startsWith(lower(title),'ask hn: who is hiring?') GROUP BY id) t ON c.parent=t.id\nWHERE c.type='comment' AND c.deleted=0 AND c.dead=0 AND c.time <= '2026-10-26 21:00:22' AND toYear(t.thread_time) BETWEEN 2011 AND 2026\nGROUP BY month ORDER BY month SETTINGS max_execution_time=60 FORMAT JSON"
+    }
+  ],
+  "metadata": {
+    "cutoff": "2026-10-26 21:00:22",
+    "threads": [
+      {
+        "month": "2011-04-01",
+        "thread_ids": [
+          2396027
+        ],
+        "comments": "218"
+      },
+      {
+        "month": "2011-05-01",
+        "thread_ids": [
+          2503204
+        ],
+        "comments": "216"
+      },
+      {
+        "month": "2011-06-01",
+        "thread_ids": [
+          2607052
+        ],
+        "comments": "256"
+      },
+      {
+        "month": "2011-08-01",
+        "thread_ids": [
+          2831646
+        ],
+        "comments": "230"
+      },
+      {
+        "month": "2011-09-01",
+        "thread_ids": [
+          2949787
+        ],
+        "comments": "190"
+      },
+      {
+        "month": "2011-10-01",
+        "thread_ids": [
+          3060221
+        ],
+        "comments": "196"
+      },
+      {
+        "month": "2011-11-01",
+        "thread_ids": [
+          3181796
+        ],
+        "comments": "230"
+      },
+      {
+        "month": "2011-12-01",
+        "thread_ids": [
+          3300371
+        ],
+        "comments": "1"
+      },
+      {
+        "month": "2012-01-01",
+        "thread_ids": [
+          3412900
+        ],
+        "comments": "149"
+      },
+      {
+        "month": "2012-02-01",
+        "thread_ids": [
+          3537881
+        ],
+        "comments": "201"
+      },
+      {
+        "month": "2012-03-01",
+        "thread_ids": [
+          3652041
+        ],
+        "comments": "251"
+      },
+      {
+        "month": "2012-04-01",
+        "thread_ids": [
+          3783657
+        ],
+        "comments": "201"
+      },
+      {
+        "month": "2012-05-01",
+        "thread_ids": [
+          3913997
+        ],
+        "comments": "231"
+      },
+      {
+        "month": "2012-06-01",
+        "thread_ids": [
+          4053076
+        ],
+        "comments": "227"
+      },
+      {
+        "month": "2012-07-01",
+        "thread_ids": [
+          4184755
+        ],
+        "comments": "194"
+      },
+      {
+        "month": "2012-08-01",
+        "thread_ids": [
+          4323597
+        ],
+        "comments": "245"
+      },
+      {
+        "month": "2012-09-01",
+        "thread_ids": [
+          4463689
+        ],
+        "comments": "215"
+      },
+      {
+        "month": "2012-10-01",
+        "thread_ids": [
+          4596375
+        ],
+        "comments": "248"
+      },
+      {
+        "month": "2012-11-01",
+        "thread_ids": [
+          4727241
+        ],
+        "comments": "221"
+      },
+      {
+        "month": "2012-12-01",
+        "thread_ids": [
+          4857714
+        ],
+        "comments": "230"
+      },
+      {
+        "month": "2013-01-01",
+        "thread_ids": [
+          4992617
+        ],
+        "comments": "192"
+      },
+      {
+        "month": "2013-02-01",
+        "thread_ids": [
+          5150834
+        ],
+        "comments": "219"
+      },
+      {
+        "month": "2013-03-01",
+        "thread_ids": [
+          5304169
+        ],
+        "comments": "291"
+      },
+      {
+        "month": "2013-04-01",
+        "thread_ids": [
+          5472746
+        ],
+        "comments": "343"
+      },
+      {
+        "month": "2013-05-01",
+        "thread_ids": [
+          5637663
+        ],
+        "comments": "322"
+      },
+      {
+        "month": "2013-06-01",
+        "thread_ids": [
+          5803764
+        ],
+        "comments": "263"
+      },
+      {
+        "month": "2013-07-01",
+        "thread_ids": [
+          5970187
+        ],
+        "comments": "291"
+      },
+      {
+        "month": "2013-08-01",
+        "thread_ids": [
+          6139927
+        ],
+        "comments": "308"
+      },
+      {
+        "month": "2013-09-01",
+        "thread_ids": [
+          6310234
+        ],
+        "comments": "240"
+      },
+      {
+        "month": "2013-10-01",
+        "thread_ids": [
+          6475879
+        ],
+        "comments": "426"
+      },
+      {
+        "month": "2013-11-01",
+        "thread_ids": [
+          6653437
+        ],
+        "comments": "297"
+      },
+      {
+        "month": "2013-12-01",
+        "thread_ids": [
+          6827554
+        ],
+        "comments": "263"
+      },
+      {
+        "month": "2014-01-01",
+        "thread_ids": [
+          6995020
+        ],
+        "comments": "222"
+      },
+      {
+        "month": "2014-02-01",
+        "thread_ids": [
+          7162197
+        ],
+        "comments": "329"
+      },
+      {
+        "month": "2014-03-01",
+        "thread_ids": [
+          7324236
+        ],
+        "comments": "339"
+      },
+      {
+        "month": "2014-04-01",
+        "thread_ids": [
+          7507765
+        ],
+        "comments": "356"
+      },
+      {
+        "month": "2014-05-01",
+        "thread_ids": [
+          7679431
+        ],
+        "comments": "409"
+      },
+      {
+        "month": "2014-06-01",
+        "thread_ids": [
+          7829042
+        ],
+        "comments": "344"
+      },
+      {
+        "month": "2014-07-01",
+        "thread_ids": [
+          7970366
+        ],
+        "comments": "420"
+      },
+      {
+        "month": "2014-08-01",
+        "thread_ids": [
+          8120070
+        ],
+        "comments": "481"
+      },
+      {
+        "month": "2014-09-01",
+        "thread_ids": [
+          8252715
+        ],
+        "comments": "280"
+      },
+      {
+        "month": "2014-10-01",
+        "thread_ids": [
+          8394339
+        ],
+        "comments": "354"
+      },
+      {
+        "month": "2014-11-01",
+        "thread_ids": [
+          8542892
+        ],
+        "comments": "343"
+      },
+      {
+        "month": "2014-12-01",
+        "thread_ids": [
+          8681040
+        ],
+        "comments": "465"
+      },
+      {
+        "month": "2015-01-01",
+        "thread_ids": [
+          8822808
+        ],
+        "comments": "275"
+      },
+      {
+        "month": "2015-02-01",
+        "thread_ids": [
+          8980047
+        ],
+        "comments": "496"
+      },
+      {
+        "month": "2015-03-01",
+        "thread_ids": [
+          9127232
+        ],
+        "comments": "507"
+      },
+      {
+        "month": "2015-06-01",
+        "thread_ids": [
+          9639001
+        ],
+        "comments": "587"
+      },
+      {
+        "month": "2015-07-01",
+        "thread_ids": [
+          9812245
+        ],
+        "comments": "841"
+      },
+      {
+        "month": "2015-08-01",
+        "thread_ids": [
+          9996333
+        ],
+        "comments": "789"
+      },
+      {
+        "month": "2015-09-01",
+        "thread_ids": [
+          10152809
+        ],
+        "comments": "703"
+      },
+      {
+        "month": "2015-10-01",
+        "thread_ids": [
+          10311580
+        ],
+        "comments": "625"
+      },
+      {
+        "month": "2015-11-01",
+        "thread_ids": [
+          10492086
+        ],
+        "comments": "709"
+      },
+      {
+        "month": "2015-12-01",
+        "thread_ids": [
+          10655740
+        ],
+        "comments": "360"
+      },
+      {
+        "month": "2016-01-01",
+        "thread_ids": [
+          10822019
+        ],
+        "comments": "373"
+      },
+      {
+        "month": "2016-02-01",
+        "thread_ids": [
+          11012044
+        ],
+        "comments": "651"
+      },
+      {
+        "month": "2016-03-01",
+        "thread_ids": [
+          11202954
+        ],
+        "comments": "671"
+      },
+      {
+        "month": "2016-04-01",
+        "thread_ids": [
+          11405239
+        ],
+        "comments": "595"
+      },
+      {
+        "month": "2016-05-01",
+        "thread_ids": [
+          11611867
+        ],
+        "comments": "667"
+      },
+      {
+        "month": "2016-06-01",
+        "thread_ids": [
+          11814828
+        ],
+        "comments": "776"
+      },
+      {
+        "month": "2016-07-01",
+        "thread_ids": [
+          12016568
+        ],
+        "comments": "690"
+      },
+      {
+        "month": "2016-08-01",
+        "thread_ids": [
+          12202865
+        ],
+        "comments": "739"
+      },
+      {
+        "month": "2016-09-01",
+        "thread_ids": [
+          12405698
+        ],
+        "comments": "646"
+      },
+      {
+        "month": "2016-10-01",
+        "thread_ids": [
+          12627852,
+          12624899
+        ],
+        "comments": "794"
+      },
+      {
+        "month": "2016-11-01",
+        "thread_ids": [
+          12846216,
+          12846271,
+          12846179,
+          12846313,
+          12846144
+        ],
+        "comments": "856"
+      },
+      {
+        "month": "2016-12-01",
+        "thread_ids": [
+          13080280
+        ],
+        "comments": "642"
+      },
+      {
+        "month": "2017-01-01",
+        "thread_ids": [
+          13301832
+        ],
+        "comments": "621"
+      },
+      {
+        "month": "2017-02-01",
+        "thread_ids": [
+          13541679
+        ],
+        "comments": "950"
+      },
+      {
+        "month": "2017-03-01",
+        "thread_ids": [
+          13764728
+        ],
+        "comments": "792"
+      },
+      {
+        "month": "2017-04-01",
+        "thread_ids": [
+          14023198
+        ],
+        "comments": "719"
+      },
+      {
+        "month": "2017-05-01",
+        "thread_ids": [
+          14238005
+        ],
+        "comments": "841"
+      },
+      {
+        "month": "2017-06-01",
+        "thread_ids": [
+          14460777
+        ],
+        "comments": "734"
+      },
+      {
+        "month": "2017-07-01",
+        "thread_ids": [
+          14688684
+        ],
+        "comments": "764"
+      },
+      {
+        "month": "2017-08-01",
+        "thread_ids": [
+          14901313
+        ],
+        "comments": "733"
+      },
+      {
+        "month": "2017-09-01",
+        "thread_ids": [
+          15148885
+        ],
+        "comments": "784"
+      },
+      {
+        "month": "2017-10-01",
+        "thread_ids": [
+          15384262
+        ],
+        "comments": "894"
+      },
+      {
+        "month": "2017-11-01",
+        "thread_ids": [
+          15601729
+        ],
+        "comments": "915"
+      },
+      {
+        "month": "2017-12-01",
+        "thread_ids": [
+          15824597
+        ],
+        "comments": "785"
+      },
+      {
+        "month": "2018-01-01",
+        "thread_ids": [
+          16046518,
+          16052538
+        ],
+        "comments": "709"
+      },
+      {
+        "month": "2018-02-01",
+        "thread_ids": [
+          16282819
+        ],
+        "comments": "798"
+      },
+      {
+        "month": "2018-03-01",
+        "thread_ids": [
+          16492994
+        ],
+        "comments": "873"
+      },
+      {
+        "month": "2018-04-01",
+        "thread_ids": [
+          16735011
+        ],
+        "comments": "848"
+      },
+      {
+        "month": "2018-05-01",
+        "thread_ids": [
+          16967543
+        ],
+        "comments": "983"
+      },
+      {
+        "month": "2018-06-01",
+        "thread_ids": [
+          17205865
+        ],
+        "comments": "771"
+      },
+      {
+        "month": "2018-07-01",
+        "thread_ids": [
+          17442187
+        ],
+        "comments": "744"
+      },
+      {
+        "month": "2018-08-01",
+        "thread_ids": [
+          17663077
+        ],
+        "comments": "878"
+      },
+      {
+        "month": "2018-09-01",
+        "thread_ids": [
+          17902901
+        ],
+        "comments": "702"
+      },
+      {
+        "month": "2018-10-01",
+        "thread_ids": [
+          18113144
+        ],
+        "comments": "910"
+      },
+      {
+        "month": "2018-11-01",
+        "thread_ids": [
+          18354503
+        ],
+        "comments": "873"
+      },
+      {
+        "month": "2018-12-01",
+        "thread_ids": [
+          18589702
+        ],
+        "comments": "766"
+      },
+      {
+        "month": "2019-01-01",
+        "thread_ids": [
+          18800645,
+          18807017
+        ],
+        "comments": "872"
+      },
+      {
+        "month": "2019-02-01",
+        "thread_ids": [
+          19055166
+        ],
+        "comments": "702"
+      },
+      {
+        "month": "2019-03-01",
+        "thread_ids": [
+          19281834
+        ],
+        "comments": "756"
+      },
+      {
+        "month": "2019-04-01",
+        "thread_ids": [
+          19543940
+        ],
+        "comments": "754"
+      },
+      {
+        "month": "2019-05-01",
+        "thread_ids": [
+          19797594
+        ],
+        "comments": "823"
+      },
+      {
+        "month": "2019-06-01",
+        "thread_ids": [
+          20083795
+        ],
+        "comments": "667"
+      },
+      {
+        "month": "2019-07-01",
+        "thread_ids": [
+          20325925
+        ],
+        "comments": "765"
+      },
+      {
+        "month": "2019-08-01",
+        "thread_ids": [
+          20584311
+        ],
+        "comments": "738"
+      },
+      {
+        "month": "2019-09-01",
+        "thread_ids": [
+          20859700,
+          20867123,
+          20859469
+        ],
+        "comments": "654"
+      },
+      {
+        "month": "2019-10-01",
+        "thread_ids": [
+          21126014
+        ],
+        "comments": "728"
+      },
+      {
+        "month": "2019-11-01",
+        "thread_ids": [
+          21419536
+        ],
+        "comments": "639"
+      },
+      {
+        "month": "2019-12-01",
+        "thread_ids": [
+          21683554
+        ],
+        "comments": "593"
+      },
+      {
+        "month": "2020-01-01",
+        "thread_ids": [
+          21936440
+        ],
+        "comments": "580"
+      },
+      {
+        "month": "2020-02-01",
+        "thread_ids": [
+          22225314
+        ],
+        "comments": "585"
+      },
+      {
+        "month": "2020-03-01",
+        "thread_ids": [
+          22465476
+        ],
+        "comments": "654"
+      },
+      {
+        "month": "2020-04-01",
+        "thread_ids": [
+          22749308
+        ],
+        "comments": "461"
+      },
+      {
+        "month": "2020-05-01",
+        "thread_ids": [
+          23042618
+        ],
+        "comments": "503"
+      },
+      {
+        "month": "2020-06-01",
+        "thread_ids": [
+          23379196
+        ],
+        "comments": "515"
+      },
+      {
+        "month": "2020-07-01",
+        "thread_ids": [
+          23702122
+        ],
+        "comments": "545"
+      },
+      {
+        "month": "2020-08-01",
+        "thread_ids": [
+          24038520
+        ],
+        "comments": "651"
+      },
+      {
+        "month": "2020-09-01",
+        "thread_ids": [
+          24342498
+        ],
+        "comments": "606"
+      },
+      {
+        "month": "2020-10-01",
+        "thread_ids": [
+          24651639
+        ],
+        "comments": "715"
+      },
+      {
+        "month": "2020-11-01",
+        "thread_ids": [
+          24969524
+        ],
+        "comments": "701"
+      },
+      {
+        "month": "2020-12-01",
+        "thread_ids": [
+          25266288
+        ],
+        "comments": "697"
+      },
+      {
+        "month": "2021-01-01",
+        "thread_ids": [
+          25632982
+        ],
+        "comments": "715"
+      },
+      {
+        "month": "2021-02-01",
+        "thread_ids": [
+          25989764
+        ],
+        "comments": "951"
+      },
+      {
+        "month": "2021-03-01",
+        "thread_ids": [
+          26304051
+        ],
+        "comments": "913"
+      },
+      {
+        "month": "2021-04-01",
+        "thread_ids": [
+          26661443
+        ],
+        "comments": "891"
+      },
+      {
+        "month": "2021-05-01",
+        "thread_ids": [
+          27025922
+        ],
+        "comments": "862"
+      },
+      {
+        "month": "2021-06-01",
+        "thread_ids": [
+          27355392
+        ],
+        "comments": "987"
+      },
+      {
+        "month": "2021-07-01",
+        "thread_ids": [
+          27699704
+        ],
+        "comments": "896"
+      },
+      {
+        "month": "2021-08-01",
+        "thread_ids": [
+          28037366
+        ],
+        "comments": "859"
+      },
+      {
+        "month": "2021-09-01",
+        "thread_ids": [
+          28380661
+        ],
+        "comments": "926"
+      },
+      {
+        "month": "2021-10-01",
+        "thread_ids": [
+          28719320
+        ],
+        "comments": "802"
+      },
+      {
+        "month": "2021-11-01",
+        "thread_ids": [
+          29067493
+        ],
+        "comments": "956"
+      },
+      {
+        "month": "2021-12-01",
+        "thread_ids": [
+          29405056
+        ],
+        "comments": "759"
+      },
+      {
+        "month": "2022-01-01",
+        "thread_ids": [
+          29782099
+        ],
+        "comments": "672"
+      },
+      {
+        "month": "2022-02-01",
+        "thread_ids": [
+          30164271
+        ],
+        "comments": "815"
+      },
+      {
+        "month": "2022-03-01",
+        "thread_ids": [
+          30515750
+        ],
+        "comments": "802"
+      },
+      {
+        "month": "2022-04-01",
+        "thread_ids": [
+          30878761
+        ],
+        "comments": "757"
+      },
+      {
+        "month": "2022-05-01",
+        "thread_ids": [
+          31235968
+        ],
+        "comments": "774"
+      },
+      {
+        "month": "2022-06-01",
+        "thread_ids": [
+          31582796
+        ],
+        "comments": "739"
+      },
+      {
+        "month": "2022-07-01",
+        "thread_ids": [
+          31947297
+        ],
+        "comments": "539"
+      },
+      {
+        "month": "2022-08-01",
+        "thread_ids": [
+          32306920
+        ],
+        "comments": "651"
+      },
+      {
+        "month": "2022-09-01",
+        "thread_ids": [
+          32677265
+        ],
+        "comments": "514"
+      },
+      {
+        "month": "2022-10-01",
+        "thread_ids": [
+          33068421
+        ],
+        "comments": "469"
+      },
+      {
+        "month": "2022-11-01",
+        "thread_ids": [
+          33422129
+        ],
+        "comments": "538"
+      },
+      {
+        "month": "2022-12-01",
+        "thread_ids": [
+          33818037
+        ],
+        "comments": "495"
+      },
+      {
+        "month": "2023-01-01",
+        "thread_ids": [
+          34219335
+        ],
+        "comments": "381"
+      },
+      {
+        "month": "2023-02-01",
+        "thread_ids": [
+          34612353
+        ],
+        "comments": "453"
+      },
+      {
+        "month": "2023-03-01",
+        "thread_ids": [
+          34983767
+        ],
+        "comments": "424"
+      },
+      {
+        "month": "2023-04-01",
+        "thread_ids": [
+          35424807
+        ],
+        "comments": "372"
+      },
+      {
+        "month": "2023-05-01",
+        "thread_ids": [
+          35773707
+        ],
+        "comments": "369"
+      },
+      {
+        "month": "2023-06-01",
+        "thread_ids": [
+          36152014
+        ],
+        "comments": "339"
+      },
+      {
+        "month": "2023-07-01",
+        "thread_ids": [
+          36573871
+        ],
+        "comments": "313"
+      },
+      {
+        "month": "2023-08-01",
+        "thread_ids": [
+          36956867
+        ],
+        "comments": "355"
+      },
+      {
+        "month": "2023-09-01",
+        "thread_ids": [
+          37351667
+        ],
+        "comments": "304"
+      },
+      {
+        "month": "2023-10-01",
+        "thread_ids": [
+          37739028
+        ],
+        "comments": "322"
+      },
+      {
+        "month": "2023-11-01",
+        "thread_ids": [
+          38099086
+        ],
+        "comments": "382"
+      },
+      {
+        "month": "2023-12-01",
+        "thread_ids": [
+          38490811
+        ],
+        "comments": "333"
+      },
+      {
+        "month": "2024-01-01",
+        "thread_ids": [
+          38842977
+        ],
+        "comments": "297"
+      },
+      {
+        "month": "2024-02-01",
+        "thread_ids": [
+          39217310
+        ],
+        "comments": "361"
+      },
+      {
+        "month": "2024-03-01",
+        "thread_ids": [
+          39562986
+        ],
+        "comments": "317"
+      },
+      {
+        "month": "2024-04-01",
+        "thread_ids": [
+          39894820
+        ],
+        "comments": "306"
+      },
+      {
+        "month": "2024-05-01",
+        "thread_ids": [
+          40224213
+        ],
+        "comments": "425"
+      },
+      {
+        "month": "2024-06-01",
+        "thread_ids": [
+          40563283
+        ],
+        "comments": "357"
+      },
+      {
+        "month": "2024-07-01",
+        "thread_ids": [
+          40846428
+        ],
+        "comments": "395"
+      },
+      {
+        "month": "2024-08-01",
+        "thread_ids": [
+          41129813
+        ],
+        "comments": "345"
+      },
+      {
+        "month": "2024-09-01",
+        "thread_ids": [
+          41425910
+        ],
+        "comments": "320"
+      },
+      {
+        "month": "2024-10-01",
+        "thread_ids": [
+          41709301
+        ],
+        "comments": "359"
+      },
+      {
+        "month": "2024-11-01",
+        "thread_ids": [
+          42017580
+        ],
+        "comments": "342"
+      },
+      {
+        "month": "2024-12-01",
+        "thread_ids": [
+          42297424
+        ],
+        "comments": "350"
+      },
+      {
+        "month": "2025-01-01",
+        "thread_ids": [
+          42575537
+        ],
+        "comments": "293"
+      },
+      {
+        "month": "2025-02-01",
+        "thread_ids": [
+          42919502
+        ],
+        "comments": "420"
+      },
+      {
+        "month": "2025-03-01",
+        "thread_ids": [
+          43243024
+        ],
+        "comments": "382"
+      },
+      {
+        "month": "2025-04-01",
+        "thread_ids": [
+          43547611
+        ],
+        "comments": "332"
+      },
+      {
+        "month": "2025-05-01",
+        "thread_ids": [
+          43858554
+        ],
+        "comments": "329"
+      },
+      {
+        "month": "2025-06-01",
+        "thread_ids": [
+          44159528
+        ],
+        "comments": "384"
+      },
+      {
+        "month": "2025-07-01",
+        "thread_ids": [
+          44434576
+        ],
+        "comments": "366"
+      },
+      {
+        "month": "2025-08-01",
+        "thread_ids": [
+          44757794
+        ],
+        "comments": "325"
+      },
+      {
+        "month": "2025-09-01",
+        "thread_ids": [
+          45093192
+        ],
+        "comments": "327"
+      },
+      {
+        "month": "2025-10-01",
+        "thread_ids": [
+          45438503
+        ],
+        "comments": "368"
+      },
+      {
+        "month": "2025-11-01",
+        "thread_ids": [
+          45800465
+        ],
+        "comments": "423"
+      },
+      {
+        "month": "2025-12-01",
+        "thread_ids": [
+          46108941
+        ],
+        "comments": "398"
+      },
+      {
+        "month": "2026-01-01",
+        "thread_ids": [
+          46466074
+        ],
+        "comments": "280"
+      },
+      {
+        "month": "2026-02-01",
+        "thread_ids": [
+          46857488
+        ],
+        "comments": "415"
+      },
+      {
+        "month": "2026-03-01",
+        "thread_ids": [
+          47219668
+        ],
+        "comments": "338"
+      },
+      {
+        "month": "2026-04-01",
+        "thread_ids": [
+          47601859
+        ],
+        "comments": "312"
+      },
+      {
+        "month": "2026-05-01",
+        "thread_ids": [
+          47975571
+        ],
+        "comments": "348"
+      },
+      {
+        "month": "2026-06-01",
+        "thread_ids": [
+          48357725
+        ],
+        "comments": "331"
+      },
+      {
+        "month": "2026-07-01",
+        "thread_ids": [
+          48747976
+        ],
+        "comments": "284"
+      },
+      {
+        "month": "2026-08-01",
+        "thread_ids": [
+          49156683
+        ],
+        "comments": "251"
+      },
+      {
+        "month": "2026-09-01",
+        "thread_ids": [
+          49522897
+        ],
+        "comments": "281"
+      },
+      {
+        "month": "2026-10-01",
+        "thread_ids": [
+          49922569
+        ],
+        "comments": "286"
+      }
+    ],
+    "preprocessing": "Strip HTML, decode entities, and remove Series C funding phrases.",
+    "aliases": [
+      {
+        "name": "Python",
+        "mentionPattern": "\\bpython\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Java",
+        "mentionPattern": "\\bjava\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Go",
+        "mentionPattern": "(?:\\b[Gg]olang\\b|\\bGo(?:$|[,/|.)]|\\s+(?:engineer|developer|backend|language|experience|programming)))",
+        "mentionFlags": ""
+      },
+      {
+        "name": "JavaScript",
+        "mentionPattern": "\\bjavascript\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "C++",
+        "mentionPattern": "\\bc\\+\\+(?:$|[^+])",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "TypeScript",
+        "mentionPattern": "\\btypescript\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "PHP",
+        "mentionPattern": "\\bphp\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Ruby",
+        "mentionPattern": "\\bruby\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "C",
+        "mentionPattern": "(^|[^A-Za-z0-9_])C(?:$|[,/|.)]|\\s+(?:programming|language|code|developer|engineer))",
+        "mentionFlags": ""
+      },
+      {
+        "name": "C#",
+        "mentionPattern": "\\b(?:c#|csharp)(?:$|\\W)",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Nix",
+        "mentionPattern": "\\b(?:nix|nixos)\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Shell",
+        "mentionPattern": "\\b(?:bash|shell)\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Rust",
+        "mentionPattern": "\\brust\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Scala",
+        "mentionPattern": "\\bscala\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Kotlin",
+        "mentionPattern": "\\bkotlin\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Swift",
+        "mentionPattern": "\\bswift\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Dart",
+        "mentionPattern": "\\bdart\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Groovy",
+        "mentionPattern": "\\bgroovy\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Perl",
+        "mentionPattern": "\\bperl\\b",
+        "mentionFlags": "i"
+      },
+      {
+        "name": "Lua",
+        "mentionPattern": "\\blua\\b",
+        "mentionFlags": "i"
+      }
+    ]
+  }
+}

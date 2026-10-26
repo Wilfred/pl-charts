@@ -1,0 +1,210 @@
+{
+	"meta":
+	[
+		{
+			"name": "month",
+			"type": "Date"
+		},
+		{
+			"name": "recorded_hours",
+			"type": "UInt64"
+		}
+	],
+
+	"data":
+	[
+		{
+			"month": "2023-01-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2023-02-01",
+			"recorded_hours": 672
+		},
+		{
+			"month": "2023-03-01",
+			"recorded_hours": 725
+		},
+		{
+			"month": "2023-04-01",
+			"recorded_hours": 719
+		},
+		{
+			"month": "2023-05-01",
+			"recorded_hours": 742
+		},
+		{
+			"month": "2023-06-01",
+			"recorded_hours": 717
+		},
+		{
+			"month": "2023-07-01",
+			"recorded_hours": 742
+		},
+		{
+			"month": "2023-08-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2023-09-01",
+			"recorded_hours": 719
+		},
+		{
+			"month": "2023-10-01",
+			"recorded_hours": 741
+		},
+		{
+			"month": "2023-11-01",
+			"recorded_hours": 712
+		},
+		{
+			"month": "2023-12-01",
+			"recorded_hours": 742
+		},
+		{
+			"month": "2024-01-01",
+			"recorded_hours": 743
+		},
+		{
+			"month": "2024-02-01",
+			"recorded_hours": 696
+		},
+		{
+			"month": "2024-03-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2024-04-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2024-05-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2024-06-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2024-07-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2024-08-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2024-09-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2024-10-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2024-11-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2024-12-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-01-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-02-01",
+			"recorded_hours": 672
+		},
+		{
+			"month": "2025-03-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-04-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2025-05-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-06-01",
+			"recorded_hours": 718
+		},
+		{
+			"month": "2025-07-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-08-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-09-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2025-10-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2025-11-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2025-12-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-01-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-02-01",
+			"recorded_hours": 672
+		},
+		{
+			"month": "2026-03-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-04-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2026-05-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-06-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2026-07-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-08-01",
+			"recorded_hours": 744
+		},
+		{
+			"month": "2026-09-01",
+			"recorded_hours": 720
+		},
+		{
+			"month": "2026-10-01",
+			"recorded_hours": 621
+		}
+	],
+
+	"rows": 46,
+
+	"statistics":
+	{
+		"elapsed": 1.560344287,
+		"rows_read": 11199140467,
+		"bytes_read": 44796561868
+	}
+}

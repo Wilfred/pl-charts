@@ -1,0 +1,703 @@
+{
+  "schema_version": 2,
+  "category": "surveys",
+  "method": "stackoverflow-survey-all-respondents-v1",
+  "run_id": "2026-10-26T22-24-23-807Z",
+  "status": "complete",
+  "options": {},
+  "sources": [
+    {
+      "path": "revision.json",
+      "url": "https://api.github.com/repos/StackExchange/Survey/commits/main",
+      "sha256": "4fc4d979c39f8e096694bf5d61f2f18ede07d1845a1280a5a35a89c51f148690",
+      "bytes": 4557,
+      "observed_at": "2026-10-26T22:24:24.481Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:24 GMT",
+        "etag": "W/\"269935f1c523735ed691846d41dca70634542d26d7870a3dbc7cc50349c88f3a\"",
+        "last-modified": "Thu, 22 Oct 2026 15:24:25 GMT",
+        "content-type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "path": "2013.csv",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2013/results.csv",
+      "sha256": "d5780b265fcdf9eda3fa06a1a9e62dee115f27d6633c8a5d5c1d2ac5317b521d",
+      "bytes": 7931652,
+      "observed_at": "2026-10-26T22:24:25.850Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:24 GMT",
+        "etag": "\"d5780b265fcdf9eda3fa06a1a9e62dee115f27d6633c8a5d5c1d2ac5317b521d\"",
+        "last-modified": "Mon, 26 Oct 2026 22:24:24 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2014.csv",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2014/results.csv",
+      "sha256": "c8c16f2a3adfc793a5dfb39cff3797f0d287811595e160883b643b44c1644557",
+      "bytes": 6128696,
+      "observed_at": "2026-10-26T22:24:27.567Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:26 GMT",
+        "etag": "\"c8c16f2a3adfc793a5dfb39cff3797f0d287811595e160883b643b44c1644557\"",
+        "last-modified": "Mon, 26 Oct 2026 22:24:26 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2015.csv",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2015/results.csv",
+      "sha256": "e0ee0ed013bc3202dc8cca9b65ecc7ea0380eeff520c73953a8e8f55a35dae77",
+      "bytes": 28483976,
+      "observed_at": "2026-10-26T22:24:32.996Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:28 GMT",
+        "etag": "\"e0ee0ed013bc3202dc8cca9b65ecc7ea0380eeff520c73953a8e8f55a35dae77\"",
+        "last-modified": "Mon, 26 Oct 2026 22:24:27 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2016.csv",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2016/results.csv",
+      "sha256": "8d7d0682039a0d5f5a59794def3271648e8cc36f6a85ed9e65d34a3a3ecc5cff",
+      "bytes": 69821589,
+      "observed_at": "2026-10-26T22:24:45.132Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:34 GMT",
+        "etag": "\"8d7d0682039a0d5f5a59794def3271648e8cc36f6a85ed9e65d34a3a3ecc5cff\"",
+        "last-modified": "Mon, 26 Oct 2026 22:24:34 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2017.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2017/json/report.json",
+      "sha256": "9409d3e57016177a590082f60b47de6028f55069c104b4cfe6ad0dc47f3bf290",
+      "bytes": 128131,
+      "observed_at": "2026-10-26T22:24:50.010Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:49 GMT",
+        "etag": "W/\"fd46f93ab08d2f94bfcc850d3c3cf2448a81b66137b73e86a6cf499dd5c6b349\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2018.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2018/json/report.json",
+      "sha256": "2b1e0177046b15b1b170f16196eb1f1f1877c1a3e0d25e7c4fafff3f03d4c1f0",
+      "bytes": 155434,
+      "observed_at": "2026-10-26T22:24:50.280Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:50 GMT",
+        "etag": "W/\"edc5e09f789a5fabc86d709e22088577d6be86b8051804713cbb5ac8916f2c1a\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2019.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2019/json/technology.json",
+      "sha256": "2321014d96e2a2b0555f36fb87c95ecf9fb3a134f4be12ef94386e67f661d236",
+      "bytes": 38199,
+      "observed_at": "2026-10-26T22:24:50.481Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:50 GMT",
+        "etag": "W/\"92fa2ad7753b4bc0c4134373e76000ce509ef9b883e2506e13f5a3a923fc7d3f\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2020.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2020/json/technology.json",
+      "sha256": "53a215ad90975fa067f6e1fb103817c58e43cd2fa83acb5fb1213dfccd5b6a29",
+      "bytes": 37413,
+      "observed_at": "2026-10-26T22:24:50.688Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:50 GMT",
+        "etag": "W/\"b7b093c832d31923bbe73dbeaffa5bce5ea86c6fcfbce783445955cbff3fd084\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2021.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2021/json/technology.json",
+      "sha256": "bb35846715dabdab85db5ecea54fcbec3ed81c0c313ae3ac373ef6209342bc61",
+      "bytes": 194374,
+      "observed_at": "2026-10-26T22:24:50.894Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:50 GMT",
+        "etag": "W/\"0affa892467d628fcd82bfba7888f3efa5401162e0128a432c1fcb2cc1f8ec0e\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2022.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2022/json/technology.json",
+      "sha256": "995039e7c379a6d044c57a1100d503650c6ca82420902f7aa402ab4879eace08",
+      "bytes": 218160,
+      "observed_at": "2026-10-26T22:24:51.096Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:51 GMT",
+        "etag": "W/\"473ac2368d8067b1f51d003a50be2c0d833781a91cb25c845e884ea298dd6601\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2023.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2023/json/technology.json",
+      "sha256": "f8ac86e4d611659e4b24510d5ccfd98cdfaeb9a7c4103580d2e32ba81bbcff65",
+      "bytes": 553311,
+      "observed_at": "2026-10-26T22:24:51.410Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:51 GMT",
+        "etag": "W/\"219855a00631d41e54afd0df94a0d43d960d8de93639974914a6fd7c39058209\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2024.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2024/json/technology.json",
+      "sha256": "a30ceeeb7a6eed8611e5b9d40c5490b73f267fb66865a56ee8676d374a335f8d",
+      "bytes": 375792,
+      "observed_at": "2026-10-26T22:24:51.632Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:51 GMT",
+        "etag": "W/\"3f5dcd15bf59003857423096cd4caf8f7d03b6cb0093214c1d82d010d29c91d7\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2025.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2025/json/technology.json",
+      "sha256": "a020f434a9259f2b77a489e20a5dc4ec262b39844f590ceaf4abc0201b9b7665",
+      "bytes": 372080,
+      "observed_at": "2026-10-26T22:24:51.794Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:51 GMT",
+        "etag": "W/\"bd11d80e0a66260ebee61a2d991bc0a12234a0a6491412eaf28b25fe83e3b7e0\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2026.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2026/json/technology.json",
+      "sha256": "85381a67bdfe873af18a20a961240264915a3d0419867bc300f410629fab46e7",
+      "bytes": 373088,
+      "observed_at": "2026-10-26T22:24:52.022Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Mon, 26 Oct 2026 22:24:51 GMT",
+        "etag": "W/\"714a69fb35aeafa24ed6a9e897bdddd8376b80295ae1dc8cb34ab547f9580e4e\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    }
+  ],
+  "metadata": {
+    "years": {
+      "2013": {
+        "denominator": 8042,
+        "numerators": {
+          "Python": 1880,
+          "Java": 3020,
+          "JavaScript": 4735,
+          "C++": 1696,
+          "PHP": 2324,
+          "Ruby": 794,
+          "C": 1436,
+          "C#": 3027
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#"
+        },
+        "definition": "Which of the following languages or technologies have you used significantly in the past year?; C++ version options are combined once per respondent"
+      },
+      "2014": {
+        "denominator": 6537,
+        "numerators": {
+          "Python": 1473,
+          "Java": 2479,
+          "JavaScript": 3783,
+          "C++": 1418,
+          "PHP": 1710,
+          "Ruby": 593,
+          "C": 1174,
+          "C#": 2378
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#"
+        },
+        "definition": "Which of the following languages or technologies have you used significantly in the past year?; C++ version options are combined once per respondent"
+      },
+      "2015": {
+        "denominator": 22107,
+        "numerators": {
+          "Python": 5238,
+          "Java": 8219,
+          "Go": 462,
+          "JavaScript": 11962,
+          "C++": 4840,
+          "PHP": 6529,
+          "Ruby": 1765,
+          "C": 3612,
+          "C#": 6949,
+          "Rust": 103,
+          "Scala": 538,
+          "Swift": 759,
+          "Dart": 109,
+          "Perl": 738
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Perl": "Perl"
+        },
+        "definition": "Current Lang & Tech: respondents selecting at least one current technology; C++ version options are combined once per respondent"
+      },
+      "2016": {
+        "denominator": 49025,
+        "numerators": {
+          "Python": 12282,
+          "Java": 17942,
+          "Go": 1547,
+          "JavaScript": 27385,
+          "C++": 9589,
+          "PHP": 12780,
+          "Ruby": 4383,
+          "C": 7678,
+          "C#": 15283,
+          "Rust": 436,
+          "Scala": 1602,
+          "Swift": 2746,
+          "Dart": 222,
+          "Perl": 1624
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Perl": "Perl"
+        },
+        "definition": "tech_do: technologies used; respondents with a nonempty answer; C++ version options are combined once per respondent"
+      },
+      "2017": {
+        "denominator": 36935,
+        "numerators": {},
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Scala": "Scala",
+          "Swift": "Swift",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "36,935 responses; select all that apply. Shown as a percentage of the respondents who chose at least one language, framework, database, or platform."
+      },
+      "2018": {
+        "denominator": 78334,
+        "numerators": {},
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Groovy": "Groovy",
+          "Perl": "Perl"
+        },
+        "definition": "78,334 responses; select all that apply"
+      },
+      "2019": {
+        "denominator": 87354,
+        "numerators": {},
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell/PowerShell",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart"
+        },
+        "definition": "87,354 responses; select all that apply"
+      },
+      "2020": {
+        "denominator": 57378,
+        "numerators": {},
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell/PowerShell",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Perl": "Perl"
+        },
+        "definition": "57,378 responses; select all that apply"
+      },
+      "2021": {
+        "denominator": 83052,
+        "numerators": {
+          "Python": 39792,
+          "Java": 29162,
+          "Go": 7879,
+          "JavaScript": 53587,
+          "C++": 20057,
+          "TypeScript": 24909,
+          "PHP": 18130,
+          "Ruby": 5569,
+          "C": 17329,
+          "C#": 22984,
+          "Shell": 22385,
+          "Rust": 5799,
+          "Scala": 2148,
+          "Kotlin": 6866,
+          "Swift": 4204,
+          "Dart": 4965,
+          "Groovy": 2479,
+          "Perl": 2028
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl"
+        },
+        "definition": "Which <b>programming, scripting, and markup languages</b> have you done extensive development work in over the past year, and which do you want to work in over the next year? (If you both worked with the language and want to continue to do so, please check both boxes in that row.)"
+      },
+      "2022": {
+        "denominator": 38386,
+        "numerators": {
+          "Python": 18728,
+          "Java": 12727,
+          "Go": 4581,
+          "JavaScript": 24770,
+          "C++": 8956,
+          "TypeScript": 13385,
+          "PHP": 7639,
+          "Ruby": 2406,
+          "C": 7731,
+          "C#": 10472,
+          "Shell": 11379,
+          "Rust": 4531,
+          "Scala": 1016,
+          "Kotlin": 3647,
+          "Swift": 1880,
+          "Dart": 2596,
+          "Groovy": 1283,
+          "Perl": 893,
+          "Lua": 1705
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "Which <b>programming, scripting, and markup languages</b> have you done extensive development work in over the past year, and which do you want to work in over the next year? (If you both worked with the language and want to continue to do so, please check both boxes in that row.)"
+      },
+      "2023": {
+        "denominator": 87585,
+        "numerators": {
+          "Python": 43158,
+          "Java": 26757,
+          "Go": 11592,
+          "JavaScript": 55711,
+          "C++": 19634,
+          "TypeScript": 34041,
+          "PHP": 16274,
+          "Ruby": 5454,
+          "C": 16940,
+          "C#": 24193,
+          "Shell": 28351,
+          "Rust": 11427,
+          "Scala": 2422,
+          "Kotlin": 7935,
+          "Swift": 4072,
+          "Dart": 5273,
+          "Groovy": 2976,
+          "Perl": 2151,
+          "Lua": 5336
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell (all shells)",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "Which <b>programming, scripting, and markup languages</b> have you done extensive development work in over the past year, and which do you want to work in over the next year? (If you both worked with the language and want to continue to do so, please check both boxes in that row.)"
+      },
+      "2024": {
+        "denominator": 60171,
+        "numerators": {
+          "Python": 30719,
+          "Java": 18239,
+          "Go": 8103,
+          "JavaScript": 37492,
+          "C++": 13827,
+          "TypeScript": 23150,
+          "PHP": 10951,
+          "Ruby": 3147,
+          "C": 12184,
+          "C#": 16318,
+          "Shell": 20412,
+          "Rust": 7559,
+          "Scala": 1547,
+          "Kotlin": 5665,
+          "Swift": 2829,
+          "Dart": 3594,
+          "Groovy": 2004,
+          "Perl": 1482,
+          "Lua": 3728
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell (all shells)",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "Which <b>programming, scripting, and markup languages</b> have you done extensive development work in over the past year, and which do you want to work in over the next year? (If you both worked with the language and want to continue to do so, please check both boxes in that row.)"
+      },
+      "2025": {
+        "denominator": 31771,
+        "numerators": {
+          "Python": 18381,
+          "Java": 9341,
+          "Go": 5211,
+          "JavaScript": 20982,
+          "C++": 7477,
+          "TypeScript": 13850,
+          "PHP": 5988,
+          "Ruby": 2046,
+          "C": 6977,
+          "C#": 8842,
+          "Shell": 15482,
+          "Rust": 4716,
+          "Scala": 842,
+          "Kotlin": 3417,
+          "Swift": 1718,
+          "Dart": 1881,
+          "Groovy": 1532,
+          "Perl": 1215,
+          "Lua": 2906
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Shell": "Bash/Shell",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "Which <b>programming, scripting, and markup languages</b> have you done extensive development work in over the past year, and which do you want to work in over the next year? (If you both worked with the language and want to continue to do so, please check both boxes in that row.)"
+      },
+      "2026": {
+        "denominator": 14099,
+        "numerators": {
+          "Python": 8184,
+          "Java": 3885,
+          "Go": 2332,
+          "JavaScript": 8742,
+          "C++": 3425,
+          "TypeScript": 6171,
+          "PHP": 2490,
+          "Ruby": 823,
+          "C": 3070,
+          "C#": 3826,
+          "Nix": 623,
+          "Shell": 7231,
+          "Rust": 2542,
+          "Scala": 309,
+          "Kotlin": 1524,
+          "Swift": 831,
+          "Dart": 697,
+          "Groovy": 544,
+          "Perl": 538,
+          "Lua": 1327
+        },
+        "responses": {
+          "Python": "Python",
+          "Java": "Java",
+          "Go": "Go",
+          "JavaScript": "JavaScript",
+          "C++": "C++",
+          "TypeScript": "TypeScript",
+          "PHP": "PHP",
+          "Ruby": "Ruby",
+          "C": "C",
+          "C#": "C#",
+          "Nix": "Nix",
+          "Shell": "Bash/Shell (all shells)",
+          "Rust": "Rust",
+          "Scala": "Scala",
+          "Kotlin": "Kotlin",
+          "Swift": "Swift",
+          "Dart": "Dart",
+          "Groovy": "Groovy",
+          "Perl": "Perl",
+          "Lua": "Lua"
+        },
+        "definition": "<p>Which programming, scripting, and markup languages have you done extensive development work in over the past year, which do you want to work with over the next year, and which have you used AI tools or AI agents to work with? Select all that apply in each row.</p>"
+      }
+    },
+    "revision": "9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7"
+  }
+}
