@@ -68,3 +68,60 @@ test("partial quarter labels distinguish incomplete archive coverage", () => {
   assert.equal(GITHUB_QUARTERS[0], "2011-Q2");
   assert.equal(GITHUB_QUARTERS.at(-1), "2026-Q3");
 });
+
+test("point tooltips expose exact values and support keyboard navigation", () => {
+  const { window } = new JSDOM(
+    readFileSync(new URL("../github.html", import.meta.url), "utf8"),
+  );
+  const document = window.document;
+  const figure = document.querySelector<HTMLElement>("[data-trend]")!;
+  const plot = figure.querySelector<SVGSVGElement>(".trend-plot")!;
+  const tooltip = figure.querySelector<HTMLElement>("[data-trend-tooltip]")!;
+  const points = [
+    ...figure.querySelectorAll<SVGCircleElement>("[data-trend-point]"),
+  ];
+  assert.equal(points.length, GITHUB_QUARTERS.length * 6);
+  assert.equal(
+    points.every((point) => !isPartialGithubQuarter(point.dataset.quarter!)),
+    true,
+  );
+  for (const point of points)
+    assert.equal(
+      point.querySelector("title")?.textContent,
+      point.dataset.label,
+    );
+  initializeTrends(document);
+  plot.dispatchEvent(new window.FocusEvent("focus"));
+  const latest = points.find(
+    (point) =>
+      point.dataset.language === "JavaScript" &&
+      point.dataset.quarter === GITHUB_QUARTERS.at(-1),
+  )!;
+  assert.equal(tooltip.hidden, false);
+  assert.equal(tooltip.textContent, latest.dataset.label);
+  assert.match(tooltip.textContent!, /JavaScript · 2026 Q3: [\d,]+ pushes/);
+  plot.dispatchEvent(
+    new window.KeyboardEvent("keydown", { key: "ArrowDown", cancelable: true }),
+  );
+  const python = points.find(
+    (point) =>
+      point.dataset.language === "Python" &&
+      point.dataset.quarter === GITHUB_QUARTERS.at(-1),
+  )!;
+  assert.equal(tooltip.textContent, python.dataset.label);
+  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "ArrowLeft" }));
+  assert.match(tooltip.textContent!, /Python · 2026 Q2:/);
+  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Home" }));
+  assert.match(tooltip.textContent!, /Python · 2011 Q2:/);
+  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "Escape" }));
+  assert.equal(tooltip.hidden, true);
+  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "End" }));
+  figure
+    .querySelector<HTMLButtonElement>('button[data-trend-language="Python"]')!
+    .click();
+  assert.equal(tooltip.hidden, true);
+  plot.dispatchEvent(new window.KeyboardEvent("keydown", { key: "ArrowDown" }));
+  assert.doesNotMatch(tooltip.textContent!, /Python/);
+  plot.dispatchEvent(new window.FocusEvent("blur"));
+  assert.equal(tooltip.hidden, true);
+});

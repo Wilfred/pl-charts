@@ -9,6 +9,17 @@ import {
 import type { GithubMetric } from "../../scripts/github-data.ts";
 import { LANGUAGE_CLASSES } from "../languages.ts";
 
+function pointPosition(
+  index: number,
+  count: number,
+  value: number,
+  maximum: number,
+) {
+  return {
+    x: 10 + (index / Math.max(count - 1, 1)) * 980,
+    y: 290 - (value / maximum) * 280,
+  };
+}
 export function trendPath(values: readonly (number | null)[], maximum: number) {
   let connected = false;
   return values
@@ -17,8 +28,7 @@ export function trendPath(values: readonly (number | null)[], maximum: number) {
         connected = false;
         return "";
       }
-      const x = 10 + (i / Math.max(values.length - 1, 1)) * 980;
-      const y = 290 - (value / maximum) * 280;
+      const { x, y } = pointPosition(i, values.length, value, maximum);
       const command = connected ? "L" : "M";
       connected = true;
       return `${command}${x.toFixed(2)},${y.toFixed(2)}`;
@@ -91,14 +101,18 @@ export function TrendPlot({ metric }: { metric: GithubMetric }) {
           viewBox="0 0 1000 300"
           preserveAspectRatio="none"
           role="img"
+          tabIndex={0}
+          aria-describedby={`${id}-tooltip`}
           aria-labelledby={`${id}-title ${id}-description`}
         >
           <title id={`${id}-title`}>
             {`${label} by language, ${formatQuarter(GITHUB_QUARTERS[0]!)} to ${formatQuarter(GITHUB_QUARTERS.at(-1)!)}`}
           </title>
           <desc id={`${id}-description`}>
-            Quarterly counts for six languages. Exact values are available in
-            the quarter selector and CSV. Language attribution covers{" "}
+            Quarterly counts for six languages. Hover or tap a point for its
+            exact value. Focus the chart and use arrow keys to move between
+            quarters and languages. Exact values are also available in the
+            quarter selector and CSV. Language attribution covers{" "}
             {percent(Math.min(...coverage))} to {percent(Math.max(...coverage))}{" "}
             of archived events across this series.
           </desc>
@@ -125,10 +139,48 @@ export function TrendPlot({ metric }: { metric: GithubMetric }) {
                   className="trend-line"
                   vectorEffect="non-scaling-stroke"
                 />
+                {values.map((value, index) => {
+                  if (value === null) return null;
+                  const position = pointPosition(
+                    index,
+                    values.length,
+                    value,
+                    maximum,
+                  );
+                  const quarter = GITHUB_QUARTERS[index]!;
+                  const pointLabel = `${language} · ${formatQuarter(quarter)}: ${value.toLocaleString("en-US")} ${METRIC_INFO[metric].unit.toLowerCase()}`;
+                  return (
+                    <circle
+                      key={quarter}
+                      cx={position.x}
+                      cy={position.y}
+                      r="4"
+                      className="trend-point"
+                      vectorEffect="non-scaling-stroke"
+                      data-trend-point=""
+                      data-language={language}
+                      data-quarter-index={index}
+                      data-quarter={quarter}
+                      data-value={value}
+                      data-label={pointLabel}
+                    >
+                      <title>{pointLabel}</title>
+                    </circle>
+                  );
+                })}
               </g>
             );
           })}
         </svg>
+        <div
+          className="trend-tooltip"
+          id={`${id}-tooltip`}
+          data-trend-tooltip=""
+          role="tooltip"
+          aria-live="polite"
+          aria-atomic="true"
+          hidden
+        />
         <div className="trend-x-axis" aria-hidden="true">
           {ticks.map((index, position) => (
             <span

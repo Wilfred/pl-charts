@@ -664,3 +664,31 @@ th[aria-sort="descending"] .sort-up {
     column-gap: 12px;
   }
 }
+
+.trend-plot:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 6px;
+}
+.trend-point {
+  fill: var(--surface);
+  stroke: currentColor;
+  stroke-width: 2;
+  opacity: 0;
+}
+.trend-point.is-active {
+  opacity: 1;
+}
+.trend-tooltip {
+  position: absolute;
+  z-index: 1;
+  max-width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--muted);
+  border-radius: 4px;
+  background: var(--raised);
+  color: var(--ink);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  box-shadow: 0 4px 16px #0006;
+  pointer-events: none;
+}
