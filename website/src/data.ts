@@ -7,6 +7,17 @@ import type {
 const github: GithubSnapshot = githubSnapshot;
 export const GITHUB_QUARTERS = github.quarters;
 export const DEFAULT_GITHUB_QUARTER = github.latestQuarter;
+export const GITHUB_CUTOFF = github.cutoff;
+export const GITHUB_COVERAGE = github.coverage;
+export function isPartialGithubQuarter(quarter: string): boolean {
+  const [year, part] = quarter.split("-Q").map(Number);
+  if (year === undefined || part === undefined) return false;
+  return (
+    quarter === "2011-Q1" ||
+    github.periodEnds[quarter] !==
+      new Date(Date.UTC(year, part * 3, 1)).toISOString()
+  );
+}
 export function isGithubQuarter(value: string | undefined): value is string {
   return value !== undefined && GITHUB_QUARTERS.includes(value);
 }
@@ -19,7 +30,10 @@ export function githubCounts(
   return counts;
 }
 export function formatQuarter(quarter: string): string {
-  return quarter.replace("-Q", " Q");
+  return (
+    quarter.replace("-Q", " Q") +
+    (isPartialGithubQuarter(quarter) ? " (partial)" : "")
+  );
 }
 import { CATEGORIES, type Category } from "./categories.ts";
 export { CATEGORIES, type Category } from "./categories.ts";
@@ -172,15 +186,14 @@ export const METRIC_INFO: Record<Metric, MetricDefinition> = {
     label: "Pushes",
     unit: "Pushes",
     updatedAt: github.updatedAt,
-    description:
-      "Quarterly public push events from GitHut 2.0’s filtered GH Archive data. Repository languages come from pull-request payloads.",
+    description: "Public PushEvent rows per UTC quarter.",
   },
   "github.pull_requests": {
     label: "Pull Requests",
     unit: "Pull requests",
     updatedAt: github.updatedAt,
     description:
-      "Quarterly pull-request events from GitHut 2.0, including multiple actions on the same request. Bot-like actors and high-volume actor groups are filtered upstream.",
+      "Public PullRequestEvent rows with action opened per UTC quarter.",
   },
   "packages.published": {
     label: "Published packages",

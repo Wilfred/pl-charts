@@ -8,20 +8,26 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   github: {
     items: [
       {
+        href: "https://www.gharchive.org/",
+        title: "GH Archive",
+        description:
+          "Hourly archives of public GitHub events. The archive starts on 12 February 2011 and changed from the Timeline API to the Events API in 2015.",
+      },
+      {
+        href: "https://clickhouse.com/docs/get-started/sample-datasets/github-events",
+        title: "ClickHouse GitHub event dataset",
+        description:
+          "Public SQL access to archived events and repository metadata. Our collector executes the SQL saved alongside each raw response.",
+      },
+      {
         href: "https://madnight.github.io/githut/",
         title: "GitHut 2.0",
         description:
-          "Quarterly language rankings based on GitHub activity, with separate views for pull requests, pushes, stars, and issues. The selected event type determines the ranking.",
-      },
-      {
-        href: "https://github.com/madnight/githut#data-generation",
-        title: "GitHut 2.0 queries",
-        description:
-          "The pinned aggregation script assigns repository languages from pull-request payloads and excludes bot-like actors and high-volume actor groups. The archived source query accompanies the downloadable counts.",
+          "An independent approach to quarterly language rankings, with separate views for pushes, pull requests, stars, and issues. Its language attribution and filtering rules differ from this collection.",
       },
     ],
     notes:
-      "Published coverage is 2012 Q2–2024 Q1, with at most 100 languages per quarter. Missing entries display —. Pull-request counts include multiple event actions on a request.",
+      "Events use the latest known repository primary language at collection time. Repository metadata covers a subset of public activity; unmatched repositories and empty languages appear as Unknown in the CSV. Coverage varies over time. Bots and forks are included. The first and current quarters are partial.",
   },
   packages: {
     items: [

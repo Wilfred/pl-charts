@@ -1,3 +1,4 @@
+import { TrendPlot } from "./trends.tsx";
 import {
   CATEGORIES,
   GITHUB_QUARTERS,
@@ -188,6 +189,9 @@ export function MetricSection({ metric }: { metric: Metric }) {
           </tbody>
         </table>
       </div>
+      {(metric === "github.pushes" || metric === "github.pull_requests") && (
+        <TrendPlot metric={metric} />
+      )}
     </section>
   );
 }
