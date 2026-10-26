@@ -71,7 +71,7 @@ The cohort is Python, Java, Go, JavaScript, C++, TypeScript, PHP, Ruby, C, C#, N
 
 ## Packages
 
-Package rows identify services, with `entity_kind=registry`. The website ranks services by name and does not assign their totals to individual languages. `package-services.json` defines the service cohort independently of `languages.json`. Each service has a reviewed list of major programming languages, displayed beneath its name.
+Package rows identify services, with `entity_kind=registry`. The website ranks services by their package or project totals. `package-services.json` defines the service cohort independently of `languages.json`. Each service has a reviewed list of major programming languages, displayed beneath its name.
 
 Selection uses the displayed, rounded average growth from [Modulecounts’ 15 January 2024 snapshot](https://web.archive.org/web/20240115115215/http://www.modulecounts.com/). Include rates ≥2 new packages/day, measured by Modulecounts over the preceding week. CPAN and CPAN (search) count as one service. CRAN’s displayed rate was −2/day; Hackage and Nimble were 1/day. These are historical inclusion criteria, rather than claims about present growth.
 
