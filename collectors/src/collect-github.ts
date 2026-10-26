@@ -3,167 +3,150 @@ import { createHash } from "node:crypto";
 import { mkdir, writeFile, readFile, rename } from "node:fs/promises";
 import { join } from "node:path";
 import {
-  GITHUT_REVISION,
-  GITHUB_SOURCES,
+  COVERAGE_QUERY,
+  GITHUB_ENDPOINT,
+  GITHUB_METHOD,
+  githubQuery,
   parseGithubQuarterCounts,
   githubObservations,
 } from "./github.ts";
-import { DEFAULT_DATA_DIRECTORY, csv, type Observation } from "./storage.ts";
+import { DEFAULT_DATA_DIRECTORY, csv } from "./storage.ts";
 
-const { values } = parseArgs({
-  options: { ref: { type: "string" }, replay: { type: "string" } },
-});
-const revision = values.ref ?? GITHUT_REVISION;
-if (!/^[a-f0-9]{40}$/.test(revision))
-  throw new Error("--ref requires a complete Git commit SHA");
+const { values } = parseArgs({ options: { replay: { type: "string" } } });
 const replay = values.replay;
 if (replay && !/^[0-9TZ-]+$/.test(replay))
-  throw new Error("Invalid replay run identifier");
-
+  throw new Error("Invalid run identifier");
 const runId =
   replay ?? new Date().toISOString().replaceAll(":", "-").replaceAll(".", "-");
 const directory = join(DEFAULT_DATA_DIRECTORY, "raw/github", runId);
-const manifestPath = join(directory, "manifest.json");
 interface Source {
   path: string;
-  url: string;
   sha256: string;
   bytes: number;
   observed_at: string;
-  http_status: number;
-  headers?: Record<string, string>;
+  query: string;
 }
 interface Manifest {
-  status: "running" | "complete" | "failed";
-  error?: string;
-  schema_version: number;
-  run_id: string;
-  upstream_revision: string;
+  status: string;
   method: string;
-  coverage: string[];
+  run_id: string;
+  cutoff: string;
+  first_event: string;
   sources: Source[];
+  error?: string;
 }
-let manifest: Manifest;
-const observations: Observation[] = [];
-if (replay) {
-  manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Manifest;
-  if (manifest.status !== "complete")
-    throw new Error("Replay requires a complete collection");
-  if (manifest.upstream_revision !== revision)
-    throw new Error("Replay revision does not match --ref");
-} else {
+const manifestPath = join(directory, "manifest.json");
+const manifest: Manifest = replay
+  ? (JSON.parse(await readFile(manifestPath, "utf8")) as Manifest)
+  : {
+      status: "running",
+      method: GITHUB_METHOD,
+      run_id: runId,
+      cutoff: "",
+      first_event: "",
+      sources: [],
+    };
+if (
+  replay &&
+  (manifest.status !== "complete" || manifest.method !== GITHUB_METHOD)
+)
+  throw new Error("Replay requires a complete direct-query run");
+if (!replay) {
   await mkdir(join(DEFAULT_DATA_DIRECTORY, "raw/github"), { recursive: true });
   await mkdir(directory);
-  manifest = {
-    status: "running",
-    schema_version: 1,
-    run_id: runId,
-    upstream_revision: revision,
-    method: "githut-quarterly-v1",
-    coverage: [],
-    sources: [],
-  };
+}
+async function query(name: string, sql: string): Promise<string> {
+  const metadata = manifest.sources.find((source) => source.path === name);
+  if (replay) {
+    const body = await readFile(join(directory, name), "utf8");
+    if (
+      !metadata ||
+      metadata.query !== sql ||
+      createHash("sha256").update(body).digest("hex") !== metadata.sha256
+    )
+      throw new Error(`Replay checksum or query mismatch: ${name}`);
+    return body;
+  }
+  const url = new URL(GITHUB_ENDPOINT);
+  url.searchParams.set("user", "play");
+  url.searchParams.set("query", sql);
+  const response = await fetch(url, { signal: AbortSignal.timeout(90000) });
+  const body = await response.text();
+  await writeFile(join(directory, name), body);
+  await writeFile(join(directory, name.replace(".json", ".sql")), sql + "\n");
+  manifest.sources.push({
+    path: name,
+    sha256: createHash("sha256").update(body).digest("hex"),
+    bytes: Buffer.byteLength(body),
+    observed_at: new Date().toISOString(),
+    query: sql,
+  });
+  if (!response.ok)
+    throw new Error(`HTTP ${response.status}: ${body.slice(0, 500)}`);
+  return body;
 }
 try {
-  for (const file of [
-    ...GITHUB_SOURCES.map((source) => ({
-      file: source.file,
-      name: source.name,
-    })),
-    { file: "scripts/query.js", name: "upstream-query.js" },
-    { file: "LICENSE", name: "upstream-LICENSE.txt" },
-  ]) {
-    const url = `https://raw.githubusercontent.com/madnight/githut/${revision}/${file.file}`;
-    let body: Buffer;
-    let observedAt: string;
-    if (replay) {
-      const metadata = manifest.sources.find(
-        (source) => source.path === file.name,
-      );
-      if (!metadata) throw new Error(`Missing replay source ${file.name}`);
-      body = await readFile(join(directory, file.name));
-      observedAt = metadata.observed_at;
-      if (createHash("sha256").update(body).digest("hex") !== metadata.sha256)
-        throw new Error(`Checksum mismatch for ${file.name}`);
-    } else {
-      const response = await fetch(url, {
-        headers: {
-          "User-Agent": "PL-Charts/0.1 (https://github.com/Wilfred/pl-charts)",
-        },
-        signal: AbortSignal.timeout(30000),
-      });
-      body = Buffer.from(await response.arrayBuffer());
-      observedAt = new Date().toISOString();
-      await writeFile(join(directory, file.name), body);
-      manifest.sources.push({
-        path: file.name,
-        url,
-        sha256: createHash("sha256").update(body).digest("hex"),
-        bytes: body.length,
-        observed_at: observedAt,
-        http_status: response.status,
-        headers: Object.fromEntries(
-          ["date", "etag", "last-modified", "content-type"].flatMap((key) => {
-            const value = response.headers.get(key);
-            return value ? [[key, value]] : [];
-          }),
-        ),
-      });
-      if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
-    }
-    const metric = GITHUB_SOURCES.find(
-      (source) => source.name === file.name,
-    )?.metric;
-    if (metric)
-      observations.push(
-        ...githubObservations(parseGithubQuarterCounts(body.toString("utf8")), {
-          metric,
-          runId,
-          observedAt,
-          sourceUrl: url,
-          rawPath: `raw/github/${runId}/${file.name}`,
-          revision,
-        }),
-      );
+  const coverage = JSON.parse(await query("coverage.json", COVERAGE_QUERY)) as {
+    data: { first_event: string; last_event: string; last_file: string }[];
+  };
+  const range = coverage.data[0];
+  if (!range) throw new Error("Missing source coverage");
+  if (!replay) {
+    manifest.cutoff = new Date(
+      Date.parse(range.last_file.replace(" ", "T") + "Z") + 3600000,
+    ).toISOString();
+    manifest.first_event = new Date(
+      range.first_event.replace(" ", "T") + "Z",
+    ).toISOString();
+    if (Date.parse(manifest.cutoff) > Date.now())
+      throw new Error("Source hour is incomplete");
   }
-  const sets = GITHUB_SOURCES.map(
-    (source) =>
-      new Set(
-        observations
-          .filter((row) => row.metric === source.metric)
-          .map((row) => row.period_start),
-      ),
+  const body = await query("quarters.json", githubQuery(manifest.cutoff));
+  const records = parseGithubQuarterCounts(body);
+  const periods = [...new Set(records.map((row) => row.quarter))].sort();
+  for (let i = 1; i < periods.length; i++) {
+    const previous = periods[i - 1]!.split("-Q").map(Number),
+      current = periods[i]!.split("-Q").map(Number);
+    if (current[0]! * 4 + current[1]! !== previous[0]! * 4 + previous[1]! + 1)
+      throw new Error("Gap in quarterly coverage");
+  }
+  // Absent language groups in a covered quarter represent zero events.
+  const languages = [...new Set(records.map((row) => row.language))].sort();
+  const keys = new Set(records.map((row) => `${row.quarter}:${row.language}`));
+  for (const quarter of periods)
+    for (const language of languages)
+      if (!keys.has(`${quarter}:${language}`))
+        records.push({ quarter, language, pushes: 0, pull_requests: 0 });
+  records.sort(
+    (a, b) =>
+      a.quarter.localeCompare(b.quarter) ||
+      a.language.localeCompare(b.language),
   );
-  if (
-    !sets[0] ||
-    !sets[1] ||
-    sets[0].size !== sets[1].size ||
-    [...sets[0]].some((period) => !sets[1]?.has(period))
-  )
-    throw new Error("Push and pull-request quarter coverage differs");
-  manifest.coverage = [...sets[0]].sort();
-  const output = csv(observations);
+  const observedAt = manifest.sources.find(
+    (source) => source.path === "quarters.json",
+  )!.observed_at;
+  const output = csv(
+    githubObservations(records, {
+      runId,
+      observedAt,
+      cutoff: manifest.cutoff,
+      rawPath: `raw/github/${runId}/quarters.json`,
+    }),
+  );
+  const observations = join(
+    DEFAULT_DATA_DIRECTORY,
+    "observations/github",
+    `${runId}.csv`,
+  );
   if (replay) {
-    const saved = await readFile(
-      join(DEFAULT_DATA_DIRECTORY, "observations/github", `${runId}.csv`),
-      "utf8",
-    );
-    if (output !== saved)
+    if (output !== (await readFile(observations, "utf8")))
       throw new Error("Replay differs from saved observations");
-    console.log(
-      `Replayed ${observations.length} observations across ${manifest.coverage.length} quarters`,
-    );
+    console.log(`Verified ${periods.length} quarters offline (${runId})`);
   } else {
-    manifest.status = "complete";
-    await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + "\n");
     await mkdir(join(DEFAULT_DATA_DIRECTORY, "observations/github"), {
       recursive: true,
     });
-    await writeFile(
-      join(DEFAULT_DATA_DIRECTORY, "observations/github", `${runId}.csv`),
-      output,
-      { flag: "wx" },
-    );
+    await writeFile(observations, output, { flag: "wx" });
     await mkdir(join(DEFAULT_DATA_DIRECTORY, "exports"), { recursive: true });
     const temporary = join(
       DEFAULT_DATA_DIRECTORY,
@@ -172,14 +155,15 @@ try {
     );
     await writeFile(temporary, output);
     await rename(temporary, join(DEFAULT_DATA_DIRECTORY, "exports/github.csv"));
+    manifest.status = "complete";
     console.log(
-      `Saved ${observations.length} observations across ${manifest.coverage.length} quarters (${runId})`,
+      `Saved ${records.length * 2} observations, ${periods.length} quarters through ${manifest.cutoff} (${runId})`,
     );
   }
 } catch (error) {
   if (!replay) {
     manifest.status = "failed";
-    manifest.error = error instanceof Error ? error.message : String(error);
+    manifest.error = String(error);
   }
   throw error;
 } finally {

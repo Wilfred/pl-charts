@@ -57,9 +57,9 @@ npm run collect:packages
 npm run collect:github
 ```
 
-Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection imports a pinned GitHut 2.0 revision covering 48 quarters from 2012 Q2 through 2024 Q1. The GitHub page exposes separate quarter selectors for pushes and pull-request events.
+Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection queries public GH Archive events directly through the latest available archive hour, with quarterly backfill and explicit language-attribution coverage. The GitHub page exposes separate quarter selectors for pushes and pull-request events.
 
-Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV. The full quarterly dataset is [data/exports/github.csv](data/exports/github.csv), retaining every language published upstream.
+Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV. The full quarterly dataset is [data/exports/github.csv](data/exports/github.csv), retaining every attributed language and an Unknown group.
 
 Reproduce the saved GitHub dataset offline:
 
