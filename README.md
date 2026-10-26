@@ -1,77 +1,89 @@
 # PL Charts
 
-Programming language rankings grouped into categories. A category contains one or more metrics, each with its own definition, table, and update date.
+Programming language rankings grouped into categories, with independent metric definitions, dated observations, downloadable CSVs, and historical plots.
+
+The language cohort is GitHut 2.0’s latest published pull-request top 20: 2024 Q1, after its language exclusions. [data/languages.json](data/languages.json) records the reviewed profiles and pinned source revision. GitHub activity counts come from our own archive queries.
 
 ## Repository layout
 
-| Directory              | Purpose                                                                          |
-| ---------------------- | -------------------------------------------------------------------------------- |
-| `website/`             | JSX static renderer, TypeScript/Vite website, and DOM tests                      |
-| `collectors/`          | TypeScript data collectors and offline tests; uses Node's built-in APIs          |
-| `data/`                | Checked-in source responses, provenance manifests, CSV observations, and exports |
-| `scripts/`, `tests/`   | Shared Git hooks and repository tooling tests                                    |
-| `vendor/modulecounts/` | Ignored reference clone of the original Modulecounts repository                  |
+| Directory            | Purpose                                                                                     |
+| -------------------- | ------------------------------------------------------------------------------------------- |
+| `website/`           | JSX static renderer, TypeScript/Vite client, and DOM tests                                  |
+| `collectors/`        | TypeScript collection scripts, source parsers, and offline tests                            |
+| `data/`              | Source responses, manifests, dated observations, current CSV exports, and language profiles |
+| `scripts/`, `tests/` | Git hooks and shared tooling tests                                                          |
+| `vendor/`            | Ignored Modulecounts and GitHut reference clones                                            |
 
-The root npm workspace provides shared TypeScript, ESLint, and Prettier tooling. Website-specific dependencies are declared in `website/package.json`; collection dependencies are declared in `collectors/package.json`. One root lockfile pins the workspace dependencies.
+The two npm workspaces declare their own dependencies. Shared TypeScript, ESLint, and Prettier tooling belongs at the root. One lockfile pins the dependencies.
 
 ## Development
 
-Use Node.js 22.18 or later and npm. Run commands from the repository root:
+Use Node.js 22.18 or later:
 
 ```sh
 npm ci
 npm run dev
 ```
 
-Open <http://localhost:8000>. The production build writes seven pages and downloadable data to `website/dist/`.
+Open <http://localhost:8000>. The production build writes seven static pages and downloadable exports to `website/dist/`.
 
 ```sh
-npm run typecheck
 npm run lint
+npm run typecheck
 npm test
 npm run build
 npm run preview
 ```
 
-`npm run preview` uses port 8000; stop the development server before starting it. Workspace commands can also be run directly, for example `npm run typecheck --workspace collectors`.
+The development server and preview use port 8000. Edit `website/src/pages.tsx` and its shared JSX components; generated HTML and `.generated/` are ignored. The renderer derives all displayed values from the checked-in CSV exports. The development server watches sources, exports, and language profiles.
 
-## Categories and metrics
+## Metrics
 
-- GitHub: Pushes and Pull Requests.
-- Packages: Published packages.
-- Stack Overflow: Questions and Answers.
-- Stack Overflow Survey: Usage.
-- Releases: Stable releases.
-- Hacker News: Job descriptions.
+| Category              | Metrics                                  | Historical scope                       |
+| --------------------- | ---------------------------------------- | -------------------------------------- |
+| GitHub                | Recorded pushes and opened pull requests | Quarterly, 2011 onward                 |
+| Packages              | Published registry totals                | Four registry snapshots                |
+| Stack Overflow        | Questions and answers created            | Quarterly, 2008–March 2024 snapshot    |
+| Stack Overflow Survey | Reported language use                    | Annual, 2013–2026                      |
+| Releases              | Stable implementation release records    | Annual; source-specific starting dates |
+| Hacker News           | Language mentions in hiring comments     | Monthly rounds, April 2011 onward      |
 
-Category definitions are in `website/src/categories.ts`; metric definitions and ranking values are in `website/src/data.ts`. Qualified metric identifiers match the collection schema. Each category includes annotated references to existing analyses and approaches.
+All numbers are derived from saved sources. Missing measurements display **—**. Complete calendar periods are shown for event metrics; published survey cohorts use their survey year. Plots preserve historical gaps and provide exact-value hover, touch, and keyboard tooltips. Tables sort through their column headers.
 
-Pages are rendered from `website/src/pages.tsx` and shared components in `website/src/components/`. React renders the JSX to HTML during type checks, tests, and production builds. Vite also rerenders pages when JSX, data, or the package CSV changes during development. Generated `website/*.html` and `website/.generated/` are ignored by Git; edit the JSX source.
+Package totals map npm to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Other ecosystems remain unmeasured. Registry totals span shared language ecosystems.
 
-The renderer reads `data/exports/packages.csv` and generates the package values used by both static tables and interactive sorting. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. Package and GitHub update dates use their collection timestamps; other category metrics currently use `1970`.
+GitHub’s language join covers a small and changing fraction of recorded events. Archive capture also changes after 2024. The shaded region and coverage notes identify this limitation; see the [attribution and capture investigation](docs/github-attribution.md).
 
-## Data collection
+## Collection
 
 ```sh
+npm run collect:languages
 npm run collect:packages
 npm run collect:github
+npm run collect:stackoverflow
+npm run collect:surveys
+npm run collect:releases
+npm run collect:hiring
+npm run inspect:github-health
 ```
 
-Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection queries public GH Archive events directly through the latest available archive hour, with quarterly backfill and explicit language-attribution coverage. The GitHub page exposes separate quarter selectors and interactive trend plots for pushes and opened pull requests. Rankings and plots use complete quarters.
-
-Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV. The full quarterly dataset is [data/exports/github.csv](data/exports/github.csv), retaining every attributed language and an Unknown group.
-
-Reproduce the saved GitHub dataset offline:
+Every routine collector supports `--help`, `--data-dir PATH`, `--replay RUN`, and `--source-run RUN`. Historical collectors also accept inclusive `--from YEAR` and `--to YEAR` bounds. For example:
 
 ```sh
-npm run collect:github -- --replay 2026-10-26T09-08-31-760Z
+npm run collect:surveys -- --from 2013 --to 2026
+npm run collect:github -- --replay 2026-10-26T19-48-52-758Z
+npm run collect:releases -- --replay 2026-10-26T22-31-39-335Z
 ```
 
-See [data/README.md](data/README.md) for endpoint definitions, freshness information, the observation schema, and collection plans for every category.
+`--replay` verifies responses and recreates the saved observation CSV byte for byte, without network access. `--source-run` creates a separate derived run from a complete saved source set; source timestamps remain unchanged. It supports normalization experiments and avoids repeated downloads. Changed requests require a new live collection.
+
+The release collector reads public GitHub GraphQL metadata using `GITHUB_TOKEN`, `GH_TOKEN`, or existing `gh auth login` credentials. Other sources use public HTTP endpoints. Replay requires no credentials.
+
+See [data/README.md](data/README.md) for schemas, source definitions, freshness, and replay instructions. The [CSV exports](data/exports/) are the starting point for analysis.
 
 ## Formatting and checks
 
-`npm ci` enables the pre-commit hook. It checks formatting and ESLint rules against staged contents, including partially staged files.
+`npm ci` installs the commit hook. It checks formatting and ESLint against staged contents, including partially staged files.
 
 ```sh
 npm run format
@@ -79,4 +91,4 @@ npm run format:check
 npm run lint:fix
 ```
 
-GitHub Actions checks formatting, lint, tests, TypeScript, and the website build. Raw source responses and the reference clone are excluded from formatting and linting.
+GitHub Actions runs formatting, lint, type checks, offline tests, and the static build. Raw source bodies and reference clones are excluded from formatting and linting.

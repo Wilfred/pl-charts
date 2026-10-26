@@ -23,7 +23,7 @@ The SQL templates are in `collectors/sql/github-attribution/`. These queries do 
 | Repository absent from metadata  | 228,728,686 |        98.2169% |            1,899,774 |          88.4115% |
 | Total                            | 232,881,113 |            100% |            2,148,786 |              100% |
 
-These counts reconcile with the active export's known-language sum and Unknown bucket. The plotted six languages are a subset of the known-language group.
+These counts reconcile with the active export's known-language sum and Unknown bucket. The plotted 20 languages are a subset of the known-language group.
 
 The `repos` table has 9,061,199 distinct repository names; its latest repository `updated_at` is 20 July 2022. `github_repos_history` has 3,819,295 distinct names with observations from June 2024 through 16 June 2026. Those sets overlap. Neither is a census of repositories active during the event window. Newly created, unobserved, renamed, deleted, and transferred repositories can miss the name join. The results directly establish absent metadata; they do not distinguish those individual causes.
 
@@ -57,3 +57,27 @@ The ClickHouse `github_events` projection has neither the original payload nor t
 A stronger next method would build a dated language map from those payloads, use repository IDs where available to handle renames, and supplement missing active repositories with cached GitHub repository metadata. Measure coverage before filtering actors or limiting language groups, and preserve each loss category. Payload-derived attribution still selects for repositories with relevant pull-request activity; its coverage must be measured rather than assumed.
 
 Before treating the lines as language-wide trends, compare quarterly coverage and counts across both methods. Keep source changes under a new method version. The current source counts and Unknown observations remain useful for auditing the join.
+
+## Capture audit: the apparent post-2024 decline
+
+The expanded website uses 20 languages. Expanding that display cohort does not repair the underlying source coverage.
+
+`data/raw/github-health/2026-10-26T22-00-14-966Z/` retains our monthly capture audit. `data/exports/github-health.csv` contains the normalized results. Reproduce it with `npm run inspect:github-health`; replay the saved run with `--replay 2026-10-26T22-00-14-966Z`.
+
+| Month          | Recorded pushes | Recorded PR events | Opened PR events | Represented archive hours |
+| -------------- | --------------: | -----------------: | ---------------: | ------------------------: |
+| January 2026   |      74,652,688 |          9,208,937 |        3,182,595 |                       744 |
+| June 2026      |      95,398,281 |          1,163,246 |          463,726 |                       720 |
+| July 2026      |     112,891,188 |            333,048 |          126,164 |                       744 |
+| August 2026    |      83,158,500 |            348,205 |          131,065 |                       744 |
+| September 2026 |      36,831,425 |          4,979,767 |        1,891,557 |                       720 |
+
+The unjoined PR series itself collapses in July and August and recovers in September. Those two months have all 744 archive-hour timestamps represented. The push series changes differently. Hour presence measures timestamps with stored rows; it cannot certify complete capture or ingestion of each file. Missing-hour counts alone cannot explain these movements.
+
+The retained PR rows report zero missing-action values in this audit. Our metric counts rows with action `opened`; push counts use event rows, rather than payload commit counts. This checks the arithmetic and action handling of the retained source data. It cannot measure events lost before those rows reached the table.
+
+There are therefore two distinct coverage problems: the sparse repository-language join, quantified above, and changing capture in the unjoined archive. Both affect the apparent time trend.
+
+Google’s [September 2026 investigation](https://opensource.googleblog.com/2026/09/how-much-should-you-trust-your-oss-data.html) independently estimates substantially reduced GH Archive retention since 2025, with some 2026 event types near 20%. It advises against using the archive for volume-based metrics. GitHub also [announced reductions to Events API payloads in 2025](https://github.blog/changelog/2025-08-08-upcoming-changes-to-github-events-api-payloads/); field availability is another variable when reconstructing language maps from payloads.
+
+The current series establishes counts of recorded archive events within the attributed subset. It cannot establish a decline in overall GitHub development activity. The site labels that scope, reports attribution coverage, and shades 2025 onward to identify the documented capture-change period. The source data is preserved for inspection and comparison with future collection methods.

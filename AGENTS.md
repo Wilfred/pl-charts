@@ -9,7 +9,7 @@
 - Use clickable column headers and aria-sort for table ordering. Keep period filters separate.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
 - Preserve the charcoal palette, violet accents, readable contrast, keyboard focus, semantic tables, and responsive layouts. Check changes at mobile widths.
-- Category metric badges show their update dates; omit update badges on the homepage. Packages and GitHub use collected snapshot dates; other metrics currently use 1970.
+- Category metric badges show their update dates; omit update badges on the homepage. All metrics use their source observation dates.
 
 ## Structure and data
 
@@ -22,7 +22,9 @@
 - `vendor/modulecounts/` and `vendor/githut/` are ignored reference checkouts. Keep its dependencies separate.
 - Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.
 - Render shared JSX components into static HTML at build time. Edit `website/src/pages.tsx` and `website/src/components/`; generated HTML and `.generated/` are ignored artifacts.
-- Derive package values from the checked-in CSV during rendering. Keep the registry-to-language display mapping documented. Show zero for Go and Ruby until instructed otherwise.
+- Derive all metric values from checked-in CSVs during rendering. Keep registry-to-language and implementation mappings documented. Display missing measurements as —; preserve measured zeros.
+- Use the reviewed 20-language cohort in `data/languages.json`. Preserve source-period labels, exact-value tooltips, and gaps in historical plots.
+- Use the shared collector CLI/runtime for new routine collectors. Keep source-specific parsing and counting rules in adapters. Reuse captured sources for normalization changes; preserve retrieval times.
 
 ## Checks
 

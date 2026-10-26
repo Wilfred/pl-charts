@@ -1,135 +1,163 @@
-# Data collection and storage
+# Collection data
 
-`exports/packages.csv` is the current package-count export. Each row is one registry observation. `observations/packages/` contains dated CSV snapshots; `raw/packages/` contains the original responses and provenance manifests.
+The website reads `exports/*.csv`. These contain measurements and provenance, rather than ranks. Ranks are computed for the reviewed 20-language cohort in `languages.json`.
 
 ```python
 import pandas as pd
 
-counts = pd.read_csv("data/exports/packages.csv")
-print(counts[["entity_id", "value", "observed_at", "source_updated_at"]])
+observations = pd.read_csv("data/exports/stackoverflow.csv")
+print(observations[["metric", "entity_id", "value", "period_start"]])
 ```
 
-Python's standard `csv` module, R, spreadsheets, and DuckDB can read the same files. Counts use integers without thousands separators. Timestamps use UTC ISO 8601. Empty fields represent unavailable metadata.
+The CSVs also work with Python’s standard library, R, DuckDB, and spreadsheets. Values have no thousands separators; percentages use the 0–100 scale. Timestamps are UTC ISO 8601.
 
-## Package collector
-
-From the repository root:
-
-```sh
-npm ci
-npm run collect:packages
-```
-
-The collector makes one request per registry, records the exact response bytes, validates the count, and writes the CSV. A timeout, HTTP failure, or parse failure is recorded in the run manifest. A failed run preserves its responses and leaves the current export unchanged. Each run has a unique directory; existing runs are retained.
-
-| Registry          | Endpoint                              | Counting unit                                   | Method version                     |
-| ----------------- | ------------------------------------- | ----------------------------------------------- | ---------------------------------- |
-| PyPI              | <https://pypi.org/>                   | Homepage project count                          | `pypi-project-count-v1`            |
-| npm               | <https://replicate.npmjs.com/>        | Registry `doc_count`                            | `npm-registry-doc-count-v1`        |
-| crates.io (Cargo) | <https://crates.io/api/v1/summary>    | `num_crates`                                    | `crates-num-crates-v1`             |
-| Maven Central     | <https://search.maven.org/quickstats> | Distinct `groupId:artifactId` pairs, `gaNumber` | `maven-distinct-group-artifact-v1` |
-
-These are aggregate registry totals. PyPI projects and crates are package names; npm reports registry documents; Maven reports coordinates spanning JVM languages. Versions and downloads have separate units. The npm endpoint replaces the original collector's `skimdb.npmjs.com/registry` endpoint. PyPI's homepage HTML and Maven's quickstats endpoint need monitoring for format changes.
-
-The first Maven response reports `2026-06-26T20:33:56Z` as its source modification date, despite being fetched in October. `observed_at` records retrieval; `source_updated_at` records the source's reported freshness. Consumers should inspect both dates.
-
-The original [Modulecounts repository](https://github.com/edebill/modulecounts) is cloned locally at `vendor/modulecounts/`, initially at `0643af5f34e9af7d732d3e95f3d976cdf1389697`. It is ignored by Git and the project tools. To recreate that reference checkout:
-
-```sh
-git clone https://github.com/edebill/modulecounts.git vendor/modulecounts
-git -C vendor/modulecounts checkout 0643af5f34e9af7d732d3e95f3d976cdf1389697
-```
-
-The new TypeScript collector runs independently of the Ruby application.
-
-## Layout and provenance
+## Layout
 
 ```text
 data/
+  languages.json
   raw/<category>/<run_id>/
-    <source>.json or <source>.html
+    <source files>
+    <executed SQL, where applicable>
     manifest.json
   observations/<category>/<run_id>.csv
   exports/<category>.csv
 ```
 
-Raw bodies are retained byte for byte and excluded from formatting. Manifests record the source URL, response status, selected HTTP headers, retrieval timestamp, SHA-256, byte count, parser version, and collector Git revision. The initial collection was performed while the collector was being developed; its recorded Git revision is the parent revision. The implementation is committed alongside the snapshots.
+Raw responses are preserved byte for byte. Manifests record method versions, options, HTTP status, selected response headers, observation times, SHA-256, byte counts, and source-specific metadata. Read-only GraphQL request bodies and SQL are retained. Authentication headers are omitted.
 
-The normalized CSV is derived from those responses. `exports/` contains replaceable convenience copies of the latest complete snapshots. The website copies that directory into its production output, so `packages.csv` can be downloaded directly from the Packages page. Collectors write to `data/` and have no dependency on website code.
+Observation runs are immutable. Publication replaces a current export only after the required sources validate. Failed runs retain their evidence and leave the previous export intact. The collector code and language profiles required for replay are committed with the observations.
+
+## CLI and implementation
+
+All routine collectors support:
+
+| Argument                   | Meaning                                                                              |
+| -------------------------- | ------------------------------------------------------------------------------------ |
+| `--help`                   | Show usage                                                                           |
+| `--data-dir PATH`          | Data root; defaults to this repository’s `data/`                                     |
+| `--replay RUN`             | Verify saved sources and observation CSV offline                                     |
+| `--source-run RUN`         | Produce a new derived run from a complete saved source set, with no network requests |
+| `--from YEAR`, `--to YEAR` | Inclusive bounds for historical collectors                                           |
+
+For example, `npm run collect:hiring -- --help` describes the hiring collector. `--replay` checks request URLs, bodies, checksums, SQL, and exact CSV output. Source reuse preserves the original response timestamps and copies the required responses into a self-contained new run. It permits a subset of cached requests; a missing or changed request fails rather than mixing cached and live data. Original observations remain intact.
+
+`collectors/src/runtime.ts` shares CLI parsing, source capture, verification, cached-source processing, and atomic publication. Adapters retain their own queries, date policies, aliases, pagination, and parsers. GitHub release/tag pagination is shared because several implementation sources use the same API. The legacy replay adapter preserves the original package and direct GitHub snapshots. The one-off attribution diagnostic retains its specific `--cutoff` argument.
 
 ## Observation schema, version 1
 
-| Column                       | Meaning                                                          |
-| ---------------------------- | ---------------------------------------------------------------- |
-| `schema_version`             | Observation format version                                       |
-| `run_id`                     | Collection run identifier                                        |
-| `category`                   | Stable category identifier, such as `packages`                   |
-| `metric`                     | Stable qualified metric identifier, such as `packages.published` |
-| `entity_id`                  | Registry or language identifier                                  |
-| `entity_kind`                | Entity type; currently `registry`                                |
-| `ecosystem`                  | Ecosystem scope, including shared ecosystems such as JVM         |
-| `value`                      | Measured number                                                  |
-| `unit`                       | Unit of measurement                                              |
-| `period_start`, `period_end` | Measurement interval; blank for snapshot totals                  |
-| `observed_at`                | Retrieval time                                                   |
-| `source_updated_at`          | Source-reported update time, when available                      |
-| `source_url`                 | Public source endpoint                                           |
-| `method_version`             | Versioned extraction and counting rule                           |
-| `raw_path`                   | Response path relative to `data/`                                |
+| Column                       | Meaning                                                     |
+| ---------------------------- | ----------------------------------------------------------- |
+| `schema_version`             | Observation schema version                                  |
+| `run_id`                     | Immutable collection identifier                             |
+| `category`, `metric`         | Source category and qualified metric identifier             |
+| `entity_id`, `entity_kind`   | Language, registry, or archive identifier and type          |
+| `ecosystem`                  | Scope; implementation name for release counts               |
+| `value`, `unit`              | Observed quantity and its unit                              |
+| `period_start`, `period_end` | Half-open measurement interval; blank for stock snapshots   |
+| `observed_at`                | Retrieval time of the underlying response                   |
+| `source_updated_at`          | Source-reported freshness or archive cutoff, when available |
+| `source_url`                 | Public source endpoint                                      |
+| `method_version`             | Extraction and counting method                              |
+| `raw_path`                   | Response path relative to `data/`                           |
 
-Ranks are presentation outputs. Store the underlying values and coverage so researchers can calculate ranks over their own entity sets.
+A missing measurement is an absent observation, rather than a fabricated zero. Zero counts represent no matching records within the measured source window. Source archives may themselves be incomplete. The website omits partial calendar periods, preserves gaps, and displays missing values as —. Published annual surveys are complete survey cohorts, including the current survey year.
 
-## Plan for the remaining categories
+## Language cohort
 
-Use the same raw → validated observations → export sequence for each category. Keep collection separate from rendering. Each adapter should publish its entity coverage, time window, method version, and source parameters in its manifest.
+`language-selection.csv` retains the top 20 from GitHut 2.0’s latest published pull-request quarter, 2024 Q1, applying its non-language exclusions. The pinned revision is `401c43b4c206088b7a8a46ce3840d369c6b6e850`. Raw ranking and exclusion files accompany the selection. `collect:languages` verifies the reviewed profiles against that source; it does not overwrite the curated profile definitions.
 
-| Category              | Metrics                                            | Collection approach                                                                                               | Decisions to record                                                                                                    |
-| --------------------- | -------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| GitHub                | `github.pushes`, `github.pull_requests`            | Query GH Archive events directly by UTC quarter                                                                   | Event actions, bot filtering, primary-language attribution, fork policy, query text, dataset partition, and query cost |
-| Packages              | `packages.published`                               | Snapshot the four public aggregate endpoints                                                                      | Registry scope, package names versus versions, source freshness, and missing observations                              |
-| Stack Overflow        | `stackoverflow.questions`, `stackoverflow.answers` | Aggregate posts by language tags using Stack Exchange datasets or Data Explorer; join answers to parent questions | Tag aliases, version tags, deleted posts, parent-tag attribution, and snapshot versus monthly counts                   |
-| Stack Overflow Survey | `survey.usage`                                     | Read the annual downloadable survey files                                                                         | Survey year, question identifier, respondent cohort, missing answers, multi-select denominator, and license            |
-| Releases              | `releases.stable`                                  | Parse official version histories into dated release events before yearly aggregation                              | Implementation, stable channel, feature/maintenance classification, publication date, and duplicate tags               |
-| Hacker News           | `hacker_news.job_descriptions`                     | Fetch monthly hiring threads through the HN API and classify top-level employer comments                          | Thread IDs, comment coverage, language aliases, deleted comments, company duplicates, and matching rules               |
+The cohort is Python, Java, Go, JavaScript, C++, TypeScript, PHP, Ruby, C, C#, Nix, Shell, Rust, Scala, Kotlin, Swift, Dart, Groovy, Perl, and Lua. Profiles define display colors, canonical Stack Overflow tags, survey aliases, and hiring-mention rules.
 
-Start each adapter with a small saved fixture and offline tests. Retain source-native identifiers and raw numeric measurements. For surveys and mention shares, preserve the numerator, denominator, cohort, and question or matching definition in a sidecar manifest; a shared dimension table or an explicitly versioned schema extension can expose those fields when the first adapter is implemented.
+## Packages
 
-For events, use explicit half-open intervals `[period_start, period_end)` in UTC. For stock counts, record observation times without inventing an interval. Record gaps as missing observations. Retain revised source data as a new run and identify corrections through the method version and manifest.
+| Registry      | Endpoint                              | Counting unit                                   |
+| ------------- | ------------------------------------- | ----------------------------------------------- |
+| PyPI          | <https://pypi.org/>                   | Homepage project total                          |
+| npm           | <https://replicate.npmjs.com/>        | Registry `doc_count`                            |
+| crates.io     | <https://crates.io/api/v1/summary>    | `num_crates`                                    |
+| Maven Central | <https://search.maven.org/quickstats> | Distinct `groupId:artifactId` pairs, `gaNumber` |
 
-Suggested collection cadence is daily for package totals, monthly for GitHub/HN/Stack Overflow aggregates, annually for surveys, and at each published release for release histories. Introduce scheduling after validating each adapter's completeness and request cost. Large event-level datasets should use compressed, partitioned files or separately hosted archives with checked-in manifests and checksums; keep the small aggregate CSV exports in Git.
+The display maps these totals to Python, JavaScript, Rust, and Java. Other language ecosystems are missing. npm and Maven span several languages; these are ecosystem totals. Versions and downloads are separate quantities.
 
-The website renderer reads `exports/packages.csv` at build time. Its display maps npm to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java; Go and Ruby display zero. This attribution is a presentation convention: npm covers JavaScript and TypeScript, and Maven covers JVM languages. Raw observations retain registry entities and ecosystem scope.
+The Maven response reports `2026-06-26T20:33:56Z` despite October retrieval. That freshness is preserved independently of `observed_at`. The original Modulecounts clone is ignored at `vendor/modulecounts/`, revision `0643af5f34e9af7d732d3e95f3d976cdf1389697`.
 
-Package update badges show the latest `observed_at` date in the snapshot. Source freshness remains available in `source_updated_at`, including Maven’s older reported date. GitHub also uses collected quarterly data; Stack Overflow, surveys, releases, and Hacker News retain design values.
+## GitHub
 
-## Quarterly GitHub backfill
+The collector executes our own SQL over [ClickHouse’s GH Archive mirror](https://clickhouse.com/docs/get-started/sample-datasets/github-events). `github.pushes` counts PushEvent rows; `github.pull_requests` counts PullRequestEvent rows with action `opened`. Bots and forks are included. Language attribution uses the latest known primary language in the separate repository metadata tables, applied retrospectively by repository name. Unmatched repositories and empty languages remain in the **Unknown** bucket.
+
+The active snapshot has 64 quarters from 2011 Q1 through partial 2026 Q4, cut off at `2026-10-26T19:00:00.000Z`. The site uses 62 complete quarters from 2011 Q2 to 2026 Q3. The first archive quarter is partial because GH Archive began on 12 February 2011. All source language groups remain in the CSV.
+
+Coverage is the sum of known-language counts divided by all recorded counts. It varies substantially and describes the mirror, rather than the entire platform. In 2026 Q3 it is 1.4767% for pushes and 11.3089% for opened pull requests. [The investigation](../docs/github-attribution.md) separates metadata loss from upstream capture changes.
+
+`github-health.csv` publishes monthly unjoined event counts, opened requests, missing-action counts, and recorded hourly-file counts. Reproduce it with `npm run inspect:github-health`. Presence of an hourly file does not establish complete event capture. The older GitHut metric import remains as historical provenance; the active activity export uses direct queries.
+
+## Stack Overflow
+
+The collector queries the public [Stack Overflow post snapshot](https://clickhouse.com/docs/data-modeling/schema-design), ending 31 March 2024. Questions are grouped by their creation quarter and canonical language tags. Answers are grouped by their own creation quarter and inherit tags through `ParentId`. An answer can contribute to several languages.
+
+The tag mapping is in `languages.json`; Shell uses `bash`. Dates cover retained posts from 2008 onward. Deleted posts and tag edits affect these reconstructed historical counts. The API snapshot, queries, raw aggregates, and source bounds are retained.
+
+## Stack Overflow Survey
+
+Annual usage covers 2013–2026 from the [official survey repository](https://github.com/StackExchange/Survey), pinned to the commit recorded in each manifest.
+
+| Years     | Source and denominator                                                                               |
+| --------- | ---------------------------------------------------------------------------------------------------- |
+| 2013–2014 | Raw checkbox matrices; respondents answering the past-year language/technology question              |
+| 2015      | Raw current-technology checkbox fields; respondents selecting at least one current technology        |
+| 2016      | Raw `tech_do` responses; nonempty current-technology answers                                         |
+| 2017–2019 | Published all-respondent language percentages and their stated denominators                          |
+| 2020–2025 | Published all-respondent language datasets, with frequencies and denominators                        |
+| 2026      | The language-use slice for all respondents; desired use, AI use, and experience cohorts are separate |
+
+The earlier 2011–2012 questions measured proficiency. The usage series starts with the past-year-use question in 2013. Respondent populations and wording change across years. Version-specific C++ options are combined once per respondent in the older CSVs. Shell follows the published combined shell option. Languages absent from a question remain missing; Nix is absent from these published options.
+
+Exact numerators, denominators, option labels, and question definitions are preserved when available. Older published percentages without numerator counts retain that limitation. Normalized percentages use four decimal places; tooltips and CSVs preserve that precision.
+
+## Releases
+
+Annual counts describe stable implementation release records in official histories. Maintenance releases are included. Drafts, prereleases, unreleased changelog entries, and future publication dates are excluded. Repeated version identifiers are deduplicated. Each language starts after the first recorded year, keeping that potentially partial source year outside the aggregated series. Source completeness can still vary within those histories.
+
+| Language      | Implementation/source                                     | Date basis                                                       |
+| ------------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
+| Python        | CPython download API                                      | Official release date                                            |
+| Java          | Eclipse Temurin GA API                                    | GA publication timestamp                                         |
+| JavaScript    | Node.js distribution index                                | Distribution-index date                                          |
+| C, C++        | GCC release history                                       | Official release date; the two languages share the toolchain     |
+| Go            | Go release history                                        | Official release date                                            |
+| TypeScript    | TypeScript compiler GitHub releases                       | Publication timestamp                                            |
+| PHP           | Official PHP release records and current branch endpoints | Official release date                                            |
+| Ruby          | CRuby release table                                       | Official release date                                            |
+| C#            | .NET runtime release metadata                             | Official release date                                            |
+| Nix           | Stable numeric Nix version tags                           | Annotated tag timestamp; tagged commit date for lightweight tags |
+| Shell         | GNU Bash source archives and numbered patches             | Source archive/patch modification date                           |
+| Rust          | Official stable compiler changelog                        | Dated release entry                                              |
+| Scala         | Scala 2 and Scala 3 compiler releases                     | Publication timestamp                                            |
+| Kotlin, Swift | Official compiler GitHub releases                         | Publication timestamp                                            |
+| Dart          | Official SDK changelog                                    | Explicit date on a stable version entry                          |
+| Groovy        | Apache Groovy release versions                            | Official issue-tracker release date                              |
+| Perl          | Released Perl 5 distributions on CPAN                     | Publication timestamp                                            |
+| Lua           | Official source archives                                  | Archive date                                                     |
+
+Canonical version/date events and source-specific starting years are included in the manifest, alongside all original responses. The active derived run aggregates the full available history. It preserves the earlier capture’s HTTP timestamps. The original `2026-10-26T22-03-06-362Z` capture used a 2011 starting bound; replay it with `--from 2011`. The active run is `2026-10-26T22-31-39-335Z`.
+
+## Hacker News
+
+The collector queries the public HN mirror for stories by `whoishiring` whose title begins with “Ask HN: Who is hiring?”, case-insensitively. It counts distinct top-level comment IDs, excluding reported deleted/dead comments. Months follow the thread’s publication month; later comments remain attributed to that hiring round. Thread IDs and comment totals are retained in the manifest.
+
+HTML is stripped, entities decoded, and Series C funding phrases removed before matching the reviewed language aliases. Java and JavaScript are distinct; C excludes C++/C#; Go uses case-aware/contextual forms and Golang. Matching is lexical and can have false positives and negatives. A comment contributes at most once per language and can contribute to several languages.
+
+The source includes 184 observed rounds from April 2011 through partial October 2026. Missing rounds remain gaps. The website ends at the last complete month.
+
+## Replay examples
 
 ```sh
-npm run collect:github
-npm run collect:github -- --replay RUN_ID
-```
-
-The collector runs our own SQL against [ClickHouse’s public GitHub event database](https://clickhouse.com/docs/get-started/sample-datasets/github-events), a mirror of [GH Archive](https://www.gharchive.org/). No GitHut aggregates enter this method. Each run queries the full available history, including the current partial quarter. It selects an exclusive cutoff at the end of the latest archived hour, then bounds both event timestamps and archive file timestamps. The archive begins on 2011-02-12, so the first quarter is also partial. Source ingestion gaps remain a property of the archive; the cutoff does not certify uninterrupted delivery.
-
-`github.pushes` counts PushEvent rows. `github.pull_requests` counts PullRequestEvent rows whose action is `opened`. Bots and forks are included. Requests are attributed to the destination repository. Counts describe public activity retained by the source.
-
-Language attribution joins repository names to `repos` and `github_repos_history`, taking the latest known primary language at the cutoff (lexical language breaks timestamp ties). `repos` is an older metadata snapshot; the history table adds later observations. The join is case-sensitive and cannot resolve repository renames. Attribution applies that snapshot language to all historical events. It is not the language of each changed file. The metadata covers a subset of repositories, particularly for recent activity; these are counts within the attributed subset. Unmatched repositories and empty primary languages are retained under `Unknown`. Calculate coverage as the sum of known-language counts divided by all counts for the metric and quarter. Changes in coverage can affect trends.
-
-Every language group is retained. An absent group within a covered quarter is normalized to zero; gaps between quarters abort publication. CSV intervals are half-open UTC intervals; the final quarter ends at the source cutoff. The first quarter starts at its calendar boundary, with the actual archive start recorded in the manifest. The method is `gharchive-clickhouse-primary-language-v1`.
-
-Raw JSON query responses, executed SQL, response checksums, query statistics, collection timestamps, source bounds, and normalized observations are checked in. `--replay` verifies checksums and SQL and recreates the observation CSV byte for byte without network access. A fresh live run may differ as the archive and repository metadata change; offline replay reproduces the saved run. Publication replaces `exports/github.csv` atomically after validation. A failed query leaves the previous export intact.
-
-The older GitHut import remains in its dated raw and observation directories as historical provenance. It is not used by the direct collector or the active website export, and its counting rules differ.
-
-The current run is `2026-10-26T19-48-52-758Z`: 80,512 observations, 64 quarters (2011 Q1–2026 Q4), 628 named languages plus Unknown, and a cutoff of `2026-10-26T19:00:00.000Z`. The latest quarter attributes 3.3% of pushes and 10.1% of opened pull requests to a known language. The website uses the 62 complete quarters from 2011 Q2 through 2026 Q3. Both plots show attribution coverage for those displayed quarters. Refresh and replay:
-
-```sh
-npm run collect:github
 npm run collect:github -- --replay 2026-10-26T19-48-52-758Z
+npm run collect:surveys -- --replay 2026-10-26T22-24-23-807Z
+npm run collect:stackoverflow -- --replay 2026-10-26T21-24-13-197Z
+npm run collect:hiring -- --replay 2026-10-26T21-55-17-257Z
+npm run collect:releases -- --replay 2026-10-26T22-31-39-335Z
 ```
 
-The collector test suite replays the active export offline and compares it with its saved observation CSV. Website tests check partial intervals, Unknown coverage, plot gaps, independent language controls, and point tooltips.
-
-## Attribution investigation
-
-[The attribution report](../docs/github-attribution.md) compares the current join with GitHut’s implementation and records the loss categories. Reproduce its diagnostic queries with `npm run inspect:github -- --cutoff 2026-10-26T19:00:00.000Z`. Exact responses, SQL, and checksums are retained under `raw/github-attribution/`.
+Collector tests replay active exports offline. Website tests reconcile every history with its CSV, preserve missing values and partial periods, and check sorting, source dates, plots, and point tooltips.
