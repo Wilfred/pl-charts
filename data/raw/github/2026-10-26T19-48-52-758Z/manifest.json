@@ -1,0 +1,23 @@
+{
+  "status": "complete",
+  "method": "gharchive-clickhouse-primary-language-v1",
+  "run_id": "2026-10-26T19-48-52-758Z",
+  "cutoff": "2026-10-26T19:00:00.000Z",
+  "first_event": "2011-02-12T00:00:00.000Z",
+  "sources": [
+    {
+      "path": "coverage.json",
+      "sha256": "8a6b7988c6f74b28031ebf3d325b248160b39903e9d6e1b0ab7eed9ba9678817",
+      "bytes": 447,
+      "observed_at": "2026-10-26T19:48:54.164Z",
+      "query": "SELECT min(created_at) AS first_event, max(created_at) AS last_event,\n  max(file_time) AS last_file FROM github_events FORMAT JSON"
+    },
+    {
+      "path": "quarters.json",
+      "sha256": "4c5e5363d01028320e8a50579d804478f3b234ce6d308c805f9e93201c9c1bd7",
+      "bytes": 2962730,
+      "observed_at": "2026-10-26T19:49:09.026Z",
+      "query": "-- UTC half-open intervals; repository language is the latest known at the cutoff.\nSELECT toYear(e.created_at) AS year, toQuarter(e.created_at) AS quarter,\n  if(r.language = '', 'Unknown', r.language) AS name,\n  countIf(e.event_type = 'PushEvent') AS pushes,\n  countIf(e.event_type = 'PullRequestEvent' AND e.action = 'opened') AS pull_requests\nFROM github_events e\nLEFT JOIN (\n  SELECT full_name, argMax(language, tuple(snapshot_at, language)) AS language\n  FROM (\n    SELECT full_name, language, updated_at AS snapshot_at FROM repos\n    UNION ALL\n    SELECT full_name, language, time AS snapshot_at FROM github_repos_history\n  ) WHERE snapshot_at < '2026-10-26 19:00:00' GROUP BY full_name\n) r ON e.repo_name = r.full_name\nWHERE e.event_type IN ('PushEvent', 'PullRequestEvent')\n  AND e.created_at < '2026-10-26 19:00:00' AND e.file_time < '2026-10-26 19:00:00'\nGROUP BY year, quarter, name ORDER BY year, quarter, name\nSETTINGS max_execution_time = 60, max_memory_usage = 20000000000\nFORMAT JSON"
+    }
+  ]
+}

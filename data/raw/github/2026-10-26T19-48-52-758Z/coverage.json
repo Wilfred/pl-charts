@@ -1,0 +1,35 @@
+{
+	"meta":
+	[
+		{
+			"name": "first_event",
+			"type": "DateTime"
+		},
+		{
+			"name": "last_event",
+			"type": "DateTime"
+		},
+		{
+			"name": "last_file",
+			"type": "DateTime"
+		}
+	],
+
+	"data":
+	[
+		{
+			"first_event": "2011-02-12 00:00:00",
+			"last_event": "2026-10-26 18:59:56",
+			"last_file": "2026-10-26 18:00:00"
+		}
+	],
+
+	"rows": 1,
+
+	"statistics":
+	{
+		"elapsed": 1.246193551,
+		"rows_read": 9921683172,
+		"bytes_read": 79373465440
+	}
+}
