@@ -1,3 +1,4 @@
 #!/bin/sh
 set -eu
 node scripts/check-staged-format.ts
+node scripts/check-staged-lint.ts

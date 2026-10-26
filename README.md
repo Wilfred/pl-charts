@@ -34,16 +34,20 @@ The production build writes all seven pages and their assets to `dist/`. `npm ru
 
 The HTML includes initial ranking rows. Update those rows when changing counts in `src/data.ts`; tests check that they match the interactive tables.
 
-## Formatting and checks
+## Formatting, linting, and checks
 
-`npm ci` enables the pre-commit hook in `.githooks`. The hook checks staged file contents, including partially staged files. Format files and stage them before committing:
+`npm ci` enables the pre-commit hook in `.githooks`. The hook checks formatting and ESLint rules against staged file contents, including partially staged files. Format files and stage them before committing:
 
 ```sh
 npm run format
 npm run format:check
+npm run lint
+npm run lint:fix
 ```
 
-GitHub Actions checks formatting, runs tests, type-checks TypeScript, and builds all pages on pushes and pull requests.
+ESLint uses the recommended JavaScript and TypeScript rules with formatting rules disabled in favor of Prettier.
+
+GitHub Actions checks formatting and lint, runs tests, type-checks TypeScript, and builds all pages on pushes and pull requests.
 
 ## References
 
