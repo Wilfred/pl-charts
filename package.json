@@ -13,7 +13,8 @@
     "lint": "eslint . --max-warnings 0",
     "lint:fix": "eslint . --fix --max-warnings 0",
     "collect:packages": "npm run collect:packages --workspace collectors",
-    "collect:github": "npm run collect:github --workspace collectors --"
+    "collect:github": "npm run collect:github --workspace collectors --",
+    "inspect:github": "npm run inspect:github --workspace collectors --"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
