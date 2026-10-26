@@ -6,6 +6,7 @@
 - Pages represent categories; a category contains one or more independently defined metrics.
 - Categories are GitHub, Packages, Stack Overflow, Stack Overflow Survey, Releases, and Hacker News. Keep qualified metric IDs consistent with the data schema.
 - Keep interface prose concise and factual. Describe each counting method once. Use sentence case and omit redundant labels and navigation.
+- Use clickable column headers and aria-sort for table ordering. Keep period filters separate.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
 - Preserve the charcoal palette, violet accents, readable contrast, keyboard focus, semantic tables, and responsive layouts. Check changes at mobile widths.
 - Category metric badges show their update dates; omit update badges on the homepage. Packages use the collected snapshot date; other metrics currently use 1970.

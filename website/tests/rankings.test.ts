@@ -79,19 +79,32 @@ test("all metrics and release years have a finite count for each language", () =
 });
 for (const category of CATEGORIES) {
   test(`${category.label}: all metrics render and sort independently`, () => {
-    const { window, document } = loadPage(category.href);
+    const { document } = loadPage(category.href);
     const initial = [...document.querySelectorAll("[data-metric]")].map(
       (section) => rows(section),
     );
     assert.equal(initial.length, category.metrics.length);
+    const captions = [...document.querySelectorAll("caption")].map(
+      (caption) => caption.textContent,
+    );
     initializeRankings(document);
+    assert.deepEqual(
+      [...document.querySelectorAll("caption")].map(
+        (caption) => caption.textContent,
+      ),
+      captions,
+    );
     category.metrics.forEach((metric, index) => {
       const section = document.querySelector(`[data-metric="${metric}"]`);
       assert.ok(section);
       assert.deepEqual(rows(section), initial[index]);
       assert.equal(rows(section).length, 6);
       const before = rows(section);
-      select(section, window, ".ranking-order", "language");
+      const button = section.querySelector<HTMLButtonElement>(
+        'button[data-sort="language"]',
+      );
+      assert.ok(button);
+      button.click();
       const after = rows(section);
       assert.equal(after[0]?.[1], "Go");
       assert.deepEqual([...before].sort(), [...after].sort());
@@ -112,22 +125,26 @@ for (const category of CATEGORIES) {
     });
     assert.equal(
       document.querySelector(
-        "input[type=search], .breadcrumb, .eyebrow, .sample-notice, .prototype-tag",
+        "input[type=search], .breadcrumb, .eyebrow, .sample-notice, .prototype-tag, .table-note",
       ),
       null,
     );
   });
 }
 test("overview includes every metric and preserves ranks when ordering changes", () => {
-  const { window, document } = loadPage("index.html");
+  const { document } = loadPage("index.html");
   const section = document.querySelector("[data-overview]");
   assert.ok(section);
   const initial = rows(section);
   initializeRankings(document);
   assert.deepEqual(rows(section), initial);
-  assert.equal(section.querySelectorAll("time").length, METRICS.length);
+  assert.equal(section.querySelectorAll("time, .updated-badge").length, 0);
   assert.equal(initial[0]?.length, METRICS.length + 1);
-  select(section, window, ".ranking-order", "hacker_news.job_descriptions");
+  const button = section.querySelector<HTMLButtonElement>(
+    'button[data-sort="hacker_news.job_descriptions"]',
+  );
+  assert.ok(button);
+  button.click();
   assert.equal(rows(section)[0]?.[0], "Python");
   assert.equal(rows(section)[0]?.at(-1), "#1");
   assert.deepEqual([...initial].sort(), rows(section).sort());
@@ -179,4 +196,36 @@ test("categories have canonical navigation, metric anchors, and annotated refere
       assert.ok(item.querySelector("p")?.textContent?.trim());
     }
   }
+});
+
+test("column headers toggle directions and expose the active sort to assistive technology", () => {
+  const { document } = loadPage("packages.html");
+  initializeRankings(document);
+  const section = document.querySelector('[data-metric="packages.published"]');
+  assert.ok(section);
+  const language = section.querySelector<HTMLButtonElement>(
+    'button[data-sort="language"]',
+  );
+  const value = section.querySelector<HTMLButtonElement>(
+    'button[data-sort="value"]',
+  );
+  const rank = section.querySelector<HTMLButtonElement>(
+    'button[data-sort="rank"]',
+  );
+  assert.ok(language && value && rank);
+  assert.equal(rank.closest("th")?.getAttribute("aria-sort"), "ascending");
+  language.click();
+  assert.equal(rows(section)[0]?.[1], "Go");
+  assert.equal(language.closest("th")?.getAttribute("aria-sort"), "ascending");
+  language.click();
+  assert.equal(rows(section)[0]?.[1], "Rust");
+  assert.equal(language.closest("th")?.getAttribute("aria-sort"), "descending");
+  value.click();
+  assert.equal(rows(section)[0]?.[1], "JavaScript");
+  assert.equal(value.closest("th")?.getAttribute("aria-sort"), "descending");
+  value.click();
+  assert.deepEqual(rows(section)[0], ["#5", "Go", "0"]);
+  assert.equal(value.closest("th")?.getAttribute("aria-sort"), "ascending");
+  assert.equal(section.querySelectorAll("th[aria-sort]").length, 1);
+  assert.equal(section.querySelector(".ranking-order"), null);
 });

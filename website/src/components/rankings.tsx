@@ -5,7 +5,6 @@ import {
   METRIC_INFO,
   RELEASE_YEARS,
   formatValue,
-  metricCategory,
   rankLanguages,
   type Language,
   type Metric,
@@ -35,39 +34,63 @@ function UpdatedDate({ metric }: { metric: Metric }) {
     </span>
   );
 }
-function TableControls({ metric }: { metric?: Metric }) {
+function SortHeader({
+  sortKey,
+  label,
+  numeric = false,
+  initial,
+  rowSpan,
+}: {
+  sortKey: string;
+  label: string;
+  numeric?: boolean;
+  initial?: "ascending" | "descending";
+  rowSpan?: number;
+}) {
+  return (
+    <th
+      scope="col"
+      className={numeric ? "numeric" : undefined}
+      aria-sort={initial}
+      rowSpan={rowSpan}
+    >
+      <button
+        type="button"
+        className="sort-button"
+        data-sort={sortKey}
+        aria-label={`Sort by ${label}`}
+        disabled
+      >
+        {label}
+        <svg
+          className="sort-indicator"
+          width="8"
+          height="14"
+          viewBox="0 0 8 14"
+          aria-hidden="true"
+          focusable="false"
+        >
+          <path className="sort-up" d="M4 1 8 6H0Z" fill="currentColor" />
+          <path className="sort-down" d="m4 13 4-5H0Z" fill="currentColor" />
+        </svg>
+      </button>
+    </th>
+  );
+}
+
+function ReleaseFilter() {
   return (
     <div className="table-controls" hidden>
       <label>
-        Order by
-        <select
-          className="ranking-order"
-          defaultValue={metric ? "rank" : METRICS[0]}
-        >
-          {metric ? (
-            <option value="rank">Rank</option>
-          ) : (
-            METRICS.map((id) => (
-              <option key={id} value={id}>
-                {metricCategory(id).label} · {METRIC_INFO[id].label}
-              </option>
-            ))
-          )}
-          <option value="language">Language A–Z</option>
+        Year
+        <select className="release-year" defaultValue={String(DEFAULT_YEAR)}>
+          {RELEASE_YEARS.map((year) => (
+            <option key={year} value={year}>
+              {year}
+            </option>
+          ))}
         </select>
       </label>
-      {metric === "releases.stable" && (
-        <label>
-          Year
-          <select className="release-year" defaultValue={String(DEFAULT_YEAR)}>
-            {RELEASE_YEARS.map((year) => (
-              <option key={year} value={year}>
-                {year}
-              </option>
-            ))}
-          </select>
-        </label>
-      )}
     </div>
   );
 }
@@ -92,7 +115,7 @@ export function MetricSection({ metric }: { metric: Metric }) {
         )}
       </div>
       <p className="metric-description">{info.description}</p>
-      <TableControls metric={metric} />
+      {metric === "releases.stable" && <ReleaseFilter />}
       <div
         className="table-wrap"
         tabIndex={0}
@@ -107,13 +130,14 @@ export function MetricSection({ metric }: { metric: Metric }) {
           </caption>
           <thead>
             <tr>
-              <th scope="col" className="numeric">
-                Rank
-              </th>
-              <th scope="col">Language</th>
-              <th scope="col" className="numeric">
-                {info.unit}
-              </th>
+              <SortHeader
+                sortKey="rank"
+                label="Rank"
+                numeric
+                initial="ascending"
+              />
+              <SortHeader sortKey="language" label="Language" />
+              <SortHeader sortKey="value" label={info.unit} numeric />
             </tr>
           </thead>
           <tbody>
@@ -150,7 +174,6 @@ export function Comparison() {
         Ranks are calculated separately for each metric. Release ranks use{" "}
         {DEFAULT_YEAR} counts.
       </p>
-      <TableControls />
       <div
         className="table-wrap"
         role="region"
@@ -163,9 +186,7 @@ export function Comparison() {
           </caption>
           <thead>
             <tr>
-              <th scope="col" rowSpan={2}>
-                Language
-              </th>
+              <SortHeader sortKey="language" label="Language" rowSpan={2} />
               {CATEGORIES.map((category) => (
                 <th
                   key={category.id}
@@ -179,14 +200,13 @@ export function Comparison() {
             </tr>
             <tr>
               {METRICS.map((metric) => (
-                <th key={metric} scope="col" className="numeric">
-                  <a
-                    href={`${metricCategory(metric).href}#${metricAnchor(metric)}`}
-                  >
-                    {METRIC_INFO[metric].label}
-                  </a>
-                  <UpdatedDate metric={metric} />
-                </th>
+                <SortHeader
+                  key={metric}
+                  sortKey={metric}
+                  label={METRIC_INFO[metric].label}
+                  numeric
+                  initial={metric === METRICS[0] ? "descending" : undefined}
+                />
               ))}
             </tr>
           </thead>
@@ -211,7 +231,6 @@ export function Comparison() {
           </tbody>
         </table>
       </div>
-      <p className="table-note">Ties share a rank and leave a gap: 1, 1, 3.</p>
     </section>
   );
 }

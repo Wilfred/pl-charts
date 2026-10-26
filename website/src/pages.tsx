@@ -53,9 +53,6 @@ export function renderPage(path: string): string {
         {category.metrics.map((metric) => (
           <MetricSection key={metric} metric={metric} />
         ))}
-        <p className="table-note">
-          Ties share a rank and leave a gap: 1, 1, 3.
-        </p>
         <CategoryReferences category={category} />
       </PageDocument>,
     )

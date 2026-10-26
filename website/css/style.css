@@ -275,11 +275,6 @@ tbody tr:hover {
 .ruby {
   background: #d57888;
 }
-.table-note {
-  font-size: 12px;
-  color: var(--muted);
-  margin-top: 12px;
-}
 .detail-table .rank-cell {
   width: 100px;
   font-family: "Space Grotesk", sans-serif;
@@ -463,11 +458,6 @@ body[data-page="overview"] thead th[rowspan] {
   white-space: nowrap;
   font-weight: 400;
 }
-thead .updated-badge {
-  display: flex;
-  width: fit-content;
-  margin: 8px 0 0 auto;
-}
 .metric-description {
   color: var(--muted);
   font-size: 14px;
@@ -504,4 +494,47 @@ body[data-page="overview"] th,
 body[data-page="overview"] td {
   padding-left: 12px;
   padding-right: 12px;
+}
+.sort-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: inherit;
+  gap: 6px;
+  padding: 0;
+  min-height: 28px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+}
+.sort-button:disabled {
+  cursor: default;
+}
+.sort-button:disabled .sort-indicator {
+  visibility: hidden;
+}
+.sort-button:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+.sort-button:enabled:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.sort-indicator {
+  flex-shrink: 0;
+  opacity: 0.35;
+}
+th[aria-sort] .sort-indicator {
+  opacity: 1;
+}
+th[aria-sort="ascending"] .sort-down,
+th[aria-sort="descending"] .sort-up {
+  opacity: 0.2;
+}
+@media (max-width: 700px) {
+  .sort-button {
+    min-height: 44px;
+  }
 }
