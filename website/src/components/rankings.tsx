@@ -1,5 +1,9 @@
 import {
   CATEGORIES,
+  GITHUB_QUARTERS,
+  DEFAULT_GITHUB_QUARTER,
+  formatQuarter,
+  formatRank,
   DEFAULT_YEAR,
   METRICS,
   METRIC_INFO,
@@ -95,6 +99,26 @@ function ReleaseFilter() {
   );
 }
 
+function QuarterFilter() {
+  return (
+    <div className="table-controls" hidden>
+      <label>
+        Quarter
+        <select
+          className="github-quarter"
+          defaultValue={DEFAULT_GITHUB_QUARTER}
+        >
+          {[...GITHUB_QUARTERS].reverse().map((quarter) => (
+            <option key={quarter} value={quarter}>
+              {formatQuarter(quarter)}
+            </option>
+          ))}
+        </select>
+      </label>
+    </div>
+  );
+}
+
 export function MetricSection({ metric }: { metric: Metric }) {
   const info = METRIC_INFO[metric];
   const anchor = metricAnchor(metric);
@@ -108,14 +132,25 @@ export function MetricSection({ metric }: { metric: Metric }) {
       <div className="metric-heading">
         <h2 id={`heading-${anchor}`}>{info.label}</h2>
         <UpdatedDate metric={metric} />
-        {metric === "packages.published" && (
-          <a href="packages.csv" download className="data-download">
+        {(metric === "packages.published" ||
+          metric === "github.pushes" ||
+          metric === "github.pull_requests") && (
+          <a
+            href={
+              metric === "packages.published" ? "packages.csv" : "github.csv"
+            }
+            download
+            className="data-download"
+          >
             CSV
           </a>
         )}
       </div>
       <p className="metric-description">{info.description}</p>
       {metric === "releases.stable" && <ReleaseFilter />}
+      {(metric === "github.pushes" || metric === "github.pull_requests") && (
+        <QuarterFilter />
+      )}
       <div
         className="table-wrap"
         tabIndex={0}
@@ -126,7 +161,7 @@ export function MetricSection({ metric }: { metric: Metric }) {
           <caption className="sr-only">
             {metric === "releases.stable"
               ? `Stable release rankings, ${DEFAULT_YEAR}`
-              : `${info.label} rankings`}
+              : `${info.label} rankings${metric.startsWith("github.") ? `, ${formatQuarter(DEFAULT_GITHUB_QUARTER)}` : ""}`}
           </caption>
           <thead>
             <tr>
@@ -143,7 +178,7 @@ export function MetricSection({ metric }: { metric: Metric }) {
           <tbody>
             {rankLanguages(metric).map((row) => (
               <tr key={row.language}>
-                <td className="numeric rank-cell">#{row.rank}</td>
+                <td className="numeric rank-cell">{formatRank(row.rank)}</td>
                 <LanguageCell language={row.language} />
                 <td className="numeric count-cell">
                   {formatValue(metric, row.value)}
@@ -171,8 +206,8 @@ export function Comparison() {
       aria-label="Metric comparison"
     >
       <p className="section-description">
-        Ranks are calculated separately for each metric. Release ranks use{" "}
-        {DEFAULT_YEAR} counts.
+        GitHub ranks use {formatQuarter(DEFAULT_GITHUB_QUARTER)}. Release ranks
+        use {DEFAULT_YEAR} counts.
       </p>
       <div
         className="table-wrap"
@@ -221,7 +256,7 @@ export function Comparison() {
                       <span
                         className={`rank-badge${rank === 1 ? " first" : ""}`}
                       >
-                        #{rank}
+                        {formatRank(rank)}
                       </span>
                     </td>
                   );

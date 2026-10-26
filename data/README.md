@@ -100,7 +100,7 @@ Suggested collection cadence is daily for package totals, monthly for GitHub/HN/
 
 The website renderer reads `exports/packages.csv` at build time. Its display maps npm to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java; Go and Ruby display zero. This attribution is a presentation convention: npm covers JavaScript and TypeScript, and Maven covers JVM languages. Raw observations retain registry entities and ecosystem scope.
 
-Package update badges show the latest `observed_at` date in the snapshot. Source freshness remains available in `source_updated_at`, including Maven’s older reported date. Other metrics continue to use design values and 1970 update dates on category pages.
+Package update badges show the latest `observed_at` date in the snapshot. Source freshness remains available in `source_updated_at`, including Maven’s older reported date. GitHub also uses collected quarterly data; Stack Overflow, surveys, releases, and Hacker News retain design values.
 
 ## Quarterly GitHub backfill
 
@@ -113,4 +113,6 @@ The GitHub collector imports GitHut 2.0's published quarterly push and pull-requ
 
 The source covers 2012 Q2–2024 Q1. These are filtered GH Archive event counts. Pull-request counts include event actions rather than only unique opened requests. The pinned query excludes bot-like actor names and actor/language/quarter/event groups above 1,000 events; repository-language attribution uses pull-request payloads. The published files contain at most 100 languages per quarter, and historical generation rules may differ from the archived query. Preserve absent language entries as missing values.
 
-The import is reproducible from the saved upstream aggregates. Recomputing the upstream aggregates directly from GH Archive uses the archived BigQuery query and requires a Google Cloud project and explicit query-cost review. Keep the published-data import and any future direct aggregation as separately versioned methods.
+The import is reproducible from the saved upstream aggregates. Recomputing the upstream aggregates directly from GH Archive uses the archived BigQuery query and requires an authenticated Google Cloud project. Keep the published-data import and any future direct aggregation as separately versioned methods.
+
+The checked-in backfill contains 9,510 observations across 48 quarters. Its run identifier is `2026-10-26T09-08-31-760Z`; replay that run with the command above. `exports/github.csv` is the convenient complete-history CSV. The website displays the six current languages, selects 2024 Q1 by default, and preserves absent top-100 entries as missing values.

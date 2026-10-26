@@ -5,7 +5,7 @@ export const CATEGORIES = [
     id: "github",
     label: "GitHub",
     href: "github.html",
-    description: "Public GitHub activity by language.",
+    description: "Quarterly public GitHub activity by language.",
     metrics: ["github.pushes", "github.pull_requests"],
   },
   {

@@ -68,11 +68,14 @@ test("all metrics and release years have a finite count for each language", () =
         new Set(result.map((row) => row.language)),
         new Set(LANGUAGES),
       );
+      const available = result.flatMap((row) =>
+        row.value === null ? [] : [row.value],
+      );
       assert.ok(
-        result.every(
-          (row, index) =>
-            Number.isFinite(row.value) &&
-            (!index || row.value <= result[index - 1]!.value),
+        available.every(
+          (value, index) =>
+            Number.isFinite(value) &&
+            (!index || value <= available[index - 1]!),
         ),
       );
     }

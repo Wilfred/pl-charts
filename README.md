@@ -48,15 +48,24 @@ Category definitions are in `website/src/categories.ts`; metric definitions and 
 
 Pages are rendered from `website/src/pages.tsx` and shared components in `website/src/components/`. React renders the JSX to HTML during type checks, tests, and production builds. Vite also rerenders pages when JSX, data, or the package CSV changes during development. Generated `website/*.html` and `website/.generated/` are ignored by Git; edit the JSX source.
 
-The renderer reads `data/exports/packages.csv` and generates the package values used by both static tables and interactive sorting. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. Package update dates use the collection timestamp; other category metrics currently use `1970`.
+The renderer reads `data/exports/packages.csv` and generates the package values used by both static tables and interactive sorting. npm maps to JavaScript, PyPI to Python, crates.io to Rust, and Maven Central to Java. Go and Ruby display zero. Package and GitHub update dates use their collection timestamps; other category metrics currently use `1970`.
 
 ## Data collection
 
 ```sh
 npm run collect:packages
+npm run collect:github
 ```
 
-This collects aggregate PyPI, npm, crates.io, and Maven Central counts into dated snapshots. Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV.
+Package collection records aggregate PyPI, npm, crates.io, and Maven Central counts. GitHub collection imports a pinned GitHut 2.0 revision covering 48 quarters from 2012 Q2 through 2024 Q1. The GitHub page exposes separate quarter selectors for pushes and pull-request events.
+
+Start with [data/exports/packages.csv](data/exports/packages.csv) for experiments. Original responses and checksums are checked in alongside the CSV. The full quarterly dataset is [data/exports/github.csv](data/exports/github.csv), retaining every language published upstream.
+
+Reproduce the saved GitHub dataset offline:
+
+```sh
+npm run collect:github -- --replay 2026-10-26T09-08-31-760Z
+```
 
 See [data/README.md](data/README.md) for endpoint definitions, freshness information, the observation schema, and collection plans for every category.
 

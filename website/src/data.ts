@@ -1,7 +1,30 @@
+import githubSnapshot from "../.generated/github.json" with { type: "json" };
+import type {
+  GithubSnapshot,
+  GithubCounts,
+  GithubMetric,
+} from "../scripts/github-data.ts";
+const github: GithubSnapshot = githubSnapshot;
+export const GITHUB_QUARTERS = github.quarters;
+export const DEFAULT_GITHUB_QUARTER = github.latestQuarter;
+export function isGithubQuarter(value: string | undefined): value is string {
+  return value !== undefined && GITHUB_QUARTERS.includes(value);
+}
+export function githubCounts(
+  metric: GithubMetric,
+  quarter: string,
+): GithubCounts {
+  const counts = github.counts[metric][quarter];
+  if (!counts) throw new Error(`Missing quarter ${quarter}`);
+  return counts;
+}
+export function formatQuarter(quarter: string): string {
+  return quarter.replace("-Q", " Q");
+}
 import { CATEGORIES, type Category } from "./categories.ts";
 export { CATEGORIES, type Category } from "./categories.ts";
 import packageSnapshot from "../.generated/packages.json" with { type: "json" };
-import { LANGUAGES, type Language, type LanguageCounts } from "./languages.ts";
+import { LANGUAGES, type Language } from "./languages.ts";
 export { LANGUAGES, type Language } from "./languages.ts";
 
 export const METRICS = [
@@ -18,7 +41,7 @@ export type Metric = (typeof METRICS)[number];
 export const RELEASE_YEARS = [2020, 2021, 2022, 2023, 2024, 2025] as const;
 export type ReleaseYear = (typeof RELEASE_YEARS)[number];
 export const DEFAULT_YEAR: ReleaseYear = 2025;
-type Counts = LanguageCounts;
+type Counts = Record<Language, number | null>;
 type ReleaseCounts = readonly [number, number, number, number, number, number];
 type RankingData = Record<
   Exclude<Metric, "releases.stable">,
@@ -31,14 +54,7 @@ type RankingData = Record<
 };
 export const DATA = {
   "github.pull_requests": {
-    values: {
-      JavaScript: 800000,
-      Python: 1000000,
-      Java: 700000,
-      Go: 350000,
-      Rust: 230000,
-      Ruby: 200000,
-    },
+    values: githubCounts("github.pull_requests", DEFAULT_GITHUB_QUARTER),
   },
   "stackoverflow.answers": {
     values: {
@@ -71,14 +87,7 @@ export const DATA = {
     },
   },
   "github.pushes": {
-    values: {
-      JavaScript: 1200000,
-      Python: 1100000,
-      Java: 900000,
-      Go: 400000,
-      Rust: 250000,
-      Ruby: 300000,
-    },
+    values: githubCounts("github.pushes", DEFAULT_GITHUB_QUARTER),
   },
   "packages.published": { values: packageSnapshot.counts },
   "stackoverflow.questions": {
@@ -105,8 +114,8 @@ export const DATA = {
 } as const satisfies RankingData;
 export interface Ranking {
   language: Language;
-  value: number;
-  rank: number;
+  value: number | null;
+  rank: number | null;
 }
 export function isMetric(value: string | undefined): value is Metric {
   return METRICS.some((metric) => metric === value);
@@ -118,18 +127,29 @@ export function isReleaseYear(value: number): value is ReleaseYear {
 export function rankValues(values: Readonly<Counts>): Ranking[] {
   let previousValue: number | undefined;
   let rank = 0;
-  return LANGUAGES.map((language) => ({ language, value: values[language] }))
-    .sort((a, b) => b.value - a.value || a.language.localeCompare(b.language))
-    .map((row, index) => {
-      if (row.value !== previousValue) rank = index + 1;
-      previousValue = row.value;
-      return { ...row, rank };
-    });
+  const available = LANGUAGES.flatMap((language) => {
+    const value = values[language];
+    return value === null ? [] : [{ language, value }];
+  }).sort((a, b) => b.value - a.value || a.language.localeCompare(b.language));
+  const ranked: Ranking[] = available.map((row, index) => {
+    if (row.value !== previousValue) rank = index + 1;
+    previousValue = row.value;
+    return { ...row, rank };
+  });
+  return [
+    ...ranked,
+    ...LANGUAGES.filter((language) => values[language] === null)
+      .sort()
+      .map((language) => ({ language, value: null, rank: null })),
+  ];
 }
 export function rankLanguages(
   metric: Metric,
   year: ReleaseYear = DEFAULT_YEAR,
+  quarter: string = DEFAULT_GITHUB_QUARTER,
 ): Ranking[] {
+  if (metric === "github.pushes" || metric === "github.pull_requests")
+    return rankValues(githubCounts(metric, quarter));
   if (metric !== "releases.stable") return rankValues(DATA[metric].values);
   const index = RELEASE_YEARS.indexOf(year);
   const counts = {} as Counts;
@@ -151,16 +171,16 @@ export const METRIC_INFO: Record<Metric, MetricDefinition> = {
   "github.pushes": {
     label: "Pushes",
     unit: "Pushes",
-    updatedAt: "1970-01-01",
+    updatedAt: github.updatedAt,
     description:
-      "Counts public push events by the repository’s primary language.",
+      "Quarterly public push events from GitHut 2.0’s filtered GH Archive data. Repository languages come from pull-request payloads.",
   },
   "github.pull_requests": {
     label: "Pull Requests",
     unit: "Pull requests",
-    updatedAt: "1970-01-01",
+    updatedAt: github.updatedAt,
     description:
-      "Counts public pull-request events by the repository’s primary language. Event action filters determine whether openings or all actions contribute.",
+      "Quarterly pull-request events from GitHut 2.0, including multiple actions on the same request. Bot-like actors and high-volume actor groups are filtered upstream.",
   },
   "packages.published": {
     label: "Published packages",
@@ -214,7 +234,12 @@ export function metricCategory(metric: Metric): Category {
   return category;
 }
 
-export function formatValue(metric: Metric, value: number): string {
+export function formatRank(rank: number | null | undefined): string {
+  return rank == null ? "—" : `#${rank}`;
+}
+
+export function formatValue(metric: Metric, value: number | null): string {
+  if (value === null) return "—";
   return metric === "survey.usage"
     ? `${value}%`
     : value.toLocaleString("en-US");

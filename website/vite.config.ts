@@ -5,6 +5,9 @@ import { CATEGORIES } from "./src/categories.ts";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const sourceRoot = fileURLToPath(new URL("src/", import.meta.url));
+const githubCsv = fileURLToPath(
+  new URL("../data/exports/github.csv", import.meta.url),
+);
 const packageCsv = fileURLToPath(
   new URL("../data/exports/packages.csv", import.meta.url),
 );
@@ -21,12 +24,13 @@ function staticPages(): Plugin {
     name: "static-jsx-pages",
     configureServer(server) {
       renderPages();
-      server.watcher.add(packageCsv);
+      server.watcher.add([packageCsv, githubCsv]);
       let pending: ReturnType<typeof setTimeout> | undefined;
       const onChange = (file: string): void => {
         if (
           !(file.startsWith(sourceRoot) && /\.tsx?$/.test(file)) &&
-          file !== packageCsv
+          file !== packageCsv &&
+          file !== githubCsv
         )
           return;
         clearTimeout(pending);

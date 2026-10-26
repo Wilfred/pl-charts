@@ -1,5 +1,6 @@
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
 import { fileURLToPath } from "node:url";
+import { readGithubSnapshot } from "./github-data.ts";
 import { readPackageSnapshot } from "./package-data.ts";
 
 const root = new URL("../", import.meta.url);
@@ -22,6 +23,16 @@ mkdirSync(new URL(".generated/", root), { recursive: true });
 writeChanged(
   new URL(".generated/packages.json", root),
   JSON.stringify(snapshot, null, 2) + "\n",
+);
+const github = readGithubSnapshot(
+  readFileSync(
+    new URL("../../data/exports/github.csv", import.meta.url),
+    "utf8",
+  ),
+);
+writeChanged(
+  new URL(".generated/github.json", root),
+  JSON.stringify(github, null, 2) + "\n",
 );
 const { renderPage, PAGE_PATHS } = await import("../src/pages.tsx");
 const pages = PAGE_PATHS.map((page) => [page, renderPage(page)] as const);

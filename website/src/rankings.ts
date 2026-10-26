@@ -1,5 +1,10 @@
 import {
   DEFAULT_YEAR,
+  DEFAULT_GITHUB_QUARTER,
+  isGithubQuarter,
+  formatQuarter,
+  formatRank,
+  METRIC_INFO,
   METRICS,
   isMetric,
   isReleaseYear,
@@ -35,6 +40,7 @@ export function initializeRankings(document: Document): void {
       ...section.querySelectorAll<HTMLButtonElement>("button[data-sort]"),
     ];
     const year = section.querySelector<HTMLSelectElement>(".release-year");
+    const quarter = section.querySelector<HTMLSelectElement>(".github-quarter");
     if (!body || !buttons.length) continue;
     let sortKey: string = overview ? METRICS[0] : "rank";
     let direction: Direction = overview ? "descending" : "ascending";
@@ -43,13 +49,24 @@ export function initializeRankings(document: Document): void {
       const metric = isMetric(selected) ? selected : "github.pushes";
       const chosenYear = Number(year?.value ?? DEFAULT_YEAR);
       const releaseYear = isReleaseYear(chosenYear) ? chosenYear : DEFAULT_YEAR;
-      const rows = rankLanguages(metric, releaseYear);
+      const selectedQuarter = isGithubQuarter(quarter?.value)
+        ? quarter.value
+        : DEFAULT_GITHUB_QUARTER;
+      const rows = rankLanguages(metric, releaseYear, selectedQuarter);
       const sign = direction === "ascending" ? 1 : -1;
       rows.sort((a, b) => {
         if (sortKey === "language")
           return sign * a.language.localeCompare(b.language);
+        if (a.value === null || b.value === null)
+          return a.value === null && b.value === null
+            ? a.language.localeCompare(b.language)
+            : a.value === null
+              ? 1
+              : -1;
         const difference =
-          sortKey === "rank" ? a.rank - b.rank : a.value - b.value;
+          sortKey === "rank"
+            ? (a.rank ?? 0) - (b.rank ?? 0)
+            : a.value - b.value;
         return sign * difference || a.language.localeCompare(b.language);
       });
       const ranks = new Map(
@@ -69,14 +86,14 @@ export function initializeRankings(document: Document): void {
             const badge = document.createElement("span");
             const rank = ranks.get(key)?.get(row.language);
             badge.className = `rank-badge${rank === 1 ? " first" : ""}`;
-            badge.textContent = `#${rank}`;
+            badge.textContent = formatRank(rank);
             td.append(badge);
             tr.append(td);
           }
         } else {
           const rank = document.createElement("td");
           rank.className = "numeric rank-cell";
-          rank.textContent = `#${row.rank}`;
+          rank.textContent = formatRank(row.rank);
           const count = document.createElement("td");
           count.className = "numeric count-cell";
           count.textContent = formatValue(metric, row.value);
@@ -93,6 +110,8 @@ export function initializeRankings(document: Document): void {
       const caption = section.querySelector("caption");
       if (year && caption)
         caption.textContent = `Stable release rankings, ${releaseYear}`;
+      if (quarter && caption)
+        caption.textContent = `${METRIC_INFO[metric].label} rankings, ${formatQuarter(selectedQuarter)}`;
     };
     for (const button of buttons) {
       button.disabled = false;
@@ -112,6 +131,7 @@ export function initializeRankings(document: Document): void {
       });
     }
     year?.addEventListener("change", render);
+    quarter?.addEventListener("change", render);
     render();
     const controls = section.querySelector<HTMLElement>(".table-controls");
     if (controls) controls.hidden = false;

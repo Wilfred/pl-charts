@@ -17,11 +17,11 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
         href: "https://github.com/madnight/githut#data-generation",
         title: "GitHut 2.0 queries",
         description:
-          "Includes repository-language counts and event aggregation queries. The pull-request query joins GH Archive events to repository languages, selects the language with the most bytes, and filters bot-like actor names.",
+          "The pinned aggregation script assigns repository languages from pull-request payloads and excludes bot-like actors and high-volume actor groups. The archived source query accompanies the downloadable counts.",
       },
     ],
     notes:
-      "Comparison variables: repository snapshot date, fork policy, language attribution, and event type. Repository totals and activity counts describe different aspects of the same ecosystem.",
+      "Published coverage is 2012 Q2–2024 Q1, with at most 100 languages per quarter. Missing entries display —. Pull-request counts include multiple event actions on a request.",
   },
   packages: {
     items: [

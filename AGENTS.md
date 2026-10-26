@@ -9,11 +9,12 @@
 - Use clickable column headers and aria-sort for table ordering. Keep period filters separate.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
 - Preserve the charcoal palette, violet accents, readable contrast, keyboard focus, semantic tables, and responsive layouts. Check changes at mobile widths.
-- Category metric badges show their update dates; omit update badges on the homepage. Packages use the collected snapshot date; other metrics currently use 1970.
+- Category metric badges show their update dates; omit update badges on the homepage. Packages and GitHub use collected snapshot dates; other metrics currently use 1970.
 
 ## Structure and data
 
 - `website/` and `collectors/` are separate TypeScript npm workspaces. Declare their dependencies in their own package manifests; shared code-quality tooling belongs at the root.
+- Implement a reproducible collector, raw snapshots, provenance, and offline validation when replacing design values. Keep missing historical values distinct from zero.
 - Collectors write to `data/`, independently of website implementation. Follow `data/README.md` for schema and provenance conventions.
 - Retain exact raw responses, source metadata, checksums, and dated CSV observations. Publish the current export only after every required source validates.
 - Preserve missing observations and source-reported freshness. Keep registry counts distinct from language attribution and package names distinct from versions.
