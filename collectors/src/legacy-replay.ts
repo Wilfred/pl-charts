@@ -103,7 +103,6 @@ export async function replayLegacy(
       cutoff: manifest.cutoff,
       rawPath: `raw/github/${runId}/quarters.json`,
     });
-    console.log(`Verified ${periods.length} quarters offline (${runId})`);
   }
   if (
     csv(observations) !==
@@ -113,5 +112,8 @@ export async function replayLegacy(
     ))
   )
     throw new Error("Legacy observations differ");
+  console.log(
+    `Verified ${observations.length} ${category} observations offline (${runId})`,
+  );
   return { runId, observations };
 }
