@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html">Repositories</a
           ><a href="packages.html">Packages</a
           ><a href="stackoverflow.html" aria-current="page">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html">Releases</a
           ><a href="hiring.html">Job Descriptions</a>
         </nav>
@@ -44,7 +45,7 @@
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="rank">Rank</option>
@@ -52,7 +53,12 @@
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="SO Questions rankings table"
+        >
           <table class="detail-table">
             <caption class="sr-only">
               SO question rankings
@@ -119,6 +125,47 @@
         <p>
           Counts total questions tagged with each language. A question may have
           several language tags.
+        </p>
+      </section>
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul>
+          <li>
+            <a href="https://api.stackexchange.com/docs/tags"
+              >Stack Exchange tags API</a
+            >
+            <p>
+              The popular sort orders tags by question count. Tag totals provide
+              a cumulative measure; a question can contribute to several
+              language tags.
+            </p>
+          </li>
+          <li>
+            <a
+              href="https://stackoverflow.blog/2017/09/06/incredible-growth-python/"
+              >David Robinson — The Incredible Growth of Python (2017)</a
+            >
+            <p>
+              Compares language-tag traffic over time, segments high-income
+              countries, and models seasonality. Its principal measure is
+              question visits; it also discusses the question-count approach
+              used by Stack Overflow Trends.
+            </p>
+          </li>
+          <li>
+            <a href="https://survey.stackoverflow.co/"
+              >Stack Overflow Developer Survey archive</a
+            >
+            <p>
+              Annual reports provide a separate, respondent-based measure of
+              language use. The SO Surveys page covers that approach.
+            </p>
+          </li>
+        </ul>
+        <p class="reference-notes">
+          Comparison variables: cumulative totals or questions per month, tag
+          aliases, version-specific tags, and the denominator used for monthly
+          shares.
         </p>
       </section>
     </main>

@@ -17,6 +17,7 @@ const pages = [
   "github-repos",
   "packages",
   "stackoverflow",
+  "surveys",
   "releases",
   "hiring",
 ];
@@ -125,6 +126,7 @@ test("overview ordering changes without changing each metric's ranks", () => {
     "#2",
     "#4",
     "#2",
+    "#2",
     "#3",
     "#1",
   ]);
@@ -155,6 +157,7 @@ test("category labels are consistent across navigation and detail titles", () =>
   const labels = new Map([
     ["packages", "Packages"],
     ["stackoverflow", "SO Questions"],
+    ["surveys", "SO Surveys"],
     ["releases", "Releases"],
     ["hiring", "Job Descriptions"],
   ]);
@@ -173,5 +176,19 @@ test("category labels are consistent across navigation and detail titles", () =>
         document.querySelector("h1")?.textContent?.trim(),
         labels.get(page),
       );
+  }
+});
+
+test("each metric page includes annotated external references", () => {
+  for (const page of pages.filter((page) => page !== "index")) {
+    const { document } = loadPage(page);
+    const references = document.querySelector(".references");
+    assert.ok(references, page);
+    assert.ok(references.querySelectorAll("li").length >= 2, page);
+    for (const item of references.querySelectorAll("li")) {
+      const link = item.querySelector("a");
+      assert.ok(link?.href.startsWith("https://"), page);
+      assert.ok(item.querySelector("p")?.textContent?.trim(), page);
+    }
   }
 });

@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html">Repositories</a
           ><a href="packages.html">Packages</a
           ><a href="stackoverflow.html">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html" aria-current="page">Releases</a
           ><a href="hiring.html">Job Descriptions</a>
         </nav>
@@ -44,7 +45,7 @@
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="rank">Rank</option>
@@ -57,11 +58,16 @@
               <option value="2022">2022</option>
               <option value="2023">2023</option>
               <option value="2024">2024</option>
-              <option value="2025" selected>2025</option>
+              <option value="2025" selected="">2025</option>
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Releases rankings table"
+        >
           <table class="detail-table">
             <caption class="sr-only">
               Release rankings, 2025
@@ -129,6 +135,46 @@
           Counts total language releases within a calendar year. Release
           schedules vary between languages.
         </p>
+      </section>
+      <section class="metric-context">
+        <h2>Preliminary analysis</h2>
+        <p>
+          Release frequency depends on release policy. An initial comparison
+          could count feature releases and maintenance releases separately,
+          group events by calendar year, and record the implementation being
+          measured. Python’s annual cycle and Rust’s six-week train illustrate
+          how schedules influence the resulting ranks.
+        </p>
+      </section>
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul>
+          <li>
+            <a href="https://peps.python.org/pep-0602/">Python — PEP 602</a>
+            <p>
+              Specifies an annual feature-release cycle. Maintenance releases
+              and security releases form separate series.
+            </p>
+          </li>
+          <li>
+            <a href="https://go.dev/doc/devel/release">Go — release history</a>
+            <p>
+              Lists dated stable versions and their changes. Feature releases
+              and patch releases can be classified from the version history.
+            </p>
+          </li>
+          <li>
+            <a
+              href="https://doc.rust-lang.org/book/appendix-07-nightly-rust.html"
+              >Rust — release channels</a
+            >
+            <p>
+              Describes the six-week stable release train and the nightly and
+              beta channels. Channel selection substantially changes the event
+              count.
+            </p>
+          </li>
+        </ul>
       </section>
     </main>
   </body>

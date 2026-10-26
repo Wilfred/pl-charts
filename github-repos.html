@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html" aria-current="page">Repositories</a
           ><a href="packages.html">Packages</a
           ><a href="stackoverflow.html">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html">Releases</a
           ><a href="hiring.html">Job Descriptions</a>
         </nav>
@@ -44,7 +45,7 @@
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="rank">Rank</option>
@@ -52,7 +53,12 @@
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Repositories rankings table"
+        >
           <table class="detail-table">
             <caption class="sr-only">
               Repository rankings
@@ -119,6 +125,35 @@
         <p>
           Counts group public repositories by language, including inactive
           projects and forks.
+        </p>
+      </section>
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul>
+          <li>
+            <a href="https://madnight.github.io/githut/">GitHut 2.0</a>
+            <p>
+              Quarterly language rankings based on GitHub activity, with
+              separate views for pull requests, pushes, stars, and issues. The
+              selected event type determines the ranking.
+            </p>
+          </li>
+          <li>
+            <a href="https://github.com/madnight/githut#data-generation"
+              >GitHut 2.0 queries</a
+            >
+            <p>
+              Includes repository-language counts and event aggregation queries.
+              The pull-request query joins GH Archive events to repository
+              languages, selects the language with the most bytes, and filters
+              bot-like actor names.
+            </p>
+          </li>
+        </ul>
+        <p class="reference-notes">
+          Comparison variables: repository snapshot date, fork policy, language
+          attribution, and event type. Repository totals and activity counts
+          describe different aspects of the same ecosystem.
         </p>
       </section>
     </main>

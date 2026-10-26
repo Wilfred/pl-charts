@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html">Repositories</a
           ><a href="packages.html">Packages</a
           ><a href="stackoverflow.html">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html">Releases</a
           ><a href="hiring.html">Job Descriptions</a>
         </nav>
@@ -57,6 +58,12 @@
           ><a class="metric-card" href="stackoverflow.html">
             <h3>SO Questions<span aria-hidden="true">↗</span></h3>
             <p>Stack Overflow questions tagged by language.</p> </a
+          ><a class="metric-card" href="surveys.html"
+            ><h3>SO Surveys<span aria-hidden="true">↗</span></h3>
+            <p>
+              Reported language use in the annual Stack Overflow Developer
+              Survey.
+            </p></a
           ><a class="metric-card" href="releases.html">
             <h3>Releases<span aria-hidden="true">↗</span></h3>
             <p>Releases in a selected calendar year.</p> </a
@@ -71,22 +78,28 @@
           Ranks are calculated separately for each metric. Release ranks use
           2025 counts.
         </p>
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="githubRepos">Repositories rank</option>
               <option value="packages">Packages rank</option>
               <option value="stackoverflow">SO Questions rank</option>
+              <option value="surveys">SO Surveys rank</option>
               <option value="releases">Releases rank</option>
               <option value="hiring">Job Descriptions rank</option>
               <option value="language">Language A–Z</option>
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Comparison rankings table"
+        >
           <table>
             <caption class="sr-only">
-              Language rankings across five metrics
+              Language rankings across six metrics
             </caption>
             <thead>
               <tr>
@@ -99,6 +112,9 @@
                 </th>
                 <th scope="col" class="numeric">
                   <a href="stackoverflow.html">SO Questions ↗</a>
+                </th>
+                <th scope="col" class="numeric">
+                  <a href="surveys.html">SO Surveys ↗</a>
                 </th>
                 <th scope="col" class="numeric">
                   <a href="releases.html">Releases ↗</a>
@@ -123,6 +139,9 @@
                 <td class="numeric">
                   <span class="rank-badge first">#1</span>
                 </td>
+                <td class="numeric">
+                  <span class="rank-badge first">#1</span>
+                </td>
                 <td class="numeric"><span class="rank-badge">#6</span></td>
                 <td class="numeric"><span class="rank-badge">#2</span></td>
               </tr>
@@ -132,6 +151,7 @@
                 </th>
                 <td class="numeric"><span class="rank-badge">#2</span></td>
                 <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#2</span></td>
                 <td class="numeric"><span class="rank-badge">#2</span></td>
                 <td class="numeric"><span class="rank-badge">#3</span></td>
                 <td class="numeric">
@@ -145,6 +165,7 @@
                 <td class="numeric"><span class="rank-badge">#3</span></td>
                 <td class="numeric"><span class="rank-badge">#3</span></td>
                 <td class="numeric"><span class="rank-badge">#3</span></td>
+                <td class="numeric"><span class="rank-badge">#3</span></td>
                 <td class="numeric"><span class="rank-badge">#5</span></td>
                 <td class="numeric"><span class="rank-badge">#4</span></td>
               </tr>
@@ -155,6 +176,7 @@
                 <td class="numeric"><span class="rank-badge">#4</span></td>
                 <td class="numeric"><span class="rank-badge">#2</span></td>
                 <td class="numeric"><span class="rank-badge">#5</span></td>
+                <td class="numeric"><span class="rank-badge">#4</span></td>
                 <td class="numeric"><span class="rank-badge">#2</span></td>
                 <td class="numeric"><span class="rank-badge">#3</span></td>
               </tr>
@@ -165,6 +187,7 @@
                 <td class="numeric"><span class="rank-badge">#5</span></td>
                 <td class="numeric"><span class="rank-badge">#5</span></td>
                 <td class="numeric"><span class="rank-badge">#4</span></td>
+                <td class="numeric"><span class="rank-badge">#6</span></td>
                 <td class="numeric"><span class="rank-badge">#4</span></td>
                 <td class="numeric"><span class="rank-badge">#6</span></td>
               </tr>
@@ -175,6 +198,7 @@
                 <td class="numeric"><span class="rank-badge">#6</span></td>
                 <td class="numeric"><span class="rank-badge">#6</span></td>
                 <td class="numeric"><span class="rank-badge">#6</span></td>
+                <td class="numeric"><span class="rank-badge">#5</span></td>
                 <td class="numeric">
                   <span class="rank-badge first">#1</span>
                 </td>

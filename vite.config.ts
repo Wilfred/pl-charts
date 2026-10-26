@@ -6,6 +6,7 @@ const pages = [
   "github-repos",
   "packages",
   "stackoverflow",
+  "surveys",
   "releases",
   "hiring",
 ];

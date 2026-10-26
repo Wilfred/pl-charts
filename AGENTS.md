@@ -3,9 +3,9 @@
 ## Product
 
 - Build a ranking-focused programming language reference for developers.
-- Retain five metrics: Repositories, Packages, SO Questions, Releases, and Job Descriptions (Hacker News hiring mentions).
+- Retain six metrics: Repositories, Packages, SO Questions, SO Surveys, Releases, and Job Descriptions (Hacker News hiring mentions).
 - Use placeholder data while prototyping structure and interactions.
-- Keep interface prose concise, factual, and clinical. Describe the counting method once. Use “Releases”, “Packages”, “SO Questions”, and “Job Descriptions” as category labels.
+- Keep interface prose concise, factual, and clinical. Describe the counting method once. Use “Releases”, “Packages”, “SO Questions”, “SO Surveys”, and “Job Descriptions” as category labels.
 - Use sentence case. Keep each label, heading, and navigation element only where it adds information.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
 - Preserve the charcoal palette with muted violet accents and accessible contrast, keyboard focus, semantic tables, and responsive layouts.

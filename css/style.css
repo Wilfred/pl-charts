@@ -349,3 +349,92 @@ tbody tr:hover {
     grid-template-columns: 1fr;
   }
 }
+
+.references {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  max-width: 84ch;
+}
+.references h2 {
+  font-size: 18px;
+}
+.references ul {
+  padding-left: 20px;
+  margin: 20px 0;
+}
+.references li {
+  padding-left: 4px;
+  margin-bottom: 20px;
+}
+.references a {
+  color: var(--accent);
+}
+.references p {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0 0;
+}
+.references .reference-notes {
+  margin-top: 24px;
+}
+.table-wrap:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+body[data-page="overview"] table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--surface);
+  box-shadow: 1px 0 var(--line);
+}
+body[data-page="overview"] thead th:first-child {
+  background: var(--raised);
+}
+@media (min-width: 1051px) {
+  .metric-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  nav {
+    flex-wrap: wrap;
+    gap: 0 20px;
+    margin-top: 16px;
+    overflow: visible;
+  }
+  nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 8px 0;
+  }
+  select {
+    font-size: 16px;
+    min-height: 44px;
+  }
+  .references {
+    max-width: 100%;
+  }
+  .references a {
+    overflow-wrap: anywhere;
+  }
+}
+@media (max-width: 700px) {
+  body[data-page="overview"] main {
+    display: flex;
+    flex-direction: column;
+  }
+  body[data-page="overview"] .intro {
+    order: 0;
+  }
+  body[data-page="overview"] .ranking-section {
+    order: 1;
+    margin-top: 0;
+  }
+  body[data-page="overview"] section[aria-labelledby="signals-heading"] {
+    order: 2;
+    margin-top: 32px;
+  }
+}

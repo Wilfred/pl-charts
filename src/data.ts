@@ -12,6 +12,7 @@ export const METRICS = [
   "githubRepos",
   "packages",
   "stackoverflow",
+  "surveys",
   "releases",
   "hiring",
 ] as const;
@@ -31,6 +32,17 @@ type RankingData = Record<
   };
 };
 export const DATA = {
+  surveys: {
+    label: "Respondents (%)",
+    values: {
+      JavaScript: 64.2,
+      Python: 55.6,
+      Java: 31.4,
+      Go: 18.3,
+      Rust: 13.2,
+      Ruby: 7.1,
+    },
+  },
   hiring: {
     label: "Job Descriptions",
     values: {

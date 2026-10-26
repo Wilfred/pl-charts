@@ -73,7 +73,10 @@ export function initializeRankings(document: Document): void {
         rank.textContent = `#${row.rank}`;
         const count = document.createElement("td");
         count.className = "numeric count-cell";
-        count.textContent = row.value.toLocaleString("en-US");
+        count.textContent =
+          metric === "surveys"
+            ? `${row.value}%`
+            : row.value.toLocaleString("en-US");
         tr.append(rank, languageCell(row.language), count);
       }
       body.append(tr);

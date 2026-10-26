@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html">Repositories</a
           ><a href="packages.html">Packages</a
           ><a href="stackoverflow.html">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html">Releases</a
           ><a href="hiring.html" aria-current="page">Job Descriptions</a>
         </nav>
@@ -44,7 +45,7 @@
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="rank">Rank</option>
@@ -52,7 +53,12 @@
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Job Descriptions rankings table"
+        >
           <table class="detail-table">
             <caption class="sr-only">
               Job description rankings
@@ -120,6 +126,48 @@
           The counting unit is a hiring comment containing a language mention.
           Repeated mentions within a comment count once per language. A comment
           may count toward several languages.
+        </p>
+      </section>
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul>
+          <li>
+            <a href="https://hackernewstrends.com/who-is-hiring"
+              >Hacker News Trends — Who Is Hiring?</a
+            >
+            <p>
+              Compares terms in top-level hiring comments since 2011. Provides
+              monthly counts and shares, alias groups joined with OR, and links
+              back to matching posts.
+            </p>
+          </li>
+          <li>
+            <a href="https://engineeringrates.com/research/hiring-trends/"
+              >Engineering Rates — HN hiring trends</a
+            >
+            <p>
+              Matches technology keywords and aliases across 36 sampled threads
+              between July 2015 and February 2025. The documented sample is
+              discontinuous, which matters when comparing periods.
+            </p>
+          </li>
+          <li>
+            <a
+              href="https://exxa.notion.site/Hacker-News-analysis-Ask-HN-Who-is-hiring-1099f6be204280b7b909c08634441563"
+              >EXXA — Who is hiring analysis, 2011–2024</a
+            >
+            <p>
+              Uses Llama 3.1 70B to extract structured information from hiring
+              comments. Offers a contrasting approach to lexical matching, with
+              extraction accuracy as a separate validation requirement.
+            </p>
+          </li>
+        </ul>
+        <p class="reference-notes">
+          Comparison variables: top-level employer comments, thread coverage,
+          language aliases, and monthly comment totals. Monthly mention shares
+          help account for changes in thread volume; ambiguous terms such as Go
+          need explicit matching rules.
         </p>
       </section>
     </main>

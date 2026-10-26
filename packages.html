@@ -24,7 +24,7 @@
               fill="currentColor"
               focusable="false"
             >
-              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z" /></svg
+              <path d="M3 4h18v3H3zM3 10h13v3H3zM3 16h8v3H3z"></path></svg
           ></span>
           PL Charts</a
         >
@@ -33,6 +33,7 @@
           ><a href="github-repos.html">Repositories</a
           ><a href="packages.html" aria-current="page">Packages</a
           ><a href="stackoverflow.html">SO Questions</a
+          ><a href="surveys.html">SO Surveys</a
           ><a href="releases.html">Releases</a
           ><a href="hiring.html">Job Descriptions</a>
         </nav>
@@ -44,7 +45,7 @@
       </section>
 
       <section class="ranking-section" aria-label="Rankings">
-        <div class="table-controls" hidden>
+        <div class="table-controls" hidden="">
           <label
             >Order by<select id="ranking-order">
               <option value="rank">Rank</option>
@@ -52,7 +53,12 @@
             </select></label
           >
         </div>
-        <div class="table-wrap">
+        <div
+          class="table-wrap"
+          tabindex="0"
+          role="region"
+          aria-label="Packages rankings table"
+        >
           <table class="detail-table">
             <caption class="sr-only">
               Package rankings
@@ -119,6 +125,47 @@
         <p>
           Counts group published packages by language registry. Registry scope
           and publishing rules vary.
+        </p>
+      </section>
+      <section class="references" aria-labelledby="references-heading">
+        <h2 id="references-heading">References</h2>
+        <ul>
+          <li>
+            <a
+              href="https://web.archive.org/web/20240115115215/http://www.modulecounts.com/"
+              >Modulecounts.com — 15 January 2024 archive</a
+            >
+            <p>
+              Daily registry totals with growth averaged over the preceding
+              week. Package names count once across versions. The archive
+              documents missing observations, changes to registry sites, and
+              comparability problems with the Go index.
+            </p>
+          </li>
+          <li>
+            <a href="https://github.com/edebill/modulecounts"
+              >Modulecounts source</a
+            >
+            <p>
+              Erik DeBill’s implementation polls registries nightly.
+              Registry-specific collectors provide a starting point for
+              reviewing counting rules and historical changes.
+            </p>
+          </li>
+          <li>
+            <a href="https://github.com/mikeal/modulecounts-metrics"
+              >Modulecounts metrics</a
+            >
+            <p>
+              A separate analysis tool consumes the published CSV and generates
+              derived metric files.
+            </p>
+          </li>
+        </ul>
+        <p class="reference-notes">
+          Comparison variables: distinct package names, registry coverage,
+          observation date, and collector changes. Preserve gaps and source
+          changes when comparing historical growth.
         </p>
       </section>
     </main>
