@@ -1,3 +1,6 @@
+import { execFileSync } from "node:child_process";
+import { readFileSync } from "node:fs";
+import { fileURLToPath } from "node:url";
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
@@ -61,4 +64,30 @@ test("query counts opened requests and bounds both events and language snapshots
   assert.match(sql, /e.file_time < '2026-10-26 19:00:00'/);
   assert.match(sql, /snapshot_at < '2026-10-26 19:00:00'/);
   assert.throws(() => githubQuery("'; DROP TABLE"));
+});
+
+test("the active GitHub export replays offline from checked-in query responses", () => {
+  const source = readFileSync(
+    new URL("../../data/exports/github.csv", import.meta.url),
+    "utf8",
+  );
+  const run = source.split("\n")[1]?.split(",")[1];
+  assert.ok(run);
+  const output = execFileSync(
+    process.execPath,
+    [
+      fileURLToPath(new URL("../src/collect-github.ts", import.meta.url)),
+      "--replay",
+      run,
+    ],
+    { encoding: "utf8" },
+  );
+  assert.match(output, /Verified \d+ quarters offline/);
+  assert.equal(
+    source,
+    readFileSync(
+      new URL(`../../data/observations/github/${run}.csv`, import.meta.url),
+      "utf8",
+    ),
+  );
 });

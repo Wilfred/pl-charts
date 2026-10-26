@@ -17,6 +17,7 @@
 - Implement a reproducible collector, raw snapshots, provenance, and offline validation when replacing design values. Keep missing historical values distinct from zero.
 - Collectors write to `data/`, independently of website implementation. Follow `data/README.md` for schema and provenance conventions.
 - Retain exact raw responses, source metadata, checksums, and dated CSV observations. Publish the current export only after every required source validates.
+- Query GitHub event data directly with the versioned collector. Preserve Unknown language counts, report attribution coverage, and distinguish partial quarters in labels and plots. Keep the old GitHut import as historical provenance.
 - Preserve missing observations and source-reported freshness. Keep registry counts distinct from language attribution and package names distinct from versions.
 - `vendor/modulecounts/` is an ignored reference checkout. Keep its dependencies separate.
 - Preserve competition ranks with gaps after ties. Keep static HTML tables consistent with their interactive data.

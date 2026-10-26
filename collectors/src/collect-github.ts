@@ -59,6 +59,11 @@ async function query(name: string, sql: string): Promise<string> {
   const metadata = manifest.sources.find((source) => source.path === name);
   if (replay) {
     const body = await readFile(join(directory, name), "utf8");
+    const savedSql = await readFile(
+      join(directory, name.replace(".json", ".sql")),
+      "utf8",
+    );
+    if (savedSql !== sql + "\n") throw new Error(`Saved SQL differs: ${name}`);
     if (
       !metadata ||
       metadata.query !== sql ||

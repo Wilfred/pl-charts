@@ -120,3 +120,12 @@ Every language group is retained. An absent group within a covered quarter is no
 Raw JSON query responses, executed SQL, response checksums, query statistics, collection timestamps, source bounds, and normalized observations are checked in. `--replay` verifies checksums and SQL and recreates the observation CSV byte for byte without network access. A fresh live run may differ as the archive and repository metadata change; offline replay reproduces the saved run. Publication replaces `exports/github.csv` atomically after validation. A failed query leaves the previous export intact.
 
 The older GitHut import remains in its dated raw and observation directories as historical provenance. It is not used by the direct collector or the active website export, and its counting rules differ.
+
+The current run is `2026-10-26T19-48-52-758Z`: 80,512 observations, 64 quarters (2011 Q1–2026 Q4), 628 named languages plus Unknown, and a cutoff of `2026-10-26T19:00:00.000Z`. The latest quarter attributes 3.3% of pushes and 10.1% of opened pull requests to a known language. Both plots show the coverage range and latest share. Refresh and replay:
+
+```sh
+npm run collect:github
+npm run collect:github -- --replay 2026-10-26T19-48-52-758Z
+```
+
+The collector test suite replays the active export offline and compares it with its saved observation CSV. Website tests check partial intervals, Unknown coverage, plot gaps, and independent language controls.
