@@ -71,13 +71,13 @@ The cohort is Python, Java, Go, JavaScript, C++, TypeScript, PHP, Ruby, C, C#, N
 
 ## Packages
 
-Package rows identify hosts, with `entity_kind=registry`. The website ranks hosts by name and does not assign their totals to individual languages. `package-hosts.json` defines the host cohort independently of `languages.json`.
+Package rows identify services, with `entity_kind=registry`. The website ranks services by name and does not assign their totals to individual languages. `package-services.json` defines the service cohort independently of `languages.json`. Each service has a reviewed list of major programming languages, displayed beneath its name.
 
-Selection uses the displayed, rounded average growth from [Modulecounts’ 15 January 2024 snapshot](https://web.archive.org/web/20240115115215/http://www.modulecounts.com/). Include rates ≥2 new packages/day, measured by Modulecounts over the preceding week. CPAN and CPAN (search) count as one host. CRAN’s displayed rate was −2/day; Hackage and Nimble were 1/day. These are historical inclusion criteria, rather than claims about present growth.
+Selection uses the displayed, rounded average growth from [Modulecounts’ 15 January 2024 snapshot](https://web.archive.org/web/20240115115215/http://www.modulecounts.com/). Include rates ≥2 new packages/day, measured by Modulecounts over the preceding week. CPAN and CPAN (search) count as one service. CRAN’s displayed rate was −2/day; Hackage and Nimble were 1/day. These are historical inclusion criteria, rather than claims about present growth.
 
-The collector saves that exact archived page and verifies every qualifying row against the reviewed host aliases. A new qualifying host or a selected host below the threshold fails validation. Selection metadata retains all displayed rates, including excluded hosts.
+The collector saves that exact archived page and verifies every qualifying row against the reviewed service aliases. A new qualifying service or a selected service below the threshold fails validation. Selection metadata retains all displayed rates, including excluded services.
 
-| Host          | Source                                                     | Counting unit                                                                   |
+| Service       | Source                                                     | Counting unit                                                                   |
 | ------------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------- |
 | npm           | Registry replication metadata                              | `doc_count`; package documents                                                  |
 | PyPI          | Homepage                                                   | Projects                                                                        |
@@ -98,7 +98,7 @@ Source URLs and method versions are recorded per observation; bodies and checksu
 
 CrystalShards’ former `.xyz` domain now serves unrelated content. The collector uses the current `.org` catalog and records a separate method version. MELPA transfers use identity encoding to avoid a Node 22 HTTP-parser failure seen with its compressed response.
 
-The ignored Modulecounts reference clone is at `vendor/modulecounts/`, revision `0643af5f34e9af7d732d3e95f3d976cdf1389697`. Original four-host snapshots remain replayable.
+The ignored Modulecounts reference clone is at `vendor/modulecounts/`, revision `0643af5f34e9af7d732d3e95f3d976cdf1389697`. Original four-service snapshots remain replayable.
 
 ## GitHub
 

@@ -45,15 +45,15 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
     items: [
       {
         href: "https://github.com/Wilfred/pl-charts/blob/main/data/README.md#packages",
-        title: "Package-host counting definitions",
+        title: "Package-service counting definitions",
         description:
-          "Source endpoints, visibility rules, archived host selection, and offline replay instructions.",
+          "Source endpoints, visibility rules, archived service selection, and offline replay instructions.",
       },
       {
         href: "https://web.archive.org/web/20240115115215/http://www.modulecounts.com/",
         title: "Modulecounts.com — 15 January 2024 archive",
         description:
-          "Daily registry totals with growth averaged over the preceding week. Package names count once across versions. The host cohort uses its displayed growth rates of at least two packages per day. CPAN’s two entries identify one host.",
+          "Daily registry totals with growth averaged over the preceding week. Package names count once across versions. The service cohort uses its displayed growth rates of at least two packages per day. CPAN’s two entries identify one service.",
       },
       {
         href: "https://github.com/edebill/modulecounts",
@@ -69,7 +69,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Counts use host-specific definitions. NuGet includes listed IDs; CPAN uses distributions; LuaRocks uses owner/package listings; Drupal uses package projects. CrystalShards uses its current .org catalog. Source methods and raw responses are documented with the CSV.",
+      "Counts use service-specific definitions. NuGet includes listed IDs; CPAN uses distributions; LuaRocks uses owner/package listings; Drupal uses package projects. CrystalShards uses its current .org catalog. Source methods and raw responses are documented with the CSV.",
   },
   stackoverflow: {
     items: [

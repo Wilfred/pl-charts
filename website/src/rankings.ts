@@ -1,4 +1,4 @@
-import { HOST_URLS } from "./package-hosts.ts";
+import { SERVICE_URLS, SERVICE_LANGUAGES } from "./package-services.ts";
 import {
   defaultPeriod,
   periodOptions,
@@ -17,15 +17,19 @@ type Direction = "ascending" | "descending";
 function languageCell(
   document: Document,
   language: Language,
-  host = false,
+  service = false,
 ): HTMLTableCellElement {
   const cell = document.createElement("th");
   cell.scope = "row";
-  if (host) {
+  if (service) {
     const link = document.createElement("a");
-    link.href = HOST_URLS[language]!;
+    link.href = SERVICE_URLS[language]!;
     link.textContent = language;
-    cell.append(link);
+    cell.className = "package-service";
+    const languages = document.createElement("span");
+    languages.className = "service-languages";
+    languages.textContent = SERVICE_LANGUAGES[language]!;
+    cell.append(link, languages);
     return cell;
   }
   const dot = document.createElement("span");

@@ -24,14 +24,14 @@ test("invalid numeric counts are rejected", () => {
 
 test("Modulecounts selection includes the two-per-day boundary and deduplicates CPAN", () => {
   const selection = modulecountsSelection(MODULECOUNTS_FIXTURE);
-  assert.equal(selection.hosts.length, 14);
-  assert.equal(selection.hosts.filter((id) => id === "cpan").length, 1);
-  assert.ok(selection.hosts.includes("melpa"));
-  assert.ok(!selection.hosts.includes("hackage"));
+  assert.equal(selection.services.length, 14);
+  assert.equal(selection.services.filter((id) => id === "cpan").length, 1);
+  assert.ok(selection.services.includes("melpa"));
+  assert.ok(!selection.services.includes("hackage"));
   assert.throws(
     () =>
       modulecountsSelection(
-        MODULECOUNTS_FIXTURE.replace("MELPA (Emacs)", "New host"),
+        MODULECOUNTS_FIXTURE.replace("MELPA (Emacs)", "New service"),
       ),
     /Unreviewed/,
   );
@@ -43,7 +43,7 @@ test("Modulecounts selection includes the two-per-day boundary and deduplicates 
     /threshold/,
   );
 });
-test("host totals reject incomplete and ambiguous source results", () => {
+test("service totals reject incomplete and ambiguous source results", () => {
   assert.throws(() =>
     PACKAGE_SOURCES.find((s) => s.id === "cpan")!.parse(
       '{"_shards":{"failed":1},"count":100}',

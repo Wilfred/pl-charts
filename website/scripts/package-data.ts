@@ -1,5 +1,5 @@
 import { parse } from "csv-parse/sync";
-import { PACKAGE_HOSTS } from "../src/package-hosts.ts";
+import { PACKAGE_SERVICES } from "../src/package-services.ts";
 export interface PackageSnapshot {
   counts: Record<string, number | null>;
   updatedAt: string;
@@ -10,8 +10,10 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     columns: true,
     skip_empty_lines: true,
   });
-  if (!Array.isArray(records) || records.length !== PACKAGE_HOSTS.length) {
-    throw new Error("Expected one package observation for each selected host");
+  if (!Array.isArray(records) || records.length !== PACKAGE_SERVICES.length) {
+    throw new Error(
+      "Expected one package observation for each selected service",
+    );
   }
   const counts: Record<string, number | null> = {};
   const seen = new Set<string>();
@@ -33,7 +35,7 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     const id = row.entity_id;
     if (
       typeof id !== "string" ||
-      !PACKAGE_HOSTS.some((host) => host.id === id) ||
+      !PACKAGE_SERVICES.some((service) => service.id === id) ||
       seen.has(id)
     ) {
       throw new Error("Unexpected or duplicate package registry");
@@ -62,8 +64,8 @@ export function readPackageSnapshot(source: string): PackageSnapshot {
     }
     runId = row.run_id;
     seen.add(id);
-    const host = PACKAGE_HOSTS.find((host) => host.id === id)!;
-    counts[host.name] = Number(row.value);
+    const service = PACKAGE_SERVICES.find((service) => service.id === id)!;
+    counts[service.name] = Number(row.value);
     const observed = new Date(row.observed_at).toISOString();
     if (observed > latest) latest = observed;
   }

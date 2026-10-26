@@ -1,5 +1,5 @@
-import model from "../../data/package-hosts.json" with { type: "json" };
-export const PACKAGE_HOSTS = model.hosts;
+import model from "../../data/package-services.json" with { type: "json" };
+export const PACKAGE_SERVICES = model.services;
 export const PACKAGE_SELECTION = model.selection;
 export function modulecountsSelection(body: string) {
   const rates = [...body.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)].flatMap(
@@ -16,17 +16,19 @@ export function modulecountsSelection(body: string) {
   );
   for (const row of qualifying)
     if (
-      !PACKAGE_HOSTS.some((host) => host.modulecountsNames.includes(row.name))
+      !PACKAGE_SERVICES.some((service) =>
+        service.modulecountsNames.includes(row.name),
+      )
     )
-      throw new Error(`Unreviewed qualifying package host: ${row.name}`);
-  for (const host of PACKAGE_HOSTS)
-    if (!qualifying.some((row) => host.modulecountsNames.includes(row.name)))
+      throw new Error(`Unreviewed qualifying package service: ${row.name}`);
+  for (const service of PACKAGE_SERVICES)
+    if (!qualifying.some((row) => service.modulecountsNames.includes(row.name)))
       throw new Error(
-        `Package host does not meet the growth threshold: ${host.name}`,
+        `Package service does not meet the growth threshold: ${service.name}`,
       );
   return {
     ...PACKAGE_SELECTION,
     rows: rates,
-    hosts: PACKAGE_HOSTS.map((host) => host.id),
+    services: PACKAGE_SERVICES.map((service) => service.id),
   };
 }

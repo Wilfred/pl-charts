@@ -20,7 +20,12 @@ const load = (page: string) =>
   new JSDOM(readFileSync(new URL(`../${page}`, import.meta.url), "utf8"));
 const rows = (section: ParentNode) =>
   [...section.querySelectorAll("tbody tr")].map((row) =>
-    [...row.children].map((cell) => cell.textContent?.trim() ?? ""),
+    [...row.children].map(
+      (cell) =>
+        cell.querySelector("a")?.textContent?.trim() ??
+        cell.textContent?.trim() ??
+        "",
+    ),
   );
 const expected = (
   metric: (typeof METRICS)[number],

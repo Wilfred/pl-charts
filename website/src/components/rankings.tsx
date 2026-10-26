@@ -1,4 +1,4 @@
-import { HOST_URLS } from "../package-hosts.ts";
+import { SERVICE_URLS, SERVICE_LANGUAGES } from "../package-services.ts";
 import { TrendPlot } from "./trends.tsx";
 import {
   CATEGORIES,
@@ -20,15 +20,16 @@ export function metricAnchor(metric: Metric): string {
 }
 function LanguageCell({
   language,
-  host = false,
+  service = false,
 }: {
   language: Language;
-  host?: boolean;
+  service?: boolean;
 }) {
-  if (host)
+  if (service)
     return (
-      <th scope="row">
-        <a href={HOST_URLS[language]}>{language}</a>
+      <th scope="row" className="package-service">
+        <a href={SERVICE_URLS[language]}>{language}</a>
+        <span className="service-languages">{SERVICE_LANGUAGES[language]}</span>
       </th>
     );
   return (
@@ -166,7 +167,7 @@ export function MetricSection({
               />
               <SortHeader
                 sortKey="language"
-                label={metric === "packages.published" ? "Host" : "Language"}
+                label={metric === "packages.published" ? "Service" : "Language"}
               />
               <SortHeader sortKey="value" label={info.unit} numeric />
             </tr>
@@ -177,7 +178,7 @@ export function MetricSection({
                 <td className="numeric rank-cell">{formatRank(row.rank)}</td>
                 <LanguageCell
                   language={row.language}
-                  host={metric === "packages.published"}
+                  service={metric === "packages.published"}
                 />
                 <td className="numeric count-cell">
                   {formatValue(metric, row.value)}

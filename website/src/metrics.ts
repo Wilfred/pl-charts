@@ -42,7 +42,7 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
     description: "Package and project records, counted once across versions.",
     file: "packages",
     cadence: "snapshot",
-    note: "Hosts with at least two new packages per day in Modulecounts’ 15 January 2024 snapshot. Totals use each host’s package or catalog definition.",
+    note: "Services with at least two new packages per day in Modulecounts’ 15 January 2024 snapshot. Totals use each service’s package or catalog definition.",
   },
   "stackoverflow.questions": {
     label: "Questions",

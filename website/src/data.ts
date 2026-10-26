@@ -2,7 +2,7 @@ import snapshotsJson from "../.generated/metrics.json" with { type: "json" };
 import packageSnapshot from "../.generated/packages.json" with { type: "json" };
 import type { MetricSnapshot } from "../scripts/metric-data.ts";
 import { LANGUAGES, type Language, type LanguageCounts } from "./languages.ts";
-import { HOST_NAMES } from "./package-hosts.ts";
+import { SERVICE_NAMES } from "./package-services.ts";
 import { METRICS, DEFINITIONS, type Metric } from "./metrics.ts";
 export { LANGUAGES, type Language } from "./languages.ts";
 export { METRICS, LANGUAGE_METRICS, type Metric } from "./metrics.ts";
@@ -73,7 +73,7 @@ export interface Ranking {
   rank: number | null;
 }
 export function metricEntities(metric: Metric): string[] {
-  return metric === "packages.published" ? HOST_NAMES : LANGUAGES;
+  return metric === "packages.published" ? SERVICE_NAMES : LANGUAGES;
 }
 export function rankValues(
   values: Readonly<LanguageCounts>,

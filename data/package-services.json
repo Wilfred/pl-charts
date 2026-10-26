@@ -6,104 +6,118 @@
     "rate": "Displayed rounded average growth over the preceding week",
     "deduplication": "CPAN and CPAN (search) identify one host"
   },
-  "hosts": [
+  "services": [
     {
       "id": "npm",
       "name": "npm",
       "ecosystem": "javascript-typescript",
       "url": "https://www.npmjs.com/",
-      "modulecountsNames": ["npm (node.js)"]
+      "modulecountsNames": ["npm (node.js)"],
+      "languages": ["JavaScript", "TypeScript"]
     },
     {
       "id": "pypi",
       "name": "PyPI",
       "ecosystem": "python",
       "url": "https://pypi.org/",
-      "modulecountsNames": ["PyPI"]
+      "modulecountsNames": ["PyPI"],
+      "languages": ["Python"]
     },
     {
       "id": "maven",
       "name": "Maven Central",
       "ecosystem": "jvm",
       "url": "https://central.sonatype.com/",
-      "modulecountsNames": ["Maven Central (Java)"]
+      "modulecountsNames": ["Maven Central (Java)"],
+      "languages": ["Java", "Kotlin", "Scala", "Groovy", "Clojure"]
     },
     {
       "id": "nuget",
       "name": "NuGet",
       "ecosystem": "dotnet",
       "url": "https://www.nuget.org/",
-      "modulecountsNames": ["nuget (.NET)"]
+      "modulecountsNames": ["nuget (.NET)"],
+      "languages": ["C#", "F#", "Visual Basic", "C++"]
     },
     {
       "id": "packagist",
       "name": "Packagist",
       "ecosystem": "php",
       "url": "https://packagist.org/",
-      "modulecountsNames": ["Packagist (PHP)"]
+      "modulecountsNames": ["Packagist (PHP)"],
+      "languages": ["PHP"]
     },
     {
       "id": "cargo",
       "name": "crates.io",
       "ecosystem": "rust",
       "url": "https://crates.io/",
-      "modulecountsNames": ["Crates.io (Rust)"]
+      "modulecountsNames": ["Crates.io (Rust)"],
+      "languages": ["Rust"]
     },
     {
       "id": "rubygems",
       "name": "RubyGems",
       "ecosystem": "ruby",
       "url": "https://rubygems.org/",
-      "modulecountsNames": ["Rubygems.org"]
+      "modulecountsNames": ["Rubygems.org"],
+      "languages": ["Ruby"]
     },
     {
       "id": "cpan",
       "name": "CPAN",
       "ecosystem": "perl",
       "url": "https://www.cpan.org/",
-      "modulecountsNames": ["CPAN", "CPAN (search)"]
+      "modulecountsNames": ["CPAN", "CPAN (search)"],
+      "languages": ["Perl"]
     },
     {
       "id": "clojars",
       "name": "Clojars",
       "ecosystem": "clojure-clojurescript",
       "url": "https://clojars.org/",
-      "modulecountsNames": ["Clojars (Clojure)"]
+      "modulecountsNames": ["Clojars (Clojure)"],
+      "languages": ["Clojure", "ClojureScript"]
     },
     {
       "id": "hex",
       "name": "Hex",
       "ecosystem": "elixir-erlang",
       "url": "https://hex.pm/",
-      "modulecountsNames": ["Hex.pm (Elixir/Erlang)"]
+      "modulecountsNames": ["Hex.pm (Elixir/Erlang)"],
+      "languages": ["Elixir", "Erlang", "Gleam"]
     },
     {
       "id": "luarocks",
       "name": "LuaRocks",
       "ecosystem": "lua",
       "url": "https://luarocks.org/",
-      "modulecountsNames": ["LuaRocks (Lua)"]
+      "modulecountsNames": ["LuaRocks (Lua)"],
+      "languages": ["Lua"]
     },
     {
       "id": "crystalshards",
       "name": "CrystalShards",
       "ecosystem": "crystal",
       "url": "https://crystalshards.org/",
-      "modulecountsNames": ["Crystal Shards"]
+      "modulecountsNames": ["Crystal Shards"],
+      "languages": ["Crystal"]
     },
     {
       "id": "melpa",
       "name": "MELPA",
       "ecosystem": "emacs-lisp",
       "url": "https://melpa.org/",
-      "modulecountsNames": ["MELPA (Emacs)"]
+      "modulecountsNames": ["MELPA (Emacs)"],
+      "languages": ["Emacs Lisp"]
     },
     {
       "id": "drupal",
       "name": "Drupal",
       "ecosystem": "php",
       "url": "https://www.drupal.org/project/project_module",
-      "modulecountsNames": ["Drupal (php)"]
+      "modulecountsNames": ["Drupal (php)"],
+      "languages": ["PHP", "JavaScript"]
     }
   ]
 }

@@ -42,7 +42,7 @@ The development server and preview use port 8000. Edit `website/src/pages.tsx` a
 | Category              | Metrics                                  | Historical scope                       |
 | --------------------- | ---------------------------------------- | -------------------------------------- |
 | GitHub                | Recorded pushes and opened pull requests | Quarterly, 2011 onward                 |
-| Packages              | Published registry totals                | 14 package-host snapshots              |
+| Packages              | Published registry totals                | 14 package-service snapshots           |
 | Stack Overflow        | Questions and answers created            | Quarterly, 2008–March 2024 snapshot    |
 | Stack Overflow Survey | Reported language use                    | Annual, 2013–2026                      |
 | Releases              | Stable implementation release records    | Annual; source-specific starting dates |
@@ -50,7 +50,7 @@ The development server and preview use port 8000. Edit `website/src/pages.tsx` a
 
 All numbers are derived from saved sources. Missing measurements display **—**. Complete calendar periods are shown for event metrics; published survey cohorts use their survey year. Plots preserve historical gaps and provide exact-value hover, touch, and keyboard tooltips. Tables sort through their column headers.
 
-Packages ranks package hosts, independently of the language comparison table. The cohort contains 14 hosts with displayed growth of at least two packages per day in Modulecounts’ 15 January 2024 snapshot. `data/package-hosts.json` records host names, links, aliases, and the selection rule. Counts follow each host’s published package or catalog definition.
+Packages ranks package services, independently of the language comparison table. The cohort contains 14 services with displayed growth of at least two packages per day in Modulecounts’ 15 January 2024 snapshot. `data/package-services.json` records service names, major programming languages, links, aliases, and the selection rule. Counts follow each service’s published package or catalog definition.
 
 GitHub’s language join covers a small and changing fraction of recorded events. Archive capture also changes after 2024. The shaded region and coverage notes identify this limitation; see the [attribution and capture investigation](docs/github-attribution.md).
 
