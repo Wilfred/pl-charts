@@ -1,6 +1,6 @@
 # Collection data
 
-The website reads `exports/*.csv`. These contain measurements and provenance, rather than ranks. Ranks are computed for the reviewed 20-language cohort in `languages.json`.
+The website reads `exports/*.csv`. These contain measurements and provenance, rather than ranks. Language ranks use the reviewed cohort in `languages.json`; Packages and Releases use the separate service and implementation cohorts.
 
 ```python
 import pandas as pd
@@ -16,6 +16,8 @@ The CSVs also work with Python’s standard library, R, DuckDB, and spreadsheets
 ```text
 data/
   languages.json
+  package-services.json
+  implementations.json
   raw/<category>/<run_id>/
     <source files>
     <executed SQL, where applicable>
@@ -46,22 +48,22 @@ For example, `npm run collect:hiring -- --help` describes the hiring collector. 
 
 ## Observation schema, version 1
 
-| Column                       | Meaning                                                     |
-| ---------------------------- | ----------------------------------------------------------- |
-| `schema_version`             | Observation schema version                                  |
-| `run_id`                     | Immutable collection identifier                             |
-| `category`, `metric`         | Source category and qualified metric identifier             |
-| `entity_id`, `entity_kind`   | Language, registry, or archive identifier and type          |
-| `ecosystem`                  | Scope; implementation name for release counts               |
-| `value`, `unit`              | Observed quantity and its unit                              |
-| `period_start`, `period_end` | Half-open measurement interval; blank for stock snapshots   |
-| `observed_at`                | Retrieval time of the underlying response                   |
-| `source_updated_at`          | Source-reported freshness or archive cutoff, when available |
-| `source_url`                 | Public source endpoint                                      |
-| `method_version`             | Extraction and counting method                              |
-| `raw_path`                   | Response path relative to `data/`                           |
+| Column                       | Meaning                                                            |
+| ---------------------------- | ------------------------------------------------------------------ |
+| `schema_version`             | Observation schema version                                         |
+| `run_id`                     | Immutable collection identifier                                    |
+| `category`, `metric`         | Source category and qualified metric identifier                    |
+| `entity_id`, `entity_kind`   | Language, registry, implementation, or archive identifier and type |
+| `ecosystem`                  | Scope; implementation name for release counts                      |
+| `value`, `unit`              | Observed quantity and its unit                                     |
+| `period_start`, `period_end` | Half-open measurement interval; blank for stock snapshots          |
+| `observed_at`                | Retrieval time of the underlying response                          |
+| `source_updated_at`          | Source-reported freshness or archive cutoff, when available        |
+| `source_url`                 | Public source endpoint                                             |
+| `method_version`             | Extraction and counting method                                     |
+| `raw_path`                   | Response path relative to `data/`                                  |
 
-A missing measurement is an absent observation, rather than a fabricated zero. Zero counts represent no matching records within the measured source window. Source archives may themselves be incomplete. The website omits partial calendar periods, preserves gaps, and displays missing values as —. Published annual surveys are complete survey cohorts, including the current survey year.
+A missing measurement is an absent observation, rather than a fabricated zero. Zero counts represent no matching records within the measured source window. Source archives may themselves be incomplete. The website omits partial event quarters and months, shows the current release year as year to date, preserves gaps, and displays missing values as —. Published annual surveys are complete survey cohorts, including the current survey year.
 
 ## Language cohort
 
@@ -129,38 +131,51 @@ Annual usage covers 2013–2026 from the [official survey repository](https://gi
 | 2020–2025 | Published all-respondent language datasets, with frequencies and denominators                        |
 | 2026      | The language-use slice for all respondents; desired use, AI use, and experience cohorts are separate |
 
-The earlier 2011–2012 questions measured proficiency. The usage series starts with the past-year-use question in 2013. Respondent populations and wording change across years. Version-specific C++ options are combined once per respondent in the older CSVs. Shell follows the published combined shell option. Languages absent from a question remain missing; Nix is absent from these published options.
+The earlier 2011–2012 questions measured proficiency. The usage series starts with the past-year-use question in 2013. Respondent populations and wording change across years. Version-specific C++ options are combined once per respondent in the older CSVs. Shell follows the published combined shell option. Languages absent from a question remain missing.
 
 Exact numerators, denominators, option labels, and question definitions are preserved when available. Older published percentages without numerator counts retain that limitation. Normalized percentages use four decimal places; tooltips and CSVs preserve that precision.
 
+### Most Loved
+
+`survey-loved.csv` contains `survey.most_loved`, collected independently with `npm run collect:survey-loved`. It covers 2015–2026. The counting unit is the percentage of each language’s past-year users who want to continue using it. Reports call this Loved through 2022 and Admired from 2023.
+
+2015–2016 use the published Loved table in the official archived HTML; 2017–2020 use the language Loved graph in the report JSON. These preserve the published options and percentages; early tables report a subset of languages. A version-specific C++11 option is not merged with the general C++ cohort. 2021–2022 use the Loved field, retaining loved and dreaded counts to recover each language’s denominator. 2023–2025 use the Admired field; 2026 selects the all-respondent Admired series. Desired percentages and professional-only slices are separate measures. Numerators and language-specific usage denominators are retained where published. A question-wide response count is not a language’s retention denominator.
+
+The pinned survey revision, original source bodies, published labels, frequencies, and percentages accompany the dated observations. The new collection is `2026-10-27T00-06-21-712Z`; Usage keeps its independent source capture and year range.
+
 ## Releases
 
-Annual counts describe stable implementation release records in official histories. Maintenance releases are included. Drafts, prereleases, unreleased changelog entries, and future publication dates are excluded. Repeated version identifiers are deduplicated. Each language starts after the first recorded year, keeping that potentially partial source year outside the aggregated series. Source completeness can still vary within those histories.
+Annual counts describe stable implementation release records in official histories, including maintenance releases. `implementations.json` identifies 21 distinct compilers and runtimes and lists their related languages. Observations use `entity_kind=implementation`; GCC appears once, Clang is separate, and Scala 2 and Scala 3 have independent histories. Implementations have separate source starting dates. The first recorded source year is excluded as potentially incomplete.
 
-| Language      | Implementation/source                                     | Date basis                                                       |
-| ------------- | --------------------------------------------------------- | ---------------------------------------------------------------- |
-| Python        | CPython download API                                      | Official release date                                            |
-| Java          | Eclipse Temurin GA API                                    | GA publication timestamp                                         |
-| JavaScript    | Node.js distribution index                                | Distribution-index date                                          |
-| C, C++        | GCC release history                                       | Official release date; the two languages share the toolchain     |
-| Go            | Go release history                                        | Official release date                                            |
-| TypeScript    | TypeScript compiler GitHub releases                       | Publication timestamp                                            |
-| PHP           | Official PHP release records and current branch endpoints | Official release date                                            |
-| Ruby          | CRuby release table                                       | Official release date                                            |
-| C#            | .NET runtime release metadata                             | Official release date                                            |
-| Nix           | Stable numeric Nix version tags                           | Annotated tag timestamp; tagged commit date for lightweight tags |
-| Shell         | GNU Bash source archives and numbered patches             | Source archive/patch modification date                           |
-| Rust          | Official stable compiler changelog                        | Dated release entry                                              |
-| Scala         | Scala 2 and Scala 3 compiler releases                     | Publication timestamp                                            |
-| Kotlin, Swift | Official compiler GitHub releases                         | Publication timestamp                                            |
-| Dart          | Official SDK changelog                                    | Explicit date on a stable version entry                          |
-| Groovy        | Apache Groovy release versions                            | Official issue-tracker release date                              |
-| Perl          | Released Perl 5 distributions on CPAN                     | Publication timestamp                                            |
-| Lua           | Official source archives                                  | Archive date                                                     |
+| Implementation              | Related languages           | Source / date basis                                                      |
+| --------------------------- | --------------------------- | ------------------------------------------------------------------------ |
+| CPython                     | Python                      | Official download API, release date                                      |
+| Eclipse Temurin             | Java                        | Adoptium GA publication timestamp                                        |
+| Node.js                     | JavaScript, TypeScript      | Official distribution index, distribution date                           |
+| GCC                         | C, C++, Fortran, Ada, Go, D | GCC release history, official release date                               |
+| Clang                       | C, C++, Objective-C         | Stable `llvmorg-X.Y.Z` LLVM/Clang GitHub releases, publication timestamp |
+| Go toolchain                | Go                          | Official release history, release date                                   |
+| TypeScript compiler         | TypeScript                  | Official GitHub release publication timestamp                            |
+| PHP                         | PHP                         | Official release history and current branch records, release date        |
+| CRuby                       | Ruby                        | Official release table, release date                                     |
+| .NET runtime                | C#, F#, Visual Basic        | Official runtime release metadata, release date                          |
+| Nix                         | Nix                         | Numeric stable version tags; commit date for lightweight tags            |
+| GNU Bash                    | Shell                       | Official source archives and numbered patches, modification date         |
+| rustc                       | Rust                        | Stable compiler changelog, explicit dated version entries                |
+| Scala 2 / Scala 3 compilers | Scala                       | Separate official GitHub release repositories, publication timestamp     |
+| Kotlin / Swift compilers    | Kotlin / Swift              | Official GitHub release publication timestamps                           |
+| Dart SDK                    | Dart                        | Explicit stable changelog dates                                          |
+| Apache Groovy               | Groovy                      | Official issue-tracker release dates                                     |
+| Perl 5                      | Perl                        | Released CPAN distribution timestamps                                    |
+| Lua                         | Lua                         | Official source archive dates                                            |
 
-Canonical version/date events and source-specific starting years are included in the manifest, alongside all original responses. The active derived run aggregates the full available history. It preserves the earlier capture’s HTTP timestamps. The original `2026-10-26T22-03-06-362Z` capture used a 2011 starting bound; replay it with `--from 2011`. The active run is `2026-10-26T22-31-39-335Z`.
+Drafts, prereleases, and future dates are excluded. Each implementation deduplicates version identifiers and retains canonical version/date events in its manifest. Source scopes and archival completeness differ. Clang follows LLVM release publications; GCC and Clang contain multiple language frontends.
 
-## Hacker News
+The active implementation run is `2026-10-27T00-07-37-891Z`, method `official-stable-implementation-publications-v2`. Current-year rows have an exclusive period end clipped to their source observation timestamps. The website includes 2026 with a YTD label in filters, chart axes, and tooltips. Earlier quarters and months in event categories retain their complete-period policy.
+
+The original language-attributed release snapshots remain immutable and replayable through the collector’s v1 compatibility path. The original `2026-10-26T22-03-06-362Z` capture used a 2011 starting bound; replay it with `--from 2011`. The earlier full-history derived run is `2026-10-26T22-31-39-335Z`.
+
+## HN Who's Hiring
 
 The collector queries the public HN mirror for stories by `whoishiring` whose title begins with “Ask HN: Who is hiring?”, case-insensitively. It counts distinct top-level comment IDs, excluding reported deleted/dead comments. Months follow the thread’s publication month; later comments remain attributed to that hiring round. Thread IDs and comment totals are retained in the manifest.
 
@@ -175,7 +190,8 @@ npm run collect:github -- --replay 2026-10-26T19-48-52-758Z
 npm run collect:surveys -- --replay 2026-10-26T22-24-23-807Z
 npm run collect:stackoverflow -- --replay 2026-10-26T21-24-13-197Z
 npm run collect:hiring -- --replay 2026-10-26T21-55-17-257Z
-npm run collect:releases -- --replay 2026-10-26T22-31-39-335Z
+npm run collect:releases -- --replay 2026-10-27T00-07-37-891Z
+npm run collect:survey-loved -- --replay 2026-10-27T00-06-21-712Z
 ```
 
 Collector tests replay active exports offline. Website tests reconcile every history with its CSV, preserve missing values and partial periods, and check sorting, source dates, plots, and point tooltips.

@@ -44,13 +44,17 @@ The development server and preview use port 8000. Edit `website/src/pages.tsx` a
 | GitHub                | Recorded pushes and opened pull requests | Quarterly, 2011 onward                 |
 | Packages              | Published registry totals                | 14 package-service snapshots           |
 | Stack Overflow        | Questions and answers created            | Quarterly, 2008–March 2024 snapshot    |
-| Stack Overflow Survey | Reported language use                    | Annual, 2013–2026                      |
+| Stack Overflow Survey | Usage and Most Loved                     | Annual, 2013–2026                      |
 | Releases              | Stable implementation release records    | Annual; source-specific starting dates |
-| Hacker News           | Language mentions in hiring comments     | Monthly rounds, April 2011 onward      |
+| HN Who's Hiring       | Language mentions in hiring comments     | Monthly rounds, April 2011 onward      |
 
-All numbers are derived from saved sources. Missing measurements display **—**. Complete calendar periods are shown for event metrics; published survey cohorts use their survey year. Plots preserve historical gaps and provide exact-value hover, touch, and keyboard tooltips. Tables sort through their column headers.
+All numbers are derived from saved sources. Missing measurements display **—**. Complete calendar periods are shown for event metrics; published survey cohorts use their survey year. Releases also includes the current year to date. Plots preserve historical gaps, mark every observed point, and start with each metric’s current top five series. Exact values are available through hover, touch, and keyboard tooltips. Tables sort through their column headers.
 
 Packages ranks package services, independently of the language comparison table. The cohort contains 14 services with displayed growth of at least two packages per day in Modulecounts’ 15 January 2024 snapshot. `data/package-services.json` records service names, major programming languages, links, aliases, and the selection rule. Counts follow each service’s published package or catalog definition.
+
+Releases ranks 21 compiler and runtime implementations, with related languages listed beneath each name. `data/implementations.json` defines the cohort, including separate GCC, Clang, Scala 2, and Scala 3 records.
+
+Most Loved measures the share of each language’s past-year users who want to keep using it. The source calls this Loved through 2022 and Admired from 2023. It has its own historical CSV and collection command.
 
 GitHub’s language join covers a small and changing fraction of recorded events. Archive capture also changes after 2024. The shaded region and coverage notes identify this limitation; see the [attribution and capture investigation](docs/github-attribution.md).
 
@@ -62,6 +66,7 @@ npm run collect:packages
 npm run collect:github
 npm run collect:stackoverflow
 npm run collect:surveys
+npm run collect:survey-loved
 npm run collect:releases
 npm run collect:hiring
 npm run inspect:github-health

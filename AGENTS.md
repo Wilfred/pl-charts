@@ -4,7 +4,7 @@
 
 - Build a ranking-focused programming language reference for developers.
 - Pages represent categories; a category contains one or more independently defined metrics.
-- Categories are GitHub, Packages, Stack Overflow, Stack Overflow Survey, Releases, and Hacker News. Keep qualified metric IDs consistent with the data schema.
+- Categories are GitHub, Packages, Stack Overflow, Stack Overflow Survey, Releases, and HN Who's Hiring. Keep qualified metric IDs consistent with the data schema.
 - Keep interface prose concise and factual. Describe each counting method once. Use sentence case and omit redundant labels and navigation.
 - Use clickable name and quantity headers with aria-sort for table ordering. Rank headers are static; default to descending quantity. Keep period filters separate.
 - Use neutral table text for values and ranks. Reserve colored table text for links. Use inline SVG for the header ranking icon.
@@ -24,6 +24,9 @@
 - Render shared JSX components into static HTML at build time. Edit `website/src/pages.tsx` and `website/src/components/`; generated HTML and `.generated/` are ignored artifacts.
 - Derive all metric values from checked-in CSVs during rendering. Keep service counting definitions and implementation mappings documented. Display missing measurements as —; preserve measured zeros.
 - Packages ranks services from `data/package-services.json`; keep it outside the homepage language comparison. Preserve the archived Modulecounts threshold evidence and service-specific counting rules.
+- Releases ranks implementations from `data/implementations.json`, with related languages beneath each name. Keep it outside the homepage language comparison. Include the current year as year to date; keep incomplete quarters and months excluded from event metrics.
+- Most Loved uses each language’s existing users as the denominator and follows the survey’s Loved/Admired definition. Preserve missing published options and source precision.
+- Plots mark every observed point and initially show the current top five series for that metric. Keep exact hover, touch, and keyboard tooltips.
 - Use the reviewed 20-language cohort in `data/languages.json`. Preserve source-period labels, exact-value tooltips, and gaps in historical plots.
 - Use the shared collector CLI/runtime for new routine collectors. Keep source-specific parsing and counting rules in adapters. Reuse captured sources for normalization changes; preserve retrieval times.
 
