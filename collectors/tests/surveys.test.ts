@@ -68,3 +68,104 @@ test("matrix survey exports combine language versions once per respondent", () =
     50,
   );
 });
+
+test("Most Loved uses retention among existing users, excluding desired and other cohorts", async () => {
+  const { parseSurveyLoved } = await import("../src/surveys.ts");
+  const modern = {
+    Languages: {
+      meta: { question: "Use", slices: [{ slice_type: "all", n: 100 }] },
+      data: [{ slice: 0, series: null, response: "Rust", pct: 0.2, count: 20 }],
+    },
+    DA_Language: {
+      meta: { slices: [{ slice_type: "all" }, { slice_type: "workexp" }] },
+      data: [
+        { slice: 0, series: "Desired", response: "Rust", pct: 0.9, count: 90 },
+        { slice: 0, series: "Admired", response: "Rust", pct: 0.8, count: 16 },
+        { slice: 1, series: "Admired", response: "Rust", pct: 0.1, count: 1 },
+      ],
+    },
+  };
+  assert.deepEqual(parseSurveyLoved(JSON.stringify(modern), 2026).data, [
+    { response: "Rust", percent: 80, frequency: 16, denominator: 20 },
+  ]);
+  const old = {
+    Language: {
+      datasets: {
+        Language: {
+          data: [{ response: "Rust", percent: 0.2, frequency: 20 }],
+          total_respondents: 100,
+        },
+      },
+    },
+    LDW_Language: {
+      datasets: {
+        Language_love_dread: {
+          data: [
+            {
+              response: "Rust",
+              frequency1: 16,
+              frequency2: 4,
+              percent1: 0.8,
+              percent2: 0.2,
+            },
+          ],
+        },
+      },
+    },
+  };
+  assert.deepEqual(parseSurveyLoved(JSON.stringify(old), 2021).data, [
+    { response: "Rust", percent: 80, frequency: 16, denominator: 20 },
+  ]);
+  const admired = {
+    ...old,
+    LDW_Language: undefined,
+    DA_Language: {
+      datasets: {
+        Language_desire_admire: {
+          data: [
+            {
+              response: "Rust",
+              Wanted_percent: 0.9,
+              Wanted_frequency: 90,
+              Admired_percent: 0.8,
+              Admired_frequency: 16,
+            },
+          ],
+        },
+      },
+    },
+  };
+  assert.deepEqual(parseSurveyLoved(JSON.stringify(admired), 2023).data, [
+    { response: "Rust", percent: 80, frequency: 16, denominator: 20 },
+  ]);
+});
+test("historical Most Loved parsing stays within the language graph and preserves published precision", async () => {
+  const { parseSurveyLoved } = await import("../src/surveys.ts");
+  assert.deepEqual(
+    parseSurveyLoved(
+      JSON.stringify({
+        SubSections: [
+          {
+            Title: "Most Loved, Dreaded, and Wanted Languages",
+            Graphs: [
+              { Title: "Loved", Data: { Rust: 83.4646 } },
+              { Title: "Dreaded", Data: { Rust: 16.5354 } },
+            ],
+          },
+          {
+            Title: "Most Loved Databases",
+            Graphs: [{ Title: "Loved", Data: { Redis: 99 } }],
+          },
+        ],
+      }),
+      2019,
+    ).data,
+    [{ response: "Rust", percent: 83.4646 }],
+  );
+  const html =
+    '<div id="techSuper-loved"><div class="bar-label">Rust</div><span>73.8%</span><div id="techSuper-dreaded"><div class="bar-label">Rust</div><span>26.2%</span>';
+  assert.deepEqual(parseSurveyLoved(html, 2015).data, [
+    { response: "Rust", percent: 73.8 },
+  ]);
+  assert.throws(() => parseSurveyLoved("{}", 2025), /Unrecognized/);
+});

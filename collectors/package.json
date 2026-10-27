@@ -13,7 +13,8 @@
     "collect:releases": "node src/collect-releases.ts",
     "collect:stackoverflow": "node src/collect-stackoverflow.ts",
     "collect:hiring": "node src/collect-hiring.ts",
-    "inspect:github-health": "node src/inspect-github-health.ts"
+    "inspect:github-health": "node src/inspect-github-health.ts",
+    "collect:survey-loved": "node src/collect-survey-loved.ts"
   },
   "devDependencies": {
     "@types/node": "22.20.5",

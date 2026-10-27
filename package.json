@@ -20,7 +20,8 @@
     "collect:releases": "npm run collect:releases --workspace collectors --",
     "collect:stackoverflow": "npm run collect:stackoverflow --workspace collectors --",
     "collect:hiring": "npm run collect:hiring --workspace collectors --",
-    "inspect:github-health": "npm run inspect:github-health --workspace collectors --"
+    "inspect:github-health": "npm run inspect:github-health --workspace collectors --",
+    "collect:survey-loved": "npm run collect:survey-loved --workspace collectors --"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",

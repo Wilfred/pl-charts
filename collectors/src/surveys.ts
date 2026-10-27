@@ -182,3 +182,130 @@ export function parseSurveyCsv(body: string, year: number): SurveyResult {
     })),
   };
 }
+
+export interface LovedResult {
+  definition: string;
+  data: {
+    response: string;
+    percent: number;
+    frequency?: number;
+    denominator?: number;
+  }[];
+}
+export function parseSurveyLoved(body: string, year: number): LovedResult {
+  const definition =
+    "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.";
+  if (year < 2017) {
+    const id =
+      year === 2015
+        ? "techSuper-loved"
+        : "technology-most-loved-dreaded-and-wanted-loved";
+    const next =
+      year === 2015
+        ? "techSuper-dreaded"
+        : "technology-most-loved-dreaded-and-wanted-dreaded";
+    const start = body.indexOf(`id="${id}"`),
+      end = body.indexOf(`id="${next}"`, start);
+    if (start < 0 || end < 0) throw new Error("Missing historical Loved table");
+    const data = [
+      ...body
+        .slice(start, end)
+        .matchAll(
+          /<div class="bar-label">([^<]+)<\/div>[\s\S]*?<span>([\d.]+)%<\/span>/g,
+        ),
+    ].map((match) => ({
+      response: match[1]!.trim(),
+      percent: Number(match[2]),
+    }));
+    if (!data.length) throw new Error("Empty historical Loved table");
+    return { definition, data };
+  }
+  const source = JSON.parse(body) as Record<string, unknown>;
+  const modern = record(source.DA_Language);
+  if (modern && Array.isArray(modern.data)) {
+    const meta = record(modern.meta)!;
+    const slices = meta.slices as { slice_type: string }[];
+    const slice = slices.findIndex((row) => row.slice_type === "all");
+    const usage = parseSurvey(body);
+    const data = (
+      modern.data as {
+        slice: number;
+        series: string;
+        response: string;
+        pct: number;
+        count: number;
+      }[]
+    )
+      .filter((row) => row.slice === slice && row.series === "Admired")
+      .map((row) => ({
+        response: row.response,
+        percent: row.pct * 100,
+        frequency: row.count,
+        denominator: usage.data.find((value) => value.response === row.response)
+          ?.frequency,
+      }));
+    if (!data.length) throw new Error("Missing all-respondent Admired series");
+    return { definition, data };
+  }
+  const node = record(source.DA_Language ?? source.LDW_Language);
+  if (node) {
+    const datasets = record(node.datasets)!;
+    const dataset = record(
+      datasets.Language_desire_admire ?? datasets.Language_love_dread,
+    );
+    if (!dataset || !Array.isArray(dataset.data))
+      throw new Error("Missing language Loved/Admired dataset");
+    const loved = !!datasets.Language_love_dread;
+    const usage = parseSurvey(body);
+    return {
+      definition,
+      data: (dataset.data as Record<string, unknown>[]).map((row) => ({
+        response: String(row.response),
+        percent:
+          Number(loved ? row.percent1 : (row.Admired_percent ?? row.percent2)) *
+          100,
+        frequency: Number(
+          loved ? row.frequency1 : (row.Admired_frequency ?? row.frequency2),
+        ),
+        denominator: loved
+          ? Number(row.frequency1) + Number(row.frequency2)
+          : usage.data.find((value) => value.response === row.response)
+              ?.frequency,
+      })),
+    };
+  }
+  let result: LovedResult | undefined;
+  function visit(value: unknown): void {
+    if (result) return;
+    if (Array.isArray(value)) {
+      value.forEach(visit);
+      return;
+    }
+    const node = record(value);
+    if (!node) return;
+    if (
+      typeof node.Title === "string" &&
+      /Loved.*Languages$/i.test(node.Title) &&
+      Array.isArray(node.Graphs)
+    ) {
+      const graph = (node.Graphs as Record<string, unknown>[]).find(
+        (row) => row.Title === "Loved",
+      );
+      const data = record(graph?.Data);
+      if (data) {
+        result = {
+          definition,
+          data: Object.entries(data).map(([response, percent]) => ({
+            response,
+            percent: Number(percent),
+          })),
+        };
+        return;
+      }
+    }
+    Object.values(node).forEach(visit);
+  }
+  visit(source);
+  if (!result) throw new Error("Unrecognized language Loved results");
+  return result;
+}
