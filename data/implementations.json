@@ -1,0 +1,174 @@
+{
+  "implementations": [
+    {
+      "id": "cpython",
+      "name": "CPython",
+      "languages": ["Python"],
+      "sourceLanguage": "Python",
+      "url": "https://www.python.org/",
+      "color": "#72a2dc"
+    },
+    {
+      "id": "temurin",
+      "name": "Eclipse Temurin",
+      "languages": ["Java"],
+      "sourceLanguage": "Java",
+      "url": "https://adoptium.net/",
+      "color": "#d58b60"
+    },
+    {
+      "id": "node",
+      "name": "Node.js",
+      "languages": ["JavaScript", "TypeScript"],
+      "sourceLanguage": "JavaScript",
+      "url": "https://nodejs.org/",
+      "color": "#d1b83e"
+    },
+    {
+      "id": "gcc",
+      "name": "GCC",
+      "languages": ["C", "C++", "Fortran", "Ada", "Go", "D"],
+      "sourceLanguage": "C",
+      "url": "https://gcc.gnu.org/",
+      "color": "#b8c4d9"
+    },
+    {
+      "id": "clang",
+      "name": "Clang",
+      "languages": ["C", "C++", "Objective-C"],
+      "sourceLanguage": "Clang",
+      "url": "https://clang.llvm.org/",
+      "color": "#bd9aef"
+    },
+    {
+      "id": "go",
+      "name": "Go toolchain",
+      "languages": ["Go"],
+      "sourceLanguage": "Go",
+      "url": "https://go.dev/",
+      "color": "#64b8c7"
+    },
+    {
+      "id": "typescript",
+      "name": "TypeScript compiler",
+      "languages": ["TypeScript"],
+      "sourceLanguage": "TypeScript",
+      "url": "https://www.typescriptlang.org/",
+      "color": "#6e9ce8"
+    },
+    {
+      "id": "php",
+      "name": "PHP",
+      "languages": ["PHP"],
+      "sourceLanguage": "PHP",
+      "url": "https://www.php.net/",
+      "color": "#a99cdb"
+    },
+    {
+      "id": "cruby",
+      "name": "CRuby",
+      "languages": ["Ruby"],
+      "sourceLanguage": "Ruby",
+      "url": "https://www.ruby-lang.org/",
+      "color": "#d57888"
+    },
+    {
+      "id": "dotnet",
+      "name": ".NET runtime",
+      "languages": ["C#", "F#", "Visual Basic"],
+      "sourceLanguage": "C#",
+      "url": "https://dotnet.microsoft.com/",
+      "color": "#8fc58a"
+    },
+    {
+      "id": "nix",
+      "name": "Nix",
+      "languages": ["Nix"],
+      "sourceLanguage": "Nix",
+      "url": "https://nixos.org/",
+      "color": "#9db6e2"
+    },
+    {
+      "id": "bash",
+      "name": "GNU Bash",
+      "languages": ["Shell"],
+      "sourceLanguage": "Shell",
+      "url": "https://www.gnu.org/software/bash/",
+      "color": "#a6c96d"
+    },
+    {
+      "id": "rustc",
+      "name": "rustc",
+      "languages": ["Rust"],
+      "sourceLanguage": "Rust",
+      "url": "https://www.rust-lang.org/",
+      "color": "#b1a196"
+    },
+    {
+      "id": "scala2",
+      "name": "Scala 2 compiler",
+      "languages": ["Scala"],
+      "sourceLanguage": "Scala",
+      "url": "https://www.scala-lang.org/",
+      "color": "#df7d77",
+      "sourcePrefix": "scala-scala-"
+    },
+    {
+      "id": "scala3",
+      "name": "Scala 3 compiler",
+      "languages": ["Scala"],
+      "sourceLanguage": "Scala",
+      "url": "https://www.scala-lang.org/",
+      "color": "#dc9b78",
+      "sourcePrefix": "scala-scala3-"
+    },
+    {
+      "id": "kotlin",
+      "name": "Kotlin compiler",
+      "languages": ["Kotlin"],
+      "sourceLanguage": "Kotlin",
+      "url": "https://kotlinlang.org/",
+      "color": "#c794cf"
+    },
+    {
+      "id": "swift",
+      "name": "Swift compiler",
+      "languages": ["Swift"],
+      "sourceLanguage": "Swift",
+      "url": "https://www.swift.org/",
+      "color": "#e6a277"
+    },
+    {
+      "id": "dart",
+      "name": "Dart SDK",
+      "languages": ["Dart"],
+      "sourceLanguage": "Dart",
+      "url": "https://dart.dev/",
+      "color": "#69b8b0"
+    },
+    {
+      "id": "groovy",
+      "name": "Apache Groovy",
+      "languages": ["Groovy"],
+      "sourceLanguage": "Groovy",
+      "url": "https://groovy-lang.org/",
+      "color": "#b2b56d"
+    },
+    {
+      "id": "perl",
+      "name": "Perl 5",
+      "languages": ["Perl"],
+      "sourceLanguage": "Perl",
+      "url": "https://www.perl.org/",
+      "color": "#d18fa9"
+    },
+    {
+      "id": "lua",
+      "name": "Lua",
+      "languages": ["Lua"],
+      "sourceLanguage": "Lua",
+      "url": "https://www.lua.org/",
+      "color": "#a3a5e5"
+    }
+  ]
+}

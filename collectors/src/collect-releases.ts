@@ -1,3 +1,7 @@
+import { readFile } from "node:fs/promises";
+import { resolve, join } from "node:path";
+import { DEFAULT_DATA_DIRECTORY } from "./storage.ts";
+import implementationModel from "../../data/implementations.json" with { type: "json" };
 import { collectionOptions, runCollection, yearInterval } from "./runtime.ts";
 import { LANGUAGE_PROFILES } from "./languages.ts";
 import {
@@ -11,9 +15,27 @@ const options = collectionOptions(
   "Collect dated stable implementation releases from official publication histories.",
   true,
 );
+const savedRun = options.replay ?? options.sourceRun;
+const legacy = savedRun
+  ? (
+      JSON.parse(
+        await readFile(
+          join(
+            resolve(options.dataDirectory ?? DEFAULT_DATA_DIRECTORY),
+            "raw/releases",
+            savedRun,
+            "manifest.json",
+          ),
+          "utf8",
+        ),
+      ) as { method: string }
+    ).method === "official-stable-implementation-publications-v1"
+  : false;
 await runCollection(
   "releases",
-  "official-stable-implementation-publications-v1",
+  legacy
+    ? "official-stable-implementation-publications-v1"
+    : "official-stable-implementation-publications-v2",
   options,
   async (context) => {
     const all: Record<
@@ -351,17 +373,44 @@ await runCollection(
           });
     }
     add("C#", ".NET runtime", "Official .NET release date", dotnet);
+    if (!legacy)
+      add(
+        "Clang",
+        "LLVM/Clang",
+        "GitHub release publication timestamp",
+        (await githubReleases(context, "llvm/llvm-project")).filter((event) =>
+          /^llvmorg-\d+\.\d+\.\d+$/.test(event.version),
+        ),
+      );
+    const entities: {
+      name: string;
+      sourceLanguage: string;
+      sourcePrefix?: string;
+    }[] = legacy
+      ? LANGUAGE_PROFILES.map((language) => ({
+          name: language.name,
+          sourceLanguage: language.name,
+        }))
+      : implementationModel.implementations;
     const observations = [];
     const metadata: Record<string, unknown> = {};
-    for (const language of LANGUAGE_PROFILES) {
-      const record = all[language.name];
-      if (!record) throw new Error(`Missing release source: ${language.name}`);
+    for (const entity of entities) {
+      const original = all[entity.sourceLanguage];
+      const record = original && {
+        ...original,
+        events: original.events.filter(
+          (event) =>
+            !entity.sourcePrefix ||
+            event.source.startsWith(entity.sourcePrefix),
+        ),
+      };
+      if (!record) throw new Error(`Missing release source: ${entity.name}`);
       const unique = new Map<string, ReleaseEvent>();
       for (const event of record.events) {
         const date = new Date(event.date);
         if (!Number.isFinite(date.valueOf()))
           throw new Error(
-            `Invalid release date: ${language.name}/${event.version}`,
+            `Invalid release date: ${entity.name}/${event.version}`,
           );
         const source = context.sources.find(
           (source) => source.path === event.source,
@@ -376,7 +425,7 @@ await runCollection(
         a.date.localeCompare(b.date),
       );
       if (!events.length)
-        throw new Error(`No dated stable releases for ${language.name}`);
+        throw new Error(`No dated stable releases for ${entity.name}`);
       const firstFullYear = Number(events[0]!.date.slice(0, 4)) + 1;
       const through = context.options.to ?? Number(context.runId.slice(0, 4));
       for (
@@ -396,14 +445,19 @@ await runCollection(
         observations.push(
           context.observation(
             "releases.stable",
-            language.name,
+            entity.name,
             selected.length,
             source,
-            { unit: "releases", ecosystem: record.implementation, ...interval },
+            {
+              unit: "releases",
+              entity_kind: legacy ? "language" : "implementation",
+              ecosystem: legacy ? record.implementation : entity.name,
+              ...interval,
+            },
           ),
         );
       }
-      metadata[language.name] = {
+      metadata[entity.name] = {
         implementation: record.implementation,
         date_basis: record.dateBasis,
         first_recorded_release: events[0]!.date,
