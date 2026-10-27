@@ -5,6 +5,7 @@ import { fileURLToPath } from "node:url";
 import test from "node:test";
 for (const [category, script] of [
   ["packages", "collect-packages.ts"],
+  ["survey-loved", "collect-survey-loved.ts"],
   ["surveys", "collect-surveys.ts"],
   ["stackoverflow", "collect-stackoverflow.ts"],
   ["hiring", "collect-hiring.ts"],

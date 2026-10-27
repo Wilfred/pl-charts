@@ -1,0 +1,157 @@
+[
+    {
+        "aqavit_results_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/AQAvitTapFiles.tar.gz",
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 3781495,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "aea1cc55e51cf651c85f2f00ad021603fe269c4bb6493fa97a321ad770c9b096",
+                    "checksum_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk_x64_linux_hotspot_24.0.2_12.tar.gz.sha256.txt",
+                    "download_count": 3781495,
+                    "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk_x64_linux_hotspot_24.0.2_12.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk_x64_linux_hotspot_24.0.2_12.tar.gz.json",
+                    "name": "OpenJDK24U-jdk_x64_linux_hotspot_24.0.2_12.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk_x64_linux_hotspot_24.0.2_12.tar.gz.sig",
+                    "size": 139224469
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-24.0.2+12_adopt",
+                "updated_at": "2025-07-17T18:50:24Z"
+            }
+        ],
+        "download_count": 5776366,
+        "id": "RE_kwDOMLCddM4N56jI.lePgM2j2CiJrww==",
+        "release_link": "https://github.com/adoptium/temurin24-binaries/releases/tag/jdk-24.0.2%2B12",
+        "release_name": "jdk-24.0.2+12",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk-release-notes_24.0.2_12.json",
+            "name": "OpenJDK24U-jdk-release-notes_24.0.2_12.json",
+            "size": 55535
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.2%2B12/OpenJDK24U-jdk-sources_24.0.2_12.tar.gz",
+            "name": "OpenJDK24U-jdk-sources_24.0.2_12.tar.gz",
+            "size": 121591509
+        },
+        "timestamp": "2025-07-17T18:45:38Z",
+        "updated_at": "2025-08-13T15:44:46Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 12,
+            "major": 24,
+            "minor": 0,
+            "openjdk_version": "24.0.2+12",
+            "security": 2,
+            "semver": "24.0.2+12"
+        }
+    },
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 992515,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "78832cb5ea4074f2215cde0d01d6192d09c87636fc24b36647aea61fb23b8272",
+                    "checksum_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz.sha256.txt",
+                    "download_count": 992515,
+                    "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz.json",
+                    "name": "OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk_x64_linux_hotspot_24.0.1_9.tar.gz.sig",
+                    "size": 139221211
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-24.0.1+9_adopt",
+                "updated_at": "2025-04-16T23:19:37Z"
+            }
+        ],
+        "download_count": 1984293,
+        "id": "RE_kwDOMLCddM4Mr3aI.BdaC1odyuuYbwQ==",
+        "release_link": "https://github.com/adoptium/temurin24-binaries/releases/tag/jdk-24.0.1%2B9",
+        "release_name": "jdk-24.0.1+9",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk-release-notes_24.0.1_9.json",
+            "name": "OpenJDK24U-jdk-release-notes_24.0.1_9.json",
+            "size": 13256
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24.0.1%2B9/OpenJDK24U-jdk-sources_24.0.1_9.tar.gz",
+            "name": "OpenJDK24U-jdk-sources_24.0.1_9.tar.gz",
+            "size": 121516114
+        },
+        "timestamp": "2025-04-16T14:16:33Z",
+        "updated_at": "2025-04-25T12:00:35Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 9,
+            "major": 24,
+            "minor": 0,
+            "openjdk_version": "24.0.1+9",
+            "security": 1,
+            "semver": "24.0.1+9"
+        }
+    },
+    {
+        "aqavit_results_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/AQAvitTapFiles.tar.gz",
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 273225,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "c340dee97b6aa215d248bc196dcac5b56e7be9b5c5d45e691344d40d5d0b171d",
+                    "checksum_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24U-jdk_x64_linux_hotspot_24_36.tar.gz.sha256.txt",
+                    "download_count": 273225,
+                    "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24U-jdk_x64_linux_hotspot_24_36.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24U-jdk_x64_linux_hotspot_24_36.tar.gz.json",
+                    "name": "OpenJDK24U-jdk_x64_linux_hotspot_24_36.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24U-jdk_x64_linux_hotspot_24_36.tar.gz.sig",
+                    "size": 139205428
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-24+36_adopt",
+                "updated_at": "2025-03-20T13:32:25Z"
+            }
+        ],
+        "download_count": 624920,
+        "id": "RE_kwDOMLCddM4MWBa8.rRHhMar6nlse6w==",
+        "release_link": "https://github.com/adoptium/temurin24-binaries/releases/tag/jdk-24%2B36",
+        "release_name": "jdk-24+36",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24-jdk-release-notes_24_36.json",
+            "name": "OpenJDK24-jdk-release-notes_24_36.json",
+            "size": 814269
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin24-binaries/releases/download/jdk-24%2B36/OpenJDK24U-jdk-sources_24_36.tar.gz",
+            "name": "OpenJDK24U-jdk-sources_24_36.tar.gz",
+            "size": 121426074
+        },
+        "timestamp": "2025-03-20T09:06:52Z",
+        "updated_at": "2025-03-31T20:13:54Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 36,
+            "major": 24,
+            "minor": 0,
+            "openjdk_version": "24+36",
+            "security": 0,
+            "semver": "24.0.0+36"
+        }
+    }
+]

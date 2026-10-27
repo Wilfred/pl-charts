@@ -1,0 +1,1227 @@
+{
+  "schema_version": 2,
+  "category": "survey-loved",
+  "method": "stackoverflow-survey-language-retention-v1",
+  "run_id": "2026-10-27T00-06-21-712Z",
+  "status": "complete",
+  "options": {},
+  "sources": [
+    {
+      "path": "revision.json",
+      "url": "https://api.github.com/repos/StackExchange/Survey/commits/main",
+      "sha256": "4fc4d979c39f8e096694bf5d61f2f18ede07d1845a1280a5a35a89c51f148690",
+      "bytes": 4557,
+      "observed_at": "2026-10-27T00:06:22.222Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:22 GMT",
+        "etag": "W/\"269935f1c523735ed691846d41dca70634542d26d7870a3dbc7cc50349c88f3a\"",
+        "last-modified": "Thu, 22 Oct 2026 15:24:25 GMT",
+        "content-type": "application/json; charset=utf-8"
+      }
+    },
+    {
+      "path": "2015.html",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2015/site/index.html",
+      "sha256": "9cfdae8631d3731c6393ec16fbbd460b1b23615b4a6ee6fe1d26b5e116360d49",
+      "bytes": 308783,
+      "observed_at": "2026-10-27T00:06:22.299Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:22 GMT",
+        "etag": "\"9cfdae8631d3731c6393ec16fbbd460b1b23615b4a6ee6fe1d26b5e116360d49\"",
+        "last-modified": "Tue, 27 Oct 2026 00:05:27 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2016.html",
+      "url": "https://media.githubusercontent.com/media/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2016/site/index.html",
+      "sha256": "c1a9be69af2e366aea35608f5d91999bd003a296407c7b188291136595d87d2d",
+      "bytes": 574820,
+      "observed_at": "2026-10-27T00:06:22.350Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:22 GMT",
+        "etag": "\"c1a9be69af2e366aea35608f5d91999bd003a296407c7b188291136595d87d2d\"",
+        "last-modified": "Tue, 27 Oct 2026 00:05:27 GMT",
+        "content-type": "text/plain"
+      }
+    },
+    {
+      "path": "2017.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2017/json/report.json",
+      "sha256": "9409d3e57016177a590082f60b47de6028f55069c104b4cfe6ad0dc47f3bf290",
+      "bytes": 128131,
+      "observed_at": "2026-10-27T00:06:22.749Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:22 GMT",
+        "etag": "W/\"fd46f93ab08d2f94bfcc850d3c3cf2448a81b66137b73e86a6cf499dd5c6b349\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2018.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2018/json/report.json",
+      "sha256": "2b1e0177046b15b1b170f16196eb1f1f1877c1a3e0d25e7c4fafff3f03d4c1f0",
+      "bytes": 155434,
+      "observed_at": "2026-10-27T00:06:23.159Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:23 GMT",
+        "etag": "W/\"edc5e09f789a5fabc86d709e22088577d6be86b8051804713cbb5ac8916f2c1a\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2019.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2019/json/technology.json",
+      "sha256": "2321014d96e2a2b0555f36fb87c95ecf9fb3a134f4be12ef94386e67f661d236",
+      "bytes": 38199,
+      "observed_at": "2026-10-27T00:06:23.460Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:23 GMT",
+        "etag": "W/\"92fa2ad7753b4bc0c4134373e76000ce509ef9b883e2506e13f5a3a923fc7d3f\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2020.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2020/json/technology.json",
+      "sha256": "53a215ad90975fa067f6e1fb103817c58e43cd2fa83acb5fb1213dfccd5b6a29",
+      "bytes": 37413,
+      "observed_at": "2026-10-27T00:06:23.664Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:23 GMT",
+        "etag": "W/\"b7b093c832d31923bbe73dbeaffa5bce5ea86c6fcfbce783445955cbff3fd084\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2021.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2021/json/technology.json",
+      "sha256": "bb35846715dabdab85db5ecea54fcbec3ed81c0c313ae3ac373ef6209342bc61",
+      "bytes": 194374,
+      "observed_at": "2026-10-27T00:06:23.974Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:23 GMT",
+        "etag": "W/\"0affa892467d628fcd82bfba7888f3efa5401162e0128a432c1fcb2cc1f8ec0e\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2022.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2022/json/technology.json",
+      "sha256": "995039e7c379a6d044c57a1100d503650c6ca82420902f7aa402ab4879eace08",
+      "bytes": 218160,
+      "observed_at": "2026-10-27T00:06:24.282Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:24 GMT",
+        "etag": "W/\"473ac2368d8067b1f51d003a50be2c0d833781a91cb25c845e884ea298dd6601\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2023.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2023/json/technology.json",
+      "sha256": "f8ac86e4d611659e4b24510d5ccfd98cdfaeb9a7c4103580d2e32ba81bbcff65",
+      "bytes": 553311,
+      "observed_at": "2026-10-27T00:06:24.595Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:24 GMT",
+        "etag": "W/\"219855a00631d41e54afd0df94a0d43d960d8de93639974914a6fd7c39058209\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2024.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2024/json/technology.json",
+      "sha256": "a30ceeeb7a6eed8611e5b9d40c5490b73f267fb66865a56ee8676d374a335f8d",
+      "bytes": 375792,
+      "observed_at": "2026-10-27T00:06:24.901Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:24 GMT",
+        "etag": "W/\"3f5dcd15bf59003857423096cd4caf8f7d03b6cb0093214c1d82d010d29c91d7\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2025.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2025/json/technology.json",
+      "sha256": "a020f434a9259f2b77a489e20a5dc4ec262b39844f590ceaf4abc0201b9b7665",
+      "bytes": 372080,
+      "observed_at": "2026-10-27T00:06:25.134Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:25 GMT",
+        "etag": "W/\"bd11d80e0a66260ebee61a2d991bc0a12234a0a6491412eaf28b25fe83e3b7e0\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    },
+    {
+      "path": "2026.json",
+      "url": "https://raw.githubusercontent.com/StackExchange/Survey/9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7/packages/archive/2026/json/technology.json",
+      "sha256": "85381a67bdfe873af18a20a961240264915a3d0419867bc300f410629fab46e7",
+      "bytes": 373088,
+      "observed_at": "2026-10-27T00:06:25.409Z",
+      "http_status": 200,
+      "headers": {
+        "date": "Tue, 27 Oct 2026 00:06:25 GMT",
+        "etag": "W/\"714a69fb35aeafa24ed6a9e897bdddd8376b80295ae1dc8cb34ab547f9580e4e\"",
+        "content-type": "text/plain; charset=utf-8"
+      }
+    }
+  ],
+  "metadata": {
+    "years": {
+      "2015": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 66.6
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 72.5
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 67.2
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 73.8
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 70.6
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 77.6
+          }
+        }
+      },
+      "2016": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 62.5
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 68.7
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 62
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 79.1
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 69.4
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 72.1
+          }
+        }
+      },
+      "2017": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 62.7136
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 50.5164
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 63.2627
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 59.8164
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 52.0417
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 64.1055
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 41.3605
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 48.4958
+          },
+          "C": {
+            "response": "C",
+            "percent": 41.6691
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 61.6544
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 73.0769
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 59.893
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 63.9358
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 38.6207
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 37.1333
+          }
+        }
+      },
+      "2018": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 67.9634
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 50.6658
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 65.6182
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 61.9208
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 46.6586
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 67.0263
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 41.6393
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 47.4024
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 60.414
+          },
+          "Shell": {
+            "response": "Bash/Shell",
+            "percent": 59.13
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 78.8907
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 58.5088
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 75.057
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 65.0713
+          }
+        }
+      },
+      "2019": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 73.1114
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 53.3814
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 67.9489
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 66.7944
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 52.0123
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 73.0929
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 45.7968
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 50.3069
+          },
+          "C": {
+            "response": "C",
+            "percent": 42.4821
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 66.9668
+          },
+          "Shell": {
+            "response": "Bash/Shell/PowerShell",
+            "percent": 59.4824
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 83.4646
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 58.3258
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 72.5623
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 69.1504
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 66.2507
+          }
+        }
+      },
+      "2020": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 66.6667
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 44.1059
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 62.2668
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 58.3149
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 43.4377
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 67.1285
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 37.2559
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 42.8571
+          },
+          "C": {
+            "response": "C",
+            "percent": 33.0744
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 59.653
+          },
+          "Shell": {
+            "response": "Bash/Shell/PowerShell",
+            "percent": 53.7355
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 86.1386
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 53.2164
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 62.9141
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 59.4937
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 62.1491
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 28.6192
+          }
+        }
+      },
+      "2021": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 67.83,
+            "frequency": 26992,
+            "denominator": 39792
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 47.15,
+            "frequency": 13749,
+            "denominator": 29162
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 62.739999999999995,
+            "frequency": 4943,
+            "denominator": 7879
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 61.51,
+            "frequency": 32964,
+            "denominator": 53587
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 49.24,
+            "frequency": 9876,
+            "denominator": 20057
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 72.72999999999999,
+            "frequency": 18117,
+            "denominator": 24909
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 40.239999999999995,
+            "frequency": 7296,
+            "denominator": 18130
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 53.239999999999995,
+            "frequency": 2965,
+            "denominator": 5569
+          },
+          "C": {
+            "response": "C",
+            "percent": 39.56,
+            "frequency": 6855,
+            "denominator": 17329
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 61.96,
+            "frequency": 14241,
+            "denominator": 22984
+          },
+          "Shell": {
+            "response": "Bash/Shell",
+            "percent": 56.34,
+            "frequency": 12611,
+            "denominator": 22385
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 86.98,
+            "frequency": 5044,
+            "denominator": 5799
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 52.28,
+            "frequency": 1123,
+            "denominator": 2148
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 61.550000000000004,
+            "frequency": 4226,
+            "denominator": 6866
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 63.56,
+            "frequency": 2672,
+            "denominator": 4204
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 63.77,
+            "frequency": 3166,
+            "denominator": 4965
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 31.990000000000002,
+            "frequency": 793,
+            "denominator": 2479
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 36,
+            "frequency": 730,
+            "denominator": 2028
+          }
+        }
+      },
+      "2022": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 66.18,
+            "frequency": 12395,
+            "denominator": 18728
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 45.35,
+            "frequency": 5772,
+            "denominator": 12727
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 63,
+            "frequency": 2886,
+            "denominator": 4581
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 60.41,
+            "frequency": 14963,
+            "denominator": 24770
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 48.67,
+            "frequency": 4359,
+            "denominator": 8956
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 73.22,
+            "frequency": 9800,
+            "denominator": 13385
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 40.78,
+            "frequency": 3115,
+            "denominator": 7639
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 52.04,
+            "frequency": 1252,
+            "denominator": 2406
+          },
+          "C": {
+            "response": "C",
+            "percent": 40.239999999999995,
+            "frequency": 3111,
+            "denominator": 7731
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 62.69,
+            "frequency": 6565,
+            "denominator": 10472
+          },
+          "Shell": {
+            "response": "Bash/Shell",
+            "percent": 57.35,
+            "frequency": 6526,
+            "denominator": 11379
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 88.3,
+            "frequency": 4001,
+            "denominator": 4531
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 49.61,
+            "frequency": 504,
+            "denominator": 1016
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 63.28,
+            "frequency": 2308,
+            "denominator": 3647
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 64.1,
+            "frequency": 1205,
+            "denominator": 1880
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 62.629999999999995,
+            "frequency": 1626,
+            "denominator": 2596
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 30.09,
+            "frequency": 386,
+            "denominator": 1283
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 35.72,
+            "frequency": 319,
+            "denominator": 893
+          },
+          "Lua": {
+            "response": "Lua",
+            "percent": 41.760000000000005,
+            "frequency": 712,
+            "denominator": 1705
+          }
+        }
+      },
+      "2023": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 65.52,
+            "frequency": 28278,
+            "denominator": 43158
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 44.11,
+            "frequency": 11803,
+            "denominator": 26757
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 62.45,
+            "frequency": 7239,
+            "denominator": 11592
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 57.830000000000005,
+            "frequency": 32216,
+            "denominator": 55711
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 49.769999999999996,
+            "frequency": 9772,
+            "denominator": 19634
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 71.7,
+            "frequency": 24409,
+            "denominator": 34041
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 41.83,
+            "frequency": 6808,
+            "denominator": 16274
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 47.69,
+            "frequency": 2601,
+            "denominator": 5454
+          },
+          "C": {
+            "response": "C",
+            "percent": 43.29,
+            "frequency": 7334,
+            "denominator": 16940
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 62.870000000000005,
+            "frequency": 15209,
+            "denominator": 24193
+          },
+          "Shell": {
+            "response": "Bash/Shell (all shells)",
+            "percent": 60.39,
+            "frequency": 17120,
+            "denominator": 28351
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 84.66,
+            "frequency": 9674,
+            "denominator": 11427
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 52.27,
+            "frequency": 1266,
+            "denominator": 2422
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 60.77,
+            "frequency": 4822,
+            "denominator": 7935
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 61.419999999999995,
+            "frequency": 2501,
+            "denominator": 4072
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 58.56,
+            "frequency": 3088,
+            "denominator": 5273
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 29.970000000000002,
+            "frequency": 892,
+            "denominator": 2976
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 34.68,
+            "frequency": 746,
+            "denominator": 2151
+          },
+          "Lua": {
+            "response": "Lua",
+            "percent": 47.980000000000004,
+            "frequency": 2560,
+            "denominator": 5336
+          }
+        }
+      },
+      "2024": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 67.63,
+            "frequency": 20774,
+            "denominator": 30719
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 47.63,
+            "frequency": 8687,
+            "denominator": 18239
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 67.69,
+            "frequency": 5485,
+            "denominator": 8103
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 58.330000000000005,
+            "frequency": 21869,
+            "denominator": 37492
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 53.080000000000005,
+            "frequency": 7339,
+            "denominator": 13827
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 69.46,
+            "frequency": 16079,
+            "denominator": 23150
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 43.769999999999996,
+            "frequency": 4793,
+            "denominator": 10951
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 50.080000000000005,
+            "frequency": 1576,
+            "denominator": 3147
+          },
+          "C": {
+            "response": "C",
+            "percent": 47.39,
+            "frequency": 5774,
+            "denominator": 12184
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 64.09,
+            "frequency": 10458,
+            "denominator": 16318
+          },
+          "Shell": {
+            "response": "Bash/Shell (all shells)",
+            "percent": 62.59,
+            "frequency": 12776,
+            "denominator": 20412
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 82.22,
+            "frequency": 6215,
+            "denominator": 7559
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 50.94,
+            "frequency": 788,
+            "denominator": 1547
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 60.88,
+            "frequency": 3449,
+            "denominator": 5665
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 63.339999999999996,
+            "frequency": 1792,
+            "denominator": 2829
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 55.04,
+            "frequency": 1978,
+            "denominator": 3594
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 30.490000000000002,
+            "frequency": 611,
+            "denominator": 2004
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 32.79,
+            "frequency": 486,
+            "denominator": 1482
+          },
+          "Lua": {
+            "response": "Lua",
+            "percent": 52.580000000000005,
+            "frequency": 1960,
+            "denominator": 3728
+          }
+        }
+      },
+      "2025": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 56.42,
+            "frequency": 10371,
+            "denominator": 18381
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 41.79,
+            "frequency": 3904,
+            "denominator": 9341
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 56.46,
+            "frequency": 2942,
+            "denominator": 5211
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 46.77,
+            "frequency": 9814,
+            "denominator": 20982
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 46.62,
+            "frequency": 3486,
+            "denominator": 7477
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 58.040000000000006,
+            "frequency": 8038,
+            "denominator": 13850
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 38.879999999999995,
+            "frequency": 2328,
+            "denominator": 5988
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 44.330000000000005,
+            "frequency": 907,
+            "denominator": 2046
+          },
+          "C": {
+            "response": "C",
+            "percent": 44.98,
+            "frequency": 3138,
+            "denominator": 6977
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 55.76,
+            "frequency": 4930,
+            "denominator": 8842
+          },
+          "Shell": {
+            "response": "Bash/Shell",
+            "percent": 52.76,
+            "frequency": 8169,
+            "denominator": 15482
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 72.41,
+            "frequency": 3415,
+            "denominator": 4716
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 39.43,
+            "frequency": 332,
+            "denominator": 842
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 50.980000000000004,
+            "frequency": 1742,
+            "denominator": 3417
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 51.85999999999999,
+            "frequency": 891,
+            "denominator": 1718
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 47.05,
+            "frequency": 885,
+            "denominator": 1881
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 25.91,
+            "frequency": 397,
+            "denominator": 1532
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 32.51,
+            "frequency": 395,
+            "denominator": 1215
+          },
+          "Lua": {
+            "response": "Lua",
+            "percent": 46.94,
+            "frequency": 1364,
+            "denominator": 2906
+          }
+        }
+      },
+      "2026": {
+        "definition": "Share of each language’s past-year users who want to continue using it; published as Loved, then Admired from 2023.",
+        "measurements": {
+          "Python": {
+            "response": "Python",
+            "percent": 50.6,
+            "frequency": 4142,
+            "denominator": 8184
+          },
+          "Java": {
+            "response": "Java",
+            "percent": 38.5,
+            "frequency": 1496,
+            "denominator": 3885
+          },
+          "Go": {
+            "response": "Go",
+            "percent": 49.5,
+            "frequency": 1154,
+            "denominator": 2332
+          },
+          "JavaScript": {
+            "response": "JavaScript",
+            "percent": 42,
+            "frequency": 3674,
+            "denominator": 8742
+          },
+          "C++": {
+            "response": "C++",
+            "percent": 45.800000000000004,
+            "frequency": 1569,
+            "denominator": 3425
+          },
+          "TypeScript": {
+            "response": "TypeScript",
+            "percent": 53,
+            "frequency": 3272,
+            "denominator": 6171
+          },
+          "PHP": {
+            "response": "PHP",
+            "percent": 35.699999999999996,
+            "frequency": 889,
+            "denominator": 2490
+          },
+          "Ruby": {
+            "response": "Ruby",
+            "percent": 42.4,
+            "frequency": 349,
+            "denominator": 823
+          },
+          "C": {
+            "response": "C",
+            "percent": 45.9,
+            "frequency": 1408,
+            "denominator": 3070
+          },
+          "C#": {
+            "response": "C#",
+            "percent": 50,
+            "frequency": 1914,
+            "denominator": 3826
+          },
+          "Nix": {
+            "response": "Nix",
+            "percent": 56.8,
+            "frequency": 354,
+            "denominator": 623
+          },
+          "Shell": {
+            "response": "Bash/Shell (all shells)",
+            "percent": 48.1,
+            "frequency": 3479,
+            "denominator": 7231
+          },
+          "Rust": {
+            "response": "Rust",
+            "percent": 67.4,
+            "frequency": 1713,
+            "denominator": 2542
+          },
+          "Scala": {
+            "response": "Scala",
+            "percent": 39.2,
+            "frequency": 121,
+            "denominator": 309
+          },
+          "Kotlin": {
+            "response": "Kotlin",
+            "percent": 43.1,
+            "frequency": 657,
+            "denominator": 1524
+          },
+          "Swift": {
+            "response": "Swift",
+            "percent": 48.5,
+            "frequency": 403,
+            "denominator": 831
+          },
+          "Dart": {
+            "response": "Dart",
+            "percent": 42.3,
+            "frequency": 295,
+            "denominator": 697
+          },
+          "Groovy": {
+            "response": "Groovy",
+            "percent": 21.9,
+            "frequency": 119,
+            "denominator": 544
+          },
+          "Perl": {
+            "response": "Perl",
+            "percent": 30.7,
+            "frequency": 165,
+            "denominator": 538
+          },
+          "Lua": {
+            "response": "Lua",
+            "percent": 40.8,
+            "frequency": 541,
+            "denominator": 1327
+          }
+        }
+      }
+    },
+    "revision": "9dd5c163b7ec09ce5503f711c37a99dbd80ff3c7"
+  }
+}

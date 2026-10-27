@@ -1,0 +1,209 @@
+[
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 661559,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "451c12e68747bcfa2fb5a2c16b00483fedb9fa6d77bc962d30957f76ac17044d",
+                    "checksum_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2.1_1.tar.gz.sha256.txt",
+                    "download_count": 661559,
+                    "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2.1_1.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2.1_1.tar.gz.json",
+                    "name": "OpenJDK26U-jdk_x64_linux_hotspot_26.0.2.1_1.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2.1_1.tar.gz.sig",
+                    "size": 144463785
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-26.0.2.1+1_adopt",
+                "updated_at": "2026-08-25T08:12:18Z"
+            }
+        ],
+        "download_count": 1185465,
+        "id": "RE_kwDOPdJyvs4WbQDI.YyHWrG54rwkbWg==",
+        "release_link": "https://github.com/adoptium/temurin26-binaries/releases/tag/jdk-26.0.2.1%2B1",
+        "release_name": "jdk-26.0.2.1+1",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk-release-notes_26.0.2.1_01.json",
+            "name": "OpenJDK26U-jdk-release-notes_26.0.2.1_01.json",
+            "size": 1305
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2.1%2B1/OpenJDK26U-jdk-sources_26.0.2.1_1.tar.gz",
+            "name": "OpenJDK26U-jdk-sources_26.0.2.1_1.tar.gz",
+            "size": 122612826
+        },
+        "timestamp": "2026-08-25T08:11:37Z",
+        "updated_at": "2026-09-01T08:16:19Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 1,
+            "major": 26,
+            "minor": 0,
+            "openjdk_version": "26.0.2.1+1",
+            "patch": 1,
+            "security": 2,
+            "semver": "26.0.2+101"
+        }
+    },
+    {
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 260968,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "56f768372f6ca1e2eb4c5f46b78f627949e8dcfe9c9723926cf45a45faf35802",
+                    "checksum_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2_10.tar.gz.sha256.txt",
+                    "download_count": 260968,
+                    "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2_10.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2_10.tar.gz.json",
+                    "name": "OpenJDK26U-jdk_x64_linux_hotspot_26.0.2_10.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk_x64_linux_hotspot_26.0.2_10.tar.gz.sig",
+                    "size": 144453933
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-26.0.2+10_adopt",
+                "updated_at": "2026-07-29T11:42:30Z"
+            }
+        ],
+        "download_count": 604240,
+        "id": "RE_kwDOPdJyvs4VhCLp.XXse4yG4ys8X0A==",
+        "release_link": "https://github.com/adoptium/temurin26-binaries/releases/tag/jdk-26.0.2%2B10",
+        "release_name": "jdk-26.0.2+10",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk-release-notes_26.0.2_10.json",
+            "name": "OpenJDK26U-jdk-release-notes_26.0.2_10.json",
+            "size": 57219
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.2%2B10/OpenJDK26U-jdk-sources_26.0.2_10.tar.gz",
+            "name": "OpenJDK26U-jdk-sources_26.0.2_10.tar.gz",
+            "size": 122613960
+        },
+        "timestamp": "2026-07-28T09:46:31Z",
+        "updated_at": "2026-08-03T08:49:30Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 10,
+            "major": 26,
+            "minor": 0,
+            "openjdk_version": "26.0.2+10",
+            "security": 2,
+            "semver": "26.0.2+10"
+        }
+    },
+    {
+        "aqavit_results_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/AQAvitTapFiles.tar.gz",
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 496819,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "8e512f13e575a43655fc92319436c94890c137b9035cc6bd6f9cf24239704d3a",
+                    "checksum_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz.sha256.txt",
+                    "download_count": 496819,
+                    "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz.json",
+                    "name": "OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk_x64_linux_hotspot_26.0.1_8.tar.gz.sig",
+                    "size": 144401439
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-26.0.1+8_adopt",
+                "updated_at": "2026-05-06T09:59:41Z"
+            }
+        ],
+        "download_count": 1234281,
+        "id": "RE_kwDOPdJyvs4SysyK.PFuouwyDWvBjig==",
+        "release_link": "https://github.com/adoptium/temurin26-binaries/releases/tag/jdk-26.0.1%2B8",
+        "release_name": "jdk-26.0.1+8",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk-release-notes_26.0.1_8.json",
+            "name": "OpenJDK26U-jdk-release-notes_26.0.1_8.json",
+            "size": 9612
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26.0.1%2B8/OpenJDK26U-jdk-sources_26.0.1_8.tar.gz",
+            "name": "OpenJDK26U-jdk-sources_26.0.1_8.tar.gz",
+            "size": 122452932
+        },
+        "timestamp": "2026-04-29T15:31:09Z",
+        "updated_at": "2026-05-15T10:16:51Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 8,
+            "major": 26,
+            "minor": 0,
+            "openjdk_version": "26.0.1+8",
+            "security": 1,
+            "semver": "26.0.1+8"
+        }
+    },
+    {
+        "aqavit_results_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/AQAvitTapFiles.tar.gz",
+        "binaries": [
+            {
+                "architecture": "x64",
+                "download_count": 102765,
+                "heap_size": "normal",
+                "image_type": "jdk",
+                "jvm_impl": "hotspot",
+                "os": "linux",
+                "package": {
+                    "checksum": "68e19ba53b7f1f74635c13f809e5db36cebccf3ae9e752423dd92d2ad7d831ef",
+                    "checksum_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz.sha256.txt",
+                    "download_count": 102765,
+                    "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz",
+                    "metadata_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz.json",
+                    "name": "OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz",
+                    "signature_link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk_x64_linux_hotspot_26_35.tar.gz.sig",
+                    "size": 144338986
+                },
+                "project": "jdk",
+                "scm_ref": "jdk-26+35_adopt",
+                "updated_at": "2026-03-31T10:21:43Z"
+            }
+        ],
+        "download_count": 505438,
+        "id": "RE_kwDOPdJyvs4R51RW.kkxtX8YCVcNSWw==",
+        "release_link": "https://github.com/adoptium/temurin26-binaries/releases/tag/jdk-26%2B35",
+        "release_name": "jdk-26+35",
+        "release_notes": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26-jdk-release-notes_26_35.json",
+            "name": "OpenJDK26-jdk-release-notes_26_35.json",
+            "size": 835781
+        },
+        "release_type": "ga",
+        "source": {
+            "link": "https://github.com/adoptium/temurin26-binaries/releases/download/jdk-26%2B35/OpenJDK26U-jdk-sources_26_35.tar.gz",
+            "name": "OpenJDK26U-jdk-sources_26_35.tar.gz",
+            "size": 122380113
+        },
+        "timestamp": "2026-03-23T19:32:48Z",
+        "updated_at": "2026-04-13T09:12:13Z",
+        "vendor": "eclipse",
+        "version_data": {
+            "build": 35,
+            "major": 26,
+            "minor": 0,
+            "openjdk_version": "26+35",
+            "security": 0,
+            "semver": "26.0.0+35"
+        }
+    }
+]
