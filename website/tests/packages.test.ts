@@ -39,7 +39,7 @@ test("packages rank services without assigning their totals to languages", () =>
     for (const row of document.querySelectorAll("tbody tr")) {
       const name = row.querySelector("th a")!.textContent!;
       assert.equal(
-        row.querySelector(".service-languages")?.textContent,
+        row.querySelector(".entity-languages")?.textContent,
         SERVICE_LANGUAGES[name],
       );
     }

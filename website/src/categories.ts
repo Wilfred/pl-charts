@@ -26,8 +26,8 @@ export const CATEGORIES = [
     id: "survey",
     label: "Stack Overflow Survey",
     href: "surveys.html",
-    description: "Self-reported language use among survey respondents.",
-    metrics: ["survey.usage"],
+    description: "Language use and willingness to continue using a language.",
+    metrics: ["survey.usage", "survey.most_loved"],
   },
   {
     id: "releases",
@@ -38,7 +38,7 @@ export const CATEGORIES = [
   },
   {
     id: "hacker-news",
-    label: "Hacker News",
+    label: "HN Who's Hiring",
     href: "hiring.html",
     description: "Language mentions in hiring comments.",
     metrics: ["hacker_news.job_descriptions"],

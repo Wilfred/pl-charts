@@ -5,6 +5,7 @@ export const METRICS = [
   "stackoverflow.questions",
   "stackoverflow.answers",
   "survey.usage",
+  "survey.most_loved",
   "releases.stable",
   "hacker_news.job_descriptions",
 ] as const;
@@ -71,6 +72,14 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
     cadence: "year",
     note: "Options and denominators vary by year. — indicates a language absent from that year’s published results.",
   },
+  "survey.most_loved": {
+    label: "Most Loved",
+    unit: "Users (%)",
+    description: "Past-year users who want to continue using each language.",
+    file: "survey-loved",
+    cadence: "year",
+    note: "Published as Loved through 2022 and Admired from 2023. Each language has its own user denominator; historical options and wording vary.",
+  },
   "releases.stable": {
     label: "Stable releases",
     unit: "Releases",
@@ -78,7 +87,7 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
       "Stable runtime and compiler release records per calendar year, including maintenance releases.",
     file: "releases",
     cadence: "year",
-    note: "Implementation histories have different starting dates. C and C++ share GCC; JavaScript uses Node.js; Shell uses GNU Bash.",
+    note: "The current year is shown year to date. Source histories have different starting dates.",
   },
   "hacker_news.job_descriptions": {
     label: "Job descriptions",
@@ -92,5 +101,5 @@ export const DEFINITIONS: Record<Metric, MetricDefinition> = {
 };
 
 export const LANGUAGE_METRICS = METRICS.filter(
-  (metric) => metric !== "packages.published",
+  (metric) => metric !== "packages.published" && metric !== "releases.stable",
 );

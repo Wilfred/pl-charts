@@ -8,6 +8,8 @@ import {
   CATEGORIES,
   historyPeriods,
   metricCounts,
+  metricEntities,
+  rankLanguages,
   pointLabel,
   type Metric,
 } from "../src/data.ts";
@@ -29,11 +31,44 @@ for (const category of CATEGORIES.filter(
     const figures = document.querySelectorAll<HTMLElement>("[data-trend]");
     assert.equal(figures.length, category.metrics.length);
     for (const figure of figures) {
-      assert.equal(figure.querySelectorAll("[data-trend-series]").length, 20);
+      const metric = figure.dataset.trend as Metric;
+      assert.equal(
+        figure.querySelectorAll("[data-trend-series]").length,
+        metricEntities(metric).length,
+      );
+      const expected = rankLanguages(metric)
+        .filter((row) => row.value !== null)
+        .slice(0, 5)
+        .map((row) => row.language);
+      const visible = [
+        ...figure.querySelectorAll<SVGGElement>("[data-trend-series]"),
+      ]
+        .filter((series) => series.style.display !== "none")
+        .map((series) => series.dataset.trendSeries);
+      assert.deepEqual(visible, expected);
+      assert.equal(
+        figure.querySelectorAll('.trend-legend button[aria-pressed="true"]')
+          .length,
+        5,
+      );
+      for (const series of figure.querySelectorAll<SVGGElement>(
+        "[data-trend-series]",
+      )) {
+        const name = series.dataset.trendSeries!;
+        const periods = historyPeriods(metric).filter(
+          (period) => metricCounts(metric, period)[name] !== null,
+        );
+        assert.equal(
+          series.querySelectorAll(".trend-dot").length,
+          periods.length,
+        );
+        for (const dot of series.querySelectorAll(".trend-dot"))
+          assert.ok(Number(dot.getAttribute("r")) > 0);
+      }
       assert.equal(figure.querySelectorAll("[stroke-dasharray]").length, 0);
       assert.equal(
         figure.querySelectorAll(".trend-legend button:disabled").length,
-        20,
+        metricEntities(metric).length,
       );
       for (const path of figure.querySelectorAll(".trend-line"))
         assert.doesNotMatch(path.getAttribute("d") ?? "", /NaN|Infinity/);
@@ -103,5 +138,16 @@ test("survey point tooltips retain the full published precision", () => {
   assert.equal(
     pointLabel("survey.usage", "Python", "2019", 41.7188),
     "Python · 2019: 41.7188%",
+  );
+});
+
+test("Most Loved tooltips use percentages and release tooltips identify year to date", () => {
+  assert.equal(
+    pointLabel("survey.most_loved", "Rust", "2026", 67.4),
+    "Rust · 2026: 67.4%",
+  );
+  assert.match(
+    pointLabel("releases.stable", "CPython", "2026", 34),
+    /^CPython · 2026 \(YTD\): 34 releases$/,
   );
 });

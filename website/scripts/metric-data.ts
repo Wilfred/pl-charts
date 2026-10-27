@@ -1,5 +1,6 @@
+import { metricEntities } from "../src/entities.ts";
 import { parse } from "csv-parse/sync";
-import { LANGUAGES, type LanguageCounts } from "../src/languages.ts";
+import { type LanguageCounts } from "../src/languages.ts";
 import { DEFINITIONS, type Metric, type Cadence } from "../src/metrics.ts";
 export interface MetricSnapshot {
   periods: string[];
@@ -19,8 +20,10 @@ export function periodKey(date: Date, cadence: Cadence): string {
       ? `${year}-Q${Math.floor(date.getUTCMonth() / 3) + 1}`
       : `${year}-${String(date.getUTCMonth() + 1).padStart(2, "0")}`;
 }
-function emptyCounts(): LanguageCounts {
-  return Object.fromEntries(LANGUAGES.map((language) => [language, null]));
+function emptyCounts(metric: Metric): LanguageCounts {
+  return Object.fromEntries(
+    metricEntities(metric).map((language) => [language, null]),
+  );
 }
 export function readMetricHistory(
   source: string,
@@ -43,7 +46,6 @@ export function readMetricHistory(
     const row = record as Record<string, unknown>;
     if (
       row.schema_version !== "1" ||
-      row.entity_kind !== "language" ||
       !metrics.includes(row.metric as Metric) ||
       typeof row.entity_id !== "string" ||
       !row.entity_id
@@ -51,10 +53,16 @@ export function readMetricHistory(
       throw new Error("Unexpected observation schema");
     const metric = row.metric as Metric;
     const cadence = DEFINITIONS[metric].cadence;
+    if (
+      row.entity_kind !==
+      (metric === "releases.stable" ? "implementation" : "language")
+    )
+      throw new Error("Unexpected observation entity kind");
     const units: Record<string, string> = {
       github: "events",
       stackoverflow: "posts",
       surveys: "percent",
+      "survey-loved": "percent",
       releases: "releases",
       hiring: "comments",
     };
@@ -75,7 +83,7 @@ export function readMetricHistory(
       !/^\d+(?:\.\d+)?$/.test(row.value) ||
       !Number.isFinite(Number(row.value)) ||
       Number(row.value) < 0 ||
-      (metric === "survey.usage"
+      (metric.startsWith("survey.")
         ? Number(row.value) > 100
         : !Number.isSafeInteger(Number(row.value)))
     )
@@ -129,8 +137,8 @@ export function readMetricHistory(
       coverage: {},
       partialPeriods: [],
     });
-    snapshot.counts[period] ??= emptyCounts();
-    if (LANGUAGES.includes(row.entity_id))
+    snapshot.counts[period] ??= emptyCounts(metric);
+    if (metricEntities(metric).includes(row.entity_id))
       snapshot.counts[period][row.entity_id] = Number(row.value);
     if (
       (end < expectedEnd ||
@@ -162,10 +170,13 @@ export function readMetricHistory(
     while (current <= last) {
       const period = periodKey(current, cadence);
       const actual = snapshot.counts[period] !== undefined;
-      snapshot.counts[period] ??= emptyCounts();
+      snapshot.counts[period] ??= emptyCounts(metric);
       const total = totals[`${metric}:${period}`];
       snapshot.coverage[period] = total?.total ? total.known / total.total : 0;
-      if (!snapshot.partialPeriods.includes(period)) {
+      if (
+        !snapshot.partialPeriods.includes(period) ||
+        metric === "releases.stable"
+      ) {
         snapshot.periods.push(period);
         if (actual) snapshot.periodOptions.push(period);
       }

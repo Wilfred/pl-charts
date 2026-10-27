@@ -17,6 +17,16 @@ export function initializeTrends(root: Document): void {
     if (!plot || !frame || !tooltip) return;
     const metric = figure.dataset.trend;
     if (!isMetric(metric)) return;
+    const sizeDots = (): void => {
+      const bounds = plot.getBoundingClientRect();
+      if (bounds.width && bounds.height) {
+        plot.style.setProperty("--point-scale-x", String(1000 / bounds.width));
+        plot.style.setProperty("--point-scale-y", String(300 / bounds.height));
+      }
+    };
+    sizeDots();
+    const Observer = root.defaultView?.ResizeObserver;
+    if (Observer) new Observer(sizeDots).observe(plot);
     const periods = historyPeriods(metric);
     const maximum = Number(figure.dataset.maximum);
     const points: Point[] = [];

@@ -2,20 +2,20 @@ import {
   historyPeriods,
   metricCounts,
   metricSnapshot,
-  LANGUAGES,
-  formatPeriod,
+  formatMetricPeriod,
   METRIC_INFO,
   rankLanguages,
   type Metric,
 } from "../data.ts";
-import { LANGUAGE_CLASSES, LANGUAGE_COLORS } from "../languages.ts";
+import { seriesStyle } from "../entities.ts";
 import { trendPath, plotMaximum, pointPosition } from "../plot.ts";
 export function TrendPlot({ metric }: { metric: Metric }) {
   const periods = historyPeriods(metric),
     info = METRIC_INFO[metric];
   const id = metric.replaceAll(".", "-") + "-trend";
-  const series = LANGUAGES.map((language) => ({
+  const series = rankLanguages(metric).map(({ language }) => ({
     language,
+    style: seriesStyle(metric, language),
     values: periods.map(
       (period) => metricCounts(metric, period)[language] ?? null,
     ),
@@ -23,7 +23,7 @@ export function TrendPlot({ metric }: { metric: Metric }) {
   const visible = new Set(
     rankLanguages(metric)
       .filter((row) => row.value !== null)
-      .slice(0, 6)
+      .slice(0, 5)
       .map((row) => row.language),
   );
   const maximum = plotMaximum(series.flatMap((row) => row.values));
@@ -50,11 +50,8 @@ export function TrendPlot({ metric }: { metric: Metric }) {
       aria-labelledby={id}
     >
       <figcaption id={id}>{info.label} over time</figcaption>
-      <div
-        className="trend-legend"
-        aria-label={`${info.label} chart languages`}
-      >
-        {series.map(({ language, values }) => (
+      <div className="trend-legend" aria-label={`${info.label} chart series`}>
+        {series.map(({ language, values, style }) => (
           <button
             key={language}
             type="button"
@@ -72,9 +69,10 @@ export function TrendPlot({ metric }: { metric: Metric }) {
               height="10"
               viewBox="0 0 22 10"
               aria-hidden="true"
-              style={{ color: LANGUAGE_COLORS[language] }}
+              style={{ color: style.color }}
             >
               <path d="M0 5H22" stroke="currentColor" strokeWidth="2" />
+              <circle cx="11" cy="5" r="2.5" fill="currentColor" />
             </svg>
             {language}
           </button>
@@ -88,7 +86,7 @@ export function TrendPlot({ metric }: { metric: Metric }) {
                 notation: "compact",
                 maximumFractionDigits: 1,
               }).format((maximum * n) / 4)}
-              {metric === "survey.usage" ? "%" : ""}
+              {metric.startsWith("survey.") ? "%" : ""}
             </span>
           ))}
         </div>
@@ -103,12 +101,12 @@ export function TrendPlot({ metric }: { metric: Metric }) {
         >
           <title
             id={`${id}-title`}
-          >{`${info.label} by language, ${formatPeriod(periods[0]!)} to ${formatPeriod(periods.at(-1)!)}`}</title>
+          >{`${info.label} by ${metric === "releases.stable" ? "implementation" : "language"}, ${formatMetricPeriod(metric, periods[0]!)} to ${formatMetricPeriod(metric, periods.at(-1)!)}`}</title>
           <desc id={`${id}-description`}>
-            Hover or tap a point for its exact value. Focus the chart and use
-            arrow keys to move between periods and languages. Language buttons
-            select the visible series. Missing observations break the line.
-            Exact values are available in the period selector and CSV.
+            Hover or tap a dot for its exact value. Focus the chart and use
+            arrow keys to move between periods and series. Series buttons select
+            the visible series. Missing observations break the line. Exact
+            values are available in the period selector and CSV.
           </desc>
           {coverageBreak >= 0 && (
             <rect
@@ -132,13 +130,13 @@ export function TrendPlot({ metric }: { metric: Metric }) {
               vectorEffect="non-scaling-stroke"
             />
           ))}
-          {series.map(({ language, values }) => (
+          {series.map(({ language, values, style }) => (
             <g
               key={language}
               data-trend-series={language}
-              className={`series-${LANGUAGE_CLASSES[language]}`}
+              className={`series-${style.id}`}
               style={{
-                color: LANGUAGE_COLORS[language],
+                color: style.color,
                 display: visible.has(language) ? undefined : "none",
               }}
             >
@@ -148,8 +146,27 @@ export function TrendPlot({ metric }: { metric: Metric }) {
                 className="trend-line"
                 vectorEffect="non-scaling-stroke"
               />
+              {values.map((value, index) => {
+                if (value === null) return null;
+                const { x, y } = pointPosition(
+                  index,
+                  periods.length,
+                  value,
+                  maximum,
+                );
+                return (
+                  <circle
+                    key={periods[index]}
+                    cx={x}
+                    cy={y}
+                    r="3"
+                    className="trend-dot"
+                    vectorEffect="non-scaling-stroke"
+                  />
+                );
+              })}
               <circle
-                r="4"
+                r="5"
                 className="trend-point"
                 vectorEffect="non-scaling-stroke"
               />
@@ -179,7 +196,7 @@ export function TrendPlot({ metric }: { metric: Metric }) {
                       : "translateX(-50%)",
               }}
             >
-              {formatPeriod(periods[index]!)}
+              {formatMetricPeriod(metric, periods[index]!)}
             </span>
           ))}
         </div>

@@ -1,8 +1,9 @@
-import { SERVICE_URLS, SERVICE_LANGUAGES } from "./package-services.ts";
+import { entityDetails } from "./entities.ts";
 import {
   defaultPeriod,
   periodOptions,
-  formatPeriod,
+  formatMetricPeriod,
+  type Metric,
   formatRank,
   METRIC_INFO,
   LANGUAGE_METRICS,
@@ -17,18 +18,19 @@ type Direction = "ascending" | "descending";
 function languageCell(
   document: Document,
   language: Language,
-  service = false,
+  metric?: Metric,
 ): HTMLTableCellElement {
   const cell = document.createElement("th");
   cell.scope = "row";
-  if (service) {
+  const details = metric ? entityDetails(metric, language) : undefined;
+  if (details) {
     const link = document.createElement("a");
-    link.href = SERVICE_URLS[language]!;
+    link.href = details.url;
     link.textContent = language;
-    cell.className = "package-service";
+    cell.className = "described-entity";
     const languages = document.createElement("span");
-    languages.className = "service-languages";
-    languages.textContent = SERVICE_LANGUAGES[language]!;
+    languages.className = "entity-languages";
+    languages.textContent = details.languages;
     cell.append(link, languages);
     return cell;
   }
@@ -105,15 +107,7 @@ export function initializeRankings(document: Document): void {
           const count = document.createElement("td");
           count.className = "numeric count-cell";
           count.textContent = formatValue(metric, row.value);
-          tr.append(
-            rank,
-            languageCell(
-              document,
-              row.language,
-              metric === "packages.published",
-            ),
-            count,
-          );
+          tr.append(rank, languageCell(document, row.language, metric), count);
         }
         body.append(tr);
       }
@@ -125,7 +119,7 @@ export function initializeRankings(document: Document): void {
       }
       const caption = section.querySelector("caption");
       if (period && caption)
-        caption.textContent = `${METRIC_INFO[metric].label} rankings, ${formatPeriod(selectedPeriod)}`;
+        caption.textContent = `${METRIC_INFO[metric].label} rankings, ${formatMetricPeriod(metric, selectedPeriod)}`;
     };
     for (const button of buttons) {
       button.disabled = false;

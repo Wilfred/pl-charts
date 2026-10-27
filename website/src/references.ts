@@ -104,6 +104,12 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
   survey: {
     items: [
       {
+        href: "https://survey.stackoverflow.co/2025/technology#admired-and-desired",
+        title: "Loved and Admired definitions",
+        description:
+          "Measures willingness to keep using a technology among its existing users. The survey renamed Loved to Admired in 2023.",
+      },
+      {
         href: "https://survey.stackoverflow.co/2026/technology/",
         title: "2026 Developer Survey — technology",
         description:
@@ -123,10 +129,16 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Comparison variables: survey year, respondent group, question wording, and the number answering the language question. Multi-select responses allow a respondent to contribute to several languages.",
+      "Usage uses the language-question respondent cohort. Most Loved uses each language’s past-year users as its denominator. Question wording, language options, and respondent groups vary by year.",
   },
   releases: {
     items: [
+      {
+        href: "https://github.com/llvm/llvm-project/releases",
+        title: "LLVM and Clang releases",
+        description:
+          "Stable version publications for Clang, filtered to llvmorg-X.Y.Z tags.",
+      },
       {
         href: "https://github.com/Wilfred/pl-charts/blob/main/collectors/src/collect-releases.ts",
         title: "Implementation and source definitions",
@@ -137,13 +149,12 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
         href: "https://gcc.gnu.org/releases.html",
         title: "GCC release history",
         description:
-          "Official dated release records for the shared C and C++ toolchain.",
+          "Official dated release records for GCC’s language frontends.",
       },
       {
         href: "https://nodejs.org/dist/index.json",
         title: "Node.js distribution history",
-        description:
-          "Version and distribution dates used for the JavaScript implementation series.",
+        description: "Version and distribution dates used for Node.js.",
       },
       {
         href: "https://github.com/rust-lang/rust/blob/stable/RELEASES.md",
@@ -153,7 +164,7 @@ export const REFERENCES: Record<Category["id"], ReferenceContent> = {
       },
     ],
     notes:
-      "Source histories begin at different dates. GNU Bash uses source-archive and patch timestamps. Lightweight Nix tags use the tagged commit date. The CSV ecosystem field identifies each implementation; manifests retain canonical version/date events.",
+      "Source histories begin at different dates. GNU Bash uses source-archive and patch timestamps. Lightweight Nix tags use the tagged commit date. The CSV identifies each implementation and retains year-to-date periods; manifests retain canonical version/date events.",
   },
   "hacker-news": {
     items: [

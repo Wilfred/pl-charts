@@ -2,7 +2,8 @@ import snapshotsJson from "../.generated/metrics.json" with { type: "json" };
 import packageSnapshot from "../.generated/packages.json" with { type: "json" };
 import type { MetricSnapshot } from "../scripts/metric-data.ts";
 import { LANGUAGES, type Language, type LanguageCounts } from "./languages.ts";
-import { SERVICE_NAMES } from "./package-services.ts";
+import { metricEntities } from "./entities.ts";
+export { metricEntities } from "./entities.ts";
 import { METRICS, DEFINITIONS, type Metric } from "./metrics.ts";
 export { LANGUAGES, type Language } from "./languages.ts";
 export { METRICS, LANGUAGE_METRICS, type Metric } from "./metrics.ts";
@@ -55,6 +56,15 @@ export function formatPeriod(period: string): string {
     return monthFormatter.format(new Date(period + "-01T00:00:00Z"));
   return period;
 }
+export function formatMetricPeriod(metric: Metric, period: string): string {
+  return (
+    formatPeriod(period) +
+    (metric === "releases.stable" &&
+    metricSnapshot(metric).partialPeriods.includes(period)
+      ? " (YTD)"
+      : "")
+  );
+}
 export const METRIC_INFO = Object.fromEntries(
   METRICS.map((metric) => [
     metric,
@@ -71,9 +81,6 @@ export interface Ranking {
   language: Language;
   value: number | null;
   rank: number | null;
-}
-export function metricEntities(metric: Metric): string[] {
-  return metric === "packages.published" ? SERVICE_NAMES : LANGUAGES;
 }
 export function rankValues(
   values: Readonly<LanguageCounts>,
@@ -114,9 +121,9 @@ export function formatRank(rank: number | null | undefined): string {
 export function formatValue(metric: Metric, value: number | null): string {
   if (value === null) return "—";
   const formatted = (
-    metric === "survey.usage" ? percentFormatter : countFormatter
+    metric.startsWith("survey.") ? percentFormatter : countFormatter
   ).format(value);
-  return metric === "survey.usage" ? formatted + "%" : formatted;
+  return metric.startsWith("survey.") ? formatted + "%" : formatted;
 }
 export function pointLabel(
   metric: Metric,
@@ -125,5 +132,5 @@ export function pointLabel(
   value: number,
 ): string {
   const exact = exactFormatter.format(value);
-  return `${language} · ${formatPeriod(period)}: ${exact}${metric === "survey.usage" ? "%" : " " + METRIC_INFO[metric].unit.toLowerCase()}`;
+  return `${language} · ${formatMetricPeriod(metric, period)}: ${exact}${metric.startsWith("survey.") ? "%" : " " + METRIC_INFO[metric].unit.toLowerCase()}`;
 }

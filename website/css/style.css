@@ -701,10 +701,10 @@ th[aria-sort="descending"] .sort-up {
   opacity: 0.65;
 }
 
-.package-service {
+.described-entity {
   white-space: normal;
 }
-.service-languages {
+.entity-languages {
   display: block;
   max-width: 38ch;
   margin-top: 4px;
@@ -712,4 +712,17 @@ th[aria-sort="descending"] .sort-up {
   font-size: 12px;
   font-weight: 400;
   line-height: 1.5;
+}
+
+.trend-dot {
+  fill: currentColor;
+  stroke: var(--surface);
+  stroke-width: 1;
+}
+
+.trend-dot,
+.trend-point {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(var(--point-scale-x, 1), var(--point-scale-y, 1));
 }

@@ -41,7 +41,8 @@ function staticPages(): Plugin {
           !(file.startsWith(sourceRoot) && /\.tsx?$/.test(file)) &&
           !(file.startsWith(exportRoot) && file.endsWith(".csv")) &&
           file !== dataRoot + "languages.json" &&
-          file !== dataRoot + "package-services.json"
+          file !== dataRoot + "package-services.json" &&
+          file !== dataRoot + "implementations.json"
         )
           return;
         clearTimeout(pending);

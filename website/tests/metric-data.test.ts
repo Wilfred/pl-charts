@@ -59,6 +59,7 @@ test("every rendered history is derived from its checked-in CSV", () => {
     "github",
     "stackoverflow",
     "surveys",
+    "survey-loved",
     "releases",
     "hiring",
   ]) {
@@ -81,7 +82,9 @@ test("every rendered history is derived from its checked-in CSV", () => {
       assert.ok(periodOptions(metric).length > 1);
       assert.ok(
         periodOptions(metric).every(
-          (period) => !result[metric]!.partialPeriods.includes(period),
+          (period) =>
+            metric === "releases.stable" ||
+            !result[metric]!.partialPeriods.includes(period),
         ),
       );
     }
@@ -89,6 +92,20 @@ test("every rendered history is derived from its checked-in CSV", () => {
   assert.equal(defaultPeriod("github.pushes"), "2026-Q3");
   assert.equal(defaultPeriod("stackoverflow.questions"), "2024-Q1");
   assert.equal(defaultPeriod("survey.usage"), "2026");
-  assert.equal(defaultPeriod("releases.stable"), "2025");
+  assert.equal(defaultPeriod("survey.most_loved"), "2026");
+  assert.equal(defaultPeriod("releases.stable"), "2026");
   assert.equal(defaultPeriod("hacker_news.job_descriptions"), "2026-09");
+});
+
+test("releases use unique implementations and explicitly retain the current year to date", () => {
+  const result = metricSnapshot("releases.stable");
+  assert.ok(result.periodOptions.includes("2026"));
+  assert.ok(result.partialPeriods.includes("2026"));
+  const counts = metricCounts("releases.stable");
+  assert.ok(Object.hasOwn(counts, "CPython"));
+  assert.ok(Object.hasOwn(counts, "Clang"));
+  assert.ok(Object.hasOwn(counts, "GCC"));
+  assert.ok(!Object.hasOwn(counts, "Python"));
+  assert.ok(!Object.hasOwn(counts, "C++"));
+  assert.equal(Object.keys(counts).length, 21);
 });

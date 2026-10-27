@@ -13,7 +13,7 @@ import {
   formatRank,
   periodOptions,
   defaultPeriod,
-  formatPeriod,
+  formatMetricPeriod,
 } from "../src/data.ts";
 import { initializeRankings } from "../src/rankings.ts";
 const load = (page: string) =>
@@ -125,7 +125,7 @@ for (const category of CATEGORIES)
           assert.deepEqual(rows(section), expected(metric, period));
           assert.equal(
             section.querySelector("caption")?.textContent,
-            `${METRIC_INFO[metric].label} rankings, ${formatPeriod(period)}`,
+            `${METRIC_INFO[metric].label} rankings, ${formatMetricPeriod(metric, period)}`,
           );
           if (sibling) assert.deepEqual(rows(sibling), before);
         }
@@ -144,6 +144,11 @@ test("overview exposes all 20 languages and seven language metrics without updat
     section.querySelectorAll('[data-sort="packages.published"]').length,
     0,
   );
+  assert.equal(
+    section.querySelectorAll('[data-sort="releases.stable"]').length,
+    0,
+  );
+  assert.ok(section.querySelector('[data-sort="survey.most_loved"]'));
   const before = rows(section);
   section
     .querySelector<HTMLButtonElement>('[data-sort="survey.usage"]')!

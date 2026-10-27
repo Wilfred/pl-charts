@@ -1,10 +1,11 @@
-import { SERVICE_URLS, SERVICE_LANGUAGES } from "../package-services.ts";
+import { entityDetails } from "../entities.ts";
 import { TrendPlot } from "./trends.tsx";
 import {
   CATEGORIES,
   defaultPeriod,
   periodOptions,
   formatPeriod,
+  formatMetricPeriod,
   formatRank,
   LANGUAGE_METRICS,
   METRIC_INFO,
@@ -20,16 +21,17 @@ export function metricAnchor(metric: Metric): string {
 }
 function LanguageCell({
   language,
-  service = false,
+  metric,
 }: {
   language: Language;
-  service?: boolean;
+  metric?: Metric;
 }) {
-  if (service)
+  const details = metric ? entityDetails(metric, language) : undefined;
+  if (details)
     return (
-      <th scope="row" className="package-service">
-        <a href={SERVICE_URLS[language]}>{language}</a>
-        <span className="service-languages">{SERVICE_LANGUAGES[language]}</span>
+      <th scope="row" className="described-entity">
+        <a href={details.url}>{language}</a>
+        <span className="entity-languages">{details.languages}</span>
       </th>
     );
   return (
@@ -110,7 +112,7 @@ function PeriodFilter({ metric }: { metric: Metric }) {
         <select className="metric-period" defaultValue={defaultPeriod(metric)}>
           {[...options].reverse().map((period) => (
             <option key={period} value={period}>
-              {formatPeriod(period)}
+              {formatMetricPeriod(metric, period)}
             </option>
           ))}
         </select>
@@ -155,7 +157,7 @@ export function MetricSection({
       >
         <table className="detail-table">
           <caption className="sr-only">
-            {`${info.label} rankings${defaultPeriod(metric) ? ", " + formatPeriod(defaultPeriod(metric)) : ""}`}
+            {`${info.label} rankings${defaultPeriod(metric) ? ", " + formatMetricPeriod(metric, defaultPeriod(metric)) : ""}`}
           </caption>
           <thead>
             <tr>
@@ -164,7 +166,13 @@ export function MetricSection({
               </th>
               <SortHeader
                 sortKey="language"
-                label={metric === "packages.published" ? "Service" : "Language"}
+                label={
+                  metric === "packages.published"
+                    ? "Service"
+                    : metric === "releases.stable"
+                      ? "Implementation"
+                      : "Language"
+                }
               />
               <SortHeader
                 sortKey="value"
@@ -178,10 +186,7 @@ export function MetricSection({
             {rankLanguages(metric).map((row) => (
               <tr key={row.language}>
                 <td className="numeric rank-cell">{formatRank(row.rank)}</td>
-                <LanguageCell
-                  language={row.language}
-                  service={metric === "packages.published"}
-                />
+                <LanguageCell language={row.language} metric={metric} />
                 <td className="numeric count-cell">
                   {formatValue(metric, row.value)}
                 </td>
@@ -211,8 +216,7 @@ export function Comparison() {
       <p className="section-description">
         GitHub: {formatPeriod(defaultPeriod("github.pushes"))}. Stack Overflow:{" "}
         {formatPeriod(defaultPeriod("stackoverflow.questions"))}. Survey:{" "}
-        {formatPeriod(defaultPeriod("survey.usage"))}. Releases:{" "}
-        {formatPeriod(defaultPeriod("releases.stable"))}. Job descriptions:{" "}
+        {formatPeriod(defaultPeriod("survey.usage"))}. Job descriptions:{" "}
         {formatPeriod(defaultPeriod("hacker_news.job_descriptions"))}.
       </p>
       <div
@@ -228,18 +232,22 @@ export function Comparison() {
           <thead>
             <tr>
               <SortHeader sortKey="language" label="Language" rowSpan={2} />
-              {CATEGORIES.filter((category) => category.id !== "packages").map(
-                (category) => (
-                  <th
-                    key={category.id}
-                    scope="colgroup"
-                    colSpan={category.metrics.length}
-                    className="numeric"
-                  >
-                    <a href={category.href}>{category.label}</a>
-                  </th>
+              {CATEGORIES.filter((category) =>
+                category.metrics.some((metric) =>
+                  LANGUAGE_METRICS.includes(
+                    metric as (typeof LANGUAGE_METRICS)[number],
+                  ),
                 ),
-              )}
+              ).map((category) => (
+                <th
+                  key={category.id}
+                  scope="colgroup"
+                  colSpan={category.metrics.length}
+                  className="numeric"
+                >
+                  <a href={category.href}>{category.label}</a>
+                </th>
+              ))}
             </tr>
             <tr>
               {LANGUAGE_METRICS.map((metric) => (
